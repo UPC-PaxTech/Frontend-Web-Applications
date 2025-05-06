@@ -1,0 +1,132 @@
+{
+  "accounts": [
+    {
+      "accountId": "acc1",
+      "email": "john@example.com",
+      "passwordHash": "hash123",
+      "isActive": true
+    },
+    {
+      "accountId": "acc2",
+      "email": "lisa@example.com",
+      "passwordHash": "hash456",
+      "isActive": true
+    },
+    {
+      "accountId": "acc3",
+      "email": "mike@example.com",
+      "passwordHash": "hash789",
+      "isActive": false
+    },
+    {
+      "accountId": "acc4",
+      "email": "anna@example.com",
+      "passwordHash": "hash321",
+      "isActive": true
+    }
+  ],
+  "users": [
+    {
+      "userId": "user1",
+      "accountId": "acc1",
+      "name": "John Doe"
+    },
+    {
+      "userId": "user2",
+      "accountId": "acc2",
+      "name": "Lisa Smith"
+    },
+    {
+      "userId": "user3",
+      "accountId": "acc3",
+      "name": "Mike Lee"
+    },
+    {
+      "userId": "user4",
+      "accountId": "acc4",
+      "name": "Anna Kim"
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "client1",
+      "birthDate": "1990-01-01T00:00:00Z",
+      "userId": "user1"
+    },
+    {
+      "clientId": "client2",
+      "birthDate": "1985-05-15T00:00:00Z",
+      "userId": "user2"
+    },
+    {
+      "clientId": "client3",
+      "birthDate": "1992-07-20T00:00:00Z",
+      "userId": "user3"
+    },
+    {
+      "clientId": "client4",
+      "birthDate": "1995-11-30T00:00:00Z",
+      "userId": "user4"
+    }
+  ],
+  "salons": [
+    {
+      "salonId": "salon1",
+      "location": "Downtown",
+      "phone": "123456789"
+    },
+    {
+      "salonId": "salon2",
+      "location": "Midtown",
+      "phone": "987654321"
+    }
+  ],
+  "workers": [
+    {
+      "workerId": "worker1",
+      "nombre": "Javier Herrera"
+    },
+    {
+      "workerId": "worker2",
+      "nombre": "Lili D\u00edaz"
+    },
+    {
+      "workerId": "worker3",
+      "nombre": "Manuel Ugarte"
+    },
+    {
+      "workerId": "worker4",
+      "nombre": "Lorenzo Ortega"
+    }
+  ],
+  "services": [
+    {
+      "id": "srv1",
+      "name": "Simple haircut",
+      "duration": 45,
+      "price": 40,
+      "status": "Active"
+    },
+    {
+      "id": "srv2",
+      "name": "Keratin Treatment",
+      "duration": 60,
+      "price": 50,
+      "status": "Active"
+    },
+    {
+      "id": "srv3",
+      "name": "Color & cut",
+      "duration": 90,
+      "price": 100,
+      "status": "Paused"
+    },
+    {
+      "id": "srv4",
+      "name": "Hot styling",
+      "duration": 30,
+      "price": 30,
+      "status": "Active"
+    }
+  ]
+}
