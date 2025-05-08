@@ -1,7 +1,7 @@
 {
   "accounts": [
     {
-      "accountId": "acc1",
+      "accountId": "1",
       "email": "john@example.com",
       "passwordHash": "hash123",
       "isActive": true
@@ -27,7 +27,7 @@
   ],
   "users": [
     {
-      "userId": "user1",
+      "userId": "1",
       "accountId": "acc1",
       "name": "John Doe"
     },
@@ -49,9 +49,9 @@
   ],
   "clients": [
     {
-      "clientId": "client1",
+      "clientId": "1",
       "birthDate": "1990-01-01T00:00:00Z",
-      "userId": "user1"
+      "userId": "1"
     },
     {
       "clientId": "client2",
@@ -71,7 +71,7 @@
   ],
   "salons": [
     {
-      "salonId": "salon1",
+      "salonId": "1",
       "location": "Downtown",
       "phone": "123456789"
     },
@@ -157,10 +157,10 @@
   ],
   "reservationDetails": [
     {
-      "reservationId": "res1",
+      "reservationId": "1",
       "tipo": "Simple haircut",
       "client": {
-        "clientId": "client1",
+        "clientId": "1",
         "birthDate": "1990-01-01T00:00:00Z",
         "user": {
           "userId": "user1",
@@ -179,15 +179,15 @@
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts1",
-        "start": "2025-05-10T09:00:00Z",
-        "end": "2025-05-10T09:45:00Z",
+        "timeSlotId": "1",
+        "start": "2025-07-10T09:00:00Z",
+        "end": "2025-07-10T09:45:00Z",
         "status": true,
         "tipo": "Standard"
       }
     },
     {
-      "reservationId": "res2",
+      "reservationId": "2",
       "tipo": "Keratin Treatment",
       "client": {
         "clientId": "client2",
@@ -203,7 +203,7 @@
         "phone": "123456789"
       },
       "payment": {
-        "paymentId": "pay2",
+        "paymentId": "2",
         "amount": 50.0,
         "currency": "USD",
         "status": true
@@ -217,7 +217,7 @@
       }
     },
     {
-      "reservationId": "res3",
+      "reservationId": "3",
       "tipo": "Color & cut",
       "client": {
         "clientId": "client3",
@@ -247,7 +247,7 @@
       }
     },
     {
-      "reservationId": "res4",
+      "reservationId": "4",
       "tipo": "Hot styling",
       "client": {
         "clientId": "client4",
