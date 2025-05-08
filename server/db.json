@@ -83,19 +83,19 @@
   ],
   "workers": [
     {
-      "workerId": "worker1",
+      "workerId": "1",
       "nombre": "Javier Herrera"
     },
     {
-      "workerId": "worker2",
-      "nombre": "Lili D\u00edaz"
+      "workerId": "2",
+      "nombre": "Lili Dedaz"
     },
     {
-      "workerId": "worker3",
+      "workerId": "3",
       "nombre": "Manuel Ugarte"
     },
     {
-      "workerId": "worker4",
+      "workerId": "3",
       "nombre": "Lorenzo Ortega"
     }
   ],
