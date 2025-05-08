@@ -1,13 +1,6 @@
-export class Salon {
+export interface Salon {
   salonId: string;
-  name: string;
   location: string;
-  phone: number;
-
-  constructor() {
-    this.salonId = '';
-    this.name = '';
-    this.location = '';
-    this.phone = 0;
-  }
+  phone: string;
+  name: string;
 }

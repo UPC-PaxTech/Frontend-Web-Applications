@@ -11,7 +11,7 @@ import {Salon} from '../models/Salon.entity';
 })
 export class SalonApiService {
   private baseUrl = environment.serverBaseUrl;
-  private detailsEndpoint = environment.salonEndpointPath;
+  private detailsEndpoint = "/salons";
 
   constructor(private http: HttpClient) {}
 

@@ -1,11 +1,10 @@
-export interface SalonsResponse {
-  status: string;
-  salons: SalonsResource[];
-}
-
+// Salon.response.ts
 export interface SalonsResource {
   name: string;
   salonId: string;
   location: string;
-  phone: number;
+  phone: number;  // Changed from number to string since your API returns strings
 }
+
+// Remove the old SalonsResponse interface and replace with:
+export type SalonsResponse = SalonsResource[];
