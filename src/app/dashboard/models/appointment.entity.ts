@@ -1,5 +1,4 @@
-
-export class Reservation {
+export class Appointment {
   reservationId: string;
   tipo: string;
   clientName: string;

@@ -1,7 +1,7 @@
 {
   "accounts": [
     {
-      "accountId": "acc1",
+      "accountId": "1",
       "email": "john@example.com",
       "passwordHash": "hash123",
       "isActive": true
@@ -27,7 +27,7 @@
   ],
   "users": [
     {
-      "userId": "user1",
+      "userId": "1",
       "accountId": "acc1",
       "name": "John Doe"
     },
@@ -49,9 +49,9 @@
   ],
   "clients": [
     {
-      "clientId": "client1",
+      "clientId": "1",
       "birthDate": "1990-01-01T00:00:00Z",
-      "userId": "user1"
+      "userId": "1"
     },
     {
       "clientId": "client2",
@@ -71,7 +71,7 @@
   ],
   "salons": [
     {
-      "salonId": "salon1",
+      "salonId": "1",
       "location": "Downtown",
       "phone": "123456789"
     },
@@ -155,90 +155,12 @@
       "status": false
     }
   ],
-  "reservations": [
-    {
-      "reservationId": "res1",
-      "clientId": "client1",
-      "salonId": "salon1",
-      "paymentId": "pay1",
-      "tipo": "Simple haircut"
-    },
-    {
-      "reservationId": "res2",
-      "clientId": "client2",
-      "salonId": "salon1",
-      "paymentId": "pay2",
-      "tipo": "Keratin Treatment"
-    },
-    {
-      "reservationId": "res3",
-      "clientId": "client3",
-      "salonId": "salon2",
-      "paymentId": "pay3",
-      "tipo": "Color & cut"
-    },
-    {
-      "reservationId": "res4",
-      "clientId": "client4",
-      "salonId": "salon2",
-      "paymentId": "pay4",
-      "tipo": "Hot styling"
-    }
-  ],
-  "timeSlots": [
-    {
-      "timeSlotId": "ts1",
-      "start": "2025-05-10T09:00:00Z",
-      "end": "2025-05-10T09:45:00Z",
-      "status": true
-    },
-    {
-      "timeSlotId": "ts2",
-      "start": "2025-05-10T10:00:00Z",
-      "end": "2025-05-10T11:00:00Z",
-      "status": true
-    },
-    {
-      "timeSlotId": "ts3",
-      "start": "2025-05-11T11:00:00Z",
-      "end": "2025-05-11T12:30:00Z",
-      "status": true
-    },
-    {
-      "timeSlotId": "ts4",
-      "start": "2025-05-12T13:00:00Z",
-      "end": "2025-05-12T13:30:00Z",
-      "status": true
-    }
-  ],
-  "reservationTimeSlots": [
-    {
-      "reservationId": "res1",
-      "timeSlotId": "ts1",
-      "tipo": "Standard"
-    },
-    {
-      "reservationId": "res2",
-      "timeSlotId": "ts2",
-      "tipo": "Standard"
-    },
-    {
-      "reservationId": "res3",
-      "timeSlotId": "ts3",
-      "tipo": "Extended"
-    },
-    {
-      "reservationId": "res4",
-      "timeSlotId": "ts4",
-      "tipo": "Express"
-    }
-  ],
   "reservationDetails": [
     {
-      "reservationId": "res1",
+      "reservationId": "1",
       "tipo": "Simple haircut",
       "client": {
-        "clientId": "client1",
+        "clientId": "1",
         "birthDate": "1990-01-01T00:00:00Z",
         "user": {
           "userId": "user1",
@@ -257,15 +179,15 @@
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts1",
-        "start": "2025-05-10T09:00:00Z",
-        "end": "2025-05-10T09:45:00Z",
+        "timeSlotId": "1",
+        "start": "2025-07-10T09:00:00Z",
+        "end": "2025-07-10T09:45:00Z",
         "status": true,
         "tipo": "Standard"
       }
     },
     {
-      "reservationId": "res2",
+      "reservationId": "2",
       "tipo": "Keratin Treatment",
       "client": {
         "clientId": "client2",
@@ -281,7 +203,7 @@
         "phone": "123456789"
       },
       "payment": {
-        "paymentId": "pay2",
+        "paymentId": "2",
         "amount": 50.0,
         "currency": "USD",
         "status": true
@@ -295,7 +217,7 @@
       }
     },
     {
-      "reservationId": "res3",
+      "reservationId": "3",
       "tipo": "Color & cut",
       "client": {
         "clientId": "client3",
@@ -325,7 +247,7 @@
       }
     },
     {
-      "reservationId": "res4",
+      "reservationId": "4",
       "tipo": "Hot styling",
       "client": {
         "clientId": "client4",

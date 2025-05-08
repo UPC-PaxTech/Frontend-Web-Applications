@@ -1,4 +1,4 @@
-export interface ReservationResponse {
+export interface AppointmentResponse {
   reservationId: string;
   tipo: string;
   client: {
