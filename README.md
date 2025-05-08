@@ -1,59 +1,61 @@
-# FrontendWebApplications
+# uTime – Frontend Web Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+Bienvenido al repositorio del frontend de **uTime**, ahora desarrollado con **Angular + TypeScript**. Este proyecto forma parte del ecosistema de aplicaciones de **PaxTech**.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tecnologías principales
 
-```bash
-ng serve
-```
+- [Angular](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Angular Material](https://material.angular.io/)
+- [ngx-translate](https://github.com/ngx-translate/core)
+- [HttpClient (Angular)](https://angular.io/guide/http)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📦 Clonar y preparar el entorno
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+> Si estás colaborando en el proyecto, sigue estos pasos para preparar tu entorno local correctamente:
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 1. Clonar el repositorio
 
 ```bash
-ng generate --help
+git clone https://github.com/PaxTech-UPC/Frontend-Web-Applications.git
 ```
 
-## Building
-
-To build the project run:
+Accede al directorio del proyecto:
 
 ```bash
-ng build
+cd Frontend-Web-Applications
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 2. Instalar las dependencias base
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Instala las dependencias definidas en package.json:
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
+### 3. Instalar Angular Material
 
-For end-to-end (e2e) testing, run:
+Esto agregará los estilos de Material, tema base, animaciones, etc.
 
 ```bash
-ng e2e
+ng add @angular/material
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### 4. Instalar ngx-translate para i18n
 
-## Additional Resources
+Núcleo de traducciones:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm install @ngx-translate/core
+```
+
+Cargador HTTP para archivos de traducción:
+
+```bash
+npm install @ngx-translate/http-loader
+```
