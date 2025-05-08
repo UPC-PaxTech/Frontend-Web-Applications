@@ -8,5 +8,4 @@ export interface SalonsResource {
   salonId: string;
   location: string;
   phone: number;
-  imageURL: string;
 }

@@ -7,8 +7,7 @@ export class SalonAssembler {
       salonId: resourse.salonId,
       location: resourse.location,
       phone: resourse.phone,
-      name: resourse.name,
-      imageURL: resourse.imageURL
+      name: resourse.name
     };
   }
   static toEntitiesfromResponse(response: SalonsResponse): Salon[]{

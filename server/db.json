@@ -64,23 +64,23 @@
       "userId": "user3"
     },
     {
-      "clientId": "client4",
+      "clientId": "client4"
       "birthDate": "1995-11-30T00:00:00Z",
       "userId": "user4"
     }
   ],
   "salons": [
     {
+      "name": "magic1",
       "salonId": "1",
       "location": "Downtown",
-      "phone": "123456789",
-      "imageURL": "https://files.catbox.moe/46if9a.jpeg"
+      "phone": "123456789"
     },
     {
+      "name": "magic",
       "salonId": "salon2",
       "location": "Midtown",
-      "phone": "987654321",
-      "imageURL": "https://files.catbox.moe/46if9a.jpeg"
+      "phone": "987654321"
     }
   ],
   "workers": [
