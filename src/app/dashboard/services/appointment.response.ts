@@ -27,4 +27,7 @@ export interface AppointmentResponse {
     status: boolean;
     tipo: string;
   };
+  worker: {
+    name:string;
+  };
 }

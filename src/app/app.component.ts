@@ -8,9 +8,11 @@ import {
   ProfessionalDashboardComponent
 } from './dashboard/pages/professional-dashboard/professional-dashboard.component';
 
+import {CalendarComponent} from './schedule/components/calendar/calendar.component'
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProfessionalDashboardComponent],
+  imports: [RouterOutlet, ProfessionalDashboardComponent, CalendarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
