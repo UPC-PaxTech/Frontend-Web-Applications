@@ -1,0 +1,60 @@
+.calendar-container {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+}
+
+.day-label {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.calendar-hours {
+  display: flex;
+  flex-direction: column;
+}
+
+.hour-row {
+  display: grid;
+  grid-template-columns: 100px repeat(7, 1fr);
+  border-bottom: 1px solid #eee;
+}
+
+.hour-label {
+  padding: 10px;
+  background: #f8f8f8;
+  font-weight: bold;
+  text-align: right;
+}
+
+.day-cell {
+  padding: 10px;
+  position: relative;
+}
+
+.appointment {
+  background-color: #c7c7c7;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
