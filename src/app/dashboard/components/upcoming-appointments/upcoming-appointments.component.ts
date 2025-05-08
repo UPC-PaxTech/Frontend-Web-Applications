@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppointmentApiServiceService } from '../../services/appointment-api-service.service';
+import {AppointmentApiService} from '../../services/appointment-api.service';
 import { Appointment } from '../../models/appointment.entity';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class UpcomingAppointmentsComponent implements OnInit {
   upcomingAppointments: Appointment[] = [];
 
-  constructor(private appointmentService: AppointmentApiServiceService) {}
+  constructor(private appointmentService: AppointmentApiService) {}
 
   ngOnInit(): void {
     this.appointmentService.getAppointments().subscribe(appointments => {
