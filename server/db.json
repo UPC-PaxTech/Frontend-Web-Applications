@@ -441,6 +441,7 @@
         "status": true,
         "tipo": "Standard"
       }
+<<<<<<< HEAD
     }
   ],
   "reviews": [
@@ -471,6 +472,8 @@
       "rating": 5,
       "text": "I highly recommend this place! The ambiance is so relaxing, and the team really listens to what you want.",
       "read": true
+=======
+>>>>>>> aaf1f84a86881360e6bfddc6e78675b49d9e618a
     }
   ]
 
