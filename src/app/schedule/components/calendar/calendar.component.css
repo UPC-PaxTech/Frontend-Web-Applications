@@ -1,60 +1,66 @@
 .calendar-container {
-  font-family: sans-serif;
-  padding: 20px;
+  width: 100%;
+  font-family: Arial, sans-serif;
 }
 
 .calendar-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  padding: 10px;
+  background-color: #1976d2;
+  color: white;
+}
+
+.current-user {
+  font-weight: bold;
 }
 
 .calendar-grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-}
-
-.calendar-days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  font-weight: bold;
-}
-
-.day-label {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.calendar-hours {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  border: 1px solid #ccc;
 }
 
+.calendar-header-row,
 .hour-row {
   display: grid;
-  grid-template-columns: 100px repeat(7, 1fr);
-  border-bottom: 1px solid #eee;
+  grid-template-columns: 80px repeat(7, 1fr);
+  width: 100%;
 }
 
-.hour-label {
-  padding: 10px;
-  background: #f8f8f8;
+.calendar-header-row {
+  background-color: #f1f1f1;
   font-weight: bold;
+  text-align: center;
+}
+
+.time-cell {
+  background-color: #f9f9f9;
+  padding: 8px;
+  border-right: 1px solid #ccc;
   text-align: right;
+  font-size: 12px;
 }
 
 .day-cell {
-  padding: 10px;
+  border: 1px solid #eee;
+  min-height: 60px;
   position: relative;
+  padding: 2px;
 }
 
 .appointment {
-  background-color: #c7c7c7;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 0.85rem;
+  background-color: #ffcc80;
+  border-left: 4px solid #ffa726;
+  padding: 4px;
+  margin: 2px 0;
+  font-size: 12px;
+  border-radius: 4px;
+  display: none;
+}
+
+.appointment.visible {
+  display: block;
 }
