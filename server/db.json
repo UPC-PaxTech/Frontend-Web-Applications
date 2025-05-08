@@ -24,7 +24,6 @@
       "passwordHash": "hash321",
       "isActive": true
     },
-
     {
       "accountId": "acc5",
       "email": "carla@example.com",
@@ -65,7 +64,6 @@
       "accountId": "acc4",
       "name": "Anna Kim"
     },
-
     {
       "userId": "user5",
       "accountId": "acc5",
@@ -103,7 +101,6 @@
       "birthDate": "1995-11-30T00:00:00Z",
       "userId": "user4"
     },
-
     {
       "clientId": "client5",
       "birthDate": "1993-03-25T00:00:00Z",
@@ -210,7 +207,6 @@
       "currency": "USD",
       "status": false
     },
-
     {
       "paymentId": "pay5",
       "amount": 50.0,
@@ -351,7 +347,6 @@
         "tipo": "Express"
       }
     },
-
     {
       "reservationId": "5",
       "tipo": "Simple haircut",
@@ -441,7 +436,6 @@
         "status": true,
         "tipo": "Standard"
       }
-<<<<<<< HEAD
     }
   ],
   "reviews": [
@@ -472,9 +466,6 @@
       "rating": 5,
       "text": "I highly recommend this place! The ambiance is so relaxing, and the team really listens to what you want.",
       "read": true
-=======
->>>>>>> aaf1f84a86881360e6bfddc6e78675b49d9e618a
     }
   ]
-
 }
