@@ -83,19 +83,19 @@
   ],
   "workers": [
     {
-      "workerId": "worker1",
+      "workerId": "1",
       "nombre": "Javier Herrera"
     },
     {
-      "workerId": "worker2",
-      "nombre": "Lili D\u00edaz"
+      "workerId": "2",
+      "nombre": "Lili Dedaz"
     },
     {
-      "workerId": "worker3",
+      "workerId": "3",
       "nombre": "Manuel Ugarte"
     },
     {
-      "workerId": "worker4",
+      "workerId": "3",
       "nombre": "Lorenzo Ortega"
     }
   ],
@@ -276,5 +276,36 @@
         "tipo": "Express"
       }
     }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "author": "Sofia Ramirez",
+      "rating": 5,
+      "text": "An amazing experience! I left with the most gorgeous hair ever. Highly recommend!",
+      "read": false
+    },
+    {
+      "id": 2,
+      "author": "Camila Riquez",
+      "rating": 4,
+      "text": "Tried my first cut. It wasn't exactly what I envisioned. The staff was nice, though, and I might give it another try.",
+      "read": true
+    },
+    {
+      "id": 3,
+      "author": "Lucas Herrera",
+      "rating": 5,
+      "text": "The cut was exactly what I wanted, but I had to wait a little longer than expected. Still, it was worth it!",
+      "read": false
+    },
+    {
+      "id": 4,
+      "author": "Mateo García",
+      "rating": 5,
+      "text": "I highly recommend this place! The ambiance is so relaxing, and the team really listens to what you want.",
+      "read": true
+    }
   ]
+
 }

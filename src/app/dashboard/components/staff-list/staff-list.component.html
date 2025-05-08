@@ -1,0 +1,6 @@
+<section>
+  <h3> Our Staff </h3>
+  @for (worker of WorkerList; track worker.nombre ){
+    <app-staff-item [worker]="worker"></app-staff-item>
+  }
+</section>
