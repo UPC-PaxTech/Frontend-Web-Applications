@@ -185,8 +185,8 @@
         "status": true,
         "tipo": "Standard"
       },
-      "service": {
-        "name": "Manicure"
+      "worker": {
+        "name": "Kevin"
       }
     },
     {
@@ -218,8 +218,8 @@
         "status": true,
         "tipo": "Standard"
       },
-      "service": {
-        "name": "Pedicure"
+      "worker": {
+        "name": "Gael"
       }
     },
     {
@@ -251,8 +251,8 @@
         "status": true,
         "tipo": "Extended"
       },
-      "service": {
-        "name": "Tinte"
+      "worker": {
+        "name": "Kevin"
       }
     },
     {
@@ -284,8 +284,8 @@
         "status": true,
         "tipo": "Express"
       },
-      "service": {
-        "name": "Alisado"
+      "worker": {
+        "name":"Gael"
       }
     }
   ]

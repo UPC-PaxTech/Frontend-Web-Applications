@@ -9,7 +9,7 @@ import {CalendarComponent} from './schedule/components/calendar/calendar.compone
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, UpcomingAppointmentsComponent, CalendarComponent],
+  imports: [UpcomingAppointmentsComponent, CalendarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
