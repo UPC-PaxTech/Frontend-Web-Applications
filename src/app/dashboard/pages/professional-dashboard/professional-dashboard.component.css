@@ -1,0 +1,23 @@
+.dashboard-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 24px;
+  flex-wrap: wrap;
+}
+
+.main-column {
+  flex: 2;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar-column {
+  flex: 1;
+  min-width: 300px;
+  max-height: 100%;
+  position: sticky;
+  top: 24px;
+}

@@ -6,12 +6,16 @@ import {UpcomingAppointmentsComponent} from '../../components/upcoming-appointme
 import {Review} from '../../models/review.entity';
 import {ReviewApiService} from '../../services/review-api.service';
 import {ReviewListComponent} from '../../components/review-list/review-list.component';
+import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
 @Component({
   selector: 'app-professional-dashboard',
   imports: [
     StaffListComponent,
     UpcomingAppointmentsComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    MatCard,
+    MatCardTitle,
+    MatCardContent
   ],
   templateUrl: './professional-dashboard.component.html',
   styleUrl: './professional-dashboard.component.css'

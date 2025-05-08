@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, UpcomingAppointmentsComponent, ProfessionalDashboardComponent],
+  imports: [RouterOutlet, ProfessionalDashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
