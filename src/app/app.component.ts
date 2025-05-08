@@ -5,9 +5,11 @@ import {
   UpcomingAppointmentsComponent
 } from './dashboard/components/upcoming-appointments/upcoming-appointments.component';
 
+import {CalendarComponent} from './schedule/components/calendar/calendar.component'
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, UpcomingAppointmentsComponent],
+  imports: [RouterOutlet, UpcomingAppointmentsComponent, CalendarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
