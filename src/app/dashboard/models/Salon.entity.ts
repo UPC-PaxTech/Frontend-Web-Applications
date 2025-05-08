@@ -1,6 +1,6 @@
 export interface Salon {
   salonId: string;
   location: string;
-  phone: string;
+  phone: number;
   name: string;
 }
