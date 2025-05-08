@@ -1,3 +1,30 @@
-<app-upcoming-appointments></app-upcoming-appointments>
-<app-staff-list [WorkerList]="worker"></app-staff-list>
+<div class="dashboard-grid">
 
+  <!-- COLUMNA IZQUIERDA: Appointments + Staff -->
+  <div class="main-column">
+    <mat-card class="mat-elevation-z2">
+      <mat-card-title>Upcoming appointments</mat-card-title>
+      <mat-card-content>
+        <app-upcoming-appointments></app-upcoming-appointments>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-elevation-z2 staff-section">
+      <mat-card-title>Our Staff</mat-card-title>
+      <mat-card-content>
+        <app-staff-list [WorkerList]="worker"></app-staff-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- COLUMNA DERECHA: Reviews -->
+  <div class="sidebar-column">
+    <mat-card class="mat-elevation-z2">
+      <mat-card-title>Unread reviews</mat-card-title>
+      <mat-card-content>
+        <app-review-list [reviews]="reviews"></app-review-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

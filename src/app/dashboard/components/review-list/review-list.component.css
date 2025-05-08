@@ -1,0 +1,14 @@
+.reviews {
+  padding: 16px;
+}
+.score {
+  background: #ddd;
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-weight: bold;
+}
+.review-container {
+  margin-top: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
