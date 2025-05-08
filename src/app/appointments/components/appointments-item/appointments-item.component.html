@@ -1,0 +1,28 @@
+<mat-card class="appointment-card" appearance="outlined">
+  <div class="card-content">
+    <div class="appointment-details">
+      <h4 class="appointment-title">
+        {{ appointment.tipo }} {{ formatDay(appointment.timeSlotStart) }}
+      </h4>
+      <div class="appointment-info">
+        <div class="info-row">
+          <mat-icon fontIcon="location_on"></mat-icon>
+          <span>{{ appointment.salonName }}</span>
+        </div>
+        <div class="info-row">
+          <mat-icon fontIcon="schedule"></mat-icon>
+          <span>{{ formatTime(appointment.timeSlotStart) }} – {{ formatTime(appointment.timeSlotEnd) }}</span>
+        </div>
+        <div class="info-row">
+          <mat-icon fontIcon="person"></mat-icon>
+          <span>{{ appointment.clientName }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="appointment-icons">
+      <mat-icon (click)="openScheduleDialog()" class="clickable-icon">event</mat-icon>
+      <mat-icon>payment</mat-icon>
+      <mat-icon>cancel</mat-icon>
+    </div>
+  </div>
+</mat-card>
