@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import {AppointmentApiService} from './appointment-api-service.service';
 
 describe('AppointmentApiService', () => {
@@ -8,9 +7,10 @@ describe('AppointmentApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(AppointmentApiService);
-  });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+    it('should be created', () => {
+      expect(service).toBeTruthy();
+    });
   });
-});
+})
+

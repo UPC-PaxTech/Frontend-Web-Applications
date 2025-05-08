@@ -5,6 +5,7 @@ import {ClientAppointment} from '../model/appointment.entity';
 import { AppointmentAssembler } from './appointment.assembler';
 import { Observable, map } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })

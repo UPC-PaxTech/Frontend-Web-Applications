@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {ClientAppointment} from '../model/appointment.entity';
 import {AppointmentResponse} from './appointment.response';
 
