@@ -1,0 +1,153 @@
+@startuml
+title uTime - Frontend Class Diagram with Routing & Contexts
+
+' === Shared ===
+package Shared {
+  package Components {
+    class ToolbarClient <<Component>>{
+    }
+    class ToolbarProvider <<Component>>
+
+  }
+  package Services { }
+}
+
+' === Application Shell ===
+package App {
+  class AppComponent <<Component>> { }
+}
+
+' === Public Pages ===
+package Public {
+  package Components {
+    class LanguageSwitcherComponent <<Component>> { }
+    class ToolbarComponent <<Component>> {}
+    class SideBarComponent <<Component>> {}
+  }
+  package Pages { }
+}
+
+' === Dashboard Context ===
+package DashboardContext {
+  package Components {
+    class SalonCardItemComponent <<Component>> {}
+    class SalonCardListComponent <<Component>> {}
+  }
+  package Services { }
+  package Pages {
+    class DashboardUserComponent <<Component>> { }
+    class DashboardProviderComponent <<Component>> { }
+    class SalonDetailPage <<Component>> { }
+  }
+  package Model {
+    entity SalonCard <<Entity>>{
+    }
+  }
+  SalonCardListComponent <-- DashboardUserComponent
+  Components --> Model
+}
+
+' === Appointment Context ===
+package AppointmentContext {
+  package Components {
+    class CalendarComponent <<Component>> {}
+    class AppointmentItemComponent <<Component>> {}
+    class AppointmentListComponent <<Component>> {}
+  }
+  package Model {
+    entity Calendar <<Entity>>{}
+    entity Appointment <<Entity>>{}
+  }
+  package Services { }
+  package Pages {
+    class AppointmentBookingPage <<Component>> {}
+    'Trae worker y timeblock?
+
+    class ClientAppointments <<Component>> {}
+  }
+  ClientAppointments --> AppointmentListComponent
+  AppointmentListComponent --> AppointmentItemComponent
+  AppointmentItemComponent -> Appointment
+}
+
+
+' === Profile Context ===
+package ProfileContext{
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+' === Schedule Context ===
+package ScheduleContext {
+  package Components {
+    'CalendarComponent?
+    'TimeBlockComponent?
+    class WorkerCarouselComponent <<Component>> {}
+  }
+  package Services {}
+
+  package Pages {
+    class ScheduleComponent {}
+  }
+  package Model {
+    entity Worker <<Entity>> {}
+    entity TimeBlock <<Entity>> {}
+  }
+  WorkerCarouselComponent --> Worker
+  ScheduleComponent --> WorkerCarouselComponent
+
+}
+
+' === Settings Context ===
+package SettingsContext {
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+package ReviewsContext{
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+package ServicesContext{
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+package SubscriptionsContext{
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+' === Routing ===
+AppComponent ..> DashboardUserComponent
+AppComponent ..> DashboardProviderComponent
+AppComponent ..> AppointmentBookingPage
+AppComponent .> ScheduleContext.Pages
+ReviewsContext <... AppComponent
+ServicesContext <... AppComponent
+SubscriptionsContext <... AppComponent
+AppComponent .> ProfileContext.Pages
+AppComponent .> SettingsContext.Pages
+AppComponent --> Public.Components
+DashboardUserComponent --> SalonDetailPage                : "/dashboard/salon"
+
+@enduml
+
+'cosas que no se donde van:
+'-salon
+'-workers
+'-services (corte de pelo, tintado, ese tipo de cosas)
+'
+'
+'
