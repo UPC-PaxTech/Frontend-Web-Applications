@@ -1,26 +1,24 @@
 import { Injectable } from '@angular/core';
-import {environment} from '../../../environments/environment';
-import {HttpClient} from '@angular/common/http';
-import {Observable, map} from 'rxjs';
+import { BaseService } from '../../shared/services/base.service';
+import { AppointmentResponse } from './appointment.response';
 import {ClientAppointment} from '../model/appointment.entity';
-import {AppointmentResponse} from './appointment.response';
-import {AppointmentAssembler} from './appointment.assembler';
+import { AppointmentAssembler } from './appointment.assembler';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppointmentApiServiceService {
-  private baseUrl = environment.serverBaseUrl;
-  private detailsEndpoint = environment.appointmentEndpointPath;
+export class AppointmentApiService extends BaseService<AppointmentResponse> {
+  override resourceEndpoint = '/reservationDetails';
 
-  constructor(private http: HttpClient) {}
-
-  getAppointments(): Observable<ClientAppointment[]> {
-    return this.http.get<AppointmentResponse[]>(`${this.baseUrl}${this.detailsEndpoint}`)
-      .pipe(
-        map(response => AppointmentAssembler.toEntitiesFromResponse(response))
-      );
+  constructor() {
+    super();
   }
 
-
+  /** Convierte los response en entidades limpias */
+  public getAppointments(): Observable<ClientAppointment[]> {
+    return this.getAll().pipe(
+      map(response => AppointmentAssembler.toEntitiesFromResponse(response))
+    );
+  }
 }
