@@ -1,27 +1,179 @@
 @startuml
-'https://plantuml.com/class-diagram
+title uTime - Frontend Class Diagram with Routing & Contexts
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+' === Shared ===
+package Shared {
+  package Components {
+    class ToolbarClient <<Component>>{
+    }
+    class ToolbarProvider <<Component>>
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+  }
+  package Services { }
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+' === Application Shell ===
+package App {
+  class AppComponent <<Component>> { }
 }
+
+' === Public Pages ===
+package Public {
+  package Components {
+    class LanguageSwitcherComponent <<Component>> {}
+    class SideBarComponent <<Component>> {}
+    class MatTableComponent <<Component>> {}
+  }
+  package Pages { }
+}
+
+' === Dashboard Context ===
+package DashboardContext {
+  package Components {
+    class SalonCardItemComponent <<Component>> {}
+    class SalonCardListComponent <<Component>> {}
+  }
+  package Services { }
+  package Pages {
+    class DashboardUserComponent <<Component>> { }
+    class DashboardProviderComponent <<Component>> { }
+    class SalonDetailPage <<Component>> { }
+  }
+  package Model {
+    entity SalonCard <<Entity>>{
+    }
+  }
+  SalonCardListComponent <-- DashboardUserComponent
+  Components --> Model
+}
+
+' === Appointment Context ===
+package AppointmentContext {
+  package Components {
+    class CalendarComponent <<Component>> {}
+    class AppointmentItemComponent <<Component>> {}
+    class AppointmentListComponent <<Component>> {}
+  }
+  package Model {
+    entity Calendar <<Entity>>{}
+    entity Appointment <<Entity>>{}
+  }
+  package Services { }
+  package Pages {
+    class AppointmentBookingPage <<Component>> {}
+    'Trae worker y timeblock?
+
+    class ClientAppointments <<Component>> {}
+  }
+  ClientAppointments --> AppointmentListComponent
+  AppointmentListComponent --> AppointmentItemComponent
+  AppointmentItemComponent -> Appointment
+}
+
+
+' === Profile Context ===
+package ProfileContext{
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+' === Schedule Context ===
+package ScheduleContext {
+  package Components {
+    'CalendarComponent?
+    'TimeBlockComponent?
+    class WorkerCarouselComponent <<Component>> {}
+  }
+  package Services {}
+
+  package Pages {
+    class ScheduleComponent {}
+  }
+  package Model {
+    entity Worker <<Entity>> {}
+    entity TimeBlock <<Entity>> {}
+  }
+  WorkerCarouselComponent --> Worker
+  ScheduleComponent --> WorkerCarouselComponent
+
+}
+
+' === Settings Context ===
+package SettingsContext {
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+' === Reviews Context ===
+package ReviewsContext{
+  package Components {
+    class ReviewItemComponent <<Component>> {}
+    class ReviewListComponent <<Component>> {}
+  }
+  package Services { }
+  package Pages {
+    class ReviewsPageComponent <<Component>> {}
+  }
+  package Model {
+    entity Review <<Entity>> {}
+  }
+
+  ReviewsPageComponent --> ReviewListComponent
+  ReviewListComponent --> ReviewItemComponent
+  ReviewItemComponent -> Review
+}
+
+' === Treatment Context ===
+package TreatmentContext{
+  package Components {
+    class TreatmentListComponent <<Component>> {}
+    class TreatmentItemComponent <<Component>> {}
+  }
+  package Services { }
+  package Pages {
+    class TreatmentPageComponent <<Component>> {}
+  }
+  package Model {
+    entity Treatment <<Entity>> {}
+  }
+
+  TreatmentPageComponent -> TreatmentListComponent
+  TreatmentListComponent --> TreatmentItemComponent
+  TreatmentItemComponent --> Treatment
+}
+
+' === Subscription Context ===
+package SubscriptionContext{
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+' === Routing ===
+AppComponent ..> DashboardUserComponent
+AppComponent ..> DashboardProviderComponent
+AppComponent ..> AppointmentBookingPage
+AppComponent .> ScheduleContext.Pages
+ReviewsContext <... AppComponent
+TreatmentContext <... AppComponent
+Shared <-- AppComponent
+SubscriptionContext <... AppComponent
+AppComponent .> ProfileContext.Pages
+AppComponent .> SettingsContext.Pages
+AppComponent --> Public.Components
+DashboardUserComponent --> SalonDetailPage                : "/dashboard/salon"
 
 @enduml
+
+'cosas que no se donde van:
+'-salon
+'-workers
+'-services (corte de pelo, tintado, ese tipo de cosas)
+'
+'
+'
