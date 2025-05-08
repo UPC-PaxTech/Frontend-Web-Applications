@@ -1,12 +1,8 @@
 import { Component, Input } from '@angular/core';
 import {ClientAppointment} from '../../model/appointment.entity';
 import { MatDialog } from '@angular/material/dialog';
-import {ScheduleDialogComponent} from '../schedule-dialog/schedule-dialog.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatIcon} from '@angular/material/icon';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-appointments-item',
@@ -14,13 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   imports: [
     MatCardModule,
     MatIcon,
-    MatDatepickerModule,
-    MatInputModule,
-    MatFormFieldModule
   ],
-  providers: [
-    provideNativeDateAdapter() // Add this line to provide the date adapter
-  ],
+
   styleUrls: ['./appointments-item.component.css']
 })
 export class AppointmentsItemComponent {
@@ -40,12 +31,4 @@ export class AppointmentsItemComponent {
     return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
   }
 
-  openScheduleDialog(): void {
-    this.dialog.open(ScheduleDialogComponent, {
-      width: '600px',
-      data: {
-        appointment: this.appointment
-      }
-    });
-  }
 }

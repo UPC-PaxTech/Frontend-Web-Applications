@@ -42,14 +42,6 @@
   mat-icon {
     margin: 4px 0;
 
-    &.clickable-icon {
-      cursor: pointer;
-      color: #1976d2;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: #1565c0;
-      }
     }
-  }
+  
 }
