@@ -3,22 +3,28 @@ import {Worker} from '../../models/worker.entity';
 import {WorkerApiService} from '../../services/worker-api.service';
 import {StaffListComponent} from '../../components/staff-list/staff-list.component';
 import {UpcomingAppointmentsComponent} from '../../components/upcoming-appointments/upcoming-appointments.component';
+import {Review} from '../../models/review.entity';
+import {ReviewApiService} from '../../services/review-api.service';
+import {ReviewListComponent} from '../../components/review-list/review-list.component';
 @Component({
   selector: 'app-professional-dashboard',
   imports: [
     StaffListComponent,
-    UpcomingAppointmentsComponent
+    UpcomingAppointmentsComponent,
+    ReviewListComponent
   ],
   templateUrl: './professional-dashboard.component.html',
   styleUrl: './professional-dashboard.component.css'
 })
 export class ProfessionalDashboardComponent implements OnInit {
   worker: Worker[] = [];
+  reviews: Review[] = [];
 
-  constructor(private staffService: WorkerApiService ) {
+  constructor(private staffService: WorkerApiService, private reviewService: ReviewApiService) {
   }
   ngOnInit() {
     this.staffService.getWorkers().subscribe(worker => this.worker = worker);
+    this.reviewService.getReviews().subscribe(reviews => this.reviews = reviews);
   }
 
 }

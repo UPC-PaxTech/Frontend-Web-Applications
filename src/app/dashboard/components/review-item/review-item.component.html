@@ -1,0 +1,8 @@
+<div class="review">
+  <h4>{{ review.author }} <span class="stars">
+    @for (_ of getStars(); let i = $index; track review.id) {
+      ⭐
+    }
+  </span></h4>
+  <p>{{ review.text }}</p>
+</div>
