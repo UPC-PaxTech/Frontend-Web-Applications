@@ -64,7 +64,7 @@
       "userId": "user3"
     },
     {
-      "clientId": "client4"
+      "clientId": "client4",
       "birthDate": "1995-11-30T00:00:00Z",
       "userId": "user4"
     }
@@ -77,7 +77,7 @@
       "phone": "123456789"
     },
     {
-      "name": "magic",
+      "name": "magic2",
       "salonId": "salon2",
       "location": "Midtown",
       "phone": "987654321"

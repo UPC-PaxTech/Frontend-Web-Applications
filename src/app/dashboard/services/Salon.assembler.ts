@@ -2,16 +2,17 @@ import {SalonsResponse, SalonsResource} from './Salon.response';
 import {Salon} from '../models/Salon.entity';
 
 export class SalonAssembler {
-  static toEntityFromResource(resourse: SalonsResource): Salon {
+  static toEntityFromResource(resource: SalonsResource): Salon {
     return {
-      salonId: resourse.salonId,
-      location: resourse.location,
-      phone: resourse.phone,
-      name: resourse.name
+      salonId: resource.salonId,
+      location: resource.location,
+      phone: resource.phone,
+      name: resource.name
     };
   }
-  static toEntitiesfromResponse(response: SalonsResponse): Salon[]{
-    return response.salons.map(salon => this.toEntityFromResource(salon));
 
+  static toEntitiesfromResponse(response: SalonsResponse): Salon[] {
+    // No need for type assertion - response is now properly typed as an array
+    return response.map(salon => this.toEntityFromResource(salon));
   }
 }
