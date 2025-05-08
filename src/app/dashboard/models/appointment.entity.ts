@@ -6,6 +6,7 @@ export class Appointment {
   paymentStatus: boolean;
   timeSlotStart: string;
   timeSlotEnd: string;
+  workerName: string;
 
   constructor() {
     this.reservationId = '';
@@ -15,5 +16,6 @@ export class Appointment {
     this.paymentStatus = false;
     this.timeSlotStart = '';
     this.timeSlotEnd = '';
+    this.workerName = '';
   }
 }

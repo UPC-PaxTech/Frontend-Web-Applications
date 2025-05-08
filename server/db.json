@@ -287,6 +287,39 @@
       "worker": {
         "name":"Gael"
       }
+    },
+    {
+      "reservationId": "5",
+      "tipo": "Manicure",
+      "client": {
+        "clientId": "client5",
+        "birthDate": "1995-11-30T00:00:00Z",
+        "user": {
+          "userId": "user5",
+          "name": "Marcelo Richarlison"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Downtown",
+        "phone": "911111111"
+      },
+      "payment": {
+        "paymentId": "pay4",
+        "amount": 30.0,
+        "currency": "USD",
+        "status": false
+      },
+      "timeSlot": {
+        "timeSlotId": "ts4",
+        "start": "2025-05-09T08:00:00Z",
+        "end": "2025-05-09T08:30:00Z",
+        "status": true,
+        "tipo": "Express"
+      },
+      "worker": {
+        "name":"Alejandro"
+      }
     }
   ],
   "reviews": [

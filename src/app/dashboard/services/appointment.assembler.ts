@@ -11,6 +11,7 @@
         paymentStatus: resource.payment.status || false,
         timeSlotStart: resource.timeSlot.start || '',
         timeSlotEnd: resource.timeSlot.end || '',
+        workerName: resource.worker.name || '',
       }
     }
     static toEntitiesFromResponse(resources: AppointmentResponse[]): Appointment[] {

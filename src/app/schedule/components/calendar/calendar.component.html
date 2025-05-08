@@ -16,15 +16,15 @@
         <div class="time-label">{{ hour }}</div>
         <div class="day-cell" *ngFor="let day of days">
 
-          <ng-container *ngFor="let appointment of appointments">
+          <ng-container *ngFor="let appointment of calendars">
             <app-reservation
-              *ngIf="appointment.day === day
-                      && appointment.startTime === hour
-                      && (currentWorker === 'Todos' || appointment.worker === currentWorker)"
-              [service]="appointment.service"
-              [startTime]="appointment.startTime"
-              [endTime]="appointment.endTime"
-              [clientName]="appointment.client"
+              *ngIf=" formatDay(appointment.timeSlotStart)== day
+                      && formatTime(appointment.timeSlotStart )=== hour
+                      && (currentWorker === 'Todos' || appointment.workerName === currentWorker)"
+              [service]="appointment.tipo"
+              [startTime]="formatTime(appointment.timeSlotStart)"
+              [endTime]="formatTime(appointment.timeSlotEnd)"
+              [clientName]="appointment.clientName"
             ></app-reservation>
           </ng-container>
 
