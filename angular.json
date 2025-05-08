@@ -102,6 +102,10 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "f4230050-dcee-456f-91fc-1394959f9ef4"
+=======
+    "analytics": false
+>>>>>>> 0a79192 (feat: add changes new users in db json)
   }
 }
