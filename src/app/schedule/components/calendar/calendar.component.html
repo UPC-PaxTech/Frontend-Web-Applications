@@ -1,34 +1,33 @@
 <div class="calendar-container">
-  <!-- Header con switcher de persona -->
   <div class="calendar-header">
-    <button (click)="prevUser()">&lt;</button>
-    <div class="current-user">{{ currentUser }}</div>
-    <button (click)="nextUser()">&gt;</button>
+    <button (click)="swapWorker()">&lt;</button>
+    <div class="current-user">{{ currentWorker }}</div>
+    <button (click)="swapWorker()">&gt;</button>
   </div>
 
-  <!-- Días -->
   <div class="calendar-grid">
-    <div class="calendar-header-row">
-      <div class="time-cell"></div>
-      <div class="day-cell" *ngFor="let day of days">{{ day }}</div>
+    <div class="calendar-days">
+      <div class="time-label"></div>
+      <div class="day-label" *ngFor="let day of days">{{ day }}</div>
     </div>
 
-    <!-- Filas horarias -->
     <div class="calendar-body">
       <div class="hour-row" *ngFor="let hour of hours">
-        <div class="time-cell">{{ hour }}</div>
-
+        <div class="time-label">{{ hour }}</div>
         <div class="day-cell" *ngFor="let day of days">
-          <div
-            class="appointment"
-            *ngFor="let appointment of appointments"
-            [ngClass]="{
-              visible: appointment.day === day && appointment.time === hour
-            }"
-          >
-            <strong>{{ appointment.title }}</strong><br />
-            {{ appointment.client }}
-          </div>
+
+          <ng-container *ngFor="let appointment of appointments">
+            <app-reservation
+              *ngIf="appointment.day === day
+                      && appointment.startTime === hour
+                      && (currentWorker === 'Todos' || appointment.worker === currentWorker)"
+              [service]="appointment.service"
+              [startTime]="appointment.startTime"
+              [endTime]="appointment.endTime"
+              [clientName]="appointment.client"
+            ></app-reservation>
+          </ng-container>
+
         </div>
       </div>
     </div>
