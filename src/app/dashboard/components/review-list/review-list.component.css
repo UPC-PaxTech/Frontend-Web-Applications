@@ -1,14 +1,14 @@
-.reviews {
-  padding: 16px;
-}
-.score {
-  background: #ddd;
-  border-radius: 8px;
-  padding: 2px 8px;
-  font-weight: bold;
-}
-.review-container {
-  margin-top: 10px;
-  max-height: 300px;
+.review-scroll-container {
+  max-height: 360px; /* Ajusta según diseño */
   overflow-y: auto;
+  padding-right: 8px;
+}
+
+.review-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.review-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #bdbdbd;
+  border-radius: 4px;
 }

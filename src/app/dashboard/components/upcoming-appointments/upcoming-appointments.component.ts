@@ -21,7 +21,10 @@ export class UpcomingAppointmentsComponent implements OnInit {
         .filter(a => new Date(a.timeSlotStart) > now)
         .sort((a, b) => new Date(a.timeSlotStart).getTime() - new Date(b.timeSlotStart).getTime())
         .slice(0, 3); // mostrar los 3 más próximos
+
+      console.log('Upcoming Appointments:', this.upcomingAppointments)
     });
+    console.log(this.upcomingAppointments);
   }
 
   formatTime(dateStr: string): string {
