@@ -9,7 +9,7 @@ import {NgForOf} from '@angular/common';
   templateUrl: './appointments-list.component.html',
   imports: [
     AppointmentsItemComponent,
-    NgForOf
+    NgForOf,
   ],
   styleUrls: ['./appointments-list.component.css']
 })
