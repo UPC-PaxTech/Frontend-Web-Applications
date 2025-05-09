@@ -1,4 +1,16 @@
 <mat-card class="staff-item">
-  <mat-card-header>{{worker.nombre}}</mat-card-header>
-  <mat-card-subtitle>{{worker.id}}</mat-card-subtitle>
+  <div class="staff-content">
+    <img class="staff-image" [src]="worker.foto" alt="Staff photo" />
+
+    <div class="staff-info">
+      <div class="staff-name">{{ worker.nombre }}</div>
+      <div class="staff-role">{{ worker.especializacion }}</div>
+    </div>
+
+    <div class="staff-action">
+      <button mat-button color="primary">
+        View schedule <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
 </mat-card>

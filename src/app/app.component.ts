@@ -7,10 +7,11 @@ import { ProfessionalDashboardComponent } from './dashboard/pages/professional-d
 import {CalendarComponent} from './schedule/components/calendar/calendar.component'
 import { ToolbarProviderComponent } from './public/components/toolbar-provider/toolbar-provider.component'
 
+import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProfessionalDashboardComponent, CalendarComponent, ToolbarProviderComponent],
+  imports: [RouterOutlet, ProfessionalDashboardComponent, CalendarComponent, ToolbarProviderComponent, ProfilePageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
