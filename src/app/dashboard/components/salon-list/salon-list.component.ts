@@ -8,7 +8,8 @@ import {SalonItemComponent} from '../salon-item/Salon-item.component';
   imports: [
     SalonItemComponent
   ],
-  templateUrl: './salon-list.component.html'
+  templateUrl: './salon-list.component.html',
+  styleUrl: './salon-list.component.css'
 })
 export class SalonListComponent implements OnInit {
   salons: Salon[] = [];

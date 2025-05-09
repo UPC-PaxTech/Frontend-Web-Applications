@@ -7,6 +7,7 @@ export class SalonAssembler {
       salonId: resource.salonId,
       location: resource.location,
       phone: resource.phone,
+      imageURL: resource.imageURL,
       name: resource.name
     };
   }

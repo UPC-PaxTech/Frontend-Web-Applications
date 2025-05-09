@@ -1,3 +1,5 @@
-@for (salon of salons; track salon.salonId) {
-  <app-salon-item [salon]="salon"></app-salon-item>
-}
+<div class="salon-list-horizontal">
+  @for (salon of salons; track salon.salonId) {
+    <app-salon-item [salon]="salon"></app-salon-item>
+  }
+</div>
