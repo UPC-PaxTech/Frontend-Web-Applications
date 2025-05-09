@@ -84,20 +84,30 @@
   "workers": [
     {
       "workerId": "1",
-      "nombre": "Javier Herrera"
+      "nombre": "Javier Herrera",
+      "especializacion": "Bridal hair stylist",
+      "fotoUrl": "https://randomuser.me/api/portraits/men/32.jpg"
     },
     {
       "workerId": "2",
-      "nombre": "Lili Dedaz"
+      "nombre": "Lili Díaz",
+      "especializacion": "Hair extension specialist",
+      "fotoUrl": "https://randomuser.me/api/portraits/women/44.jpg"
     },
     {
       "workerId": "3",
-      "nombre": "Manuel Ugarte"
+      "nombre": "Manuel Ugarte",
+      "especializacion": "Haircut specialist",
+      "fotoUrl": "https://randomuser.me/api/portraits/men/45.jpg"
     },
     {
-      "workerId": "3",
-      "nombre": "Lorenzo Ortega"
+      "workerId": "4",
+      "nombre": "Lorenzo Ortega",
+      "especializacion": "Stylist",
+      "fotoUrl": "https://randomuser.me/api/portraits/men/28.jpg"
     }
+
+
   ],
   "services": [
     {
