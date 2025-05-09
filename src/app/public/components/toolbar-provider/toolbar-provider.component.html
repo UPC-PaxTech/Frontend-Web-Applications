@@ -1,21 +1,17 @@
 <header class="toolbar">
   <div class="left-section">
-    <button class="icon-button" aria-label="Home">
-      <span class="material-icons">home</span>
+    <button class="icon-button" aria-label="Logout" [routerLink]="'/logout'">
+      <span class="material-icons">logout</span>
     </button>
   </div>
 
   <div class="center-section">
     <img src="/assets/images/logo.png" alt="uTime Logo" class="logo-img">
-
   </div>
 
   <div class="right-section">
-    <button class="icon-button" aria-label="Profile">
+    <button class="icon-button" aria-label="Profile" [routerLink]="'/profile'">
       <span class="material-icons">person</span>
-    </button>
-    <button class="icon-button" aria-label="Logout">
-      <span class="material-icons">logout</span>
     </button>
   </div>
 </header>
