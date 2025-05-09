@@ -1,0 +1,51 @@
+.appointment-card {
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.card-content {
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+}
+
+.appointment-details {
+  flex: 1;
+}
+
+.appointment-title {
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.appointment-info {
+  .info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+
+    mat-icon {
+      margin-right: 8px;
+      font-size: 18px;
+      height: 18px;
+      width: 18px;
+      line-height: 18px;
+    }
+  }
+}
+
+.appointment-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  mat-icon {
+    margin: 4px 0;
+
+    }
+}
+
+.container-items{
+  display: flex;
+  justify-content: space-between;
+}
