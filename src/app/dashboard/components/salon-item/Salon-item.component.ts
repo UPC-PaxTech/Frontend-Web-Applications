@@ -10,6 +10,7 @@ import {
   MatCardTitle
 } from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
+import {ReviewListComponent} from '../review-list/review-list.component';
 
 @Component({
   selector: 'app-salon-item',
@@ -20,7 +21,8 @@ import {MatButton} from '@angular/material/button';
     MatCardImage,
     MatCardHeader,
     MatCardContent,
-    MatCard
+    MatCard,
+    ReviewListComponent
   ],
   templateUrl: './Salon-item.component.html',
   styleUrl: './Salon-item.component.css'
