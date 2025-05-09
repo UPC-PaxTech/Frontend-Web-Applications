@@ -1,6 +1,6 @@
 <section>
-  <h3> Our Staff </h3>
-  @for (worker of WorkerList; track worker.nombre ){
+  <h3>{{ 'dashboard.ourStaff' | translate }}</h3>
+  @for (worker of WorkerList; track worker.nombre) {
     <app-staff-item [worker]="worker"></app-staff-item>
   }
 </section>

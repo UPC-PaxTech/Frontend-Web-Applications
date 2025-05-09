@@ -1,0 +1,39 @@
+{
+  "dashboard": {
+    "home": "Home",
+    "schedule": "Schedule",
+    "hey": "Hey ",
+    "letsWork": "Lets Get to Work!",
+    "upcoming": "Upcoming appointments",
+    "today": "Today",
+    "viewSchedule": "View schedule",
+    "ourStaff": "Our Staff",
+    "overallScore": "Overall score:",
+    "reviews": "reviews",
+    "manicure": "Manicure",
+    "keratinTreatment": "Keratin Treatment",
+    "colorCut": "Color & cut",
+    "bridalHairStylist": "Bridal hair stylist",
+    "hairExtensionSpecialist": "Hair extension specialist",
+    "haircutSpecialist": "Haircut specialist",
+    "stylist": "Stylist"
+  },
+  "profile": {
+    "yourProfile": "Your Profile:",
+    "portfolio": "Portfolio",
+    "addPhoto": "+ Add Photo",
+    "recentReviews": "Recent reviews",
+    "socials": {
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
+    },
+    "rating": "Overall score:",
+    "reviewsCount": "{{count}} reviews",
+    "profileImageAlt": "Profile photo",
+    "coverImageAlt": "Cover image",
+    "addPhotoDescription": "Add a new photo to your portfolio",
+    "imageSelectedLog": "Image selected:",
+    "imageAddedLog": "Image added to portfolio"
+  }
+
+}
