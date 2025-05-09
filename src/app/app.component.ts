@@ -8,10 +8,11 @@ import {CalendarComponent} from './schedule/components/calendar/calendar.compone
 import { ToolbarProviderComponent } from './public/components/toolbar-provider/toolbar-provider.component'
 
 import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
+import {SidebarComponent} from './public/components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProfessionalDashboardComponent, CalendarComponent, ToolbarProviderComponent, ProfilePageComponent],
+  imports: [RouterOutlet, ProfessionalDashboardComponent, CalendarComponent, ToolbarProviderComponent, ProfilePageComponent, SidebarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

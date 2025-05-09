@@ -1,4 +1,8 @@
 import { Routes } from '@angular/router';
+import {
+  ProfessionalDashboardComponent
+} from './dashboard/pages/professional-dashboard/professional-dashboard.component';
+import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
 
 //import {HomeProviderComponent} from './public/pages/home/home.component'; // HomeProvides (Dashboard)
 //const ProfileProviderComponent = () => import('./public/pages/about/about.component').then(m => m.AboutComponent); // Logout
@@ -8,5 +12,8 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   // { path: 'profile-provider',  component:      ProfileProviderComponent },
   // { path: 'logout',            loadComponent:  LogoutComponent },
-  // { path: 'home-provider',     loadComponent:  HomeProviderComponent },
+  { path: '', redirectTo: 'homeProvider', pathMatch: 'full' },
+  { path: 'homeProvider', component: ProfessionalDashboardComponent },
+  { path: 'profile', component: ProfilePageComponent }
+
 ];

@@ -7,6 +7,7 @@ import {Review} from '../../models/review.entity';
 import {ReviewApiService} from '../../services/review-api.service';
 import {ReviewListComponent} from '../../components/review-list/review-list.component';
 import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
+import {ToolbarProviderComponent} from '../../../public/components/toolbar-provider/toolbar-provider.component';
 @Component({
   selector: 'app-professional-dashboard',
   imports: [
@@ -15,7 +16,8 @@ import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
     ReviewListComponent,
     MatCard,
     MatCardTitle,
-    MatCardContent
+    MatCardContent,
+    ToolbarProviderComponent
   ],
   templateUrl: './professional-dashboard.component.html',
   styleUrl: './professional-dashboard.component.css'
