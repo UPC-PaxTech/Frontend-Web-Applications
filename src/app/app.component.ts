@@ -9,10 +9,11 @@ import {
 } from './dashboard/pages/professional-dashboard/professional-dashboard.component';
 
 import {CalendarComponent} from './schedule/components/calendar/calendar.component'
+import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProfessionalDashboardComponent, CalendarComponent],
+  imports: [RouterOutlet, ProfessionalDashboardComponent, CalendarComponent, ProfilePageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
