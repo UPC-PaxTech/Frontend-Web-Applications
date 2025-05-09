@@ -15,9 +15,15 @@ import {ToolbarProviderComponent} from '../../../public/components/toolbar-provi
     UpcomingAppointmentsComponent,
     ReviewListComponent,
     MatCard,
+    /**
     MatCardTitle,
+<<<<<<< HEAD
     MatCardContent,
     ToolbarProviderComponent
+=======
+      */
+    MatCardContent
+>>>>>>> feature/Appointments
   ],
   templateUrl: './professional-dashboard.component.html',
   styleUrl: './professional-dashboard.component.css'
