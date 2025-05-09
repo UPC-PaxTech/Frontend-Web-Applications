@@ -10,6 +10,7 @@
 .left-section, .center-section, .right-section {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
 .center-section {

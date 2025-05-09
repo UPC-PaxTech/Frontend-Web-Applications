@@ -9,6 +9,7 @@ import { ToolbarProviderComponent } from './public/components/toolbar-provider/t
 
 import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
 import {SidebarComponent} from './public/components/sidebar/sidebar.component';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,10 @@ import {SidebarComponent} from './public/components/sidebar/sidebar.component';
 export class AppComponent {
   title = 'Frontend-Web-Applications';
 
-  constructor() {}
-
+  constructor(private translate: TranslateService) {
+    this.translate.addLangs(['en', 'es']);
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
 
 }
