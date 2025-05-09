@@ -7,7 +7,9 @@ export class WorkerAssembler {
   static  toEntityFromResource(resource: WorkerResource): Worker {
     return {
       id: resource.workerId,
-      nombre: resource.nombre
+      nombre: resource.nombre,
+      especializacion: resource.especializacion,
+      foto: resource.fotoUrl
     }
   }
   static toEntitiesFromResponse(resources: WorkerResource[]): Worker[] {
