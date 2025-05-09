@@ -14,7 +14,9 @@ import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
     UpcomingAppointmentsComponent,
     ReviewListComponent,
     MatCard,
+    /**
     MatCardTitle,
+      */
     MatCardContent
   ],
   templateUrl: './professional-dashboard.component.html',

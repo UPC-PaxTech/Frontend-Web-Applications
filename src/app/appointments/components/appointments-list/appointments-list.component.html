@@ -1,9 +1,25 @@
 <section class="appointments-section">
-  <h2 class="title">Appointments</h2>
-  <div class="group">
-    <h3 class="group-title">Tomorrow</h3>
-    <ng-container *ngFor="let appointment of appointments; trackBy: trackById">
-      <app-appointments-item [appointment]="appointment"></app-appointments-item>
-    </ng-container>
-  </div>
+    <h2 class="title">Appointments</h2>
+
+    <div class="appointments-content">
+        <!-- Componente totalmente a la izquierda -->
+        <div class="upcoming-column">
+            <app-upcoming-appointments-client></app-upcoming-appointments-client>
+        </div>
+
+        <!-- Columna izquierda del centro -->
+        <div class="appointments-left">
+            <div class="group">
+                <h3 class="group-title">Tomorrow</h3>
+                <ng-container *ngFor="let appointment of appointments; trackBy: trackById">
+                    <app-appointments-item [appointment]="appointment"></app-appointments-item>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="appointments-right">
+            <app-review-list-client [reviews]="reviews"></app-review-list-client>
+        </div>
+    </div>
 </section>
