@@ -23,7 +23,7 @@ import {ToolbarProviderComponent} from '../../../public/components/toolbar-provi
 =======
       */
     MatCardContent
->>>>>>> feature/Appointments
+
   ],
   templateUrl: './professional-dashboard.component.html',
   styleUrl: './professional-dashboard.component.css'
