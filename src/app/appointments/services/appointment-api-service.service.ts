@@ -4,6 +4,10 @@ import { AppointmentResponse } from './appointment.response';
 import {ClientAppointment} from '../model/appointment.entity';
 import { AppointmentAssembler } from './appointment.assembler';
 import { Observable, map } from 'rxjs';
+<<<<<<< HEAD
+=======
+
+>>>>>>> af088205ef3b2f5ea06d31a1b009a0254cb555b2
 @Injectable({
   providedIn: 'root'
 })

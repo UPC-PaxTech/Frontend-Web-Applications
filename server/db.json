@@ -572,6 +572,96 @@
         "status": true,
         "tipo": "Standard"
       }
+    },
+    {
+      "reservationId": "5",
+      "tipo": "Simple haircut",
+      "client": {
+        "clientId": "client5",
+        "birthDate": "1993-03-25T00:00:00Z",
+        "user": {
+          "userId": "user5",
+          "name": "Carla Ríos"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Downtown",
+        "phone": "123456789"
+      },
+      "payment": {
+        "paymentId": "pay5",
+        "amount": 50.0,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts5",
+        "start": "2025-06-15T15:00:00Z",
+        "end": "2025-06-15T15:45:00Z",
+        "status": true,
+        "tipo": "Standard"
+      }
+    },
+    {
+      "reservationId": "6",
+      "tipo": "Hot styling",
+      "client": {
+        "clientId": "client6",
+        "birthDate": "1988-09-12T00:00:00Z",
+        "user": {
+          "userId": "user6",
+          "name": "David Morales"
+        }
+      },
+      "salon": {
+        "salonId": "salon3",
+        "location": "Uptown",
+        "phone": "555123456"
+      },
+      "payment": {
+        "paymentId": "pay6",
+        "amount": 30.0,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts6",
+        "start": "2025-06-16T10:30:00Z",
+        "end": "2025-06-16T11:00:00Z",
+        "status": true,
+        "tipo": "Express"
+      }
+    },
+    {
+      "reservationId": "7",
+      "tipo": "Keratin Treatment",
+      "client": {
+        "clientId": "client7",
+        "birthDate": "1997-12-03T00:00:00Z",
+        "user": {
+          "userId": "user7",
+          "name": "Sofía Alarcón"
+        }
+      },
+      "salon": {
+        "salonId": "salon2",
+        "location": "Midtown",
+        "phone": "987654321"
+      },
+      "payment": {
+        "paymentId": "pay7",
+        "amount": 40.0,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts7",
+        "start": "2025-06-17T14:00:00Z",
+        "end": "2025-06-17T15:00:00Z",
+        "status": true,
+        "tipo": "Standard"
+      }
     }
   ],
   "reviews": [

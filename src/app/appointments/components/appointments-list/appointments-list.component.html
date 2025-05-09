@@ -1,4 +1,5 @@
 <section class="appointments-section">
+<<<<<<< HEAD
     <h2 class="title">Appointments</h2>
 
     <div class="appointments-content">
@@ -22,4 +23,13 @@
             <app-review-list-client [reviews]="reviews"></app-review-list-client>
         </div>
     </div>
+=======
+  <h2 class="title">Appointments</h2>
+  <div class="group">
+    <h3 class="group-title">Tomorrow</h3>
+    <ng-container *ngFor="let appointment of appointments; trackBy: trackById">
+      <app-appointments-item [appointment]="appointment"></app-appointments-item>
+    </ng-container>
+  </div>
+>>>>>>> af088205ef3b2f5ea06d31a1b009a0254cb555b2
 </section>
