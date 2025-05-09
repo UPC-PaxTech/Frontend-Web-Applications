@@ -3,10 +3,11 @@ import {ProfileHeaderComponent} from '../../components/profile-header/profile-he
 import {SalonProfile} from '../../models/salon-profile.entity';
 import {SalonProfileApiService} from '../../services/salon-profile-api.service';
 import {ProfilePortfolioComponent} from '../../components/profile-portfolio/profile-portfolio.component';
+import {ReviewListComponent} from '../../components/review-list/review-list.component';
 
 @Component({
   selector: 'app-profile-page',
-  imports: [ProfileHeaderComponent, ProfilePortfolioComponent],
+  imports: [ProfileHeaderComponent, ProfilePortfolioComponent, ReviewListComponent],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.css'
 })
