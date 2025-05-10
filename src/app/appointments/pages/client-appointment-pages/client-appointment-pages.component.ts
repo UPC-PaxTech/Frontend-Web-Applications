@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AppointmentsListComponent} from '../../components/appointments-list/appointments-list.component';
+import {AppointmentsListComponent} from "../../components/appointments-list/appointments-list.component";
 
 @Component({
   selector: 'app-client-appointment-pages',

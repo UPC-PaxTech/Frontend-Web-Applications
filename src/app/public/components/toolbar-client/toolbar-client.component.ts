@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
+import {LanguageSwitcherComponent} from '../language-switcher/language-switcher.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-toolbar-client',
-  imports: [],
+  imports: [
+    LanguageSwitcherComponent,
+    RouterLink
+  ],
   templateUrl: './toolbar-client.component.html',
   styleUrl: './toolbar-client.component.css'
 })

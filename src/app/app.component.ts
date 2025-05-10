@@ -25,11 +25,13 @@ import {AppointmentsListComponent} from './appointments/components/appointments-
 import {TranslateService} from '@ngx-translate/core';
 import {ToolbarProviderComponent} from './public/components/toolbar-provider/toolbar-provider.component';
 import {SidebarComponent} from './public/components/sidebar/sidebar.component';
+import {ToolbarClientComponent} from './public/components/toolbar-client/toolbar-client.component';
+import {SidebarClientComponent} from './public/components/sidebar-client/sidebar-client.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ToolbarProviderComponent, SidebarComponent],
+  imports: [RouterOutlet, ToolbarProviderComponent, SidebarComponent, ToolbarClientComponent, SidebarClientComponent],
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
