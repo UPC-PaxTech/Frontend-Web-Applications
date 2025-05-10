@@ -3,7 +3,7 @@ import {Review} from '../../model/reviews.entity';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-review-item',
+  selector: 'app-review-item-client',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './review-item.component.html',
