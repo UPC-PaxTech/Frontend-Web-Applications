@@ -24,12 +24,14 @@ import {TranslateService} from '@ngx-translate/core';
 import {AppointmentsListComponent} from './appointments/components/appointments-list/appointments-list.component';
 import {ToolbarProviderComponent} from './public/components/toolbar-provider/toolbar-provider.component';
 import {SidebarComponent} from './public/components/sidebar/sidebar.component';
+import {SidebarClientComponent} from './public/components/sidebar-client/sidebar-client.component';
+import {ToolbarClientComponent} from './public/components/toolbar-client/toolbar-client.component';
 
 
 @Component({
   selector: 'app-root',
 
-  imports: [RouterOutlet, AppointmentsListComponent, ToolbarProviderComponent, SidebarComponent
+  imports: [RouterOutlet, AppointmentsListComponent, ToolbarProviderComponent, SidebarComponent, SidebarClientComponent, ToolbarClientComponent
 
   ],
 
