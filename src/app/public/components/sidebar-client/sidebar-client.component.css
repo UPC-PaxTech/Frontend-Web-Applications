@@ -1,11 +1,16 @@
 .sidebar {
+  left: 0;
+  width: 200px;
   background-color: #f0dff0;
   border-radius: 12px;
   padding: 16px;
-  width: 200px;
   font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
 }
-
 .sidebar a {
   display: flex;
   align-items: center;
@@ -14,6 +19,13 @@
   text-decoration: none;
   margin-bottom: 12px;
   font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .sidebar a span.material-icons {

@@ -16,9 +16,8 @@ import {UpcomingAppointmentsComponent} from "../upcoming-appointments/upcoming-a
     AppointmentsItemComponent,
     NgForOf,
     ReviewListComponent,
-    UpcomingAppointmentsComponent,
     ReviewListComponent,
-    UpcomingAppointmentsComponent
+
   ],
   styleUrls: ['./appointments-list.component.css']
 })
