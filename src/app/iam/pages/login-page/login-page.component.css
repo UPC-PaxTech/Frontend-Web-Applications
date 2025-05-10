@@ -1,22 +1,48 @@
 .login-container {
   height: 100vh;
+  width: 100%;
   position: relative;
-  background-image: url('/assets/invernadero.jpg'); // Usa tu imagen
-background-size: cover;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://posbrava.com/wp-content/uploads/2024/01/Tecnologia-en-salones-de-belleza.jpg');
+  background-size: cover;
   background-position: center;
+  z-index: 1;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  opacity: 0.6;
+}
+
+.login-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .toolbar {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 10;
+  position: relative; /* Cambiar a absolute o fixed si deseas que flote */
+  z-index: 3;          /* Más alto que overlay (2) */
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
-  background: transparent;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .toolbar-left {
@@ -26,13 +52,6 @@ background-size: cover;
 
 .logo {
   height: 40px;
-  margin-right: 10px;
-}
-
-.brand {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
 }
 
 .toolbar-right button {
@@ -44,20 +63,15 @@ background-size: cover;
   flex: 1 1 auto;
 }
 
-.background-overlay {
-  background-color: rgba(0, 0, 0, 0.6); // capa con opacidad
-flex-grow: 1;
+.center-content {
+  flex-grow: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding: 2rem;
-}
-
-.login-content {
+  align-items: center;
   color: white;
+  padding: 2rem;
   text-align: center;
-  max-width: 400px;
-  width: 100%;
 }
 
 .welcome-text {
@@ -69,3 +83,20 @@ flex-grow: 1;
   font-size: 16px;
   margin-bottom: 24px;
 }
+.main-logo{
+  width: 300px;
+}
+
+.toolbar-right button {
+  background-color: #211f1f;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.toolbar-right button:hover {
+  background-color: #3b3939;
+  color: white;
+
+}
+
+
