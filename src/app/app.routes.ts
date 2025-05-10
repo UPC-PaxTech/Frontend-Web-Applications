@@ -1,10 +1,23 @@
 import { Routes } from '@angular/router';
+<<<<<<< HEAD
 import { ProfessionalDashboardComponent } from './dashboard/pages/professional-dashboard/professional-dashboard.component';
 import {ProfilePageComponent } from './profile/pages/profile-page/profile-page.component';
 import { SchedulePageComponent } from './schedule/pages/schedule-page/schedule-page.component';
 import { LoginPageComponent } from './iam/pages/login-page/login-page.component'
 import { RegisterPageComponent } from './iam/pages/register-page/register-page.component'
 import { ProviderLayoutComponent} from './public/components/provider-layout/provider-layout.component';
+=======
+import {
+  ProfessionalDashboardComponent
+} from './dashboard/pages/professional-dashboard/professional-dashboard.component';
+import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
+import {SchedulePageComponent} from './schedule/pages/schedule-page/schedule-page.component';
+import {ClientAppointmentPagesComponent} from './appointments/pages/client-appointment-pages/client-appointment-pages.component';
+
+//import {HomeProviderComponent} from './public/pages/home/home.component'; // HomeProvides (Dashboard)
+//const ProfileProviderComponent = () => import('./public/pages/about/about.component').then(m => m.AboutComponent); // Logout
+//const LogoutComponent = () => import('./public/pages/about/about.component').then(m => m.AboutComponent); // Profile Provider
+>>>>>>> 6bd3fc5b3d0acb6e330a288f229b869136092709
 
 
 export const routes: Routes = [
@@ -49,6 +62,7 @@ export const routes: Routes = [
   { path: 'homeProvider', component: ProfessionalDashboardComponent },
   { path: 'profile', component: ProfilePageComponent },
   { path: 'schedule', component: SchedulePageComponent },
+<<<<<<< HEAD
   {
     path: 'iam',
     children: [
@@ -56,4 +70,7 @@ export const routes: Routes = [
       { path: 'register', component: RegisterPageComponent },
     ]
   }*/
+=======
+  {path : 'Appointment', component: ClientAppointmentPagesComponent}
+>>>>>>> 6bd3fc5b3d0acb6e330a288f229b869136092709
 ];

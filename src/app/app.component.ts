@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RouterOutlet } from '@angular/router';
+<<<<<<< HEAD
 import {TranslateService} from '@ngx-translate/core';
+=======
+
+>>>>>>> 6bd3fc5b3d0acb6e330a288f229b869136092709
 import { UpcomingAppointmentsComponent } from './dashboard/components/upcoming-appointments/upcoming-appointments.component';
 import { ProfessionalDashboardComponent } from './dashboard/pages/professional-dashboard/professional-dashboard.component';
 

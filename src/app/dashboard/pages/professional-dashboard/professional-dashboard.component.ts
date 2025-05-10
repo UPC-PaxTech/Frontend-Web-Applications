@@ -25,7 +25,14 @@ import {TranslatePipe} from '@ngx-translate/core';
      =======
      */
     MatCardContent,
+<<<<<<< HEAD
     TranslatePipe
+=======
+    ToolbarProviderComponent
+=======
+      */
+    MatCardContent
+>>>>>>> 6bd3fc5b3d0acb6e330a288f229b869136092709
 
   ],
   templateUrl: './professional-dashboard.component.html',
