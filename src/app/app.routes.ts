@@ -4,6 +4,7 @@ import {
 } from './dashboard/pages/professional-dashboard/professional-dashboard.component';
 import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.component';
 import {SchedulePageComponent} from './schedule/pages/schedule-page/schedule-page.component';
+import {ClientAppointmentPagesComponent} from './appointments/pages/client-appointment-pages/client-appointment-pages.component';
 
 //import {HomeProviderComponent} from './public/pages/home/home.component'; // HomeProvides (Dashboard)
 //const ProfileProviderComponent = () => import('./public/pages/about/about.component').then(m => m.AboutComponent); // Logout
@@ -16,6 +17,6 @@ export const routes: Routes = [
   { path: '', redirectTo: 'homeProvider', pathMatch: 'full' },
   { path: 'homeProvider', component: ProfessionalDashboardComponent },
   { path: 'profile', component: ProfilePageComponent },
-  { path: 'schedule', component: SchedulePageComponent }
-
+  { path: 'schedule', component: SchedulePageComponent },
+  {path : 'Appointment', component: ClientAppointmentPagesComponent}
 ];
