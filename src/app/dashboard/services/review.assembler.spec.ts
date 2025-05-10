@@ -1,7 +1,7 @@
-import { Review } from './review.assembler';
+import { ReviewAssembler } from './review.assembler';
 
-describe('Review', () => {
+describe('ReviewAssembler', () => {
   it('should create an instance', () => {
-    expect(new Review()).toBeTruthy();
+    expect(new ReviewAssembler()).toBeTruthy();
   });
 });

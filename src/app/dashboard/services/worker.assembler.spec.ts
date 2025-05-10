@@ -1,7 +1,7 @@
-import { Worker } from './worker.assembler';
+import { WorkerAssembler } from './worker.assembler';
 
-describe('Worker', () => {
+describe('WorkerAssembler', () => {
   it('should create an instance', () => {
-    expect(new Worker()).toBeTruthy();
+    expect(new WorkerAssembler()).toBeTruthy();
   });
 });

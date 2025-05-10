@@ -1,0 +1,28 @@
+<!-- login-page.component.html -->
+<div class="login-container">
+  <!-- Barra de navegación superior -->
+  <mat-toolbar color="transparent" class="toolbar">
+    <div class="toolbar-left">
+      <img src="/assets/logo.png" alt="Logo" class="logo" />
+      <span class="brand">INNOX</span>
+    </div>
+    <span class="spacer"></span>
+    <div class="toolbar-right">
+      <button mat-button color="accent">Login</button>
+      <button mat-button color="accent">Register</button>
+    </div>
+  </mat-toolbar>
+
+
+  <!-- Fondo con capa oscura -->
+  <div class="background-overlay">
+    <div class="login-content">
+      <h1 class="welcome-text">Bienvenido a tu Plataforma de Reservas</h1>
+      <p class="subtitle">Gestiona citas y servicios en tiempo real</p>
+
+      <app-login-form></app-login-form>
+
+    </div>
+  </div>
+</div>
+
