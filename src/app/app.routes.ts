@@ -4,6 +4,7 @@ import {ProfilePageComponent } from './profile/pages/profile-page/profile-page.c
 import { SchedulePageComponent } from './schedule/pages/schedule-page/schedule-page.component';
 import { LoginPageComponent } from './iam/pages/login-page/login-page.component'
 import { RegisterPageComponent } from './iam/pages/register-page/register-page.component'
+import { ProviderLayoutComponent} from './public/components/provider-layout/provider-layout.component';
 
 
 export const routes: Routes = [
@@ -30,6 +31,7 @@ export const routes: Routes = [
   // Rutas para el proveedor con layout compartido (sidebar, toolbar, etc.)
   {
     path: 'provider',
+    component: ProviderLayoutComponent, // un layout que contiene su sidebar, toolbar, etc.
     children: [
       { path: '', redirectTo: 'homeProvider', pathMatch: 'full' },
       { path: 'homeProvider', component: ProfessionalDashboardComponent },
