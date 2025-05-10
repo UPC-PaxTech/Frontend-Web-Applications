@@ -3,6 +3,7 @@ import {MatCard, MatCardActions, MatCardContent, MatCardHeader} from '@angular/m
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
 import {MatCardTitle} from '@angular/material/card';
+import {RouterLink} from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ import {MatCardTitle} from '@angular/material/card';
     MatCardActions,
     MatButton,
     MatLabel,
-    MatFormField
+    MatFormField,
+    RouterLink
   ],
   templateUrl: './register-form-provider.component.html',
   styleUrl: './register-form-provider.component.css'
