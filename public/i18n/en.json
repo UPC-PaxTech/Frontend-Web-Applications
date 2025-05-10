@@ -34,6 +34,9 @@
     "addPhotoDescription": "Add a new photo to your portfolio",
     "imageSelectedLog": "Image selected:",
     "imageAddedLog": "Image added to portfolio"
+  },
+  "favorites": {
+    "bookNow": "Book now"
   }
 
 }

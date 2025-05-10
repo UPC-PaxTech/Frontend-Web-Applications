@@ -1,0 +1,13 @@
+<section class="appointments-section">
+  <h2 class="title">My favorites</h2>
+
+
+    <!-- Columna izquierda del centro -->
+    <div class="appointments-left">
+      <div class="group">
+        @for (favorite of FavoriteList; track favorite.nombre) {
+          <app-favorite-item [favorite]="favorite"></app-favorite-item>
+        }
+      </div>
+    </div>
+</section>

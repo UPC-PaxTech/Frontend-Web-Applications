@@ -158,6 +158,18 @@
       "nombre": "Lorenzo Ortega",
       "especializacion": "Stylist",
       "fotoUrl": "https://randomuser.me/api/portraits/men/28.jpg"
+    },
+    {
+      "workerId": "5",
+      "nombre": "Kevin Rivera",
+      "especializacion": "Color & Cut",
+      "fotoUrl": "https://randomuser.me/api/portraits/men/52.jpg"
+    },
+    {
+      "workerId": "6",
+      "nombre": "Gael Chi",
+      "especializacion": "Keratin Treatment",
+      "fotoUrl": "https://randomuser.me/api/portraits/men/53.jpg"
     }
 
 
@@ -726,10 +738,4 @@
 
     }
   ]
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> feature/Appointments
 }

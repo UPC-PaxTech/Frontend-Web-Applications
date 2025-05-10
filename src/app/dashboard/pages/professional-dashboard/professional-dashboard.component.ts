@@ -24,12 +24,9 @@ import {TranslatePipe} from '@ngx-translate/core';
     ToolbarProviderComponent
 =======
       */
-    MatCardContent
->>>>>>> feature/Appointments
-=======
+    MatCardContent,
     ToolbarProviderComponent,
     TranslatePipe
->>>>>>> 8d732658e4b59a116a0b1315566b8b492d730097
   ],
   templateUrl: './professional-dashboard.component.html',
   styleUrl: './professional-dashboard.component.css'
