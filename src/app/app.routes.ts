@@ -9,6 +9,7 @@ import {ClientLayoutComponent} from './public/components/client-layout/client-la
 import {
   ClientAppointmentPagesComponent
 } from './appointments/pages/client-appointment-pages/client-appointment-pages.component';
+import {ClientFavoriteComponent} from './favorites/pages/client-favorite/client-favorite.component';
 
 export const routes: Routes = [
 
@@ -48,7 +49,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'appointment', pathMatch: 'full' },
       { path: 'appointment', component: ClientAppointmentPagesComponent },
-      { path: 'profile', component: ProfilePageComponent },
+      { path: 'favorites', component: ClientFavoriteComponent },
       { path: 'schedule', component: SchedulePageComponent },
     ]
   },

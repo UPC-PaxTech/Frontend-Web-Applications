@@ -9,11 +9,11 @@ import {Observable, map} from 'rxjs';
   providedIn: 'root'
 })
 export class FavoritesApiService extends BaseService<FavoriteResource> {
-  override resourceEndpoint= '/favourites';
+  override resourceEndpoint= '/workers';
   constructor() {
     super();
   }
-  public getWorkers(): Observable<Favorite[]> {
+  public getFavorites(): Observable<Favorite[]> {
     return this.getAll().pipe(
       map(response => FavoriteAssembler.toEntitiesFromResponse(response)),
     )

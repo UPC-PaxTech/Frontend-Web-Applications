@@ -34,6 +34,8 @@
     "addPhotoDescription": "Añade una nueva foto a tu portafolio",
     "imageSelectedLog": "Imagen seleccionada:",
     "imageAddedLog": "Imagen añadida al portafolio"
+  },
+  "favorites": {
+    "bookNow": "Reservar ahora"
   }
-
 }
