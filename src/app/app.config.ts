@@ -3,6 +3,8 @@ import {ApplicationConfig, provideZoneChangeDetection} from '@angular/core';
 import {provideTranslateService, TranslateLoader} from '@ngx-translate/core';
 import {HttpClient, provideHttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {provideRouter} from '@angular/router';
+import {routes} from './app.routes';
 
 const httpLoaderFactory: (http: HttpClient) =>
   TranslateLoader = (http: HttpClient) =>
@@ -19,6 +21,8 @@ export const appConfig: ApplicationConfig = {
         deps: [HttpClient]
       },
       defaultLanguage: 'en',
-    })],
+    }),
+    provideRouter(routes)
+  ],
 };
 

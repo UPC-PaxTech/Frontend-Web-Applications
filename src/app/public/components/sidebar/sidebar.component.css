@@ -1,0 +1,33 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #f0dff0; /* Soft purple */
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: fixed;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: #8e44ad; /* Purple on hover */
+}
+
+.sidebar a.active {
+  font-weight: bold;
+  color: #8e44ad;
+}
+
+.material-icons {
+  font-size: 24px;
+}
