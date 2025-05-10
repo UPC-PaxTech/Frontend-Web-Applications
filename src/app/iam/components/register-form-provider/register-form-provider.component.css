@@ -1,0 +1,28 @@
+.register-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  .register-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .register-button {
+    width: 100%;
+    text-transform: uppercase;
+    background-color: #211f1f;
+    color: #ffffff;
+  }
+
+
+}

@@ -1,0 +1,30 @@
+<div class="login-container">
+  <!-- Imagen de fondo -->
+  <div class="background-image"></div>
+
+  <!-- Capa oscura -->
+  <div class="background-overlay"></div>
+
+  <!-- Contenido de la página -->
+  <div class="login-content">
+    <!-- Barra de navegación superior -->
+    <mat-toolbar color="transparent" class="toolbar">
+      <div class="toolbar-left">
+        <img src="https://avatars.githubusercontent.com/u/205873631?s=400&u=7181957c1d03747f9dd9a668e2d4857d99ce55ff&v=4" alt="Logo" class="logo" />
+      </div>
+      <span class="spacer"></span>
+      <div class="toolbar-right">
+        <button mat-button color="white" [routerLink]="'/iam/login'">Sign In</button>
+        <button mat-button color="white" [routerLink]="'/iam/register'">Register</button>
+      </div>
+    </mat-toolbar>
+
+    <!-- Texto + Formulario -->
+    <div class="center-content">
+      <img src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png" alt="uTime Logo" class="main-logo" />
+      <h1 class="welcome-text">Back to beauty business?
+      </h1>
+      <app-login-form></app-login-form>
+    </div>
+  </div>
+</div>

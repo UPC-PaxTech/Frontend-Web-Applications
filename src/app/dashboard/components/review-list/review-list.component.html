@@ -1,6 +1,6 @@
 <section class="reviews">
-  <h3>Overall score: <span class="score">⭐ 4.7</span></h3>
-  <p>{{ reviews.length }} reviews</p>
+  <h3>{{ 'dashboard.overallScore' | translate }} <span class="score">⭐ 4.7</span></h3>
+  <p>{{ reviews.length }} {{ 'dashboard.reviews' | translate }}</p>
 
   <div class="review-container">
     @for (review of reviews; track review.id) {

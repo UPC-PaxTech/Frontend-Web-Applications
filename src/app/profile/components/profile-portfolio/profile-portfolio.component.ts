@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { SalonProfile } from '../../models/salon-profile.entity';
 import { CommonModule } from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile-portfolio',
   templateUrl: './profile-portfolio.component.html',
   styleUrls: ['./profile-portfolio.component.css'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, TranslatePipe]
 })
 export class ProfilePortfolioComponent {
   @Input() profile!: SalonProfile;

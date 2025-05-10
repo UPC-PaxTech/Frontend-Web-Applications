@@ -1,11 +1,11 @@
-
 <div class="portfolio">
-  <h3>Portafolio</h3>
+  <h3>{{ 'profile.portfolio' | translate }}</h3>
   <div class="portfolio-gallery">
     @for (image of profile.portfolioImages; track image) {
-      <img [src]="image" alt="Portfolio Image" (click)="onImageClick(image)" />
+      <img [src]="image" [alt]="'profile.profileImageAlt' | translate" (click)="onImageClick(image)" />
     }
-    <button class="add-photo-btn" (click)="onAddPhoto()">+ Add Photo</button>
+    <button class="add-photo-btn" (click)="onAddPhoto()">
+      {{ 'profile.addPhoto' | translate }}
+    </button>
   </div>
 </div>
-
