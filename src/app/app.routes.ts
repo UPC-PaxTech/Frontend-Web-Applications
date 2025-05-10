@@ -10,6 +10,7 @@ import {
   ClientAppointmentPagesComponent
 } from './appointments/pages/client-appointment-pages/client-appointment-pages.component';
 import {ClientFavoriteComponent} from './favorites/pages/client-favorite/client-favorite.component';
+import {ClientProfileComponent} from './profileclient/pages/client-profile/client-profile.component';
 
 export const routes: Routes = [
 
@@ -50,7 +51,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'appointment', pathMatch: 'full' },
       { path: 'appointment', component: ClientAppointmentPagesComponent },
       { path: 'favorites', component: ClientFavoriteComponent },
-      { path: 'schedule', component: SchedulePageComponent },
+      { path: 'profile', component: ClientProfileComponent },
     ]
   },
 

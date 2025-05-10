@@ -7,12 +7,12 @@ import {MatSlideToggle} from '@angular/material/slide-toggle';
 import {RouterLink} from '@angular/router';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {NgIf} from '@angular/common';
-import {MatError, MatFormField, MatInput} from '@angular/material/input';
+import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-profile',
-  imports: [MatIcon, ReactiveFormsModule, MatSlideToggle, MatFormField, RouterLink, MatButton, MatIconButton, NgIf, MatInput, MatError, MatProgressSpinner, MatProgressSpinner],
+  imports: [MatIcon, ReactiveFormsModule, MatSlideToggle, MatFormField, RouterLink, MatButton, MatIconButton, NgIf, MatInput, MatError, MatProgressSpinner, MatProgressSpinner, MatLabel],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
