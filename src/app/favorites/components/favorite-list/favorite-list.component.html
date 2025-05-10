@@ -1,1 +1,6 @@
-<p>favorite-list works!</p>
+<section>
+  <h3>{{ 'dashboard.ourStaff' | translate }}</h3>
+  @for (favorite of FavoriteList; track favorite.nombre) {
+    <app-favorite-item [favorite]="favorite"></app-favorite-item>
+  }
+</section>

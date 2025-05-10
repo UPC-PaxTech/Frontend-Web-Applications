@@ -1,1 +1,16 @@
-<p>favorite-item works!</p>
+<mat-card class="staff-item">
+  <div class="staff-content">
+    <img class="staff-image" [src]="favorite.foto" alt="Staff photo" />
+
+    <div class="staff-info">
+      <div class="staff-name">{{ favorite.nombre }}</div>
+      <div class="staff-role">{{ favorite.especializacion }}</div>
+    </div>
+
+    <div class="staff-action">
+      <button mat-button color="primary">
+        {{ 'dashboard.viewSchedule' | translate }} <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-card>
