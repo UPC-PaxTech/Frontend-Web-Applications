@@ -17,14 +17,15 @@ import {TranslatePipe} from '@ngx-translate/core';
     ReviewListComponent,
     MatCard,
     /**
-    MatCardTitle,
-<<<<<<< HEAD
+     MatCardTitle,
+     <<<<<<< HEAD
+     MatCardContent,
+     <<<<<<< HEAD
+     ToolbarProviderComponent
+     =======
+     */
     MatCardContent,
-<<<<<<< HEAD
-    ToolbarProviderComponent
-=======
-      */
-    MatCardContent
+    TranslatePipe
 
   ],
   templateUrl: './professional-dashboard.component.html',
