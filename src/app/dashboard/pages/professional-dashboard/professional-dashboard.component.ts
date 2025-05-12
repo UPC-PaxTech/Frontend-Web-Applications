@@ -16,7 +16,6 @@ import {TranslatePipe} from '@ngx-translate/core';
     UpcomingAppointmentsComponent,
     ReviewListComponent,
     MatCard,
-    MatCardTitle,
     MatCardContent,
     ToolbarProviderComponent,
     TranslatePipe
@@ -34,5 +33,4 @@ export class ProfessionalDashboardComponent implements OnInit {
     this.staffService.getWorkers().subscribe(worker => this.worker = worker);
     this.reviewService.getReviews().subscribe(reviews => this.reviews = reviews);
   }
-
 }

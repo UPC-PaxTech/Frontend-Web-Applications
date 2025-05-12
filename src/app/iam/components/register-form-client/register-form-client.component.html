@@ -1,0 +1,25 @@
+<form class="register-form">
+  <mat-card class="register-card">
+    <mat-card-content>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" placeholder="example@mail.com">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Your password">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Full Name</mat-label>
+        <input matInput type="text" placeholder="John Doe">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button class="register-button" type="button" [routerLink]="'/client/homeClient'">
+        Register as a Client
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

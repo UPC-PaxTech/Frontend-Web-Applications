@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import {MatCard, MatCardContent} from '@angular/material/card';
-import {UpcomingAppointmentsComponent} from '../../components/upcoming-appointments/upcoming-appointments.component';
-import {StaffListComponent} from '../../components/staff-list/staff-list.component';
-import {ReviewListComponent} from '../../components/review-list/review-list.component';
-import {TranslatePipe} from '@ngx-translate/core';
+import {TranslatePipe} from "@ngx-translate/core";
+import {MatCard, MatCardContent} from "@angular/material/card";
+import {UpcomingAppointmentsComponent} from "../../components/upcoming-appointments/upcoming-appointments.component";
+import {StaffListComponent} from "../../components/staff-list/staff-list.component";
+import {ReviewListComponent} from "../../components/review-list/review-list.component";
 import {SidebarComponent} from '../../../public/components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-client-dashboard',
   imports: [
+    TranslatePipe,
     MatCard,
     MatCardContent,
     UpcomingAppointmentsComponent,

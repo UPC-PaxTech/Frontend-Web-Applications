@@ -59,3 +59,6 @@ Cargador HTTP para archivos de traducción:
 ```bash
 npm install @ngx-translate/http-loader
 ```
+```iconos Material
+npm install @angular/material @angular/cdk
+```

@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Select a Plan</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-button-toggle-group [(ngModel)]="selectedPlan" (change)="onPlanSelect($event.value)">
+      <mat-button-toggle value="basic">Basic Plan</mat-button-toggle>
+      <mat-button-toggle value="premium">Premium Plan</mat-button-toggle>
+      <mat-button-toggle value="enterprise">Enterprise Plan</mat-button-toggle>
+    </mat-button-toggle-group>
+    <div *ngIf="selectedPlan">
+      <p>You selected: {{ selectedPlan }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>
