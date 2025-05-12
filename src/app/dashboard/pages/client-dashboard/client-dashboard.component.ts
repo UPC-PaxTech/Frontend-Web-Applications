@@ -5,6 +5,7 @@ import {UpcomingAppointmentsComponent} from "../../components/upcoming-appointme
 import {StaffListComponent} from "../../components/staff-list/staff-list.component";
 import {ReviewListComponent} from "../../components/review-list/review-list.component";
 import {SidebarComponent} from '../../../public/components/sidebar/sidebar.component';
+import {SidebarClientComponent} from "../../../public/components/sidebar-client/sidebar-client.component";
 
 @Component({
   selector: 'app-client-dashboard',
@@ -16,7 +17,8 @@ import {SidebarComponent} from '../../../public/components/sidebar/sidebar.compo
     StaffListComponent,
     ReviewListComponent,
     TranslatePipe,
-    SidebarComponent
+    SidebarComponent,
+    SidebarClientComponent
   ],
   templateUrl: './client-dashboard.component.html',
   styleUrl: './client-dashboard.component.css'
