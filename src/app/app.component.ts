@@ -11,10 +11,11 @@ import {ProfilePageComponent} from './profile/pages/profile-page/profile-page.co
 import {SidebarComponent} from './public/components/sidebar/sidebar.component';
 import {TranslateService} from '@ngx-translate/core';
 import {SalonListComponent} from './dashboard/components/salon-list/salon-list.component';
+import {ClientDashboardComponent} from './dashboard/pages/client-dashboard/client-dashboard.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, UpcomingAppointmentsComponent, SalonListComponent, ProfessionalDashboardComponent, CalendarComponent, ToolbarProviderComponent, ProfilePageComponent, SidebarComponent],
+  imports: [RouterOutlet, UpcomingAppointmentsComponent, SalonListComponent, ProfessionalDashboardComponent, CalendarComponent, ToolbarProviderComponent, ProfilePageComponent, SidebarComponent, ClientDashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
