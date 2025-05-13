@@ -1,5 +1,5 @@
 export interface SalonProfileResponse {
-  profileId: string;
+  id: number;
   userId: string;
   salonName: string;
   rating: number;
@@ -10,4 +10,12 @@ export interface SalonProfileResponse {
     tiktok: string;
   };
   portfolioImages: string[];
+  accounts: {  // Hazlo opcional para actualizaciones parciales
+    accountId: string;
+    email: string;
+    passwordHash: string;
+    isActive: boolean;
+  };
+  Address: string;
+  salonemail: string;
 }

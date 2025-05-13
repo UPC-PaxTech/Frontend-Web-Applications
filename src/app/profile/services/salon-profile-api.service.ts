@@ -15,7 +15,7 @@ export class SalonProfileApiService extends BaseService<SalonProfileResponse> {
     super();
   }
 
-  public getProfileById(id: string): Observable<SalonProfile> {
+  public getProfileById(id: number): Observable<SalonProfile> {
     return this.http.get<SalonProfileResponse>(`${this.resourcePath()}/${id}`, this.httpOptions)
       .pipe(
         retry(2),
@@ -23,5 +23,12 @@ export class SalonProfileApiService extends BaseService<SalonProfileResponse> {
         map(response => SalonProfileAssembler.toEntityFromResponse(response))
       );
   }
+
+
+
+
+
+
+
 
 }

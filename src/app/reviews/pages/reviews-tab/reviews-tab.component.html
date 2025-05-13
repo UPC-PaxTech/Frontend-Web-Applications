@@ -1,0 +1,12 @@
+<h1>{{ 'dashboard.reviews' | translate }} </h1>
+
+<div class="main-column">
+  <h3>{{ 'dashboard.overallScore' | translate }} <span class="score">⭐ 4.7</span></h3>
+  <p>{{ reviews.length }} {{ 'dashboard.reviews' | translate }}</p>
+
+  <mat-card class="mat-elevation-z2">
+    <mat-card-content>
+      <app-review-list [reviews]="reviews"></app-review-list>
+    </mat-card-content>
+  </mat-card>
+</div>
