@@ -119,7 +119,7 @@
   ],
   "salons": [
     {
-      "name": "magic1",
+      "name": "Montalvo",
       "salonId": "1",
       "imageURL": "https://files.catbox.moe/fqypcv.jpg",
       "location": "Downtown",
@@ -133,13 +133,7 @@
       "phone": "987654321"
     },
     {
-      "name": "magic2",
-      "salonId": "salon2",
-      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
-      "location": "Midtown",
-      "phone": "987654321"
-    },
-    {
+      "name": "tu super salon",
       "salonId": "salon3",
       "location": "Uptown",
       "imageURL": "https://files.catbox.moe/fqypcv.jpg",
@@ -183,8 +177,6 @@
       "especializacion": "Keratin Treatment",
       "fotoUrl": "https://randomuser.me/api/portraits/men/53.jpg"
     }
-
-
   ],
   "services": [
     {
@@ -219,43 +211,43 @@
   "payments": [
     {
       "paymentId": "pay1",
-      "amount": 40.0,
+      "amount": 40,
       "currency": "USD",
       "status": true
     },
     {
       "paymentId": "pay2",
-      "amount": 50.0,
+      "amount": 50,
       "currency": "USD",
       "status": true
     },
     {
       "paymentId": "pay3",
-      "amount": 100.0,
+      "amount": 100,
       "currency": "USD",
       "status": true
     },
     {
       "paymentId": "pay4",
-      "amount": 30.0,
+      "amount": 30,
       "currency": "USD",
       "status": false
     },
     {
       "paymentId": "pay5",
-      "amount": 50.0,
+      "amount": 50,
       "currency": "USD",
       "status": true
     },
     {
       "paymentId": "pay6",
-      "amount": 30.0,
+      "amount": 30,
       "currency": "USD",
       "status": true
     },
     {
       "paymentId": "pay7",
-      "amount": 40.0,
+      "amount": 40,
       "currency": "USD",
       "status": true
     }
@@ -279,7 +271,7 @@
       },
       "payment": {
         "paymentId": "pay1",
-        "amount": 40.0,
+        "amount": 40,
         "currency": "USD",
         "status": true
       },
@@ -312,7 +304,7 @@
       },
       "payment": {
         "paymentId": "2",
-        "amount": 50.0,
+        "amount": 50,
         "currency": "USD",
         "status": true
       },
@@ -345,7 +337,7 @@
       },
       "payment": {
         "paymentId": "pay3",
-        "amount": 100.0,
+        "amount": 100,
         "currency": "USD",
         "status": true
       },
@@ -378,7 +370,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": false
       },
@@ -390,7 +382,7 @@
         "tipo": "Express"
       },
       "worker": {
-        "name":"Gael"
+        "name": "Gael"
       }
     },
     {
@@ -411,7 +403,7 @@
       },
       "payment": {
         "paymentId": "pay4",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": false
       },
@@ -423,10 +415,9 @@
         "tipo": "Express"
       },
       "worker": {
-        "name":"Alejandro"
+        "name": "Alejandro"
       }
     },
-
     {
       "reservationId": "5",
       "tipo": "Simple haircut",
@@ -445,7 +436,7 @@
       },
       "payment": {
         "paymentId": "pay5",
-        "amount": 50.0,
+        "amount": 50,
         "currency": "USD",
         "status": true
       },
@@ -475,7 +466,7 @@
       },
       "payment": {
         "paymentId": "pay6",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": true
       },
@@ -505,7 +496,7 @@
       },
       "payment": {
         "paymentId": "pay7",
-        "amount": 40.0,
+        "amount": 40,
         "currency": "USD",
         "status": true
       },
@@ -535,7 +526,7 @@
       },
       "payment": {
         "paymentId": "pay5",
-        "amount": 50.0,
+        "amount": 50,
         "currency": "USD",
         "status": true
       },
@@ -565,7 +556,7 @@
       },
       "payment": {
         "paymentId": "pay6",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": true
       },
@@ -595,7 +586,7 @@
       },
       "payment": {
         "paymentId": "pay7",
-        "amount": 40.0,
+        "amount": 40,
         "currency": "USD",
         "status": true
       },
@@ -625,7 +616,7 @@
       },
       "payment": {
         "paymentId": "pay5",
-        "amount": 50.0,
+        "amount": 50,
         "currency": "USD",
         "status": true
       },
@@ -655,7 +646,7 @@
       },
       "payment": {
         "paymentId": "pay6",
-        "amount": 30.0,
+        "amount": 30,
         "currency": "USD",
         "status": true
       },
@@ -685,7 +676,7 @@
       },
       "payment": {
         "paymentId": "pay7",
-        "amount": 40.0,
+        "amount": 40,
         "currency": "USD",
         "status": true
       },
@@ -746,8 +737,15 @@
         "https://picsum.photos/600/400?random=3",
         "https://picsum.photos/600/400?random=4",
         "https://picsum.photos/600/400?random=5"
-      ]
-
+      ],
+      "Address": "adress",
+      "salonemail": "email@gmail.com",
+      "accounts": {
+        "accountId": "acc3",
+        "email": "mike@example.com",
+        "passwordHash": "ok",
+        "isActive": false
+      }
     }
   ]
 }

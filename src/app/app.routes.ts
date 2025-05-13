@@ -12,6 +12,14 @@ import {
 import {ClientFavoriteComponent} from './favorites/pages/client-favorite/client-favorite.component';
 import {ClientProfileComponent} from './profileclient/pages/client-profile/client-profile.component';
 import {ClientDashboardComponent} from './dashboard/pages/client-dashboard/client-dashboard.component';
+import {SalonComponent} from './dashboard/pages/salon/salon.component';
+import {SettingsPageComponent} from './providerSettings/pages/settings-page/settings-page.component';
+import {ReviewsTabComponent} from './reviews/pages/reviews-tab/reviews-tab.component';
+import {ServicesTabComponent} from './services/pages/services-tab/services-tab.component';
+import {SettingsPageComponent} from './providerSettings/pages/settings-page/settings-page.component';
+import {ReviewsTabComponent} from './reviews/pages/reviews-tab/reviews-tab.component';
+import {ServicesTabComponent} from './services/pages/services-tab/services-tab.component';
+import {SubscriptionTabComponent} from './subscription/pages/subscription-tab/subscription-tab.component';
 
 export const routes: Routes = [
 
@@ -46,6 +54,14 @@ export const routes: Routes = [
       { path: 'appointment', component: ClientAppointmentPagesComponent },
       { path: 'favorites', component: ClientFavoriteComponent },
       { path: 'profile', component: ClientProfileComponent },
+    ]
+  },
+  {
+    path: 'client/homeClient',
+    component: ClientLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'homeClient', pathMatch: 'full' },
+      { path: 'salon', component: SalonComponent}
     ]
   },
 
