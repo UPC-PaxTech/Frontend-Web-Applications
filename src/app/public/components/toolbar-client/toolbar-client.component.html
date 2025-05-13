@@ -6,7 +6,7 @@
 
     <div class="search-bar">
       <span class="material-icons">search</span>
-      <input type="text" placeholder="Search">
+      <input type="text" placeholder="Search" class="search-input">
     </div>
   </div>
 
@@ -16,10 +16,6 @@
 
   <div class="right-section">
     <app-language-switcher></app-language-switcher>
-    <button class="icon-button" aria-label="Notifications">
-      <span class="material-icons">notifications</span>
-      <span class="notification-badge">1</span>
-    </button>
     <button class="icon-button" aria-label="Profile" [routerLink]="'/client/profile'">
       <span class="material-icons">person</span>
     </button>
@@ -28,3 +24,5 @@
     </button>
   </div>
 </header>
+
+

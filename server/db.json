@@ -119,7 +119,7 @@
   ],
   "salons": [
     {
-      "name": "magic1",
+      "name": "Montalvo",
       "salonId": "1",
       "imageURL": "https://files.catbox.moe/fqypcv.jpg",
       "location": "Downtown",
@@ -133,6 +133,7 @@
       "phone": "987654321"
     },
     {
+      "name": "tu super salon",
       "salonId": "salon3",
       "location": "Uptown",
       "imageURL": "https://files.catbox.moe/fqypcv.jpg",
