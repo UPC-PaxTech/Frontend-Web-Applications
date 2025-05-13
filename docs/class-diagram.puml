@@ -30,44 +30,118 @@ package Public {
 ' === Dashboard Context ===
 package DashboardContext {
   package Components {
-    class SalonCardItemComponent <<Component>> {}
-    class SalonCardListComponent <<Component>> {}
+    class ReviewItemComponent <<Component>> {}
+    class ReviewListComponent <<Component>> {}
+    class SalonItemComponent <<Component>> {}
+    class SalonListComponent <<Component>> {}
+    class StaffItemComponent <<Component>> {}
+    class StaffListComponent <<Component>> {}
+    class UpcomingAppointmentsComponent <<Component>> {}
   }
-  package Services { }
-  package Pages {
-    class DashboardUserComponent <<Component>> { }
-    class DashboardProviderComponent <<Component>> { }
-    class SalonDetailPage <<Component>> { }
-  }
+
   package Model {
-    entity SalonCard <<Entity>>{
-    }
+    entity Appointment <<Entity>> {}
+    entity Review <<Entity>> {}
+    entity Salon <<Entity>> {}
+    entity Worker <<Entity>> {}
   }
-  SalonCardListComponent <-- DashboardUserComponent
+
+  package Services {
+    ' Appointment services
+    class AppointmentAssembler <<Service>> {}
+    class AppointmentResponse <<Service>> {}
+    class AppointmentApiService <<Service>> {}
+
+    ' Review services
+    class ReviewAssembler <<Service>> {}
+    class ReviewResponse <<Service>> {}
+    class ReviewApiService <<Service>> {}
+
+    ' Salon services
+    class SalonAssembler <<Service>> {}
+    class SalonResponse <<Service>> {}
+    class SalonApiService <<Service>> {}
+
+    ' Worker services
+    class WorkerAssembler <<Service>> {}
+    class WorkerResponse <<Service>> {}
+    class WorkerApiService <<Service>> {}
+  }
+
+  package Pages {
+    class ClientDashboardComponent <<Component>> {}
+    class ProfessionalDashboardComponent <<Component>> {}
+  }
+
+  ' Relaciones
+  Pages .> Services
+  Pages --> Components
+  Pages -> Model
   Components --> Model
 }
+
 
 ' === Appointment Context ===
 package AppointmentContext {
   package Components {
-    class CalendarComponent <<Component>> {}
-    class AppointmentItemComponent <<Component>> {}
-    class AppointmentListComponent <<Component>> {}
+    class AppointmentsItemComponent <<Component>> {}
+    class AppointmentsListComponent <<Component>> {}
+    class ReviewItemComponent <<Component>> {}
+    class ReviewListComponent <<Component>> {}
+    class UpcomingAppointmentsComponent <<Component>> {}
   }
-  package Model {
-    entity Calendar <<Entity>>{}
-    entity Appointment <<Entity>>{}
-  }
-  package Services { }
-  package Pages {
-    class AppointmentBookingPage <<Component>> {}
-    'Trae worker y timeblock?
 
-    class ClientAppointments <<Component>> {}
+  package Model {
+    entity Appointment <<Entity>> {}
+    entity Review <<Entity>> {}
   }
-  ClientAppointments --> AppointmentListComponent
-  AppointmentListComponent --> AppointmentItemComponent
-  AppointmentItemComponent -> Appointment
+
+  package Services {
+    class AppointmentAssembler <<Service>> {}
+    class AppointmentResponse <<Service>> {}
+    class AppointmentApiService <<Service>> {}
+    class ReviewApiService <<Service>> {}
+    class ReviewsAssembler <<Service>> {}
+    class ReviewsResponse <<Service>> {}
+  }
+
+  package Pages {
+    class ClientAppointmentPagesComponent <<Component>> {}
+  }
+
+  ' Relaciones
+  Pages ..> Services
+  Pages --> Components
+  Pages --> Model
+  Components --> Model
+}
+
+' === Favorites Context ===
+package FavoritesContext {
+  package Components {
+    class FavoriteItemComponent <<Component>> {}
+    class FavoriteListComponent <<Component>> {}
+  }
+
+  package Model {
+    entity Favorite <<Entity>> {}
+  }
+
+  package Services {
+    class FavoriteAssembler <<Service>> {}
+    class FavoriteResponse <<Service>> {}
+    class FavoriteApiService <<Service>> {}
+  }
+
+  package Pages {
+    class ClientFavoriteComponent <<Component>> {}
+  }
+
+  ' Relaciones
+  Pages ..> Services
+  Pages --> Components
+  Pages --> Model
+  Components --> Model
 }
 
 
@@ -99,6 +173,8 @@ package ScheduleContext {
   ScheduleComponent --> WorkerCarouselComponent
 
 }
+
+
 
 ' === Settings Context ===
 package SettingsContext {
