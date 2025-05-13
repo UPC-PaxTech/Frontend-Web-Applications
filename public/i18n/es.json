@@ -9,7 +9,8 @@
     "viewSchedule": "Ver agenda",
     "ourStaff": "Nuestro Personal",
     "overallScore": "Calificación general:",
-    "reviews": "reseñas",
+    "reviews": "Reseñas",
+    "services": "Servicios",
     "manicure": "Manicura",
     "keratinTreatment": "Tratamiento de keratina",
     "colorCut": "Color y corte",
@@ -37,5 +38,13 @@
   },
   "favorites": {
     "bookNow": "Reservar ahora"
+  },
+  "services": {
+    "service": "Servicio",
+    "duration": "Duración",
+    "price": "Precio",
+    "status": "Estado",
+    "actions": "Acciones",
+    "settings": "settings"
   }
 }

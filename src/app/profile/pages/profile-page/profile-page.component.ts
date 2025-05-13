@@ -18,7 +18,7 @@ export class ProfilePageComponent implements OnInit {
  constructor(private profileService: SalonProfileApiService) {}
 
   ngOnInit() {
-    this.profileService.getProfileById('1').subscribe(profile => {
+    this.profileService.getProfileById(1).subscribe(profile => {
       console.log('Perfil cargado:', profile); // 👈 Asegúrate que esto muestra algo
       this.profile = profile;
     });
