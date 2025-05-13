@@ -133,6 +133,13 @@
       "phone": "987654321"
     },
     {
+      "name": "magic2",
+      "salonId": "salon2",
+      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
+      "location": "Midtown",
+      "phone": "987654321"
+    },
+    {
       "salonId": "salon3",
       "location": "Uptown",
       "imageURL": "https://files.catbox.moe/fqypcv.jpg",
