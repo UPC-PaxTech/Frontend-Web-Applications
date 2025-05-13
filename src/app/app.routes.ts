@@ -16,6 +16,7 @@ import {SalonComponent} from './dashboard/pages/salon/salon.component';
 import {SettingsPageComponent} from './providerSettings/pages/settings-page/settings-page.component';
 import {ReviewsTabComponent} from './reviews/pages/reviews-tab/reviews-tab.component';
 import {ServicesTabComponent} from './services/pages/services-tab/services-tab.component';
+import {SubscriptionTabComponent} from './subscription/pages/subscription-tab/subscription-tab.component';
 
 export const routes: Routes = [
 
@@ -41,6 +42,7 @@ export const routes: Routes = [
       { path: 'schedule', component: SchedulePageComponent },
       { path: 'reviews', component: ReviewsTabComponent },
       { path: 'services', component: ServicesTabComponent },
+      { path: 'subscription', component: SubscriptionTabComponent },
       { path: 'settings', component: SettingsPageComponent },
     ]
   },
