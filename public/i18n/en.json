@@ -9,7 +9,8 @@
     "viewSchedule": "View schedule",
     "ourStaff": "Our Staff",
     "overallScore": "Overall score:",
-    "reviews": "reviews",
+    "reviews": "Reviews",
+    "services": "Services",
     "manicure": "Manicure",
     "keratinTreatment": "Keratin Treatment",
     "colorCut": "Color & cut",
@@ -37,6 +38,13 @@
   },
   "favorites": {
     "bookNow": "Book now"
+  },
+  "services": {
+    "service": "Service",
+    "duration": "Duration",
+    "price": "Price",
+    "status": "Status",
+    "actions": "Actions"
   }
 
 }

@@ -13,6 +13,8 @@ import {ClientFavoriteComponent} from './favorites/pages/client-favorite/client-
 import {ClientProfileComponent} from './profileclient/pages/client-profile/client-profile.component';
 import {ClientDashboardComponent} from './dashboard/pages/client-dashboard/client-dashboard.component';
 import {SettingsPageComponent} from './providerSettings/pages/settings-page/settings-page.component';
+import {ReviewsTabComponent} from './reviews/pages/reviews-tab/reviews-tab.component';
+import {ServicesTabComponent} from './services/pages/services-tab/services-tab.component';
 
 export const routes: Routes = [
 
@@ -36,6 +38,8 @@ export const routes: Routes = [
       { path: 'homeProvider', component: ProfessionalDashboardComponent },
       { path: 'profile', component: ProfilePageComponent },
       { path: 'schedule', component: SchedulePageComponent },
+      { path: 'reviews', component: ReviewsTabComponent },
+      { path: 'services', component: ServicesTabComponent },
       { path: 'settings', component: SettingsPageComponent },
     ]
   },
