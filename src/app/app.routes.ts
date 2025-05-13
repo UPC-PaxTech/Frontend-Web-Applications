@@ -12,6 +12,7 @@ import {
 import {ClientFavoriteComponent} from './favorites/pages/client-favorite/client-favorite.component';
 import {ClientProfileComponent} from './profileclient/pages/client-profile/client-profile.component';
 import {ClientDashboardComponent} from './dashboard/pages/client-dashboard/client-dashboard.component';
+import {SettingsPageComponent} from './providerSettings/pages/settings-page/settings-page.component';
 
 export const routes: Routes = [
 
@@ -35,6 +36,7 @@ export const routes: Routes = [
       { path: 'homeProvider', component: ProfessionalDashboardComponent },
       { path: 'profile', component: ProfilePageComponent },
       { path: 'schedule', component: SchedulePageComponent },
+      { path: 'settings', component: SettingsPageComponent },
     ]
   },
   {
