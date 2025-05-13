@@ -121,20 +121,21 @@
     {
       "name": "magic1",
       "salonId": "1",
-      "imageURL": "https://files.catbox.moe/4bfm25.jpg",
+      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
       "location": "Downtown",
       "phone": "123456789"
     },
     {
       "name": "magic2",
       "salonId": "salon2",
-      "imageURL": "https://files.catbox.moe/4bfm25.jpg",
+      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
       "location": "Midtown",
       "phone": "987654321"
     },
     {
       "salonId": "salon3",
       "location": "Uptown",
+      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
       "phone": "555123456"
     }
   ],
