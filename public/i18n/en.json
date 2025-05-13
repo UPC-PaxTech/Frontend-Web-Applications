@@ -11,6 +11,7 @@
     "overallScore": "Overall score:",
     "reviews": "Reviews",
     "services": "Services",
+    "subscription": "Subscription",
     "manicure": "Manicure",
     "keratinTreatment": "Keratin Treatment",
     "colorCut": "Color & cut",
@@ -45,6 +46,11 @@
     "price": "Price",
     "status": "Status",
     "actions": "Actions"
+  },
+  "subscription": {
+    "currentPlan": "Your current plan is: ",
+    "upgrade": "Wanna upgrade? Check out these plans",
+    "confirmation": ""
   }
 
 }
