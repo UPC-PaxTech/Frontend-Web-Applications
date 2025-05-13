@@ -8,6 +8,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatIcon} from '@angular/material/icon';
 import {MatIconButton} from '@angular/material/button';
 import {ServiceTableComponent} from '../../components/service-table/service-table.component';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-services-tab',
@@ -18,6 +19,7 @@ import {ServiceTableComponent} from '../../components/service-table/service-tabl
     MatIconButton,
     MatIcon,
     ServiceTableComponent,
+    NgIf,
 
   ],
   templateUrl: './services-tab.component.html',

@@ -1,0 +1,21 @@
+<h2>{{'subscription.currentPlan' | translate }}
+  <div class="plan-container">{{selectedPlan || "ProStyle"}}</div>
+</h2>
+
+<h3>{{'subscription.upgrade' | translate }}</h3>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Select a Plan</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-button-toggle-group [(ngModel)]="selectedPlan" (change)="onPlanSelect($event.value)">
+      <mat-button-toggle value="Essential" (click)="changePlan()">Essential</mat-button-toggle>
+      <mat-button-toggle value="ProStyle" (click)="changePlan()">ProStyle</mat-button-toggle>
+      <mat-button-toggle value="Deluxe Studio" (click)="changePlan()">Deluxe Studio</mat-button-toggle>
+    </mat-button-toggle-group>
+    <div *ngIf="selectedPlan">
+      <p>You selected: {{ selectedPlan }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>
