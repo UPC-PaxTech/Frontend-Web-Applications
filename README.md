@@ -74,6 +74,13 @@ npm install @angular/material @angular/cdk
 ```bash
 ng add angular-cli-ghpages
 ```
+## 📢 Deploy en GitHub Pages (Producción)
+
+### 1️⃣ Compilar el proyecto en modo producción
+
 ```bash
-ng build --base-href "https://<TU_USUARIO>.github.io/<REPOSITORIO>/"
+ng build --configuration production
+```
+```bash
+npx angular-cli-ghpages --dir=dist/frontend-web-applications/browser
 ```
