@@ -62,3 +62,18 @@ npm install @ngx-translate/http-loader
 ```iconos Material
 npm install @angular/material @angular/cdk
 ```
+
+---
+
+## 🌐 Despliegue en GitHub Pages
+
+> Puedes publicar la aplicación fácilmente en GitHub Pages siguiendo estos pasos:
+
+### 📤 **1. Compilar para producción**
+
+```bash
+ng add angular-cli-ghpages
+```
+```bash
+ng build --base-href "https://<TU_USUARIO>.github.io/<REPOSITORIO>/"
+```
