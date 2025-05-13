@@ -44,7 +44,8 @@
     "duration": "Duration",
     "price": "Price",
     "status": "Status",
-    "actions": "Actions"
+    "actions": "Actions",
+    "settings": "settings"
   }
 
 }
