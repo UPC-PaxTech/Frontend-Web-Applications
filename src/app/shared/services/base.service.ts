@@ -30,4 +30,15 @@ export abstract class BaseService<R> {
       catchError(this.handleError)
     );
   }
+
+  public update(id: any, resource: R): Observable<R> {
+    return this.http.put<R>(`${this.resourcePath()}/${id}`, JSON.stringify(resource), this.httpOptions)
+        .pipe(retry(2), catchError(this.handleError));
+  }
+
+  public partialUpdate(id: any, partialResource: Partial<R>): Observable<R> {
+    return this.http.patch<R>(`${this.resourcePath()}/${id}`, JSON.stringify(partialResource), this.httpOptions)
+        .pipe(retry(2), catchError(this.handleError));
+  }
+
 }

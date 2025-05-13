@@ -1,6 +1,6 @@
 
 export class SalonProfile {
-  profileId: string;
+  profileId: number;
   userId: string;
   salonName: string;
   rating: number;
@@ -11,9 +11,19 @@ export class SalonProfile {
     tiktok: string;
   };
   portfolioImages: string[];
+  address: string;
+  email: string;
+
+  accounts: {
+    accountId: string;
+    email: string;
+    passwordHash: string;
+    isActive: boolean;
+  }
+
 
   constructor() {
-    this.profileId = '';
+    this.profileId = 0;
     this.userId = '';
     this.salonName = '';
     this.rating = 0;
@@ -21,5 +31,10 @@ export class SalonProfile {
     this.coverImage = '';
     this.socials = { instagram: '', tiktok: '' };
     this.portfolioImages = [];
+    this.address = '';
+    this.email = '';
+    this.accounts = {
+      accountId: '', email: '', passwordHash: '', isActive: false
+    };
   }
 }

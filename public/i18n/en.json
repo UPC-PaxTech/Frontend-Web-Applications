@@ -50,7 +50,9 @@
   "subscription": {
     "currentPlan": "Your current plan is: ",
     "upgrade": "Wanna upgrade? Check out these plans",
-    "confirmation": ""
+    "confirmation": "",
+    "actions": "Actions",
+    "settings": "settings"
   }
 
 }
