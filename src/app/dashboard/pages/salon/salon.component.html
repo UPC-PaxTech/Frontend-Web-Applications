@@ -5,11 +5,11 @@
         <button mat-button routerLink="/client">
           <<mat-icon>arrow_back</mat-icon> Back>
         </button>
-
       </div>
+
       <div class="salon-info">
         <h1>{{salon.name}}</h1>
-        <h2>{{salon.location}}</h2>
+        <h2> <mat-icon fontIcon="location_on"></mat-icon> {{salon.location}} </h2>
         <hr>
 
         <div class="socials">
@@ -30,7 +30,7 @@
     <div class="right-column">
       <mat-card>
         <img matCardImage [src]="salon.imageURL" alt="Salon image">
-
+        <app-service-list></app-service-list>
       </mat-card>
     </div>
   </div>

@@ -11,6 +11,9 @@ import {RouterLink} from '@angular/router';
 import {SalonProfile} from '../../../profile/models/salon-profile.entity';
 import {ProfileService} from '../../../profileclient/service/profile-api.service';
 import {SalonProfileApiService} from '../../../profile/services/salon-profile-api.service';
+import {ServiceListComponent} from "../../../services/components/service-list/service-list.component";
+import {Service} from "../../../services/model/service.entity";
+import {ServiceApiService} from "../../../services/services/services-api.service";
 
 @Component({
   selector: 'app-salon',
@@ -20,7 +23,8 @@ import {SalonProfileApiService} from '../../../profile/services/salon-profile-ap
     MatCardImage,
     MatButton,
     RouterLink,
-    MatIcon
+    MatIcon,
+    ServiceListComponent
   ],
   templateUrl: './salon.component.html',
   styleUrl: './salon.component.css'
@@ -31,16 +35,18 @@ export class SalonComponent implements OnInit {
   @Output() salonSelected = new EventEmitter<Salon>();
 
   reviews: Review[] = [];
+  services: Service[] = [];
 
-  constructor(private reviewService: ReviewApiService, private salonService: SalonApiService, private profileService: SalonProfileApiService) {
+  constructor(private reviewService: ReviewApiService,
+              private salonService: SalonApiService,
+              private profileService: SalonProfileApiService,
+              private serviceService: ServiceApiService) {
   }
 
   ngOnInit() {
     this.reviewService.getReviews().subscribe(reviews => this.reviews = reviews);
     this.salonService.getSalons().subscribe(salons => this.salon = salons[0]);
-    this.profileService.getProfileById(1).subscribe(profile => {
-      console.log('Perfil cargado:', profile); // 👈 Asegúrate que esto muestra algo
-      this.profile = profile;
-    });
+    this.profileService.getProfileById(1).subscribe(profile => this.profile = profile);
+    this.serviceService.getServices().subscribe(services => this.services = services);
   }
 }
