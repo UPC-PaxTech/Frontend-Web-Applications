@@ -1,0 +1,48 @@
+<h2>{{'subscription.currentPlan' | translate }}
+  <div class="plan-container">{{selectedPlan || "ProStyle"}}</div>
+</h2>
+
+<h3>{{'subscription.upgrade' | translate }}</h3>
+<div class="plans">
+  <mat-card class="essential" (click)="changePlan('Essential')" >
+    <mat-card-title>Essential</mat-card-title>
+    <mat-card-subtitle>Free</mat-card-subtitle>
+    <div class="features">
+      <li><mat-icon class="check">check</mat-icon> Basic smart calendar</li>
+      <li><mat-icon class="check">check</mat-icon> Client booking page</li>
+      <li><mat-icon class="check">check</mat-icon> Reviews & ratings</li>
+      <li><mat-icon class="ex">clear</mat-icon> Client database</li>
+      <li><mat-icon class="ex">clear</mat-icon> Custom booking link</li>
+      <li><mat-icon class="ex">clear</mat-icon> Advanced analytics</li>
+    </div>
+    <div class="boton"><button class="choose-btn">Choose</button></div>
+  </mat-card>
+  <mat-card class="prostyle" (click)="changePlan('ProStyle')">
+    <mat-card-title>ProStyle</mat-card-title>
+    <mat-card-subtitle>s/69.9 x month</mat-card-subtitle>
+    <div class="features">
+      <li><mat-icon class="check">check</mat-icon> Basic smart calendar</li>
+      <li><mat-icon class="check">check</mat-icon> Client booking page</li>
+      <li><mat-icon class="check">check</mat-icon> Reviews & ratings</li>
+      <li><mat-icon class="check">check</mat-icon> Client database</li>
+      <li><mat-icon class="ex">clear</mat-icon> Custom booking link</li>
+      <li><mat-icon class="ex">clear</mat-icon> Advanced analytics</li>
+    </div>
+    <div class="boton"><button class="choose-btn">Choose</button></div>
+  </mat-card>
+
+  <mat-card class="deluxe-studio" (click)="changePlan('Deluxe Studio')">
+    <mat-card-title>Deluxe Studio</mat-card-title>
+    <mat-card-subtitle>s/129.90 x month</mat-card-subtitle>
+    <div class="features">
+      <li><mat-icon class="check">check</mat-icon> Basic smart calendar</li>
+      <li><mat-icon class="check">check</mat-icon> Client booking page</li>
+      <li><mat-icon class="check">check</mat-icon> Reviews & ratings</li>
+      <li><mat-icon class="check">check</mat-icon> Client database</li>
+      <li><mat-icon class="check">check</mat-icon> Custom booking link</li>
+      <li><mat-icon class="check">check</mat-icon> Advanced analytics</li>
+    </div>
+    <div class="boton"><button class="choose-btn">Choose</button></div>
+  </mat-card>
+</div>
+

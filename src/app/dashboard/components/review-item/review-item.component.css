@@ -1,0 +1,8 @@
+.review {
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
+}
+.stars {
+  color: #f5a623;
+  margin-left: 8px;
+}

@@ -1,0 +1,43 @@
+<div class="login-container">
+  <!-- Imagen de fondo -->
+  <div class="background-image"></div>
+
+  <!-- Capa oscura -->
+  <div class="background-overlay"></div>
+
+  <!-- Contenido de la página -->
+  <div class="login-content">
+    <!-- Barra de navegación superior -->
+    <mat-toolbar color="transparent" class="toolbar">
+      <div class="toolbar-left">
+        <img src="https://avatars.githubusercontent.com/u/205873631?s=400&u=7181957c1d03747f9dd9a668e2d4857d99ce55ff&v=4" alt="Logo" class="logo" />
+      </div>
+      <span class="spacer"></span>
+      <div class="toolbar-right">
+        <button mat-button color="white" [routerLink]="'/iam/login'">Sign In</button>
+        <button mat-button color="white" [routerLink]="'/iam/register'">Register</button>
+      </div>
+    </mat-toolbar>
+
+    <!-- Texto + Formulario -->
+    <div class="center-content">
+      <img src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png" alt="uTime Logo" class="main-logo" />
+      <div class="register-container">
+        <mat-button-toggle-group [(ngModel)]="isProvider">
+          <mat-button-toggle class="button-toggle" value="false" (click)="toggleForm(false)">Client</mat-button-toggle>
+          <mat-button-toggle class="button-toggle" value="true" (click)="toggleForm(true)">Provider</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <!-- Muestra el formulario de cliente -->
+        <app-register-form-client *ngIf="!isProvider"></app-register-form-client>
+
+        <!-- Muestra el formulario de proveedor -->
+        <app-register-form-provider *ngIf="isProvider"></app-register-form-provider>
+
+        <!-- Muestra el selector de plan después de hacer clic en el botón "Complete Registration" -->
+        <app-plan-selector *ngIf="isProvider && showPlanSelector"></app-plan-selector>
+
+      </div>
+    </div>
+  </div>
+</div>

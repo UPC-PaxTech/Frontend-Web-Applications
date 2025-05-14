@@ -1,0 +1,58 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-section, .center-section, .right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.center-section {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.icon-button {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icon-button .material-icons {
+  font-size: 24px;
+  color: #333;
+}
+
+.text-button {
+  margin-left: 10px;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logout {
+  color: #e53935;
+}
+
+.logo-img {
+  height: 40px;
+  object-fit: contain;
+}
+
+

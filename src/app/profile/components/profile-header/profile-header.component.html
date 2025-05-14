@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="header">
+  <img class="cover" [src]="profile?.coverImage" alt="Cover Image">
+  <div class="header-content">
+    <img class="avatar" [src]="profile?.profileImage" alt="Profile Photo">
+    <div class="text-info">
+      <h2>{{ profile?.salonName }}</h2>
+      <p class="rating">⭐ {{ profile?.rating }}</p>
+      <div class="socials">
+        <a [href]="profile.socials.instagram" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a [href]="profile.socials.tiktok" target="_blank">
+          <i class="fab fa-tiktok"></i> TikTok
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+</div>

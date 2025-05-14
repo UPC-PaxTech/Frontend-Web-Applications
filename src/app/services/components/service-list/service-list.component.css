@@ -1,0 +1,15 @@
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.reserve-button {
+  margin-right: 16px;
+}

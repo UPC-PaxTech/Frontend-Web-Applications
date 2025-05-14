@@ -1,0 +1,255 @@
+@startuml
+title uTime - Frontend Class Diagram with Routing & Contexts
+
+' === Shared ===
+package Shared {
+  package Components {
+    class ToolbarClient <<Component>>{
+    }
+    class ToolbarProvider <<Component>>
+
+  }
+  package Services { }
+}
+
+' === Application Shell ===
+package App {
+  class AppComponent <<Component>> { }
+}
+
+' === Public Pages ===
+package Public {
+  package Components {
+    class LanguageSwitcherComponent <<Component>> {}
+    class SideBarComponent <<Component>> {}
+    class MatTableComponent <<Component>> {}
+  }
+  package Pages { }
+}
+
+' === Dashboard Context ===
+package DashboardContext {
+  package Components {
+    class ReviewItemComponent <<Component>> {}
+    class ReviewListComponent <<Component>> {}
+    class SalonItemComponent <<Component>> {}
+    class SalonListComponent <<Component>> {}
+    class StaffItemComponent <<Component>> {}
+    class StaffListComponent <<Component>> {}
+    class UpcomingAppointmentsComponent <<Component>> {}
+  }
+
+  package Model {
+    entity Appointment <<Entity>> {}
+    entity Review <<Entity>> {}
+    entity Salon <<Entity>> {}
+    entity Worker <<Entity>> {}
+  }
+
+  package Services {
+    ' Appointment services
+    class AppointmentAssembler <<Service>> {}
+    class AppointmentResponse <<Service>> {}
+    class AppointmentApiService <<Service>> {}
+
+    ' Review services
+    class ReviewAssembler <<Service>> {}
+    class ReviewResponse <<Service>> {}
+    class ReviewApiService <<Service>> {}
+
+    ' Salon services
+    class SalonAssembler <<Service>> {}
+    class SalonResponse <<Service>> {}
+    class SalonApiService <<Service>> {}
+
+    ' Worker services
+    class WorkerAssembler <<Service>> {}
+    class WorkerResponse <<Service>> {}
+    class WorkerApiService <<Service>> {}
+  }
+
+  package Pages {
+    class ClientDashboardComponent <<Component>> {}
+    class ProfessionalDashboardComponent <<Component>> {}
+  }
+
+  ' Relaciones
+  Pages .> Services
+  Pages --> Components
+  Pages -> Model
+  Components --> Model
+}
+
+
+' === Appointment Context ===
+package AppointmentContext {
+  package Components {
+    class AppointmentsItemComponent <<Component>> {}
+    class AppointmentsListComponent <<Component>> {}
+    class ReviewItemComponent <<Component>> {}
+    class ReviewListComponent <<Component>> {}
+    class UpcomingAppointmentsComponent <<Component>> {}
+  }
+
+  package Model {
+    entity Appointment <<Entity>> {}
+    entity Review <<Entity>> {}
+  }
+
+  package Services {
+    class AppointmentAssembler <<Service>> {}
+    class AppointmentResponse <<Service>> {}
+    class AppointmentApiService <<Service>> {}
+    class ReviewApiService <<Service>> {}
+    class ReviewsAssembler <<Service>> {}
+    class ReviewsResponse <<Service>> {}
+  }
+
+  package Pages {
+    class ClientAppointmentPagesComponent <<Component>> {}
+  }
+
+  ' Relaciones
+  Pages ..> Services
+  Pages --> Components
+  Pages --> Model
+  Components --> Model
+}
+
+' === Favorites Context ===
+package FavoritesContext {
+  package Components {
+    class FavoriteItemComponent <<Component>> {}
+    class FavoriteListComponent <<Component>> {}
+  }
+
+  package Model {
+    entity Favorite <<Entity>> {}
+  }
+
+  package Services {
+    class FavoriteAssembler <<Service>> {}
+    class FavoriteResponse <<Service>> {}
+    class FavoriteApiService <<Service>> {}
+  }
+
+  package Pages {
+    class ClientFavoriteComponent <<Component>> {}
+  }
+
+  ' Relaciones
+  Pages ..> Services
+  Pages --> Components
+  Pages --> Model
+  Components --> Model
+}
+
+
+' === Profile Context ===
+package ProfileContext{
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+' === Schedule Context ===
+package ScheduleContext {
+  package Components {
+    'CalendarComponent?
+    'TimeBlockComponent?
+    class WorkerCarouselComponent <<Component>> {}
+  }
+  package Services {}
+
+  package Pages {
+    class ScheduleComponent {}
+  }
+  package Model {
+    entity Worker <<Entity>> {}
+    entity TimeBlock <<Entity>> {}
+  }
+  WorkerCarouselComponent --> Worker
+  ScheduleComponent --> WorkerCarouselComponent
+
+}
+
+
+
+' === Settings Context ===
+package SettingsContext {
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+' === Reviews Context ===
+package ReviewsContext{
+  package Components {
+    class ReviewItemComponent <<Component>> {}
+    class ReviewListComponent <<Component>> {}
+  }
+  package Services { }
+  package Pages {
+    class ReviewsPageComponent <<Component>> {}
+  }
+  package Model {
+    entity Review <<Entity>> {}
+  }
+
+  ReviewsPageComponent --> ReviewListComponent
+  ReviewListComponent --> ReviewItemComponent
+  ReviewItemComponent -> Review
+}
+
+' === Treatment Context ===
+package TreatmentContext{
+  package Components {
+    class TreatmentListComponent <<Component>> {}
+    class TreatmentItemComponent <<Component>> {}
+  }
+  package Services { }
+  package Pages {
+    class TreatmentPageComponent <<Component>> {}
+  }
+  package Model {
+    entity Treatment <<Entity>> {}
+  }
+
+  TreatmentPageComponent -> TreatmentListComponent
+  TreatmentListComponent --> TreatmentItemComponent
+  TreatmentItemComponent --> Treatment
+}
+
+' === Subscription Context ===
+package SubscriptionContext{
+  package Components { }
+  package Services { }
+  package Pages {}
+  package Model {}
+}
+
+' === Routing ===
+AppComponent ..> DashboardUserComponent
+AppComponent ..> DashboardProviderComponent
+AppComponent ..> AppointmentBookingPage
+AppComponent .> ScheduleContext.Pages
+ReviewsContext <... AppComponent
+TreatmentContext <... AppComponent
+Shared <-- AppComponent
+SubscriptionContext <... AppComponent
+AppComponent .> ProfileContext.Pages
+AppComponent .> SettingsContext.Pages
+AppComponent --> Public.Components
+DashboardUserComponent --> SalonDetailPage                : "/dashboard/salon"
+
+@enduml
+
+'cosas que no se donde van:
+'-salon
+'-workers
+'-services (corte de pelo, tintado, ese tipo de cosas)
+'
+'
+'

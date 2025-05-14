@@ -1,0 +1,17 @@
+<mat-card class="salon-card">
+  <mat-card-content>
+    <img mat-card-image class="card-image" src="{{salon.imageURL}}" alt="Photo of a Cat"/>
+  </mat-card-content>
+
+  <mat-card-content>
+    <mat-card-title>{{salon.name}}</mat-card-title>
+  </mat-card-content>
+
+  <mat-card-content>
+    <app-review-list></app-review-list>
+  </mat-card-content>
+
+  <mat-card-actions class="action-button">
+    <button mat-button [routerLink]="'/client/homeClient/salon'">Book Now</button>
+  </mat-card-actions>
+</mat-card>

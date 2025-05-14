@@ -1,0 +1,102 @@
+.login-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://posbrava.com/wp-content/uploads/2024/01/Tecnologia-en-salones-de-belleza.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  opacity: 0.6;
+}
+
+.login-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  position: relative; /* Cambiar a absolute o fixed si deseas que flote */
+  z-index: 3;          /* Más alto que overlay (2) */
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+}
+
+.toolbar-right button {
+  color: white;
+  font-weight: 500;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.center-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+.main-logo{
+  width: 300px;
+}
+
+.toolbar-right button {
+  background-color: #211f1f;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.toolbar-right button:hover {
+  background-color: #3b3939;
+  color: white;
+
+}
+
+
