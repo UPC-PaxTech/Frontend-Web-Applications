@@ -36,7 +36,7 @@
       <button mat-icon-button>
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button>
+      <button mat-icon-button (click)="deleteService(service.id)">
         <mat-icon>delete</mat-icon>
       </button>
     </td>
@@ -48,5 +48,7 @@
 
 </table>
 <div class="new-service">
-  <button class="new-service-btn" (click)="createService()">+ New Service</button>
+  <button mat-raised-button class="new-service-btn" (click)="createService()">+ New Service</button>
 </div>
+
+

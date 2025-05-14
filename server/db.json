@@ -200,6 +200,30 @@
       "duration": 30,
       "price": 30,
       "status": "Active"
+    },
+    {
+      "id": "ahqI8c2",
+      "name": "Servicio de prueba",
+      "description": "tralalero tralalala!",
+      "duration": 10,
+      "price": 1000,
+      "status": "Active"
+    },
+    {
+      "id": "CTeEJBe",
+      "name": "Servicio de prueba",
+      "description": "tralalero tralalala!",
+      "duration": 10,
+      "price": 1000,
+      "status": "Active"
+    },
+    {
+      "id": "ZouNfwJ",
+      "name": "Servicio de prueba",
+      "description": "tralalero tralalala!",
+      "duration": 10,
+      "price": 1000,
+      "status": "Active"
     }
   ],
   "payments": [
@@ -713,33 +737,5 @@
       "read": true
     }
   ],
-  "salonProfiles": [
-    {
-      "id": 1,
-      "userId": "user3",
-      "salonName": "Vibrance Salon",
-      "rating": 4.7,
-      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-      "socials": {
-        "instagram": "https://instagram.com/vibrance_salon",
-        "tiktok": "https://tiktok.com/@vibrance_salon"
-      },
-      "portfolioImages": [
-        "https://picsum.photos/600/400?random=1",
-        "https://picsum.photos/600/400?random=2",
-        "https://picsum.photos/600/400?random=3",
-        "https://picsum.photos/600/400?random=4",
-        "https://picsum.photos/600/400?random=5"
-      ],
-      "Address": "adress",
-      "salonemail": "email@gmail.com",
-      "accounts": {
-        "accountId": "acc3",
-        "email": "mike@example.com",
-        "passwordHash": "ok",
-        "isActive": false
-      }
-    }
-  ]
+  "salonProfiles": []
 }

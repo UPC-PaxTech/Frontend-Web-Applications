@@ -3,15 +3,16 @@ table {
   padding-left: 3rem;
   padding-right: 3rem;
 }
+.service-desc {
+  font-size: 13px;
+}
 .mat-mdc-row .mat-mdc-cell {
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
 }
-
 .new-service{
   text-align: right;
 }
-
 .new-service-btn {
   margin-top: 3rem;
   margin-right: 5rem;
@@ -24,7 +25,6 @@ table {
   cursor: pointer;
   transition: background-color 0.2s;
 }
-
 .new-service-btn:hover {
   background-color: #aa8ec6;
 }
