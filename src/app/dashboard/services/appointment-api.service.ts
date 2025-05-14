@@ -3,7 +3,7 @@ import { BaseService } from '../../shared/services/base.service';
 import { AppointmentResponse } from './appointment.response';
 import { Appointment } from '../models/appointment.entity';
 import { AppointmentAssembler } from './appointment.assembler';
-import { Observable, map } from 'rxjs';
+import {Observable, map, retry, catchError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,17 @@ export class AppointmentApiService extends BaseService<AppointmentResponse> {
   public getAppointments(): Observable<Appointment[]> {
     return this.getAll().pipe(
       map(response => AppointmentAssembler.toEntitiesFromResponse(response))
+    );
+  }
+
+  addReservation(reservation: any): Observable<any> {
+    return this.http.post<any>(
+      `${this.serverBaseUrl}/reservationDetails`,
+      JSON.stringify(reservation),
+      this.httpOptions
+    ).pipe(
+      retry(2),
+      catchError(this.handleError)
     );
   }
 }

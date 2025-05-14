@@ -13,4 +13,6 @@ export class ReservationComponent {
   @Input() startTime!: string;
   @Input() endTime!: string;
   @Input() clientName!: string;
+
+
 }
