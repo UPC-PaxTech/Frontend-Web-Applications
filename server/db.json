@@ -277,8 +277,8 @@
       },
       "timeSlot": {
         "timeSlotId": "1",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
+        "start": "2025-17-10T09:00:00Z",
+        "end": "2025-17-10T09:45:00Z",
         "status": true,
         "tipo": "Standard"
       },
@@ -442,8 +442,98 @@
       },
       "timeSlot": {
         "timeSlotId": "ts5",
-        "start": "2025-06-15T15:00:00Z",
-        "end": "2025-06-15T15:45:00Z",
+        "start": "2025-06-17T15:00:00Z",
+        "end": "2025-06-15T17:45:00Z",
+        "status": true,
+        "tipo": "Standard"
+      }
+    },
+    {
+      "reservationId": "6",
+      "tipo": "Hot styling",
+      "client": {
+        "clientId": "client6",
+        "birthDate": "1988-09-12T00:00:00Z",
+        "user": {
+          "userId": "user6",
+          "name": "David Morales"
+        }
+      },
+      "salon": {
+        "salonId": "salon3",
+        "location": "Uptown",
+        "phone": "555123456"
+      },
+      "payment": {
+        "paymentId": "pay6",
+        "amount": 30,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts6",
+        "start": "2025-06-16T10:30:00Z",
+        "end": "2025-06-16T11:00:00Z",
+        "status": true,
+        "tipo": "Express"
+      }
+    },
+    {
+      "reservationId": "7",
+      "tipo": "Keratin Treatment",
+      "client": {
+        "clientId": "client7",
+        "birthDate": "1997-12-03T00:00:00Z",
+        "user": {
+          "userId": "user7",
+          "name": "Sofía Alarcón"
+        }
+      },
+      "salon": {
+        "salonId": "salon2",
+        "location": "Midtown",
+        "phone": "987654321"
+      },
+      "payment": {
+        "paymentId": "pay7",
+        "amount": 40,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts7",
+        "start": "2025-06-17T14:00:00Z",
+        "end": "2025-06-17T18:00:00Z",
+        "status": true,
+        "tipo": "Standard"
+      }
+    },
+    {
+      "reservationId": "5",
+      "tipo": "Simple haircut",
+      "client": {
+        "clientId": "client5",
+        "birthDate": "1993-03-25T00:00:00Z",
+        "user": {
+          "userId": "user5",
+          "name": "Carla Ríos"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Downtown",
+        "phone": "123456789"
+      },
+      "payment": {
+        "paymentId": "pay5",
+        "amount": 50,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts5",
+        "start": "2025-06-17T15:00:00Z",
+        "end": "2025-06-18T18:45:00Z",
         "status": true,
         "tipo": "Standard"
       }
@@ -599,14 +689,14 @@
       }
     },
     {
-      "reservationId": "5",
-      "tipo": "Simple haircut",
+      "reservationId": "res8",
+      "tipo": "Keratin Treatment",
       "client": {
-        "clientId": "client5",
-        "birthDate": "1993-03-25T00:00:00Z",
+        "clientId": "client2",
+        "birthDate": "1985-05-15T00:00:00Z",
         "user": {
-          "userId": "user5",
-          "name": "Carla Ríos"
+          "userId": "user2",
+          "name": "Lisa Smith"
         }
       },
       "salon": {
@@ -615,22 +705,60 @@
         "phone": "123456789"
       },
       "payment": {
-        "paymentId": "pay5",
+        "paymentId": "pay8",
         "amount": 50,
         "currency": "USD",
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts5",
-        "start": "2025-06-15T15:00:00Z",
-        "end": "2025-06-15T15:45:00Z",
+        "timeSlotId": "ts8",
+        "start": "2025-05-15T11:00:00Z",
+        "end": "2025-05-15T12:00:00Z",
         "status": true,
         "tipo": "Standard"
+      },
+      "worker": {
+        "workerId": "worker6",
+        "name": "Gael Chi"
       }
     },
     {
-      "reservationId": "6",
-      "tipo": "Hot styling",
+      "reservationId": "res9",
+      "tipo": "Color & cut",
+      "client": {
+        "clientId": "client4",
+        "birthDate": "1995-11-30T00:00:00Z",
+        "user": {
+          "userId": "user4",
+          "name": "Anna Kim"
+        }
+      },
+      "salon": {
+        "salonId": "salon2",
+        "location": "Midtown",
+        "phone": "987654321"
+      },
+      "payment": {
+        "paymentId": "pay9",
+        "amount": 100,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts9",
+        "start": "2025-05-16T14:00:00Z",
+        "end": "2025-05-16T15:30:00Z",
+        "status": true,
+        "tipo": "Extended"
+      },
+      "worker": {
+        "workerId": "worker5",
+        "name": "Kevin Rivera"
+      }
+    },
+    {
+      "reservationId": "res10",
+      "tipo": "Simple haircut",
       "client": {
         "clientId": "client6",
         "birthDate": "1988-09-12T00:00:00Z",
@@ -645,47 +773,21 @@
         "phone": "555123456"
       },
       "payment": {
-        "paymentId": "pay6",
-        "amount": 30,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts6",
-        "start": "2025-06-16T10:30:00Z",
-        "end": "2025-06-16T11:00:00Z",
-        "status": true,
-        "tipo": "Express"
-      }
-    },
-    {
-      "reservationId": "7",
-      "tipo": "Keratin Treatment",
-      "client": {
-        "clientId": "client7",
-        "birthDate": "1997-12-03T00:00:00Z",
-        "user": {
-          "userId": "user7",
-          "name": "Sofía Alarcón"
-        }
-      },
-      "salon": {
-        "salonId": "salon2",
-        "location": "Midtown",
-        "phone": "987654321"
-      },
-      "payment": {
-        "paymentId": "pay7",
+        "paymentId": "pay10",
         "amount": 40,
         "currency": "USD",
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts7",
-        "start": "2025-06-17T14:00:00Z",
-        "end": "2025-06-17T15:00:00Z",
+        "timeSlotId": "ts10",
+        "start": "2025-05-17T10:00:00Z",
+        "end": "2025-05-17T10:45:00Z",
         "status": true,
         "tipo": "Standard"
+      },
+      "worker": {
+        "workerId": "worker3",
+        "name": "Manuel Ugarte"
       }
     }
   ],
@@ -738,7 +840,7 @@
         "https://picsum.photos/600/400?random=4",
         "https://picsum.photos/600/400?random=5"
       ],
-      "Address": "adress",
+      "Address": "Av Del Torres 7898",
       "salonemail": "email@gmail.com",
       "accounts": {
         "accountId": "acc3",
