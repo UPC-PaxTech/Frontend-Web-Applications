@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service} from '../../model/service.entity';
 import {ServiceApiService} from '../../services/services-api.service';
-//import {ServiceListComponent} from '../../components/service-list/service-list.component';
 import {TranslatePipe} from '@ngx-translate/core';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
