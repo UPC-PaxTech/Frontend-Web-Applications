@@ -6,3 +6,5 @@ export interface ServiceResponse {
   price: number;
   status: 'Active' | 'Paused';
 }
+
+

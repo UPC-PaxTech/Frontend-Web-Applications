@@ -88,7 +88,7 @@ export class ServiceTableComponent {
   }
   public updateService(){
 
-  }
+}
 
   public deleteService(id: number) {
     this.servicesService.delete(id).subscribe(() => {
@@ -96,4 +96,5 @@ export class ServiceTableComponent {
       this.snackBar.open('🗑️ Servicio eliminado.', 'Cerrar', { duration: 2000 });
     });
   }
+
 }
