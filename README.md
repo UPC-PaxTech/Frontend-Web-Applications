@@ -64,7 +64,7 @@ npm install @angular/material @angular/cdk
 ```
 
 ```carrusel
-npm i ng-carousel-cdk
+npm i ngx-owl-carousel-o
 ```
 
 ---
