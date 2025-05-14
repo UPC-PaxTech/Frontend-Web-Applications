@@ -25,15 +25,15 @@ export abstract class BaseService<R> {
     );
   }
 
+  public create(id: any, resource: R): Observable<R> {
+    return this.http.post<R>(`${this.resourcePath()}/${id}`, JSON.stringify(resource), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   public getById(id: any): Observable<R> {
     return this.http.get<R>(`${this.resourcePath()}/${id}`, this.httpOptions).pipe(
       catchError(this.handleError)
     );
-  }
-
-  public create(id: any, resource:R): Observable<R> {
-    return this.http.post<R>(this.resourcePath(), JSON.stringify(resource), this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
   }
 
   public delete(id: any): Observable<any> {

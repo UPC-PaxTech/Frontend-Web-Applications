@@ -3,6 +3,7 @@ import { SalonApiService } from '../../services/salon-api.service';
 import {Salon} from '../../models/Salon.entity';
 import {SalonItemComponent} from '../salon-item/Salon-item.component';
 
+
 @Component({
   selector: 'app-salon-list',
   imports: [
