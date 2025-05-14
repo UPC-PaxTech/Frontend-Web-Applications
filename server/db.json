@@ -200,6 +200,14 @@
       "duration": 30,
       "price": 30,
       "status": "Active"
+    },
+    {
+      "id": "ZxkUGId",
+      "name": "Servicio de prueba",
+      "description": "tralalero tralalala!",
+      "duration": 10,
+      "price": 1000,
+      "status": "Active"
     }
   ],
   "payments": [

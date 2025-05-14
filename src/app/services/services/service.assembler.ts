@@ -16,4 +16,15 @@ export class ServiceAssembler {
   static toEntitiesFromResponse(resources: ServiceResponse[]): Service[] {
     return resources.map(this.toEntityFromResource);
   }
+
+  static toResponseFromEntity(entity: Service): ServiceResponse {
+    return {
+      id: entity.id,
+      name: entity.name,
+      description: entity.description,
+      duration: entity.duration,
+      price: entity.price,
+      status: entity.status
+    };
+  }
 }

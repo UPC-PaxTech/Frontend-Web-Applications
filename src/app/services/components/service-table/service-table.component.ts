@@ -10,10 +10,11 @@ import {
 import { Service} from '../../model/service.entity';
 import {TranslatePipe} from '@ngx-translate/core';
 import {MatIcon} from '@angular/material/icon';
-import {MatIconButton} from '@angular/material/button';
+import {MatButton, MatIconButton} from '@angular/material/button';
 import {ServiceApiService} from '../../services/services-api.service';
 import { ServiceAssembler } from '../../services/service.assembler';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {ServiceResponse} from '../../services/service.response';
 
 @Component({
   selector: 'app-service-table',
@@ -30,7 +31,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     MatHeaderRowDef,
     MatHeaderRow,
     MatRow,
-    MatRowDef
+    MatRowDef,
+    MatButton
   ],
   templateUrl: './service-table.component.html',
   styleUrl: './service-table.component.css'
@@ -43,6 +45,7 @@ export class ServiceTableComponent {
 
   constructor(private snackBar: MatSnackBar) {}
 
+  /*
   openCreateDialog(): void {
     const dialogRef = this.dialog.open(ServiceDialogComponent, {
       data: { isEdit: false }
@@ -55,10 +58,34 @@ export class ServiceTableComponent {
         });
       }
     });
+  }*/
+
+
+  public createService(){
+    const servicio: ServiceResponse = {
+      id: 0, // Asigna un valor válido o nulo si lo maneja el backend
+      name: 'Servicio de prueba',
+      description: 'tralalero tralalala!',
+      duration: 10,
+      price: 1000,
+      status: 'Active'
+    };
+
+
+    this.servicesService.create(null, servicio).subscribe({
+      next: (response) => {
+        console.log('✅ Servicio creado exitosamente:', response);
+
+      },
+      error: (err) => {
+        console.error('❌ Error al crear el servicio:', err);
+
+      },
+      complete: () => {
+        console.log('✔️ Operación completada.');
+      }
+    });
   }
-
-
-  public createService(){}
 
 
   public updateService(){
@@ -67,5 +94,6 @@ export class ServiceTableComponent {
   public deleteService() {
     this.snackBar.open('🗑️ Service deleted.', 'Close', { duration: 2000 });
   }
+
 
 }
