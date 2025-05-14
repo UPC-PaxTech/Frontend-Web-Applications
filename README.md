@@ -63,6 +63,10 @@ npm install @ngx-translate/http-loader
 npm install @angular/material @angular/cdk
 ```
 
+```carrusel
+npm i ng-carousel-cdk
+```
+
 ---
 
 ## 🌐 Despliegue en GitHub Pages
