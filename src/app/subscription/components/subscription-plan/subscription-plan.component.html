@@ -3,19 +3,46 @@
 </h2>
 
 <h3>{{'subscription.upgrade' | translate }}</h3>
-
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Select a Plan</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-button-toggle-group [(ngModel)]="selectedPlan" (change)="onPlanSelect($event.value)">
-      <mat-button-toggle value="Essential" (click)="changePlan()">Essential</mat-button-toggle>
-      <mat-button-toggle value="ProStyle" (click)="changePlan()">ProStyle</mat-button-toggle>
-      <mat-button-toggle value="Deluxe Studio" (click)="changePlan()">Deluxe Studio</mat-button-toggle>
-    </mat-button-toggle-group>
-    <div *ngIf="selectedPlan">
-      <p>You selected: {{ selectedPlan }}</p>
+<div class="plans">
+  <mat-card class="essential" (click)="changePlan('Essential')" >
+    <mat-card-title>Essential</mat-card-title>
+    <mat-card-subtitle>Free</mat-card-subtitle>
+    <div class="features">
+      <li><mat-icon class="check">check</mat-icon> Basic smart calendar</li>
+      <li><mat-icon class="check">check</mat-icon> Client booking page</li>
+      <li><mat-icon class="check">check</mat-icon> Reviews & ratings</li>
+      <li><mat-icon class="ex">clear</mat-icon> Client database</li>
+      <li><mat-icon class="ex">clear</mat-icon> Custom booking link</li>
+      <li><mat-icon class="ex">clear</mat-icon> Advanced analytics</li>
     </div>
-  </mat-card-content>
-</mat-card>
+    <div class="boton"><button class="choose-btn">Choose</button></div>
+  </mat-card>
+  <mat-card class="prostyle" (click)="changePlan('ProStyle')">
+    <mat-card-title>ProStyle</mat-card-title>
+    <mat-card-subtitle>s/69.9 x month</mat-card-subtitle>
+    <div class="features">
+      <li><mat-icon class="check">check</mat-icon> Basic smart calendar</li>
+      <li><mat-icon class="check">check</mat-icon> Client booking page</li>
+      <li><mat-icon class="check">check</mat-icon> Reviews & ratings</li>
+      <li><mat-icon class="check">check</mat-icon> Client database</li>
+      <li><mat-icon class="ex">clear</mat-icon> Custom booking link</li>
+      <li><mat-icon class="ex">clear</mat-icon> Advanced analytics</li>
+    </div>
+    <div class="boton"><button class="choose-btn">Choose</button></div>
+  </mat-card>
+
+  <mat-card class="deluxe-studio" (click)="changePlan('Deluxe Studio')">
+    <mat-card-title>Deluxe Studio</mat-card-title>
+    <mat-card-subtitle>s/129.90 x month</mat-card-subtitle>
+    <div class="features">
+      <li><mat-icon class="check">check</mat-icon> Basic smart calendar</li>
+      <li><mat-icon class="check">check</mat-icon> Client booking page</li>
+      <li><mat-icon class="check">check</mat-icon> Reviews & ratings</li>
+      <li><mat-icon class="check">check</mat-icon> Client database</li>
+      <li><mat-icon class="check">check</mat-icon> Custom booking link</li>
+      <li><mat-icon class="check">check</mat-icon> Advanced analytics</li>
+    </div>
+   <div class="boton"><button class="choose-btn">Choose</button></div>
+  </mat-card>
+</div>
+
