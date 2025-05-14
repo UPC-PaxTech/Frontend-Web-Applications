@@ -86,9 +86,9 @@ export class ServiceTableComponent {
       }
     });
   }
-  public updateService(){
+  public updateService() {
 
-}
+  }
 
   public deleteService(id: number) {
     this.servicesService.delete(id).subscribe(() => {
