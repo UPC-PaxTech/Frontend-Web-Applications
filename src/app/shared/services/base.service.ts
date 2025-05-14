@@ -30,6 +30,11 @@ export abstract class BaseService<R> {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  public post(resource: R): Observable<R> {
+    return this.http.post<R>(`${this.resourcePath()}`, JSON.stringify(resource), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   public getById(id: any): Observable<R> {
     return this.http.get<R>(`${this.resourcePath()}/${id}`, this.httpOptions).pipe(
       catchError(this.handleError)

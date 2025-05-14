@@ -12,7 +12,7 @@ import {ServiceListComponent} from '../../../services/components/service-list/se
 
 import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';  // importa servicio citas
 import {Appointment} from '../../../dashboard/models/appointment.entity';
-
+import {AppointmentResponse} from '../../../dashboard/services/appointment.response';
 
 @Component({
   selector: 'app-appointment-maker',
@@ -52,7 +52,7 @@ export class AppointmentMakerComponent implements OnInit {
   }
 
   bookAppointment() {
-    if (!this.selectedReservation) {
+    /*if (!this.selectedReservation) {
       alert('Por favor seleccione fecha y rango horario');
       return;
     }
@@ -66,45 +66,30 @@ export class AppointmentMakerComponent implements OnInit {
     startDate.setHours(slot.start.getHours(), slot.start.getMinutes(), 0, 0);
 
     const endDate = new Date(date);
-    endDate.setHours(slot.end.getHours(), slot.end.getMinutes(), 0, 0);
+    endDate.setHours(slot.end.getHours(), slot.end.getMinutes(), 0, 0);*/
 
-    const postData = {
-      reservationId: "1",
-      tipo: "Simple haircut",
-      client: {
-        clientId: "1",
-        birthDate: "1990-01-01T00:00:00Z",
-        user: {
-          userId: "user1",
-          name: "John Doe"
-        }
-      },
-      salon: {
-        salonId: "salon1",
-        location: "Downtown",
-        phone: "123456789"
-      },
-      payment: {
-        paymentId: "pay1",
-        amount: 40,
-        currency: "USD",
-        status: true
-      },
-      timeSlot: {
-        timeSlotId: slot.id,
-        start: startDate.toISOString(),
-        end: endDate.toISOString(),
-        status: true,
-        tipo: slot.tipo
-      },
-      worker: {
-        name: "Kevin"  // Puedes actualizar dinámicamente si quieres
+    const postData: AppointmentResponse = {
+        "reservationId": "res10",
+        "tipo": "Express Cut",
+        "client": { "clientId": "client10", "birthDate": "1990-01-01T00:00:00Z", "user": { "userId": "user10", "name": "Test User" } },
+        "salon": { "salonId": "salon1", "location": "Test Location", "phone": "000000000" },
+        "payment": { "paymentId": "pay10", "amount": 50, "currency": "USD", "status": true },
+        "timeSlot": { "timeSlotId": "ts10", "start": "2025-07-10T09:00:00Z", "end": "2025-07-10T09:45:00Z", "status": true, "tipo": "Standard" },
+        "worker": { "workerId": "worker10", "name": "New Worker" }
       }
-    };
+    ;
 
-    this.appointmentService.create(null, postData).subscribe({
+
+
+    this.appointmentService.post(postData).subscribe({
       next: () => alert('¡Cita reservada con éxito!'),
       error: (e) => alert('Error al reservar cita: ' + e.message)
     });
+
+    this.appointmentService.post(JSON.parse(JSON.stringify(postData))).subscribe({
+      next: () => alert('¡Cita reservada con éxito!'),
+      error: (e) => alert('Error al reservar cita: ' + e.message)
+    });
+
   }
 }

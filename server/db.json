@@ -248,6 +248,7 @@
   ],
   "reservationDetails": [
     {
+      "id": 1,
       "reservationId": "res1",
       "tipo": "Simple haircut",
       "client": {
@@ -484,6 +485,76 @@
         "workerId": "worker6",
         "name": "Gael Chi"
       }
+    },
+    {
+      "reservationId": "res10",
+      "tipo": "Express Cut",
+      "client": {
+        "clientId": "client10",
+        "birthDate": "1990-01-01T00:00:00Z",
+        "user": {
+          "userId": "user10",
+          "name": "Test User"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Test Location",
+        "phone": "000000000"
+      },
+      "payment": {
+        "paymentId": "pay10",
+        "amount": 50,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts10",
+        "start": "2025-07-10T09:00:00Z",
+        "end": "2025-07-10T09:45:00Z",
+        "status": true,
+        "tipo": "Standard"
+      },
+      "worker": {
+        "workerId": "worker10",
+        "name": "New Worker"
+      },
+      "id": 2
+    },
+    {
+      "reservationId": "res10",
+      "tipo": "Express Cut",
+      "client": {
+        "clientId": "client10",
+        "birthDate": "1990-01-01T00:00:00Z",
+        "user": {
+          "userId": "user10",
+          "name": "Test User"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Test Location",
+        "phone": "000000000"
+      },
+      "payment": {
+        "paymentId": "pay10",
+        "amount": 50,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "ts10",
+        "start": "2025-07-10T09:00:00Z",
+        "end": "2025-07-10T09:45:00Z",
+        "status": true,
+        "tipo": "Standard"
+      },
+      "worker": {
+        "workerId": "worker10",
+        "name": "New Worker"
+      },
+      "id": 3
     }
   ],
   "reviews": [

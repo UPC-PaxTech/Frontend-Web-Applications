@@ -28,6 +28,7 @@ export interface AppointmentResponse {
     tipo: string;
   };
   worker: {
+    workerId: string;
     name:string;
   };
 }
