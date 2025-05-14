@@ -69,7 +69,7 @@ export class AppointmentMakerComponent implements OnInit {
     endDate.setHours(slot.end.getHours(), slot.end.getMinutes(), 0, 0);
 
     const postData = {
-      reservationId: "1",
+      reservationId: "20",
       tipo: "Simple haircut",
       client: {
         clientId: "1",
@@ -102,7 +102,7 @@ export class AppointmentMakerComponent implements OnInit {
       }
     };
 
-    this.appointmentService.create(null, postData).subscribe({
+    this.appointmentService.post(postData).subscribe({
       next: () => alert('¡Cita reservada con éxito!'),
       error: (e) => alert('Error al reservar cita: ' + e.message)
     });

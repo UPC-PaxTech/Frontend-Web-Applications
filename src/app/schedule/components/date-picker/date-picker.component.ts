@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular
 import {MatCardModule} from '@angular/material/card';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {DatePipe} from '@angular/common';
+import {DatePipe, JsonPipe} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 
 @Component({
@@ -10,7 +10,7 @@ import {MatButton} from '@angular/material/button';
   templateUrl: './date-picker.component.html',
   styleUrl: './date-picker.component.css',
   providers: [provideNativeDateAdapter()],
-  imports: [MatCardModule, MatDatepickerModule, DatePipe, MatButton],
+  imports: [MatCardModule, MatDatepickerModule, DatePipe, MatButton, JsonPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatePickerComponent {
