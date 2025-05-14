@@ -5,23 +5,24 @@
   flex-wrap: wrap;
 }
 
-.main-column {
-  flex: 2;
-  min-width: 400px;
+.main-row {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin: 2rem;
+  flex-direction: row;
+  width: 100%;
 }
 
-.sidebar-column {
+.sidebar {
   flex: 1;
-  min-width: 300px;
-  max-height: 100%;
-  position: sticky;
-  top: 24px;
-  margin: 3rem;
 }
+
+.appointments {
+  flex: 2;
+}
+
+.blank-space {
+  flex: 1;
+}
+
 
 h1 {
   text-align: center;

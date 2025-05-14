@@ -5,6 +5,8 @@ export const environment = {
   // Server Base URL for REST API
   serverBaseUrl: 'https://fakeapi-7jvh.onrender.com/api/v1',
   coursesEndpointPath: '',
-  appointmentEndpointPath: '/reservationDetails',
+  salonEndpointPath: '/salons',
+  appointmentEndpointPath: ''
+
 };
 
