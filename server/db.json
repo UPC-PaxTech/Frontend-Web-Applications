@@ -186,20 +186,6 @@
       "duration": 60,
       "price": 50,
       "status": "Active"
-    },
-    {
-      "id": "srv3",
-      "name": "Color & cut",
-      "duration": 90,
-      "price": 100,
-      "status": "Paused"
-    },
-    {
-      "id": "srv4",
-      "name": "Hot styling",
-      "duration": 30,
-      "price": 30,
-      "status": "Active"
     }
   ],
   "payments": [
@@ -540,7 +526,7 @@
       "accounts": {
         "accountId": "acc3",
         "email": "mike@example.com",
-        "passwordHash": "nine",
+        "passwordHash": "eight",
         "isActive": false
       }
     }
