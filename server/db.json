@@ -248,6 +248,7 @@
   ],
   "reservationDetails": [
     {
+      "id": 1,
       "reservationId": "res1",
       "tipo": "Simple haircut",
       "client": {
