@@ -9,9 +9,9 @@
   </div>
 
   <div class="right-column">
-    <app-date-picker class="date-picker"></app-date-picker>
-      <button mat-button routerLink="/client" (click)="bookAppointment()">
-          Book Appointment
+    <app-date-picker (reservationConfirmed)="onReservationConfirmed($event)" class="date-picker"></app-date-picker>
+      <button mat-button routerLink="/client" (click)="bookAppointment()" [disabled]="!selectedReservation">
+          Reservar cita
       </button>
   </div>
 </div>

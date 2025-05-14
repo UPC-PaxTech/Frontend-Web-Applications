@@ -1,115 +1,133 @@
 @startuml
+!pragma layout smetana
+
 title uTime - Frontend Class Diagram with Routing & Contexts
-
-' === Shared ===
-package Shared {
-  package Components {
-    class ToolbarClient <<Component>>{
-    }
-    class ToolbarProvider <<Component>>
-
-  }
-  package Services { }
-}
 
 ' === Application Shell ===
 package App {
-  class AppComponent <<Component>> { }
+  class AppComponent <<Component>>
 }
 
-' === Public Pages ===
+' === Public ===
 package Public {
   package Components {
-    class LanguageSwitcherComponent <<Component>> {}
-    class SideBarComponent <<Component>> {}
-    class MatTableComponent <<Component>> {}
+    class LanguageSwitcherComponent <<Component>>
+    class SideBarComponent <<Component>>
+    class MatTableComponent <<Component>>
+    class ClientLayoutComponent <<Component>>
+    class ProviderLayoutComponent <<Component>>
   }
-  package Pages { }
+  package Pages {
+  }
+}
+
+' === IAM ===
+package iam {
+  package Components {
+    class LoginFormComponent <<Component>>
+    class PlanSelectorComponent <<Component>>
+    class RegisterFormComponent <<Component>>
+    class RegisterFormProviderComponent <<Component>>
+  }
+  package Pages {
+    class LoginPageComponent <<Component>>
+    class RegisterPageComponent <<Component>>
+  }
+  ' Relaciones IAM
+  LoginPageComponent --> LoginFormComponent
+  RegisterPageComponent --> RegisterFormComponent
+  RegisterPageComponent --> PlanSelectorComponent
 }
 
 ' === Dashboard Context ===
 package DashboardContext {
   package Components {
-    class ReviewItemComponent <<Component>> {}
-    class ReviewListComponent <<Component>> {}
-    class SalonItemComponent <<Component>> {}
-    class SalonListComponent <<Component>> {}
-    class StaffItemComponent <<Component>> {}
-    class StaffListComponent <<Component>> {}
-    class UpcomingAppointmentsComponent <<Component>> {}
+    class ReviewItemComponent <<Component>>
+    class ReviewListComponent <<Component>>
+    class SalonItemComponent <<Component>>
+    class SalonListComponent <<Component>>
+    class StaffItemComponent <<Component>>
+    class StaffListComponent <<Component>>
+    class UpcomingAppointmentsComponent <<Component>>
   }
-
   package Model {
-    entity Appointment <<Entity>> {}
-    entity Review <<Entity>> {}
-    entity Salon <<Entity>> {}
-    entity Worker <<Entity>> {}
+    entity Appointment <<Entity>>
+    entity Review <<Entity>>
+    entity Salon <<Entity>>
+    entity Worker <<Entity>>
   }
-
   package Services {
-    ' Appointment services
-    class AppointmentAssembler <<Service>> {}
-    class AppointmentResponse <<Service>> {}
-    class AppointmentApiService <<Service>> {}
-
-    ' Review services
-    class ReviewAssembler <<Service>> {}
-    class ReviewResponse <<Service>> {}
-    class ReviewApiService <<Service>> {}
-
-    ' Salon services
-    class SalonAssembler <<Service>> {}
-    class SalonResponse <<Service>> {}
-    class SalonApiService <<Service>> {}
-
-    ' Worker services
-    class WorkerAssembler <<Service>> {}
-    class WorkerResponse <<Service>> {}
-    class WorkerApiService <<Service>> {}
+    class AppointmentAssembler <<Service>>
+    class AppointmentResponse <<Service>>
+    class AppointmentApiService <<Service>>
+    class ReviewAssembler <<Service>>
+    class ReviewResponse <<Service>>
+    class ReviewApiService <<Service>>
+    class SalonAssembler <<Service>>
+    class SalonResponse <<Service>>
+    class SalonApiService <<Service>>
+    class WorkerAssembler <<Service>>
+    class WorkerResponse <<Service>>
+    class WorkerApiService <<Service>>
   }
-
   package Pages {
-    class ClientDashboardComponent <<Component>> {}
-    class ProfessionalDashboardComponent <<Component>> {}
+    class ClientDashboardComponent <<Component>>
+    class ProfessionalDashboardComponent <<Component>>
   }
-
-  ' Relaciones
+  ' Relaciones Dashboard
+  ClientDashboardComponent --> ReviewListComponent
+  ClientDashboardComponent --> SalonListComponent
+  ClientDashboardComponent --> StaffListComponent
+  ClientDashboardComponent --> UpcomingAppointmentsComponent
+  ProfessionalDashboardComponent --> ReviewListComponent
+  ProfessionalDashboardComponent --> SalonItemComponent
+  ProfessionalDashboardComponent --> StaffItemComponent
   Pages .> Services
   Pages --> Components
-  Pages -> Model
+  Pages --> Model
   Components --> Model
+  Services --> Model
 }
-
 
 ' === Appointment Context ===
 package AppointmentContext {
   package Components {
-    class AppointmentsItemComponent <<Component>> {}
-    class AppointmentsListComponent <<Component>> {}
-    class ReviewItemComponent <<Component>> {}
-    class ReviewListComponent <<Component>> {}
-    class UpcomingAppointmentsComponent <<Component>> {}
+    class AppointmentsItemComponent <<Component>>
+    class AppointmentsListComponent <<Component>>
+    class ReviewItemComponent <<Component>>
+    class ReviewListComponent <<Component>>
+    class UpcomingAppointmentsComponent <<Component>>
   }
-
   package Model {
-    entity Appointment <<Entity>> {}
-    entity Review <<Entity>> {}
+    entity ClientAppointment <<Entity>>
+    entity Review <<Entity>>
   }
-
   package Services {
-    class AppointmentAssembler <<Service>> {}
-    class AppointmentResponse <<Service>> {}
-    class AppointmentApiService <<Service>> {}
-    class ReviewApiService <<Service>> {}
-    class ReviewsAssembler <<Service>> {}
-    class ReviewsResponse <<Service>> {}
+    class AppointmentAssembler <<Service>>
+    interface AppointmentResponse <<Service>>
+    class AppointmentApiService <<Service>>
+    class ReviewAssembler <<Service>>
+    interface ReviewResponse <<Service>>
+    class ReviewApiService <<Service>>
+    class BaseService <<Service>>
   }
-
   package Pages {
-    class ClientAppointmentPagesComponent <<Component>> {}
+    class AppointmentMakerComponent <<Component>>
+    class ClientAppointmentPagesComponent <<Component>>
   }
-
-  ' Relaciones
+  ' Relaciones Appointment
+  AppointmentsItemComponent --> AppointmentApiService
+  AppointmentsItemComponent --> ClientAppointment
+  AppointmentsListComponent --> AppointmentApiService
+  AppointmentsListComponent --> ReviewApiService
+  AppointmentsListComponent --> ClientAppointment
+  AppointmentsListComponent --> Review
+  ReviewListComponent --> Review
+  UpcomingAppointmentsComponent --> AppointmentApiService
+  UpcomingAppointmentsComponent --> ClientAppointment
+  AppointmentMakerComponent --> AppointmentApiService
+  AppointmentMakerComponent --> BaseService
+  ClientAppointmentPagesComponent --> AppointmentsListComponent
   Pages ..> Services
   Pages --> Components
   Pages --> Model
@@ -119,137 +137,166 @@ package AppointmentContext {
 ' === Favorites Context ===
 package FavoritesContext {
   package Components {
-    class FavoriteItemComponent <<Component>> {}
-    class FavoriteListComponent <<Component>> {}
+    class SalonGridComponent <<Component>>
   }
-
-  package Model {
-    entity Favorite <<Entity>> {}
-  }
-
-  package Services {
-    class FavoriteAssembler <<Service>> {}
-    class FavoriteResponse <<Service>> {}
-    class FavoriteApiService <<Service>> {}
-  }
-
   package Pages {
-    class ClientFavoriteComponent <<Component>> {}
+    class ClientFavoriteComponent <<Component>>
   }
-
-  ' Relaciones
+  ' Relaciones Favorites
+  SalonGridComponent --> Salon
+  ClientFavoriteComponent --> SalonGridComponent
   Pages ..> Services
   Pages --> Components
   Pages --> Model
   Components --> Model
 }
 
-
 ' === Profile Context ===
-package ProfileContext{
-  package Components { }
-  package Services { }
-  package Pages {}
-  package Model {}
+package ProfileContext {
+  package Components {
+    class ProfileHeaderComponent <<Component>>
+    class ProfilePortfolioComponent <<Component>>
+    class ReviewItemComponent <<Component>>
+    class ReviewListComponent <<Component>>
+  }
+  package Model {
+    class SalonProfile <<Entity>>
+    class Review <<Entity>>
+  }
+  package Services {
+    class SalonProfileAssembler <<Service>>
+    class SalonProfileResponse <<Service>>
+    class SalonProfileApiService <<Service>>
+  }
+  package Pages {
+    class ProfilePageComponent <<Component>>
+  }
+  ' Relaciones ProfileContext
+  ProfilePageComponent --> ProfileHeaderComponent
+  ProfilePageComponent --> ProfilePortfolioComponent
+  ProfilePageComponent --> ReviewListComponent
+  ProfileHeaderComponent --> SalonProfile
+  ProfilePortfolioComponent --> SalonProfile
+  ReviewListComponent --> Review
+  SalonProfileApiService --> SalonProfile
+  SalonProfileAssembler --> SalonProfileResponse
+  SalonProfileAssembler --> SalonProfile
+}
+
+package ProfileClient {
+  package Components {
+    class ProfileComponent <<Component>>
+  }
+  package Pages {
+    class ClientProfileComponent <<Component>>
+  }
+  package Service {
+    class ProfileApiService <<Service>>
+  }
+  package Model {
+    class Profile <<Entity>>
+  }
+  ' Relaciones ProfileClient
+  ClientProfileComponent --> ProfileComponent
+  ProfileComponent --> ProfileApiService
+  ProfileComponent --> Profile
+  ProfileApiService --> Profile
+}
+
+' === ProviderSettings Context ===
+package ProviderSettings {
+  package Pages {
+    class SettingsPageComponent <<Component>>
+  }
+  package Components {
+    class SettingsComponent <<Component>>
+    class SettingsPasswordComponent <<Component>>
+  }
+  ' Relaciones ProviderSettings
+  SettingsPageComponent --> SettingsComponent
+  SettingsPageComponent --> SettingsPasswordComponent
+  SettingsComponent --> SalonProfile
+  SettingsPasswordComponent --> SalonProfileApiService
 }
 
 ' === Schedule Context ===
 package ScheduleContext {
   package Components {
-    'CalendarComponent?
-    'TimeBlockComponent?
-    class WorkerCarouselComponent <<Component>> {}
+    class ScheduleComponent <<Component>>
+    class DatePickerComponent <<Component>>
+    class ReservationComponent <<Component>>
+    class WorkerCarouselComponent <<Component>>
   }
-  package Services {}
-
   package Pages {
-    class ScheduleComponent {}
+    class SchedulePageComponent <<Component>>
   }
-  package Model {
-    entity Worker <<Entity>> {}
-    entity TimeBlock <<Entity>> {}
-  }
-  WorkerCarouselComponent --> Worker
+  ' Relaciones ScheduleContext
+  SchedulePageComponent --> ScheduleComponent
   ScheduleComponent --> WorkerCarouselComponent
-
+  WorkerCarouselComponent --> Worker
 }
 
-
-
-' === Settings Context ===
-package SettingsContext {
-  package Components { }
-  package Services { }
-  package Pages {}
-  package Model {}
-}
-
-' === Reviews Context ===
-package ReviewsContext{
-  package Components {
-    class ReviewItemComponent <<Component>> {}
-    class ReviewListComponent <<Component>> {}
+' === Services Context ===
+package ServicesContext{
+  class ServiceDialogComponent <<Component>>
+  class ServiceListComponent <<Component>>
+  class ServiceTableComponent <<Component>>
+  package Entity {
+    class Service <<Entity>>
   }
-  package Services { }
   package Pages {
-    class ReviewsPageComponent <<Component>> {}
+    class ServicesTabComponent <<Component>>
   }
-  package Model {
-    entity Review <<Entity>> {}
+  package Services {
+    class ServiceAssembler <<Service>>
+    class ServiceResponse <<Service>>
+    class ServiceApiService <<Service>>
   }
-
-  ReviewsPageComponent --> ReviewListComponent
-  ReviewListComponent --> ReviewItemComponent
-  ReviewItemComponent -> Review
+  ' Relaciones ServicesContext
+  ServiceDialogComponent --> ServiceResponse
+  ServiceListComponent --> ServiceApiService
+  ServiceTableComponent --> ServiceApiService
+  ServicesTabComponent --> ServiceListComponent
+  ServiceAssembler --> ServiceResponse
+  ServiceAssembler --> Service
 }
 
-' === Treatment Context ===
-package TreatmentContext{
-  package Components {
-    class TreatmentListComponent <<Component>> {}
-    class TreatmentItemComponent <<Component>> {}
-  }
-  package Services { }
-  package Pages {
-    class TreatmentPageComponent <<Component>> {}
-  }
-  package Model {
-    entity Treatment <<Entity>> {}
-  }
-
-  TreatmentPageComponent -> TreatmentListComponent
-  TreatmentListComponent --> TreatmentItemComponent
-  TreatmentItemComponent --> Treatment
+' === Shared (Base) ===
+package SharedContext{
+  class BaseService <<Service>>
+  class HttpClient
+  class HttpHeaders
+  class Observable
+  BaseService ..> HttpClient : uses
+  BaseService ..> HttpHeaders : uses
+  BaseService ..> Observable : returns
 }
 
 ' === Subscription Context ===
 package SubscriptionContext{
-  package Components { }
-  package Services { }
-  package Pages {}
-  package Model {}
+  package Components {
+    class SubscriptionPlanComponent <<Component>>
+  }
+  package Pages {
+    class SubscriptionTabComponent <<Component>>
+  }
+  ' Relaciones SubscriptionContext
+  SubscriptionTabComponent --> SubscriptionPlanComponent
 }
 
-' === Routing ===
-AppComponent ..> DashboardUserComponent
-AppComponent ..> DashboardProviderComponent
-AppComponent ..> AppointmentBookingPage
-AppComponent .> ScheduleContext.Pages
-ReviewsContext <... AppComponent
-TreatmentContext <... AppComponent
-Shared <-- AppComponent
-SubscriptionContext <... AppComponent
-AppComponent .> ProfileContext.Pages
-AppComponent .> SettingsContext.Pages
-AppComponent --> Public.Components
-DashboardUserComponent --> SalonDetailPage                : "/dashboard/salon"
+' === Routing Relations ===
+AppComponent ..> ClientLayoutComponent
+AppComponent ..> ProviderLayoutComponent
+AppComponent ..> ClientDashboardComponent
+AppComponent ..> ProfessionalDashboardComponent
+AppComponent ..> AppointmentsListComponent : "appointments"
+AppComponent ..> SchedulePageComponent
+AppComponent ..> ServicesTabComponent
+AppComponent ..> ClientFavoriteComponent
+AppComponent ..> ClientProfileComponent
+AppComponent ..> ProfilePageComponent
+AppComponent ..> SubscriptionTabComponent
+AppComponent ..> AppointmentMakerComponent : "book-appointment"
 
+' Fallback: Redirect '**' to '' handled by router, not shown here
 @enduml
-
-'cosas que no se donde van:
-'-salon
-'-workers
-'-services (corte de pelo, tintado, ese tipo de cosas)
-'
-'
-'

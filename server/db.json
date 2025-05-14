@@ -323,7 +323,7 @@
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts2",
+        "timeSlotId": "2",
         "start": "2025-05-10T10:00:00Z",
         "end": "2025-05-10T11:00:00Z",
         "status": true,
@@ -356,7 +356,7 @@
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts3",
+        "timeSlotId": "3",
         "start": "2025-05-11T11:00:00Z",
         "end": "2025-05-11T12:30:00Z",
         "status": true,
