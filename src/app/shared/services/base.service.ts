@@ -36,6 +36,16 @@ export abstract class BaseService<R> {
     );
   }
 
+  public create(id: any, resource:R): Observable<R> {
+    return this.http.post<R>(this.resourcePath(), JSON.stringify(resource), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  public delete(id: any): Observable<any> {
+    return this.http.delete(`${this.resourcePath()}/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   public update(id: any, resource: R): Observable<R> {
     return this.http.put<R>(`${this.resourcePath()}/${id}`, JSON.stringify(resource), this.httpOptions)
         .pipe(retry(2), catchError(this.handleError));
