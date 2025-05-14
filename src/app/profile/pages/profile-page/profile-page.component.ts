@@ -23,5 +23,4 @@ export class ProfilePageComponent implements OnInit {
       this.profile = profile;
     });
   }
-
 }

@@ -1,7 +1,7 @@
-import { AppointmentAssembler } from './appointment.assembler';
+import {Appointment} from './appointment.assembler';
 
 describe('Appointment', () => {
   it('should create an instance', () => {
-    expect(new AppointmentAssembler()).toBeTruthy();
+    expect(new Appointment()).toBeTruthy();
   });
 });

@@ -45,7 +45,8 @@
     "duration": "Duration",
     "price": "Price",
     "status": "Status",
-    "actions": "Actions"
+    "actions": "Actions",
+    "settings": "settings"
   },
   "subscription": {
     "currentPlan": "Your current plan is: ",

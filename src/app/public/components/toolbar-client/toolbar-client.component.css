@@ -1,35 +1,66 @@
 .toolbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #ddd;
-  padding: 0.5rem 1rem;
-}
-.logo {
-  height: 40px;
-}
-.logo-img {
-  height: 40px;
-  object-fit: contain;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .left-section, .center-section, .right-section {
   display: flex;
   align-items: center;
+  gap: 15px;
+}
+
+.center-section {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4a4a4a;
 }
 
 .icon-button {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icon-button .material-icons {
+  font-size: 24px;
+  color: #333;
+}
+
+.text-button {
+  margin-left: 10px;
   background: none;
   border: none;
+  color: #333;
+  font-size: 16px;
   cursor: pointer;
-  margin: 0 5px;
-  position: relative;
+}
+
+.logout {
+  color: #e53935;
+}
+
+.logo-img {
+  height: 40px;
+  object-fit: contain;
 }
 
 .search-bar {
   display: flex;
+  height: 40px;
   align-items: center;
-  background-color: white;
+
+  background-color: whitesmoke;
   padding: 0 8px;
   border-radius: 999px;
   margin-left: 10px;
@@ -37,22 +68,7 @@
 
 .search-bar input {
   border: none;
-  outline: none;
-  padding: 6px;
   background: none;
-}
-
-.notification-badge {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  background-color: red;
-  color: white;
-  font-size: 10px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  outline: none;
+  font-size: 16px;
 }

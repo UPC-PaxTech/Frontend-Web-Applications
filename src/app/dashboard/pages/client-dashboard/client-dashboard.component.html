@@ -1,24 +1,19 @@
-<h1>{{ 'dashboard.hey' | translate }} Vibrance Salon, {{ 'dashboard.letsWork' | translate }}</h1>
-
 <div class="dashboard-grid">
-  <!-- COLUMNA IZQUIERDA: Appointments + Staff -->
-  <div class="main-column">
-    <mat-card class="mat-elevation-z2">
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card>
+  <div class="main-row">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <app-sidebar-client></app-sidebar-client>
+    </div>
 
-    <mat-card class="mat-elevation-z2 staff-section">
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card>
+    <!-- Appointments -->
+    <div class="appointments">
+      <app-upcoming-appointments class="appointment-dashboard"></app-upcoming-appointments>
+    </div>
+    <div class="blank-space"></div>
   </div>
 
-  <!-- COLUMNA DERECHA: Reviews -->
-  <div class="sidebar-column">
-    <mat-card class="mat-elevation-z2">
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card>
+  <div class="second-row">
+    <app-salon-list></app-salon-list>
   </div>
+
 </div>
