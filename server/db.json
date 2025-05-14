@@ -126,17 +126,31 @@
       "phone": "123456789"
     },
     {
-      "name": "magic2",
-      "salonId": "salon2",
-      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
+      "name": "Estilo Único",
+      "salonId": "2",
+      "imageURL": "https://luxurylifestyleawards.com/wp-content/uploads/2019/12/belle-femme-beauty-boutique-spa-hair-at-JBR-1.jpg",
       "location": "Midtown",
       "phone": "987654321"
     },
     {
-      "name": "tu super salon",
-      "salonId": "salon3",
+      "name": "Belleza Total",
+      "salonId": "3",
       "location": "Uptown",
-      "imageURL": "https://files.catbox.moe/fqypcv.jpg",
+      "imageURL": "https://images.squarespace-cdn.com/content/v1/544fea38e4b037a51f5e0054/c16be1e3-8320-4dc0-8598-51889a19b3aa/IMG_4673.jpeg",
+      "phone": "555123456"
+    },
+    {
+      "name": "Studio Glam",
+      "salonId": "4",
+      "location": "Uptown",
+      "imageURL": "https://images.prestigeonline.com/content/uploads/2018/05/30140026/1471425697224_201.jpg",
+      "phone": "555123456"
+    },
+    {
+      "name": "Look Perfecto",
+      "salonId": "5",
+      "location": "Uptown",
+      "imageURL": "https://img1.wsimg.com/isteam/ip/39956c27-e8c8-4fa1-8452-3ca92043dcd1/Beauty_Haus_07.JPG",
       "phone": "555123456"
     }
   ],

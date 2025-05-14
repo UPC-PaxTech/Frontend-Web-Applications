@@ -29,10 +29,16 @@ import {ServiceListComponent} from '../../../services/components/service-list/se
 export class AppointmentMakerComponent {
   worker: Worker[] = [];
 
+
   constructor(private staffService: WorkerApiService) {
   }
+
   ngOnInit() {
     this.staffService.getWorkers().subscribe(worker => this.worker = worker);
 
+  }
+
+  bookAppointment() {
+    alert('¡Cita reservada con éxito!');
   }
 }
