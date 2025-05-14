@@ -83,8 +83,10 @@ ng add angular-cli-ghpages
 ### 1️⃣ Compilar el proyecto en modo producción
 
 ```bash
-ng build --configuration production
+npm run build:gh-pages
+
 ```
 ```bash
-npx angular-cli-ghpages --dir=dist/frontend-web-applications/browser
+npm run deploy:gh-pages
+
 ```
