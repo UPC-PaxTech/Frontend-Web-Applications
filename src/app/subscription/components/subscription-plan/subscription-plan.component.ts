@@ -38,8 +38,6 @@ export class SubscriptionPlanComponent {
     if (confirm('Are you sure you want to change your subscription plan?\n' +
       'This action will update your benefits, and the new plan will take effect immediately.')) {
       this.selectedPlan = plan;
-    }else{
-      this.selectedPlan = '';
     }
   }
 

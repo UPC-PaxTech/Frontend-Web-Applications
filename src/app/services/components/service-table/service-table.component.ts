@@ -35,4 +35,8 @@ import {MatIconButton} from '@angular/material/button';
 export class ServiceTableComponent {
   displayedColumns: string[] = ['name', 'duration', 'price', 'status', 'actions'];
   @Input() services: Service[] = [];
+
+  onNewService(){
+
+  }
 }
