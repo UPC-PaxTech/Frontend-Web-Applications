@@ -28,6 +28,19 @@ import {ServiceListComponent} from '../../../services/components/service-list/se
 })
 export class AppointmentMakerComponent {
   worker: Worker[] = [];
+  selectedDate: Date | null = null;
+  availableTimes: string[] = [];
+
+  onDateSelected(date: Date) {
+    this.selectedDate = date;
+    this.availableTimes = this.generateTimeOptions(date);
+  }
+
+  generateTimeOptions(date: Date): string[] {
+    // Aquí podrías consultar disponibilidad real. Por ahora: mock.
+    const options = ['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM'];
+    return options.slice(0, 6); // Limita a 3
+  }
 
   constructor(private staffService: WorkerApiService) {
   }

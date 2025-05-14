@@ -1,5 +1,5 @@
 
-import {ChangeDetectionStrategy, Component, model} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, model, Output} from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -13,5 +13,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatePickerComponent {
-  selected = model<Date | null>(null);
+  @Output() dateSelected = new EventEmitter<Date>();
+
+  onDateSelected(date: Date) {
+    this.dateSelected.emit(date);
+  }
 }

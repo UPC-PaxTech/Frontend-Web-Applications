@@ -8,7 +8,12 @@
     <app-staff-list [WorkerList]="worker"></app-staff-list>
   </div>
 
-  <div class="right-column">
-    <app-date-picker class="date-picker"></app-date-picker>
-  </div>
+    <div class="right-column">
+        <app-date-picker (dateSelected)="onDateSelected($event)"></app-date-picker>
+
+        <div *ngIf="availableTimes.length > 0">
+            <h3>Select a time:</h3>
+            <button *ngFor="let time of availableTimes" mat-button>{{ time }}</button>
+        </div>
+    </div>
 </div>
