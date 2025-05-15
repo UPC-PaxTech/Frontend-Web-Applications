@@ -224,8 +224,7 @@
       "price": 55,
       "status": "Active"
     }
-  ]
-,
+  ],
   "payments": [
     {
       "paymentId": "pay1",
@@ -379,7 +378,7 @@
   ],
   "reviews": [
     {
-      "id": "rev1",
+      "id": 1,
       "author": "Sofia Ramirez",
       "rating": 5,
       "text": "An amazing experience! I left with the most gorgeous hair ever. Highly recommend!",
@@ -405,34 +404,42 @@
       "rating": 5,
       "text": "I highly recommend this place! The ambiance is so relaxing, and the team really listens to what you want.",
       "read": true
+    },
+    {
+      "author": "Anonimo",
+      "rating": "1",
+      "text": "no me guto",
+      "read": true,
+      "id": 2
     }
   ],
-  "salonProfiles": [{
-    "id": 1,
-    "userId": "user3",
-    "salonName": "Vibrance Salon",
-    "rating": 4.7,
-    "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
-    "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
-    "socials": {
-      "instagram": "https://instagram.com/vibrance_salon",
-      "tiktok": "https://tiktok.com/@vibrance_salon"
-    },
-    "portfolioImages": [
-      "https://picsum.photos/600/400?random=1",
-      "https://picsum.photos/600/400?random=2",
-      "https://picsum.photos/600/400?random=3",
-      "https://picsum.photos/600/400?random=4",
-      "https://picsum.photos/600/400?random=5"
-    ],
-    "Address": "adress",
-    "salonemail": "email@gmail.com",
-    "accounts": {
-      "accountId": "acc3",
-      "email": "mike@example.com",
-      "passwordHash": "nine",
-      "isActive": false
+  "salonProfiles": [
+    {
+      "id": 1,
+      "userId": "user3",
+      "salonName": "Vibrance Salon",
+      "rating": 4.7,
+      "profileImage": "https://randomuser.me/api/portraits/women/65.jpg",
+      "coverImage": "https://img.freepik.com/free-vector/beauty-concept-twitch-banner_23-2150436493.jpg?semt=ais_hybrid&w=740",
+      "socials": {
+        "instagram": "https://instagram.com/vibrance_salon",
+        "tiktok": "https://tiktok.com/@vibrance_salon"
+      },
+      "portfolioImages": [
+        "https://picsum.photos/600/400?random=1",
+        "https://picsum.photos/600/400?random=2",
+        "https://picsum.photos/600/400?random=3",
+        "https://picsum.photos/600/400?random=4",
+        "https://picsum.photos/600/400?random=5"
+      ],
+      "Address": "adress",
+      "salonemail": "email@gmail.com",
+      "accounts": {
+        "accountId": "acc3",
+        "email": "mike@example.com",
+        "passwordHash": "nine",
+        "isActive": false
+      }
     }
-  }
   ]
 }

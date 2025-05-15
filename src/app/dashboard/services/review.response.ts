@@ -1,5 +1,5 @@
 export interface ReviewResponse {
-  id: number;
+  id?: number ;
   author: string;
   rating: number;
   text: string;

@@ -21,17 +21,17 @@
       <p>Do you want to leave a review?</p>
 
       <div class="stars">
-        <button mat-icon-button *ngFor="let star of [1,2,3,4,5]">
-          <mat-icon>star_border</mat-icon>
-        </button>
+        <mat-label>Enter rating</mat-label>
+
       </div>
+      <textarea matInput [(ngModel)]="reviewrating"></textarea>
 
       <mat-form-field appearance="fill" class="review-input">
         <mat-label>Type here</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput [(ngModel)]="reviewInput"></textarea>
       </mat-form-field>
 
-      <button mat-raised-button color="accent">Submit</button>
+      <button mat-raised-button color="accent" (click)="postReview()">Submit</button>
     </div>
   </div>
 </section>
