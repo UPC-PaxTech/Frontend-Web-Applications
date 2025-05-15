@@ -6,7 +6,7 @@ import {catchError, Observable, retry, throwError} from 'rxjs';
 export abstract class BaseService<R> {
   protected httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
   protected serverBaseUrl: string = environment.serverBaseUrl;
-  protected resourceEndpoint: string = '/resources';
+  public resourceEndpoint: string = '/resources';
   protected http: HttpClient = inject(HttpClient);
 
   protected handleError(error: HttpErrorResponse) {
@@ -14,7 +14,7 @@ export abstract class BaseService<R> {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  protected resourcePath(): string {
+  public resourcePath(): string {
     return `${this.serverBaseUrl}${this.resourceEndpoint}`;
   }
 

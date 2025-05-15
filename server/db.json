@@ -187,31 +187,41 @@
   ],
   "services": [
     {
-      "id": "srv1",
+      "id": 1,
       "name": "Simple haircut",
       "duration": 45,
       "price": 40,
       "status": "Active"
     },
     {
-      "id": "srv2",
+      "id": 2,
       "name": "Keratin Treatment",
       "duration": 60,
       "price": 50,
       "status": "Active"
     },
     {
-      "id": "srv3",
-      "name": "Color & cut",
-      "duration": 90,
-      "price": 100,
-      "status": "Paused"
+      "id": 3,
+      "name": "Facial Glow Treatment",
+      "description": "Revitalizing facial for glowing skin.",
+      "duration": 30,
+      "price": 80,
+      "status": "Active"
     },
     {
-      "id": "srv4",
-      "name": "Hot styling",
-      "duration": 30,
-      "price": 30,
+      "id": 4,
+      "name": "Relaxing Body Massage",
+      "description": "A full-body massage to relieve stress.",
+      "duration": 60,
+      "price": 120,
+      "status": "Active"
+    },
+    {
+      "id": 5,
+      "name": "Luxury Manicure",
+      "description": "Premium manicure with hand massage.",
+      "duration": 45,
+      "price": 55,
       "status": "Active"
     }
   ],
@@ -296,210 +306,6 @@
       }
     },
     {
-      "reservationId": "res2",
-      "tipo": "Keratin Treatment",
-      "client": {
-        "clientId": "client2",
-        "birthDate": "1985-05-15T00:00:00Z",
-        "user": {
-          "userId": "user2",
-          "name": "Lisa Smith"
-        }
-      },
-      "salon": {
-        "salonId": "salon1",
-        "location": "Downtown",
-        "phone": "123456789"
-      },
-      "payment": {
-        "paymentId": "pay2",
-        "amount": 50,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "2",
-        "start": "2025-05-10T10:00:00Z",
-        "end": "2025-05-10T11:00:00Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker6",
-        "name": "Gael Chi"
-      }
-    },
-    {
-      "reservationId": "res3",
-      "tipo": "Color & cut",
-      "client": {
-        "clientId": "client3",
-        "birthDate": "1992-07-20T00:00:00Z",
-        "user": {
-          "userId": "user3",
-          "name": "Mike Lee"
-        }
-      },
-      "salon": {
-        "salonId": "salon2",
-        "location": "Midtown",
-        "phone": "987654321"
-      },
-      "payment": {
-        "paymentId": "pay3",
-        "amount": 100,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "3",
-        "start": "2025-05-11T11:00:00Z",
-        "end": "2025-05-11T12:30:00Z",
-        "status": true,
-        "tipo": "Extended"
-      },
-      "worker": {
-        "workerId": "worker5",
-        "name": "Kevin Rivera"
-      }
-    },
-    {
-      "reservationId": "res4",
-      "tipo": "Hot styling",
-      "client": {
-        "clientId": "client4",
-        "birthDate": "1995-11-30T00:00:00Z",
-        "user": {
-          "userId": "user4",
-          "name": "Anna Kim"
-        }
-      },
-      "salon": {
-        "salonId": "salon2",
-        "location": "Midtown",
-        "phone": "987654321"
-      },
-      "payment": {
-        "paymentId": "pay4",
-        "amount": 30,
-        "currency": "USD",
-        "status": false
-      },
-      "timeSlot": {
-        "timeSlotId": "ts4",
-        "start": "2025-05-12T13:00:00Z",
-        "end": "2025-05-12T13:30:00Z",
-        "status": true,
-        "tipo": "Express"
-      },
-      "worker": {
-        "workerId": "worker6",
-        "name": "Gael Chi"
-      }
-    },
-    {
-      "reservationId": "res5",
-      "tipo": "Simple haircut",
-      "client": {
-        "clientId": "client5",
-        "birthDate": "1993-03-25T00:00:00Z",
-        "user": {
-          "userId": "user5",
-          "name": "Carla Ríos"
-        }
-      },
-      "salon": {
-        "salonId": "salon1",
-        "location": "Downtown",
-        "phone": "123456789"
-      },
-      "payment": {
-        "paymentId": "pay5",
-        "amount": 50,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts5",
-        "start": "2025-06-15T15:00:00Z",
-        "end": "2025-06-15T15:45:00Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker1",
-        "name": "Javier Herrera"
-      }
-    },
-    {
-      "reservationId": "res6",
-      "tipo": "Hot styling",
-      "client": {
-        "clientId": "client6",
-        "birthDate": "1988-09-12T00:00:00Z",
-        "user": {
-          "userId": "user6",
-          "name": "David Morales"
-        }
-      },
-      "salon": {
-        "salonId": "salon3",
-        "location": "Uptown",
-        "phone": "555123456"
-      },
-      "payment": {
-        "paymentId": "pay6",
-        "amount": 30,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts6",
-        "start": "2025-06-16T10:30:00Z",
-        "end": "2025-06-16T11:00:00Z",
-        "status": true,
-        "tipo": "Express"
-      },
-      "worker": {
-        "workerId": "worker4",
-        "name": "Lorenzo Ortega"
-      }
-    },
-    {
-      "reservationId": "res7",
-      "tipo": "Keratin Treatment",
-      "client": {
-        "clientId": "client7",
-        "birthDate": "1997-12-03T00:00:00Z",
-        "user": {
-          "userId": "user7",
-          "name": "Sofía Alarcón"
-        }
-      },
-      "salon": {
-        "salonId": "salon2",
-        "location": "Midtown",
-        "phone": "987654321"
-      },
-      "payment": {
-        "paymentId": "pay7",
-        "amount": 40,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts7",
-        "start": "2025-06-17T14:00:00Z",
-        "end": "2025-06-17T15:00:00Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker6",
-        "name": "Gael Chi"
-      }
-    },
-    {
       "reservationId": "res10",
       "tipo": "Express Cut",
       "client": {
@@ -522,9 +328,9 @@
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts10",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
+        "timeSlotId": "1",
+        "start": "2025-05-17T14:00:00.000Z",
+        "end": "2025-05-17T15:00:00.000Z",
         "status": true,
         "tipo": "Standard"
       },
@@ -557,9 +363,9 @@
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts10",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
+        "timeSlotId": "6",
+        "start": "2025-05-16T19:00:00.000Z",
+        "end": "2025-05-16T20:00:00.000Z",
         "status": true,
         "tipo": "Standard"
       },
@@ -568,221 +374,11 @@
         "name": "New Worker"
       },
       "id": 3
-    },
-    {
-      "reservationId": "res10",
-      "tipo": "Express Cut",
-      "client": {
-        "clientId": "client10",
-        "birthDate": "1990-01-01T00:00:00Z",
-        "user": {
-          "userId": "user10",
-          "name": "Test User"
-        }
-      },
-      "salon": {
-        "salonId": "salon1",
-        "location": "Test Location",
-        "phone": "000000000"
-      },
-      "payment": {
-        "paymentId": "pay10",
-        "amount": 50,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts10",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker10",
-        "name": "New Worker"
-      },
-      "id": 4
-    },
-    {
-      "reservationId": "res10",
-      "tipo": "Express Cut",
-      "client": {
-        "clientId": "client10",
-        "birthDate": "1990-01-01T00:00:00Z",
-        "user": {
-          "userId": "user10",
-          "name": "Test User"
-        }
-      },
-      "salon": {
-        "salonId": "salon1",
-        "location": "Test Location",
-        "phone": "000000000"
-      },
-      "payment": {
-        "paymentId": "pay10",
-        "amount": 50,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts10",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker10",
-        "name": "New Worker"
-      },
-      "id": 5
-    },
-    {
-      "reservationId": "res10",
-      "tipo": "Express Cut",
-      "client": {
-        "clientId": "client10",
-        "birthDate": "1990-01-01T00:00:00Z",
-        "user": {
-          "userId": "user10",
-          "name": "Test User"
-        }
-      },
-      "salon": {
-        "salonId": "salon1",
-        "location": "Test Location",
-        "phone": "000000000"
-      },
-      "payment": {
-        "paymentId": "pay10",
-        "amount": 50,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts10",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker10",
-        "name": "New Worker"
-      },
-      "id": 6
-    },
-    {
-      "reservationId": "res10",
-      "tipo": "Express Cut",
-      "client": {
-        "clientId": "client10",
-        "birthDate": "1990-01-01T00:00:00Z",
-        "user": {
-          "userId": "user10",
-          "name": "Test User"
-        }
-      },
-      "salon": {
-        "salonId": "salon1",
-        "location": "Test Location",
-        "phone": "000000000"
-      },
-      "payment": {
-        "paymentId": "pay10",
-        "amount": 50,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts10",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker10",
-        "name": "New Worker"
-      },
-      "id": 7
-    },
-    {
-      "reservationId": "res10",
-      "tipo": "Express Cut",
-      "client": {
-        "clientId": "client10",
-        "birthDate": "1990-01-01T00:00:00Z",
-        "user": {
-          "userId": "user10",
-          "name": "Test User"
-        }
-      },
-      "salon": {
-        "salonId": "salon1",
-        "location": "Test Location",
-        "phone": "000000000"
-      },
-      "payment": {
-        "paymentId": "pay10",
-        "amount": 50,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "ts10",
-        "start": "2025-07-10T09:00:00Z",
-        "end": "2025-07-10T09:45:00Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker10",
-        "name": "New Worker"
-      },
-      "id": 8
-    },
-    {
-      "reservationId": "res10",
-      "tipo": "Express Cut",
-      "client": {
-        "clientId": "client10",
-        "birthDate": "1990-01-01T00:00:00Z",
-        "user": {
-          "userId": "user10",
-          "name": "Test User"
-        }
-      },
-      "salon": {
-        "salonId": "salon1",
-        "location": "Test Location",
-        "phone": "000000000"
-      },
-      "payment": {
-        "paymentId": "pay10",
-        "amount": 50,
-        "currency": "USD",
-        "status": true
-      },
-      "timeSlot": {
-        "timeSlotId": "8",
-        "start": "2025-05-26T21:00:00.000Z",
-        "end": "2025-05-26T22:00:00.000Z",
-        "status": true,
-        "tipo": "Standard"
-      },
-      "worker": {
-        "workerId": "worker10",
-        "name": "New Worker"
-      },
-      "id": 9
     }
   ],
   "reviews": [
     {
-      "id": "rev1",
+      "id": 1,
       "author": "Sofia Ramirez",
       "rating": 5,
       "text": "An amazing experience! I left with the most gorgeous hair ever. Highly recommend!",
@@ -808,6 +404,13 @@
       "rating": 5,
       "text": "I highly recommend this place! The ambiance is so relaxing, and the team really listens to what you want.",
       "read": true
+    },
+    {
+      "author": "Anonimo",
+      "rating": "1",
+      "text": "no me guto",
+      "read": true,
+      "id": 2
     }
   ],
   "salonProfiles": [
