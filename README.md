@@ -88,3 +88,6 @@ ng build --configuration production
 ```bash
 npx angular-cli-ghpages --dir=dist/frontend-web-applications/browser
 ```
+npm run build:gh-pages
+
+npm run deploy:gh-pages
