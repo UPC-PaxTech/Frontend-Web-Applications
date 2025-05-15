@@ -13,5 +13,6 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  grid-template-columns: repeat(3, 1fr);
 }
 

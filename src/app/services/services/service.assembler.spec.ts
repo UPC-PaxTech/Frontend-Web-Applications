@@ -1,7 +1,7 @@
-import { Service } from './service.assembler';
+import { ServiceAssembler } from './service.assembler';
 
 describe('Service', () => {
   it('should create an instance', () => {
-    expect(new Service()).toBeTruthy();
+    expect(new ServiceAssembler()).toBeTruthy();
   });
 });

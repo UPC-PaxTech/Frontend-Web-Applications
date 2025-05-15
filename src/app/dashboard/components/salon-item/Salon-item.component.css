@@ -3,10 +3,10 @@
 }
 
 .salon-card {
-  max-width: 300px;
+  width: 300px;
 }
 
 .card-image {
   width: 100%;
-  height: auto;
+  height: 170px;
 }

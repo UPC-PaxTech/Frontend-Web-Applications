@@ -8,12 +8,12 @@
     <app-staff-list [WorkerList]="worker"></app-staff-list>
   </div>
 
-    <div class="right-column">
-        <app-date-picker (dateSelected)="onDateSelected($event)"></app-date-picker>
+  <div class="right-column">
+    <app-date-picker (reservationConfirmed)="onReservationConfirmed($event)" class="date-picker"></app-date-picker>
+      <button mat-button routerLink="/client" (click)="bookAppointment()">
+          Reservar cita
+      </button>
+  </div>
 
-        <div *ngIf="availableTimes.length > 0">
-            <h3>Select a time:</h3>
-            <button *ngFor="let time of availableTimes" mat-button>{{ time }}</button>
-        </div>
-    </div>
+
 </div>
