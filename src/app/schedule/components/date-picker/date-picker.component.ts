@@ -36,9 +36,8 @@ export class DatePickerComponent {
 
   selectTimeSlot(slot: any) {
     this.selectedTimeSlot = slot;
-  }
+    console.log(this.selectedTimeSlot);
 
-  confirmSelection() {
     if (this.selected && this.selectedTimeSlot) {
       // Emitir la fecha y rango horario seleccionados
       this.reservationConfirmed.emit({date: this.selected, timeSlot: this.selectedTimeSlot});

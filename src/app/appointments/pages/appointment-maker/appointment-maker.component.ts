@@ -11,7 +11,6 @@ import {ReviewListComponent} from '../../../dashboard/components/review-list/rev
 import {ServiceListComponent} from '../../../services/components/service-list/service-list.component';
 
 import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';  // importa servicio citas
-import {Appointment} from '../../../dashboard/models/appointment.entity';
 import {AppointmentResponse} from '../../../dashboard/services/appointment.response';
 
 @Component({
@@ -83,10 +82,6 @@ export class AppointmentMakerComponent implements OnInit {
       },
         "worker": { "workerId": "worker10", "name": "New Worker" }
       };
-
-
-
-
 
     this.appointmentService.post(postData).subscribe({
       next: () => alert('¡Cita reservada con éxito!'),

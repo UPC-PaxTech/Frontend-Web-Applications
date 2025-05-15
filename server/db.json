@@ -743,6 +743,41 @@
         "name": "New Worker"
       },
       "id": 8
+    },
+    {
+      "reservationId": "res10",
+      "tipo": "Express Cut",
+      "client": {
+        "clientId": "client10",
+        "birthDate": "1990-01-01T00:00:00Z",
+        "user": {
+          "userId": "user10",
+          "name": "Test User"
+        }
+      },
+      "salon": {
+        "salonId": "salon1",
+        "location": "Test Location",
+        "phone": "000000000"
+      },
+      "payment": {
+        "paymentId": "pay10",
+        "amount": 50,
+        "currency": "USD",
+        "status": true
+      },
+      "timeSlot": {
+        "timeSlotId": "8",
+        "start": "2025-05-26T21:00:00.000Z",
+        "end": "2025-05-26T22:00:00.000Z",
+        "status": true,
+        "tipo": "Standard"
+      },
+      "worker": {
+        "workerId": "worker10",
+        "name": "New Worker"
+      },
+      "id": 9
     }
   ],
   "reviews": [
