@@ -23,9 +23,9 @@
     <div class="center-content">
       <img src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png" alt="uTime Logo" class="main-logo" />
       <div class="register-container">
-        <mat-button-toggle-group [(ngModel)]="isProvider">
-          <mat-button-toggle class="button-toggle" value="false" (click)="toggleForm(false)">Client</mat-button-toggle>
-          <mat-button-toggle class="button-toggle" value="true" (click)="toggleForm(true)">Provider</mat-button-toggle>
+        <mat-button-toggle-group [(ngModel)]="isProvider" (ngModelChange)="toggleForm($event)">
+          <mat-button-toggle class="button-toggle" [value]="false">Client</mat-button-toggle>
+          <mat-button-toggle class="button-toggle" [value]="true">Provider</mat-button-toggle>
         </mat-button-toggle-group>
 
         <!-- Muestra el formulario de cliente -->
@@ -33,9 +33,6 @@
 
         <!-- Muestra el formulario de proveedor -->
         <app-register-form-provider *ngIf="isProvider"></app-register-form-provider>
-
-        <!-- Muestra el selector de plan después de hacer clic en el botón "Complete Registration" -->
-        <app-plan-selector *ngIf="isProvider && showPlanSelector"></app-plan-selector>
 
       </div>
     </div>
