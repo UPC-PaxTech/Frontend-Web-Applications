@@ -11,7 +11,6 @@ import {ReviewListComponent} from '../../../dashboard/components/review-list/rev
 import {ServiceListComponent} from '../../../services/components/service-list/service-list.component';
 
 import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';  // importa servicio citas
-import {Appointment} from '../../../dashboard/models/appointment.entity';
 import {AppointmentResponse} from '../../../dashboard/services/appointment.response';
 
 @Component({
@@ -34,6 +33,19 @@ import {AppointmentResponse} from '../../../dashboard/services/appointment.respo
 
 export class AppointmentMakerComponent implements OnInit {
   worker: Worker[] = [];
+  selectedDate: Date | null = null;
+  availableTimes: string[] = [];
+
+  onDateSelected(date: Date) {
+    this.selectedDate = date;
+    this.availableTimes = this.generateTimeOptions(date);
+  }
+
+  generateTimeOptions(date: Date): string[] {
+    // Aquí podrías consultar disponibilidad real. Por ahora: mock.
+    const options = ['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM'];
+    return options.slice(0, 6); // Limita a 3
+  }
 
   // Guardamos selección para POST
   selectedReservation: {date: Date, timeSlot: any} | null = null;
@@ -83,10 +95,6 @@ export class AppointmentMakerComponent implements OnInit {
       },
         "worker": { "workerId": "worker10", "name": "New Worker" }
       };
-
-
-
-
 
     this.appointmentService.post(postData).subscribe({
       next: () => alert('¡Cita reservada con éxito!'),
