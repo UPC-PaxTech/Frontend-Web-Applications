@@ -179,7 +179,7 @@ Appointments.Components.AppointmentsListComponent --> Appointments.Components.Up
 Appointments.Components.UpcomingAppointmentsComponent --> Appointments.Services.AppointmentApiService : uses
 Appointments.Components.AppointmentsListComponent --> Appointments.Services.AppointmentApiService : uses
 Appointments.Components.AppointmentsListComponent --> Appointments.Services.ReviewApiService : uses
-Appointments.Pages.AppointmentMakerComponent --> Appointments.Components.AppointmentsListComponent
+Appointments.Pages.AppointmentMakerComponent --> Appointments.Services.AppointmentApiService
 
 Schedule.Components.CalendarComponent --> Appointments.Models.ClientAppointment : uses
 Schedule.Components.CalendarComponent --> Appointments.Services.AppointmentApiService : uses
