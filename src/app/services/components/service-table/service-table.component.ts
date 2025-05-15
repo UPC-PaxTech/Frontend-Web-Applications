@@ -72,7 +72,7 @@ export class ServiceTableComponent {
     };
 
 
-    this.servicesService.create(null, servicio).subscribe({
+    this.servicesService.post(servicio).subscribe({
       next: (response) => {
         console.log('✅ Servicio creado exitosamente:', response);
 
@@ -91,6 +91,9 @@ export class ServiceTableComponent {
   }
 
   public deleteService(id: number) {
+    console.log('Deleting from endpoint:', this.servicesService.resourcePath());
+
+    console.log('🔧 Service API Instance:', this.servicesService);
     this.servicesService.delete(id).subscribe(() => {
       this.services = this.services.filter(s => s.id !== id); // Actualiza la tabla
       this.snackBar.open('🗑️ Servicio eliminado.', 'Cerrar', { duration: 2000 });
