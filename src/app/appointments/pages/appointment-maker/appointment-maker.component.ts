@@ -74,7 +74,13 @@ export class AppointmentMakerComponent implements OnInit {
         "client": { "clientId": "client10", "birthDate": "1990-01-01T00:00:00Z", "user": { "userId": "user10", "name": "Test User" } },
         "salon": { "salonId": "salon1", "location": "Test Location", "phone": "000000000" },
         "payment": { "paymentId": "pay10", "amount": 50, "currency": "USD", "status": true },
-        "timeSlot": { "timeSlotId": "ts10", "start": "2025-07-10T09:00:00Z", "end": "2025-07-10T09:45:00Z", "status": true, "tipo": "Standard" },
+        timeSlot: {
+        timeSlotId: slot.id,
+        start: startDate.toISOString(),
+        end: endDate.toISOString(),
+        status: true,
+        tipo: slot.tipo
+      },
         "worker": { "workerId": "worker10", "name": "New Worker" }
       };
 

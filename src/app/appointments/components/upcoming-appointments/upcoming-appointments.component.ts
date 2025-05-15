@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AppointmentApiService} from '../../services/appointment-api-service.service';
+import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';
 import {ClientAppointment} from '../../model/appointment.entity';
 import { CommonModule } from '@angular/common';
 

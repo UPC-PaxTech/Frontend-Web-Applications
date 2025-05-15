@@ -120,18 +120,31 @@
   "salons": [
     {
       "salonId": "salon1",
+      "name": "Montalvo",
+      "imageURL": "https://picsum.photos/600/400?random=1",
       "location": "Downtown",
       "phone": "123456789"
     },
     {
       "salonId": "salon2",
+      "name": "Super Salon",
+      "imageURL": "https://picsum.photos/600/400?random=2",
       "location": "Midtown",
       "phone": "987654321"
     },
     {
       "salonId": "salon3",
-      "location": "Uptown",
-      "phone": "555123456"
+      "name": "Tu Salon de Belleza",
+      "imageURL": "https://picsum.photos/600/400?rando=3",
+      "location": "Midtown",
+      "phone": "987654321"
+    },
+    {
+      "salonId": "salon3",
+      "name": "Belleza diaria",
+      "imageURL": "https://picsum.photos/600/400?random=4",
+      "location": "Midtown",
+      "phone": "987654321"
     }
   ],
   "workers": [
