@@ -10,10 +10,9 @@
 
   <div class="right-column">
     <app-date-picker (reservationConfirmed)="onReservationConfirmed($event)" class="date-picker"></app-date-picker>
-      <button mat-button routerLink="/client" (click)="bookAppointment()" [disabled]="!selectedReservation">
+      <button mat-button routerLink="/client" (click)="bookAppointment()">
           Reservar cita
       </button>
-    <button mat-button (click)="bookAppointment()"> Presiona test</button>
   </div>
 
 

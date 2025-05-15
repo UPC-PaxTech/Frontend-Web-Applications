@@ -52,7 +52,7 @@ export class AppointmentMakerComponent implements OnInit {
   }
 
   bookAppointment() {
-    /*if (!this.selectedReservation) {
+    if (!this.selectedReservation) {
       alert('Por favor seleccione fecha y rango horario');
       return;
     }
@@ -66,7 +66,7 @@ export class AppointmentMakerComponent implements OnInit {
     startDate.setHours(slot.start.getHours(), slot.start.getMinutes(), 0, 0);
 
     const endDate = new Date(date);
-    endDate.setHours(slot.end.getHours(), slot.end.getMinutes(), 0, 0);*/
+    endDate.setHours(slot.end.getHours(), slot.end.getMinutes(), 0, 0);
 
     const postData: AppointmentResponse = {
         "reservationId": "res10",
@@ -76,17 +76,13 @@ export class AppointmentMakerComponent implements OnInit {
         "payment": { "paymentId": "pay10", "amount": 50, "currency": "USD", "status": true },
         "timeSlot": { "timeSlotId": "ts10", "start": "2025-07-10T09:00:00Z", "end": "2025-07-10T09:45:00Z", "status": true, "tipo": "Standard" },
         "worker": { "workerId": "worker10", "name": "New Worker" }
-      }
-    ;
+      };
+
+
 
 
 
     this.appointmentService.post(postData).subscribe({
-      next: () => alert('¡Cita reservada con éxito!'),
-      error: (e) => alert('Error al reservar cita: ' + e.message)
-    });
-
-    this.appointmentService.post(JSON.parse(JSON.stringify(postData))).subscribe({
       next: () => alert('¡Cita reservada con éxito!'),
       error: (e) => alert('Error al reservar cita: ' + e.message)
     });
