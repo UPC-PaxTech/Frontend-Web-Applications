@@ -9,7 +9,8 @@ export class ServiceAssembler {
       description: resource.description,
       duration: resource.duration,
       price: resource.price,
-      status: resource.status
+      status: resource.status,
+      salonId: resource.salonId
     };
   }
 
@@ -17,7 +18,7 @@ export class ServiceAssembler {
     return resources.map(this.toEntityFromResource);
   }
 
-  static toResponseFromEntity(entity: Service): ServiceResponse {
+  /*static toResponseFromEntity(entity: Service): ServiceResponse {
     return {
       id: entity.id,
       name: entity.name,
@@ -26,5 +27,5 @@ export class ServiceAssembler {
       price: entity.price,
       status: entity.status
     };
-  }
+  }*/
 }

@@ -119,28 +119,28 @@
   ],
   "salons": [
     {
-      "salonId": "salon1",
+      "id": 1,
       "name": "Montalvo",
       "imageURL": "https://picsum.photos/600/400?random=1",
       "location": "Downtown",
       "phone": "123456789"
     },
     {
-      "salonId": "salon2",
+      "id": 2,
       "name": "Super Salon",
       "imageURL": "https://picsum.photos/600/400?random=2",
       "location": "Midtown",
       "phone": "987654321"
     },
     {
-      "salonId": "salon3",
+      "id": 3,
       "name": "Tu Salon de Belleza",
-      "imageURL": "https://picsum.photos/600/400?rando=3",
+      "imageURL": "https://picsum.photos/600/400?random=3",
       "location": "Midtown",
       "phone": "987654321"
     },
     {
-      "salonId": "salon3",
+      "id": 4,
       "name": "Belleza diaria",
       "imageURL": "https://picsum.photos/600/400?random=4",
       "location": "Midtown",
@@ -191,14 +191,16 @@
       "name": "Simple haircut",
       "duration": 45,
       "price": 40,
-      "status": "Active"
+      "status": "Active",
+      "salonId": 1
     },
     {
       "id": 2,
       "name": "Keratin Treatment",
       "duration": 60,
       "price": 50,
-      "status": "Active"
+      "status": "Active",
+      "salonId": 1
     },
     {
       "id": 3,
@@ -206,7 +208,8 @@
       "description": "Revitalizing facial for glowing skin.",
       "duration": 30,
       "price": 80,
-      "status": "Active"
+      "status": "Active",
+      "salonId": 2
     },
     {
       "id": 4,
@@ -214,7 +217,8 @@
       "description": "A full-body massage to relieve stress.",
       "duration": 60,
       "price": 120,
-      "status": "Active"
+      "status": "Active",
+      "salonId": 2
     },
     {
       "id": 5,
@@ -222,7 +226,8 @@
       "description": "Premium manicure with hand massage.",
       "duration": 45,
       "price": 55,
-      "status": "Active"
+      "status": "Active",
+      "salonId": 3
     }
   ],
   "payments": [
@@ -382,35 +387,40 @@
       "author": "Sofia Ramirez",
       "rating": 5,
       "text": "An amazing experience! I left with the most gorgeous hair ever. Highly recommend!",
-      "read": false
+      "read": false,
+      "salonId": 1
     },
     {
-      "id": "rev2",
+      "id": 2,
       "author": "Camila Riquez",
       "rating": 4,
       "text": "Tried my first cut. It wasn't exactly what I envisioned. The staff was nice, though, and I might give it another try.",
-      "read": true
+      "read": true,
+      "salonId": 2
     },
     {
-      "id": "rev3",
+      "id": 3,
       "author": "Lucas Herrera",
       "rating": 5,
       "text": "The cut was exactly what I wanted, but I had to wait a little longer than expected. Still, it was worth it!",
-      "read": false
+      "read": false,
+      "salonId": 3
     },
     {
-      "id": "rev4",
+      "id": 4,
       "author": "Mateo García",
       "rating": 5,
       "text": "I highly recommend this place! The ambiance is so relaxing, and the team really listens to what you want.",
-      "read": true
+      "read": true,
+      "salonId": 1
     },
     {
+      "id": 5,
       "author": "Anonimo",
-      "rating": "1",
-      "text": "no me guto",
+      "rating": 1,
+      "text": "no me gustó",
       "read": true,
-      "id": 2
+      "salonId": 2
     }
   ],
   "salonProfiles": [

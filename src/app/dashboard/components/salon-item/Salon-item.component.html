@@ -8,10 +8,10 @@
   </mat-card-content>
 
   <mat-card-content>
-    <app-review-list></app-review-list>
+    <app-review-list [reviews]="reviews"></app-review-list>
   </mat-card-content>
 
   <mat-card-actions class="action-button">
-    <button mat-button [routerLink]="'/client/homeClient/salon'">Book Now</button>
+    <button mat-button [routerLink]="['/client/homeClient/salon', salon.salonId ]">Book Now</button>
   </mat-card-actions>
 </mat-card>

@@ -5,6 +5,7 @@ export class Service {
   duration: number;
   price: number;
   status: 'Active' | 'Paused';
+  salonId: number;
 
   constructor() {
     this.id = 0;
@@ -13,6 +14,7 @@ export class Service {
     this.duration = 0;
     this.price = 0;
     this.status = 'Active';
+    this.salonId = 0;
   }
 }
 

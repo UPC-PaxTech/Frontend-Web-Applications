@@ -5,6 +5,7 @@ export interface ServiceResponse {
   duration: number;
   price: number;
   status: 'Active' | 'Paused';
+  salonId: number;
 }
 
 

@@ -6,8 +6,22 @@
 
     <div class="search-bar">
       <span class="material-icons">search</span>
-      <input type="text" placeholder="Search" class="search-input">
+      <input type="text"
+             placeholder="Search"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSalonSelected($event.option.value)">
+        @for (salon of filteredOptions; track salon) {
+          <mat-option [value]="salon">{{salon.name}}</mat-option>
+        }
+      </mat-autocomplete>
     </div>
+
+
+
+
   </div>
 
   <div class="center-section">

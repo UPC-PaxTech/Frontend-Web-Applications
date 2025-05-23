@@ -68,7 +68,8 @@ export class ServiceTableComponent {
       description: 'tralalero tralalala!',
       duration: 10,
       price: 1000,
-      status: 'Active'
+      status: 'Active',
+      salonId: 1
     };
 
 

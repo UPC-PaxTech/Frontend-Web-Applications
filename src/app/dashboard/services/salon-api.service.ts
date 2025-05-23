@@ -1,24 +1,20 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {SalonsResponse} from './Salon.response';
-import {map, Observable} from 'rxjs';
-import {SalonAssembler} from './Salon.assembler';
-import {Salon} from '../models/Salon.entity';
+import {SalonsResource} from './Salon.response';
+
+import {BaseService} from '../../shared/services/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SalonApiService {
+export class SalonApiService extends BaseService<SalonsResource>{
   private baseUrl = environment.serverBaseUrl;
   private detailsEndpoint = "/salons";
+  override resourceEndpoint = '/salons';
 
-  constructor(private http: HttpClient) {}
-
-  getSalons():Observable<Salon[]> {
-    return this.http.get<SalonsResponse>(`${this.baseUrl}${this.detailsEndpoint}`)
-      .pipe(
-        map(response => SalonAssembler.toEntitiesfromResponse(response))
-      );
+  constructor() {
+    super();
   }
+
 }

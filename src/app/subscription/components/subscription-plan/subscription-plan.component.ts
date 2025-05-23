@@ -1,13 +1,11 @@
-import {Component, Input} from '@angular/core';
-import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle, MatCardSubtitle} from "@angular/material/card";
-import { MatButtonToggleGroup} from '@angular/material/button-toggle';
-import {MatButtonToggle} from '@angular/material/button-toggle';
+import {Component} from '@angular/core';
+import {MatCard, MatCardTitle, MatCardSubtitle} from "@angular/material/card";
+
 import {FormsModule} from '@angular/forms';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+
 import {TranslatePipe} from '@ngx-translate/core';
-import {MatDialog} from '@angular/material/dialog';
 import {MatIcon} from '@angular/material/icon';
-import {MatButton} from '@angular/material/button';
+
 
 @Component({
   selector: 'app-subscription-plan',
@@ -15,18 +13,9 @@ import {MatButton} from '@angular/material/button';
     MatCard,
     MatCardTitle,
     MatCardSubtitle,
-    MatCardHeader,
-    MatCardContent,
-    MatButtonToggleGroup,
-    MatButtonToggle,
     FormsModule,
-    NgIf,
     TranslatePipe,
-    MatCardActions,
     MatIcon,
-    NgClass,
-    MatButton,
-    NgForOf,
   ],
   templateUrl: './subscription-plan.component.html',
   styleUrl: './subscription-plan.component.css'

@@ -32,7 +32,8 @@ export class ReviewListComponent {
       author: "Anonimo",
       rating: this.reviewrating,
       text: this.reviewInput,
-      read: true
+      read: true,
+      salonId: 1
     }
 
     this.serviciodeApi.post(reviewPost).subscribe({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SalonApiService} from '../../../dashboard/services/salon-api.service';
 import {Salon} from '../../../dashboard/models/Salon.entity';
 import { SalonItemComponent} from '../../../dashboard/components/salon-item/Salon-item.component';
+import {SalonAssembler} from '../../../dashboard/services/Salon.assembler';
 
 
 @Component({
@@ -18,8 +19,8 @@ export class SalonGridComponent implements OnInit {
   constructor(private salonApiService: SalonApiService) {}
 
   ngOnInit(): void {
-    this.salonApiService.getSalons().subscribe(salons => {
-      this.salons = salons;
+    this.salonApiService.getAll().subscribe(salons => {
+      this.salons = SalonAssembler.toEntitiesfromResponse(salons);
       console.log(salons);
     });
   }

@@ -8,7 +8,8 @@ export class ReviewAssembler {
       author: resource.author,
       rating: resource.rating,
       text: resource.text,
-      read: resource.read
+      read: resource.read,
+      salonId: resource.salonId
     };
   }
 

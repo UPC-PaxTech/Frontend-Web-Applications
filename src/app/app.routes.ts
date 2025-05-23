@@ -64,7 +64,7 @@ export const routes: Routes = [
     component: ClientLayoutComponent,
     children: [
       { path: '', redirectTo: 'homeClient', pathMatch: 'full' },
-      { path: 'salon', component: SalonComponent}
+      { path: 'salon/:id', component: SalonComponent}
     ]
   },
 

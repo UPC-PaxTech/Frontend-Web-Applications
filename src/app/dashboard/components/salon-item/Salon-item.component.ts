@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, inject, Input, OnInit, Output} from '@angular/core';
 import {MatListItem} from '@angular/material/list';
 import {Salon} from '../../models/Salon.entity';
 import {
@@ -12,6 +12,9 @@ import {
 import {MatButton} from '@angular/material/button';
 import {ReviewListComponent} from '../review-list/review-list.component';
 import {RouterLink} from '@angular/router';
+import {Review} from '../../models/review.entity';
+import {ReviewApiService} from '../../services/review-api.service';
+
 
 @Component({
   selector: 'app-salon-item',
@@ -29,7 +32,15 @@ import {RouterLink} from '@angular/router';
   templateUrl: './Salon-item.component.html',
   styleUrl: './Salon-item.component.css'
 })
-export class SalonItemComponent {
+export class SalonItemComponent implements OnInit{
   @Input() salon!: Salon;
   @Output() salonSelected = new EventEmitter<Salon>();
+  private reviewService = inject(ReviewApiService)
+  reviews: Review[] = [];
+
+  ngOnInit() {
+    this.reviewService.getBySalonId(this.salon.salonId).subscribe(reviews => this.reviews = reviews);
+  }
+
+
 }

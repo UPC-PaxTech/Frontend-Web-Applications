@@ -4,4 +4,5 @@ export interface ReviewResponse {
   rating: number;
   text: string;
   read: boolean;
+  salonId: number;
 }

@@ -15,14 +15,7 @@ import {RouterLink} from '@angular/router';
   templateUrl: './service-list.component.html',
   styleUrls: ['./service-list.component.css']
 })
-export class ServiceListComponent implements OnInit {
-  services: Service[] = [];
+export class ServiceListComponent {
+  @Input() services: Service[] = [];
 
-  constructor(private serviceApi: ServiceApiService) {}
-
-  ngOnInit(): void {
-    this.serviceApi.getServices().subscribe(services => {
-      this.services = services;
-    });
-  }
 }
