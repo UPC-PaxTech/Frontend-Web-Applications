@@ -1,27 +1,36 @@
-<div class="login-container">
-  <!-- Imagen de fondo -->
-  <div class="background-image"></div>
+<div class="register-wrapper">
+  <!-- Sección izquierda con slideshow -->
+  <div class="register-left-section">
+    <div class="register-slideshow">
+      <img
+        *ngFor="let image of slideImages; let i = index"
+        [src]="image"
+        class="register-slide"
+        [class.active]="i === activeIndex"
+        alt=""
+      />
+    </div>
+    <div class="register-overlay-content">
+      <button class="register-back-button" onclick="window.location.href='https://upc-paxtech.github.io/uTime-Landing-Page/'">
+        ← Back to website
+      </button>
+    </div>
 
-  <!-- Capa oscura -->
-  <div class="background-overlay"></div>
+    <!-- Indicadores -->
+    <div class="register-indicators">
+      <span
+        *ngFor="let img of slideImages; let i = index"
+        class="register-indicator"
+        [class.active]="i === activeIndex"
+        (click)="setSlide(i)"
+      ></span>
+    </div>
+  </div>
 
-  <!-- Contenido de la página -->
-  <div class="login-content">
-    <!-- Barra de navegación superior -->
-    <mat-toolbar color="transparent" class="toolbar">
-      <div class="toolbar-left">
-        <img src="https://avatars.githubusercontent.com/u/205873631?s=400&u=7181957c1d03747f9dd9a668e2d4857d99ce55ff&v=4" alt="Logo" class="logo" />
-      </div>
-      <span class="spacer"></span>
-      <div class="toolbar-right">
-        <button mat-button color="white" [routerLink]="'/iam/login'">Sign In</button>
-        <button mat-button color="white" [routerLink]="'/iam/register'">Register</button>
-      </div>
-    </mat-toolbar>
-
+  <!-- Sección derecha con formulario -->
+  <div class="register-right-section">
     <!-- Texto + Formulario -->
-    <div class="center-content">
-      <img src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png" alt="uTime Logo" class="main-logo" />
+    <div class="register-center-content">
       <div class="register-container">
         <mat-button-toggle-group [(ngModel)]="isProvider" (ngModelChange)="toggleForm($event)">
           <mat-button-toggle class="button-toggle" [value]="false">Client</mat-button-toggle>
@@ -33,7 +42,6 @@
 
         <!-- Muestra el formulario de proveedor -->
         <app-register-form-provider *ngIf="isProvider"></app-register-form-provider>
-
       </div>
     </div>
   </div>
