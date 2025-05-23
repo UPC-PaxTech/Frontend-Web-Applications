@@ -149,37 +149,37 @@
   ],
   "workers": [
     {
-      "workerId": "worker1",
+      "id": 1,
       "nombre": "Javier Herrera",
       "especializacion": "Bridal hair stylist",
       "fotoUrl": "https://randomuser.me/api/portraits/men/32.jpg"
     },
     {
-      "workerId": "worker2",
+      "id": 2,
       "nombre": "Lili Díaz",
       "especializacion": "Hair extension specialist",
       "fotoUrl": "https://randomuser.me/api/portraits/women/44.jpg"
     },
     {
-      "workerId": "worker3",
+      "id": 3,
       "nombre": "Manuel Ugarte",
       "especializacion": "Haircut specialist",
       "fotoUrl": "https://randomuser.me/api/portraits/men/45.jpg"
     },
     {
-      "workerId": "worker4",
+      "id": 4,
       "nombre": "Lorenzo Ortega",
       "especializacion": "Stylist",
       "fotoUrl": "https://randomuser.me/api/portraits/men/28.jpg"
     },
     {
-      "workerId": "worker5",
+      "id": 5,
       "nombre": "Kevin Rivera",
       "especializacion": "Color & Cut",
       "fotoUrl": "https://randomuser.me/api/portraits/men/52.jpg"
     },
     {
-      "workerId": "worker6",
+      "id": 6,
       "nombre": "Gael Chi",
       "especializacion": "Keratin Treatment",
       "fotoUrl": "https://randomuser.me/api/portraits/men/53.jpg"
