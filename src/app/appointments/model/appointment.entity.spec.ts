@@ -1,7 +1,7 @@
-import { Appointment } from './appointment.entity';
+import { ClientAppointment } from './appointment.entity';
 
 describe('Appointment', () => {
   it('should create an instance', () => {
-    expect(new Appointment()).toBeTruthy();
+    expect(new ClientAppointment()).toBeTruthy();
   });
 });
