@@ -1,45 +1,52 @@
 {
   "accounts": [
     {
-      "accountId": "acc1",
+      "id": 1,
       "email": "john@example.com",
       "passwordHash": "hash123",
+      "type": "provider",
       "isActive": true
     },
     {
-      "accountId": "acc2",
+      "id": 2,
       "email": "lisa@example.com",
       "passwordHash": "hash456",
+      "type": "client",
       "isActive": true
     },
     {
-      "accountId": "acc3",
+      "id": 3,
       "email": "mike@example.com",
       "passwordHash": "hash789",
+      "type": "provider",
       "isActive": false
     },
     {
-      "accountId": "acc4",
+      "id": 4,
       "email": "anna@example.com",
       "passwordHash": "hash321",
+      "type": "client",
       "isActive": true
     },
     {
-      "accountId": "acc5",
+      "id": 5,
       "email": "carla@example.com",
       "passwordHash": "hash111",
+      "type": "provider",
       "isActive": true
     },
     {
-      "accountId": "acc6",
+      "id": 6,
       "email": "david@example.com",
       "passwordHash": "hash222",
+      "type": "client",
       "isActive": true
     },
     {
-      "accountId": "acc7",
+      "id": 7,
       "email": "sofia@example.com",
       "passwordHash": "hash333",
+      "type": "provider",
       "isActive": false
     }
   ],

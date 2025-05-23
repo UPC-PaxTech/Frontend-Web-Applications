@@ -1,28 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {RegisterFormClientComponent} from '../../components/register-form-client/register-form-client.component';
 import {RegisterFormProviderComponent} from '../../components/register-form-provider/register-form-provider.component';
 import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
-import { MatButtonToggleGroup} from '@angular/material/button-toggle';
-import {MatButtonToggle} from '@angular/material/button-toggle';
-import {LoginFormComponent} from '../../components/login-form/login-form.component';
-import {MatButton} from '@angular/material/button';
-import {MatToolbar} from '@angular/material/toolbar';
-import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
   imports: [
     RegisterFormClientComponent,
     RegisterFormProviderComponent,
-    MatButtonToggleGroup,
-    MatButtonToggle,
     FormsModule,
     NgIf,
-    LoginFormComponent,
-    MatButton,
-    MatToolbar,
-    RouterLink,
     NgForOf
   ],
   templateUrl: './register-page.component.html',
@@ -53,8 +41,8 @@ export class RegisterPageComponent {
     this.activeIndex = index;
   }
   // Cambia entre los formularios de cliente y proveedor
-  toggleForm(isProvider: boolean): void {
-    this.isProvider = isProvider;
+  toggleForm(value: boolean) {
+    this.isProvider = value;
   }
 }
 

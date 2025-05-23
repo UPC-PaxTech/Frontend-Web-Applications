@@ -32,16 +32,18 @@
     <!-- Texto + Formulario -->
     <div class="register-center-content">
       <div class="register-container">
-        <mat-button-toggle-group [(ngModel)]="isProvider" (ngModelChange)="toggleForm($event)">
-          <mat-button-toggle class="button-toggle" [value]="false">Client</mat-button-toggle>
-          <mat-button-toggle class="button-toggle" [value]="true">Provider</mat-button-toggle>
-        </mat-button-toggle-group>
+        <!-- Aquí renderizamos dinámicamente el formulario según isProvider -->
+        <app-register-form-client
+          *ngIf="!isProvider"
+          [isProvider]="isProvider"
+          (toggleChange)="toggleForm($event)">
+        </app-register-form-client>
 
-        <!-- Muestra el formulario de cliente -->
-        <app-register-form-client *ngIf="!isProvider"></app-register-form-client>
-
-        <!-- Muestra el formulario de proveedor -->
-        <app-register-form-provider *ngIf="isProvider"></app-register-form-provider>
+        <app-register-form-provider
+          *ngIf="isProvider"
+          [isProvider]="isProvider"
+          (toggleChange)="toggleForm($event)">
+        </app-register-form-provider>
       </div>
     </div>
   </div>
