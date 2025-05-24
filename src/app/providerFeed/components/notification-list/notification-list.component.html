@@ -1,0 +1,13 @@
+<div class="notification-list">
+  <h2>Notifications</h2>
+
+  <div *ngIf="notifications.length === 0" class="empty">
+    <mat-icon>notifications_off</mat-icon> Empty
+  </div>
+
+  <div *ngFor="let notification of notifications" class="notification-item">
+    <img [src]="notification.iconURL" alt="icon" class="icon" />
+    <div class="message">{{ notification.message }}</div>
+    <div class="time">{{ getRelativeTime(notification.notificationDate) }}</div>
+  </div>
+</div>

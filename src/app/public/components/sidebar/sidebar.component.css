@@ -31,3 +31,7 @@
 .material-icons {
   font-size: 24px;
 }
+
+.divider {
+flex: 0;
+}

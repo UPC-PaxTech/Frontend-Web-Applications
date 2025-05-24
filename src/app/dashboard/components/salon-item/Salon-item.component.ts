@@ -37,9 +37,12 @@ export class SalonItemComponent implements OnInit{
   @Output() salonSelected = new EventEmitter<Salon>();
   private reviewService = inject(ReviewApiService)
   reviews: Review[] = [];
+  reviewAverage = 0;
+  constructor() { }
 
   ngOnInit() {
     this.reviewService.getBySalonId(this.salon.salonId).subscribe(reviews => this.reviews = reviews);
+    this.reviews.forEach(review=> this.reviewAverage+= review.rating)
   }
 
 

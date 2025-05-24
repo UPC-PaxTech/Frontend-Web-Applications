@@ -568,6 +568,69 @@
         "isActive": false
       }
     }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "notificationDate": "2025-05-01T10:00:00Z",
+      "message": "Your reservation has been confirmed.",
+      "salonId": 1,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-confirm.png",
+      "reservationDetailsId": 1,
+      "read": false
+    },
+    {
+      "id": 2,
+      "notificationDate": "2025-05-02T12:30:00Z",
+      "message": "Reminder: You have an appointment tomorrow at 3:00 PM.",
+      "salonId": 1,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-reminder.png",
+      "reservationDetailsId": 2,
+      "read": false
+    },
+    {
+      "id": 3,
+      "notificationDate": "2025-05-03T09:00:00Z",
+      "message": "New offer: 20% off on hair treatments this week!",
+      "salonId": 2,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-offer.png",
+      "reservationDetailsId": null,
+      "read": false
+    },
+    {
+      "id": 4,
+      "notificationDate": "2025-05-04T16:00:00Z",
+      "message": "Your stylist is on the way.",
+      "salonId": 1,
+      "clientId": 2,
+      "iconURL": "https://example.com/icon-location.png",
+      "reservationDetailsId": 3,
+      "read": true
+    },
+    {
+      "id": 5,
+      "notificationDate": "2025-05-05T08:00:00Z",
+      "message": "You have a new message from your salon.",
+      "salonId": 3,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-message.png",
+      "reservationDetailsId": null,
+      "read": false
+    },
+    {
+      "id": 6,
+      "notificationDate": "2025-05-05T11:45:00Z",
+      "message": "Thanks for visiting! Please rate your experience.",
+      "salonId": 1,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-review.png",
+      "reservationDetailsId": 4,
+      "read": false
+    }
   ]
+
 
 }

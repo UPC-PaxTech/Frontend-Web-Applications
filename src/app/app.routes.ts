@@ -18,7 +18,7 @@ import {ServicesTabComponent} from './services/pages/services-tab/services-tab.c
 import {SettingsPageComponent} from './providerSettings/pages/settings-page/settings-page.component';
 import {SubscriptionTabComponent} from './subscription/pages/subscription-tab/subscription-tab.component';
 import {AppointmentMakerComponent} from './appointments/pages/appointment-maker/appointment-maker.component';
-
+import {NotificationPageComponent} from './providerFeed/pages/notification-page/notification-page.component';
 export const routes: Routes = [
 
   // Redirección por defecto al login
@@ -44,7 +44,8 @@ export const routes: Routes = [
       { path: 'reviews', component: ReviewsTabComponent },
       { path: 'services', component: ServicesTabComponent },
       { path: 'subscription', component: SubscriptionTabComponent},
-      { path: 'settings', component: SettingsPageComponent}
+      { path: 'settings', component: SettingsPageComponent},
+      {path: 'notification', component: NotificationPageComponent}
     ]
   },
   {
