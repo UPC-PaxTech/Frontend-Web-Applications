@@ -8,7 +8,7 @@ import {NgIf} from '@angular/common';
 import {AccountApiService} from '../../services/accountApi.service';
 import { Router, RouterLink } from '@angular/router';
 import {AccountEntity} from '../../model/account.entity';
-
+import {LanguageSwitcherComponent} from '../../../public/components/language-switcher/language-switcher.component';
 
 @Component({
   selector: 'app-login-form',
@@ -20,6 +20,7 @@ import {AccountEntity} from '../../model/account.entity';
     ReactiveFormsModule,
     RouterLink,
     NgIf,
+    LanguageSwitcherComponent,
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
