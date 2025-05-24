@@ -1,17 +1,19 @@
-<div *ngFor="let service of services" class="service-item">
-  <div class="service-info">
-    <h3>{{ service.name }}</h3>
-    <p>{{ service.description }}</p>
-    <p>Duración: {{ service.duration }} min</p>
-    <p>Precio: ${{ service.price }}</p>
-  </div>
+<div *ngFor="let service of services" class="service-card">
+  <div class="service-card-content">
+    <div class="service-info">
+      <h3>{{ service.name }}</h3>
+      <p class="description">{{ service.description }}</p>
+      <p><strong>Duración:</strong> {{ service.duration }} min</p>
+      <p><strong>Precio:</strong> ${{ service.price }}</p>
+    </div>
 
-  <div class="reserve-button">
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="navigateWithService(service)">
-      Reservar
-    </button>
+    <div class="reserve-button">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="navigateWithService(service)">
+        Reservar
+      </button>
+    </div>
   </div>
 </div>
