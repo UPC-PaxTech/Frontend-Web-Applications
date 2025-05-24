@@ -60,6 +60,10 @@ package "Appointments" {
     }
     class ClientAppointmentPagesComponent {
     }
+
+    'favorite bounded context borrado y puesto el page aqui
+    class ClientFavoriteComponent {
+    }
   }
 
   package "Services" {
@@ -106,10 +110,15 @@ package "Dashboard" {
     class StaffListComponent {
       - WorkerList: Worker[]
     }
+
+    'refactor movido de el favorite bounded context borrado a aqui
+    class SalonGridComponent {
+      - salons: Dashboard.Models.Salon[]
+      + ngOnInit(): void
+    }    
   }
 
   package "Models" {
-
 
     entity Salon {
       - salonId: string
@@ -188,21 +197,6 @@ package "Dashboard" {
   }
 }
 
-package "Favorites" {
-
-  package "Pages" {
-    class ClientFavoriteComponent {
-    }
-  }
-
-  package "Components" {
-    class SalonGridComponent {
-      - salons: Dashboard.Models.Salon[]
-      + ngOnInit(): void
-    }
-  }
-}
-
 package "Iam" {
   package "Pages" {
     class RegisterPageComponent {
@@ -232,84 +226,22 @@ package "Iam" {
   RegisterPageComponent --> Iam.Components.LoginFormComponent : composes
 }
 
-package "Profile" {
+' combined profile and profileClient into a single Bounded Context
+package "Profiles" {
 
   package "Components" {
-    class ProfileHeaderComponent {
+    class ProfileSalonHeaderComponent {
       - profile: Profile.Models.SalonProfile
     }
 
-    class ProfilePortfolioComponent {
+    class ProfileSalonPortfolioComponent {
       - profile: Profile.Models.SalonProfile
       + onAddPhoto(): void
       + onImageClick(imageUrl: string): void
     }
 
-    class ReviewItemComponent {
-      - review: Dashboard.Models.Review
-    }
-
-    class ReviewListComponent {
-      - profileReviews: Dashboard.Models.Review[]
-      + ngOnInit(): void
-    }
-  }
-
-  package "Models" {
-    class SalonProfile {
-      - profileId: number
-      - userId: string
-      - salonName: string
-      - rating: number
-      - profileImage: string
-      - coverImage: string
-      - socials: socials
-      - portfolioImages: string[]
-      - address: string
-      - email: string
-      - accounts: accounts
-    }
-  }
-
-  package "Pages" {
-    class ProfilePageComponent {
-      - profile: Profile.Models.SalonProfile
-      + ngOnInit(): void
-    }
-  }
-
-  package "Services" {
-    class SalonProfileApiService {
-      - resourceEndpoint: string = "/salonProfiles"
-      + getProfileById(id: number): Observable<Profile.Models.SalonProfile>
-    }
-
-    class SalonProfileAssembler {
-      + toEntityFromResponse(resource: SalonProfileResponse): Profile.Models.SalonProfile
-      + toEntitiesFromResponse(resources: SalonProfileResponse[]): Profile.Models.SalonProfile[]
-      + toResponseFromEntity(entity: Profile.Models.SalonProfile): SalonProfileResponse
-    }
-
-    class SalonProfileResponse {
-      - id: number
-      - userId: string
-      - salonName: string
-      - rating: number
-      - profileImage: string
-      - coverImage: string
-      - socials: socials
-      - portfolioImages: string[]
-      - accounts: accounts
-      - Address: string
-      - salonemail: string
-    }
-  }
-}
-
-package "ProfileClient" {
-
-  package "Components" {
-    class ProfileComponent {
+    ' refactor nombre de ProfileComponent-> ProfileClientComponent
+    class ProfileClientComponent {
       - profileForm: FormGroup
       - passwordForm: FormGroup
       - profile: ProfileClient.Models.Profile
@@ -327,7 +259,21 @@ package "ProfileClient" {
   }
 
   package "Models" {
-    entity Profile {
+    entity ProfileSalon {
+      - profileId: number
+      - userId: string
+      - salonName: string
+      - rating: number
+      - profileImage: string
+      - coverImage: string
+      - socials: socials
+      - portfolioImages: string[]
+      - address: string
+      - email: string
+      - accounts: accounts
+    }
+
+    entity ProfileClient {
       - accountId: string
       - name: string
       - email: string
@@ -335,16 +281,51 @@ package "ProfileClient" {
       - identityDocument: string
       - notifications: boolean
       - location: boolean
-    }
+    }    
   }
 
   package "Pages" {
-    class ClientProfileComponent {
+    ' refactor nombre de ProfilePageComponent -> ProfileSalonPageComponent
+    class ProfileSalonPageComponent {
+      - profile: Profile.Models.SalonProfile
+      + ngOnInit(): void
     }
+
+    class ProfileClientPageComponent {
+    }    
   }
 
   package "Services" {
-    class ProfileService {
+    class ProfileSalonApiService {
+      - resourceEndpoint: string = "/salonProfiles"
+      + getProfileById(id: number): Observable<Profile.Models.SalonProfile>
+    }
+
+    class ProfileSalonAssembler {
+      + toEntityFromResponse(resource: SalonProfileResponse): Profile.Models.SalonProfile
+      + toEntitiesFromResponse(resources: SalonProfileResponse[]): Profile.Models.SalonProfile[]
+      + toResponseFromEntity(entity: Profile.Models.SalonProfile): SalonProfileResponse
+    }
+
+    ' refactor SalonProfileResponse -> ProfileSalonResponse
+    class ProfileSalonResponse {
+      - id: number
+      - userId: string
+      - salonName: string
+      - rating: number
+      - profileImage: string
+      - coverImage: string
+      - socials: socials
+      - portfolioImages: string[]
+      - accounts: accounts
+      - Address: string
+      - salonemail: string
+    }
+
+
+  ' verificar si ProfileClientService nesesita un assembler y un response
+  ' refactor nombre ProfileService->ProfileClientService
+    class ProfileClientService {
       - apiUrl: string
       + getProfile(): Observable<ProfileClient.Models.Profile>
       + updateProfile(profile: ProfileClient.Models.Profile): Observable<ProfileClient.Models.Profile>
@@ -410,16 +391,26 @@ package "Public" {
 
 package "Reviews" {
 
-
+    ' Cobinar ReviewItem de dashboard y profile
+    ' fijarse en la diferencia de html
   package "Components" {
     class ReviewItemComponent {
       - review: Review
       + getStars(): number[]
     }
 
+
+    'Fijarse en la diferencia entre el List de profile y el de dashboard
+    'probablemente no combinar y crear un tercer componente
+    'de recent reviews
     class ReviewListComponent {
       - reviews: Review[]
     }
+
+    'Utilizar código de ReviewList de appointments, separar funcionalidad,
+    'cambiar código de client appointment pages para reflejar los cambios
+    class ReviewMakerComponent {
+    }    
   }
 
   package "Models" {
@@ -430,10 +421,10 @@ package "Reviews" {
       - text: string
       - read: boolean
     }
-
+  }
   package "Pages" {
     class ReviewsTabComponent {
-      - reviews: Dashboard.Models.Review[]
+      - reviews: Review[]
       + ngOnInit(): void
     }
   }
