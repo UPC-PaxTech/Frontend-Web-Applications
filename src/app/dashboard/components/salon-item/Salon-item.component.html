@@ -1,17 +1,17 @@
 <mat-card class="salon-card">
-  <mat-card-content>
-    <img mat-card-image class="card-image" src="{{salon.imageURL}}" alt="Photo of a Cat"/>
+  <img mat-card-image class="card-image" [src]="salon.imageURL" alt="Photo of a salon" />
+
+  <mat-card-content class = layout-title>
+    <mat-card-title class="salon-title">{{ salon.name }}</mat-card-title>
   </mat-card-content>
 
-  <mat-card-content>
-    <mat-card-title>{{salon.name}}</mat-card-title>
-  </mat-card-content>
-
-  <mat-card-content>
+  <mat-card-content class="review-section">
     <app-review-list [reviews]="reviews"></app-review-list>
   </mat-card-content>
 
   <mat-card-actions class="action-button">
-    <button mat-button [routerLink]="['/client/homeClient/salon', salon.salonId ]">Book Now</button>
+    <button class="button-press" mat-raised-button color="primary" [routerLink]="['/client/homeClient/salon', salon.salonId]">
+      Book Now
+    </button>
   </mat-card-actions>
 </mat-card>

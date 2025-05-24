@@ -1,6 +1,7 @@
 .main-layout {
   display: flex;
-  height: calc(100vh - 64px); /* Ajusta según la altura del toolbar */
+  flex-direction: column;
+  height: auto; /* o quitar height completamente */
 }
 
 app-sidebar {
@@ -13,4 +14,8 @@ app-sidebar {
   padding: 2rem;
   background-color: #f9f9f9; /* Fondo del contenido */
   overflow-y: auto;
+  align-items: center;
+  min-height: 100%; /* o 100vh si quieres ocupar toda la pantalla */
+
 }
+
