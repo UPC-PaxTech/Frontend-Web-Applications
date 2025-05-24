@@ -10,11 +10,12 @@
         reservationId: resource.reservationId || '',
         tipo: resource.tipo || '',
         clientName: resource.client?.user?.name || 'Unknown Client',
-        salonName: resource.salon?.location || 'Unknown Salon',
         paymentStatus: resource.payment?.status ?? false,
+        salonName: '',
         timeSlotStart: resource.timeSlot?.start || '',
         timeSlotEnd: resource.timeSlot?.end || '',
         workerName: resource.worker?.name || 'Unknown Worker',
+        salonId: resource.salon.salonId
       };
     }
     static toEntitiesFromResponse(resources: AppointmentResponse[]): Appointment[] {

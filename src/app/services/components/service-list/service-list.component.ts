@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Service } from '../../model/service.entity';
 import {ServiceApiService} from '../../services/services-api.service';
 import {NgForOf} from '@angular/common';
 import {MatButton} from '@angular/material/button';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {Salon} from '../../../dashboard/models/Salon.entity';
 
 @Component({
   selector: 'app-service-list',
@@ -17,5 +18,15 @@ import {RouterLink} from '@angular/router';
 })
 export class ServiceListComponent {
   @Input() services: Service[] = [];
+  @Input() salon!: Salon;
+
+  constructor(private router: Router) {
+  }
+
+  navigateWithService(service: Service) {
+    this.router.navigate(['/client/appointment-maker', this.salon.salonId], {
+      state: { selectedService: service }
+    });
+  }
 
 }

@@ -12,6 +12,7 @@ import {ServiceListComponent} from '../../../services/components/service-list/se
 
 import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';  // importa servicio citas
 import {AppointmentResponse} from '../../../dashboard/services/appointment.response';
+import {WeekCalendarComponent} from '../../components/calendar-container/calendar-container.component';
 
 @Component({
   selector: 'app-appointment-maker',
@@ -24,7 +25,8 @@ import {AppointmentResponse} from '../../../dashboard/services/appointment.respo
     DatePickerComponent,
     MatCardImage,
     ReviewListComponent,
-    ServiceListComponent
+    ServiceListComponent,
+    WeekCalendarComponent
   ],
   templateUrl: './appointment-maker.component.html',
   styleUrl: './appointment-maker.component.css'
@@ -80,7 +82,7 @@ export class AppointmentMakerComponent implements OnInit {
     const endDate = new Date(date);
     endDate.setHours(slot.end.getHours(), slot.end.getMinutes(), 0, 0);
 
-    const postData: AppointmentResponse = {
+    /*const postData: AppointmentResponse = {
         "reservationId": "res10",
         "tipo": "Express Cut",
         "client": { "clientId": "client10", "birthDate": "1990-01-01T00:00:00Z", "user": { "userId": "user10", "name": "Test User" } },
@@ -99,7 +101,7 @@ export class AppointmentMakerComponent implements OnInit {
     this.appointmentService.post(postData).subscribe({
       next: () => alert('¡Cita reservada con éxito!'),
       error: (e) => alert('Error al reservar cita: ' + e.message)
-    });
+    });*/
 
   }
 }

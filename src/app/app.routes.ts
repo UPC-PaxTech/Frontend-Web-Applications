@@ -54,7 +54,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'homeClient', pathMatch: 'full' },
       { path: 'homeClient', component: ClientDashboardComponent },
       { path: 'appointment', component: ClientAppointmentPagesComponent },
-      { path: 'appointment-maker', component: AppointmentMakerComponent},
+      { path: 'appointment-maker/:id', component: AppointmentMakerComponent},
       { path: 'favorites', component: ClientFavoriteComponent },
       { path: 'profile', component: ClientProfileComponent },
     ]

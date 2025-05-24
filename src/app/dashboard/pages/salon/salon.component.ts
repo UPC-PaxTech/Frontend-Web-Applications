@@ -38,6 +38,7 @@ export class SalonComponent implements OnInit {
 
   reviews: Review[] = [];
   services: Service[] = [];
+  selectedService: Service | undefined;
 
   constructor(private reviewService: ReviewApiService,
               private salonService: SalonApiService,
@@ -74,6 +75,10 @@ export class SalonComponent implements OnInit {
       });
     })
 
+  }
+
+  setSelectedService(service: Service) {
+    this.selectedService = service;
   }
 
 }
