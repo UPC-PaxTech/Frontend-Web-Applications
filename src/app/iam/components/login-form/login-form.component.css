@@ -25,7 +25,8 @@
 }
 
 .login-link {
-  color: #9f7aea !important;
+  font-weight: bold !important;
+  color: #731c9f !important;
   text-decoration: none;
 }
 
@@ -50,7 +51,7 @@
 .register-button {
   margin-top: 1rem;
   width: 100%;
-  background-color: #9f7aea !important;
+  background-color: #731c9f !important;
   color: white !important;
 }
 
@@ -86,4 +87,11 @@
   color: red;
   margin-top: 10px;
   font-weight: bold;
+}
+
+.logo{
+  display: block;
+  margin: 0 auto;
+  width: 11rem;
+  margin-bottom: 3rem;
 }
