@@ -5,8 +5,7 @@ import {AppointmentsItemComponent} from '../appointments-item/appointments-item.
 import {NgForOf} from '@angular/common';
 import {ReviewApiService} from "../../services/review-api-service.service";
 import {Review} from "../../model/reviews.entity";
-import {ReviewListComponent} from "../review-list/review-list.component";
-import {UpcomingAppointmentsComponent} from "../upcoming-appointments/upcoming-appointments.component";
+import {ReviewListComponent} from '../review-list/review-list.component';
 
 
 @Component({
@@ -16,16 +15,14 @@ import {UpcomingAppointmentsComponent} from "../upcoming-appointments/upcoming-a
     AppointmentsItemComponent,
     NgForOf,
     ReviewListComponent,
-    UpcomingAppointmentsComponent,
     ReviewListComponent,
-    UpcomingAppointmentsComponent
-
   ],
   styleUrls: ['./appointments-list.component.css']
 })
 export class AppointmentsListComponent implements OnInit {
   appointments: ClientAppointment[] = [];
   reviews: Review[] = [];
+
 
   constructor(private appointmentService: AppointmentApiService, private reviewService: ReviewApiService) {}
 

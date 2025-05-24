@@ -529,6 +529,22 @@
       "text": "no me gustó",
       "read": true,
       "salonId": 2
+    },
+    {
+      "author": "Anonimo",
+      "rating": 5,
+      "text": "Demasiado insano",
+      "read": true,
+      "salonId": 1,
+      "id": 6
+    },
+    {
+      "author": "Anonimo",
+      "rating": 1,
+      "text": "Mala experiencia 😔",
+      "read": true,
+      "salonId": 1,
+      "id": 7
     }
   ],
   "salonProfiles": [

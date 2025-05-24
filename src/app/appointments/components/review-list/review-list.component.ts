@@ -20,6 +20,9 @@ import {ReviewApiService} from '../../../dashboard/services/review-api.service';
 export class ReviewListComponent {
   @Input() reviews: Review[] = [];
 
+  setRating(rating: number): void {
+    this.reviewrating = rating;
+  }
 
 
   serviciodeApi: ReviewApiService = inject(ReviewApiService);
