@@ -1,11 +1,13 @@
 .profile-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 100%; /* evita que se desborde */
+  overflow-x: auto; /* previene que se desborde sin cortar el contenido */
   padding: 2rem;
   background: linear-gradient(to right, #f2f6fc, #e0f0ff);
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box; /* importante para que padding no agrande el contenedor */
 }
+
 
 
 .profile-header {
