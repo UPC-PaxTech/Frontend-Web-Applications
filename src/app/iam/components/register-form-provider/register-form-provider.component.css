@@ -1,28 +1,81 @@
 .register-form {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  height: 100%;
+}
 
-  .register-card {
-    width: 100%;
-    max-width: 400px;
-    padding: 16px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-  }
+.register-container {
+  width: 100%;
+  max-width: 400px;
+  color: #333;
+  border-radius: 10px;
+  padding: 2rem;
+}
 
-  .full-width {
-    width: 100%;
-    margin-bottom: 16px;
-  }
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
 
-  .register-button {
-    width: 100%;
-    text-transform: uppercase;
-    background-color: #211f1f;
-    color: #ffffff;
-  }
+.subtitle {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #666 !important;
+}
 
+.login-link {
+  color: #9f7aea !important;
+  text-decoration: none;
+}
 
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.half-width {
+  flex: 1;
+}
+
+.full-width {
+  width: 400px;
+}
+
+.checkbox {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.register-button {
+  width: 100%;
+  background-color: #9f7aea !important;
+  color: white !important;
+}
+
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  color: #aaa;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.social-buttons .icon {
+  height: 20px;
+  margin-right: 8px;
+}
+
+.toggle-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.button-toggle {
+  flex: 1;
 }
