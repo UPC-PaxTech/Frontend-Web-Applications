@@ -7,6 +7,11 @@
   </div>
 
   <div class="reserve-button">
-    <button mat-raised-button color="primary" [routerLink]="'/client/appointment-maker'">Reservar </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="navigateWithService(service)">
+      Reservar
+    </button>
   </div>
 </div>

@@ -10,9 +10,7 @@ export interface AppointmentResponse {
     };
   };
   salon: {
-    salonId: string;
-    location: string;
-    phone: string;
+    salonId: number;
   };
   payment: {
     paymentId: string;
