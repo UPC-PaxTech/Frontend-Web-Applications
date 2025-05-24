@@ -228,6 +228,15 @@
       "price": 55,
       "status": "Active",
       "salonId": 3
+    },
+    {
+      "id": 6,
+      "name": "Servicio de prueba",
+      "description": "tralalero tralalala!",
+      "duration": 10,
+      "price": 1000,
+      "status": "Active",
+      "salonId": 1
     }
   ],
   "payments": [
@@ -553,4 +562,5 @@
       }
     }
   ]
+
 }

@@ -42,6 +42,7 @@ export abstract class BaseService<R> {
   }
 
   public delete(id: any): Observable<any> {
+
     return this.http.delete(`${this.resourcePath()}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

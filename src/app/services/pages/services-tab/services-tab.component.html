@@ -1,5 +1,7 @@
 <h1>{{ 'dashboard.services' | translate }} </h1>
 
 <div class="services">
-    <app-service-table [services]="service"></app-service-table>
+  <app-service-table [services]="service" [newService]="newService"></app-service-table>
+  <button mat-raised-button color="primary" class="new-service-btn" (click)="openCreateServiceDialog()">Nuevo servicio</button>
+
 </div>

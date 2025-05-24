@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {
   MatCell, MatCellDef,
   MatColumnDef,
@@ -7,14 +7,14 @@ import {
   MatTable,
   MatTableModule
 } from '@angular/material/table';
-import { Service} from '../../model/service.entity';
-import {TranslatePipe} from '@ngx-translate/core';
-import {MatIcon} from '@angular/material/icon';
-import {MatButton, MatIconButton} from '@angular/material/button';
-import {ServiceApiService} from '../../services/services-api.service';
+import { Service } from '../../model/service.entity';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { ServiceApiService } from '../../services/services-api.service';
 import { ServiceAssembler } from '../../services/service.assembler';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {ServiceResponse} from '../../services/service.response';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ServiceResponse } from '../../services/service.response';
 
 @Component({
   selector: 'app-service-table',
@@ -37,68 +37,57 @@ import {ServiceResponse} from '../../services/service.response';
   templateUrl: './service-table.component.html',
   styleUrl: './service-table.component.css'
 })
-export class ServiceTableComponent {
+export class ServiceTableComponent implements OnChanges {
   displayedColumns: string[] = ['name', 'duration', 'price', 'status', 'actions'];
   @Input() services: Service[] = [];
+  @Input() newService: ServiceResponse | null = null;
 
-  private servicesService: ServiceApiService = inject(ServiceApiService)
+
+  private servicesService: ServiceApiService = inject(ServiceApiService);
 
   constructor(private snackBar: MatSnackBar) {}
 
-  /*
-  openCreateDialog(): void {
-    const dialogRef = this.dialog.open(ServiceDialogComponent, {
-      data: { isEdit: false }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.servicesService.create(null, result).subscribe(() => {
+  ngOnChanges() {
+    if (this.newService) {
+      this.servicesService.post(this.newService).subscribe({
+        next: (response) => {
+          const entity = ServiceAssembler.toEntityFromResource(response);
+          this.services.push(entity);
           this.snackBar.open('✅ Servicio creado con éxito.', 'Cerrar', { duration: 2000 });
-        });
-      }
-    });
-  }*/
+        },
+        error: (err) => {
+          this.snackBar.open('❌ Error al crear el servicio.', 'Cerrar', { duration: 2000 });
+          console.error(err);
+        }
+      });
+    }
+  }
 
-
-  public createService(){
-    const servicio: ServiceResponse = {
-      id: 0, // Asigna un valor válido o nulo si lo maneja el backend
-      name: 'Servicio de prueba',
-      description: 'tralalero tralalala!',
-      duration: 10,
-      price: 1000,
-      status: 'Active',
-      salonId: 1
-    };
-
-
-    this.servicesService.post(servicio).subscribe({
+  public createService(service: ServiceResponse): void {
+    this.servicesService.post(service).subscribe({
       next: (response) => {
-        console.log('✅ Servicio creado exitosamente:', response);
-
+        const created = ServiceAssembler.toEntityFromResource(response);
+        this.services = [...this.services, created]; // actualiza la lista
+        this.snackBar.open('✅ Servicio creado con éxito.', 'Cerrar', { duration: 2000 });
       },
       error: (err) => {
         console.error('❌ Error al crear el servicio:', err);
-
-      },
-      complete: () => {
-        console.log('✔️ Operación completada.');
+        this.snackBar.open('❌ Error al crear el servicio.', 'Cerrar', { duration: 2000 });
       }
     });
   }
-  public updateService() {
 
-  }
-
-  public deleteService(id: number) {
+  public deleteService(id: number): void {
     console.log('Deleting from endpoint:', this.servicesService.resourcePath());
-
     console.log('🔧 Service API Instance:', this.servicesService);
+    console.log('DELETE URL:', `${this.servicesService.resourcePath()}/${id}`);
+
+
     this.servicesService.delete(id).subscribe(() => {
-      this.services = this.services.filter(s => s.id !== id); // Actualiza la tabla
+      this.services = this.services.filter(s => s.id !== id);
       this.snackBar.open('🗑️ Servicio eliminado.', 'Cerrar', { duration: 2000 });
     });
   }
+
 
 }

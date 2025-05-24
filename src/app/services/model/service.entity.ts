@@ -14,7 +14,7 @@ export class Service {
     this.duration = 0;
     this.price = 0;
     this.status = 'Active';
-    this.salonId = 0;
+    this.salonId = 1;
   }
 }
 

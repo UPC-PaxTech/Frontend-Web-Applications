@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import {MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle} from '@angular/material/dialog';
 import {ServiceResponse} from '../../services/service.response';
-import {MatFormField, MatLabel} from "@angular/material/input";
+import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatButton} from "@angular/material/button";
+import {MatOption} from '@angular/material/autocomplete';
+import {MatSelect} from '@angular/material/select';
 
 @Component({
   selector: 'app-create-service-dialog',
@@ -17,7 +19,10 @@ import {MatButton} from "@angular/material/button";
     MatButton,
     MatDialogActions,
     MatDialogTitle,
-    MatDialogActions
+    MatDialogActions,
+    MatOption,
+    MatSelect,
+    MatInput
   ]
 })
 export class CreateServiceDialogComponent {
@@ -29,7 +34,7 @@ export class CreateServiceDialogComponent {
     duration: 0,
     price: 0,
     status: 'Active',
-    salonId: 0 // o algún valor por defecto adecuado
+    salonId: 1 // o algún valor por defecto adecuado
   };
 
 
