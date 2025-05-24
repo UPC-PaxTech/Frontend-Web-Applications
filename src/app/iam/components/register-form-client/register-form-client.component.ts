@@ -8,6 +8,7 @@ import {MatButtonToggleGroup} from '@angular/material/button-toggle';
 import {MatButtonToggle} from '@angular/material/button-toggle';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register-form-client',
@@ -23,7 +24,8 @@ import { Router } from '@angular/router';
     FormsModule,
     MatButtonToggleGroup,
     MatButtonToggle,
-    MatButtonToggle
+    MatButtonToggle,
+    TranslatePipe
   ],
   templateUrl: './register-form-client.component.html',
   styleUrl: './register-form-client.component.css'

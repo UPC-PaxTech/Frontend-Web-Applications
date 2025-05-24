@@ -5,6 +5,8 @@ import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
 import { tsParticles, type ISourceOptions} from '@tsparticles/engine';
 import { loadFull } from 'tsparticles';
+import {LanguageSwitcherComponent} from '../../../public/components/language-switcher/language-switcher.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -14,7 +16,9 @@ import { loadFull } from 'tsparticles';
     RegisterFormProviderComponent,
     FormsModule,
     NgIf,
-    NgForOf
+    NgForOf,
+    LanguageSwitcherComponent,
+    TranslatePipe
   ],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.css'
