@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {RegisterFormClientComponent} from '../../components/register-form-client/register-form-client.component';
 import {RegisterFormProviderComponent} from '../../components/register-form-provider/register-form-provider.component';
 import {FormsModule} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
+import { tsParticles, type ISourceOptions} from '@tsparticles/engine';
+import { loadFull } from 'tsparticles';
+
 
 @Component({
   selector: 'app-register-page',
@@ -16,7 +19,7 @@ import {NgForOf, NgIf} from '@angular/common';
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.css'
 })
-export class RegisterPageComponent {
+export class RegisterPageComponent implements OnInit, OnDestroy, AfterViewInit {
   isProvider: boolean = false;  // Determina si se está registrando un cliente o proveedor
   slideImages: string[] = [
     'https://www.gammabross.com/Gallery/salonimg-frkqkj-181.webp',
@@ -33,6 +36,14 @@ export class RegisterPageComponent {
     }, 5000); // cambia cada 5 segundos
   }
 
+  async ngAfterViewInit() {
+    await loadFull(tsParticles);
+    await tsParticles.load({
+      id: 'particles-js',
+      options: this.particlesOptions
+    });
+  }
+
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
   }
@@ -44,5 +55,31 @@ export class RegisterPageComponent {
   toggleForm(value: boolean) {
     this.isProvider = value;
   }
+
+  private particlesOptions: ISourceOptions = {
+    background: { color: { value: 'transparent' } },
+    fpsLimit: 60,
+    particles: {
+      number: { value: 80, density: { enable: true, width: 800 } },
+      color: { value: '#f3a3ff' },
+      shape: { type: 'circle' },
+      opacity: { value: 0.5 },
+      size: {
+        value: { min: 2, max: 4 },
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: 'none',
+        outModes: { default: 'out' }
+      },
+      links: {
+        enable: false
+      }
+    },
+    detectRetina: true
+  };
+
+
 }
 
