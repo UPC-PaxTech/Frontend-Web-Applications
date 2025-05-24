@@ -14,6 +14,7 @@ import {ReviewListComponent} from '../review-list/review-list.component';
 import {RouterLink} from '@angular/router';
 import {Review} from '../../models/review.entity';
 import {ReviewApiService} from '../../services/review-api.service';
+import {ReviewAssembler} from '../../services/review.assembler';
 
 
 @Component({
@@ -41,8 +42,12 @@ export class SalonItemComponent implements OnInit{
   constructor() { }
 
   ngOnInit() {
-    this.reviewService.getBySalonId(this.salon.salonId).subscribe(reviews => this.reviews = reviews);
-    this.reviews.forEach(review=> this.reviewAverage+= review.rating)
+    this.reviewService.getBySalonId(this.salon.salonId).subscribe(reviews => {
+      this.reviews = ReviewAssembler.toEntitiesFromResponse(reviews);
+      this.reviews.forEach(review=> this.reviewAverage+= review.rating);
+      this.reviewAverage = this.reviewAverage/this.reviews.length;
+    });
+
   }
 
 
