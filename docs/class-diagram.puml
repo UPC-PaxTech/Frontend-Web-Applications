@@ -27,24 +27,16 @@ package "Appointments" {
     }
 
     class UpcomingAppointmentsComponent {
-      - upcomingAppointments: ClientAppointment[]
+      - upcomingAppointments: Appointment[]
       - appointmentService: AppointmentApiService
+      - translate: TranslateService
       + ngOnInit(): void
       + formatTime(dateStr: string): string
       + formatDay(dateStr: string): string
       + isToday(dateStr: string): boolean
     }
-
-    ' Declaramos ReviewItemComponent y ReviewListComponent solo aquí en appointments.components
-    class ReviewItemComponent {
-      - review: Review
-      + getStars(): number[]
-    }
-
-    class ReviewListComponent {
-      - reviews: Review[]
-    }
   }
+    ' Declaramos ReviewItemComponent y ReviewListComponent solo aquí en appointments.components
 
   package "Models" {
     entity ClientAppointment {
@@ -55,13 +47,6 @@ package "Appointments" {
       - paymentStatus: boolean
       - timeSlotStart: string
       - timeSlotEnd: string
-    }
-    entity Review {
-      - id: number
-      - author: string
-      - rating: number
-      - text: string
-      - read: boolean
     }
   }
 
@@ -82,17 +67,10 @@ package "Appointments" {
       - resourceEndpoint: string = "/reservationDetails"
       + getAppointments(): Observable<ClientAppointment[]>
     }
-    class ReviewApiService {
-      - resourceEndpoint: string = "/reviews"
-      + getReviews(): Observable<Review[]>
-    }
+
     class AppointmentAssembler {
       + toEntityFromResource(resource: AppointmentResponse): ClientAppointment
       + toEntitiesFromResponse(resources: AppointmentResponse[]): ClientAppointment[]
-    }
-    class ReviewAssembler {
-      + toEntityFromResource(resource: ReviewResponse): Review
-      + toEntitiesFromResponse(resources: ReviewResponse[]): Review[]
     }
     class AppointmentResponse {
       - reservationId: string
@@ -101,13 +79,6 @@ package "Appointments" {
       - salon: Salon
       - payment: Payment
       - timeSlot: TimeSlot
-    }
-    class ReviewResponse {
-      - id: number
-      - author: string
-      - rating: number
-      - text: string
-      - read: boolean
     }
   }
 }
@@ -135,26 +106,10 @@ package "Dashboard" {
     class StaffListComponent {
       - WorkerList: Worker[]
     }
-
-    class UpcomingAppointmentsComponent {
-      - upcomingAppointments: Appointment[]
-      - appointmentService: AppointmentApiService
-      - translate: TranslateService
-      + ngOnInit(): void
-      + formatTime(dateStr: string): string
-      + formatDay(dateStr: string): string
-      + isToday(dateStr: string): boolean
-    }
   }
 
   package "Models" {
-    entity Review {
-      - id: number
-      - author: string
-      - rating: number
-      - text: string
-      - read: boolean
-    }
+
 
     entity Salon {
       - salonId: string
@@ -164,10 +119,6 @@ package "Dashboard" {
       - name: string
     }
 
-    entity Staff {
-      ' atributos por definir
-    }
-
     entity Worker {
       - id: number
       - nombre: string
@@ -175,15 +126,7 @@ package "Dashboard" {
       - foto: string
     }
 
-    entity Appointment {
-      - reservationId: string
-      - tipo: string
-      - clientName: string
-      - salonName: string
-      - paymentStatus: boolean
-      - timeSlotStart: string
-      - timeSlotEnd: string
-    }
+
   }
 
   package "Pages" {
@@ -207,31 +150,15 @@ package "Dashboard" {
   }
 
   package "Services" {
-    class ReviewApiService {
-      - resourceEndpoint: string = "/reviews"
-      + getReviews(): Observable<Review[]>
-    }
-
     class SalonApiService {
       - baseUrl: string
       - detailsEndpoint: string = "/salons"
       + getSalons(): Observable<Salon[]>
     }
 
-    class StaffApiService
-    class AppointmentApiService {
-      - resourceEndpoint: string = "/reservationDetails"
-      + getAppointments(): Observable<Appointment[]>
-    }
-
     class WorkerApiService {
       - resourceEndpoint: string = "/workers"
       + getWorkers(): Observable<Worker[]>
-    }
-
-    class ReviewAssembler {
-      + toEntityFromResource(resource: ReviewResponse): Review
-      + toEntitiesFromResponse(resources: ReviewResponse[]): Review[]
     }
 
     class SalonAssembler {
@@ -242,19 +169,6 @@ package "Dashboard" {
     class WorkerAssembler {
       + toEntityFromResource(resource: WorkerResource): Worker
       + toEntitiesFromResponse(resources: WorkerResource[]): Worker[]
-    }
-
-    class AppointmentAssembler {
-      + toEntityFromResource(resource: AppointmentResponse): Appointment
-      + toEntitiesFromResponse(resources: AppointmentResponse[]): Appointment[]
-    }
-
-    class ReviewResponse {
-      - id: number
-      - author: string
-      - rating: number
-      - text: string
-      - read: boolean
     }
 
     class SalonsResource {
@@ -271,97 +185,8 @@ package "Dashboard" {
       - especializacion: string
       - fotoUrl: string
     }
-
-    class AppointmentResponse {
-      - reservationId: string
-      - tipo: string
-      - client: Client
-      - salon: Salon
-      - payment: Payment
-      - timeSlot: TimeSlot
-      - worker: Worker
-    }
   }
 }
-
-' Relaciones entre paquetes y clases usando nombre completo para evitar duplicados
-
-Appointments.Components.AppointmentsListComponent --> Appointments.Components.AppointmentsItemComponent : composes
-Appointments.Components.AppointmentsListComponent --> Appointments.Components.ReviewListComponent : composes
-Appointments.Components.AppointmentsListComponent --> Appointments.Components.UpcomingAppointmentsComponent : composes
-
-Appointments.Components.AppointmentsItemComponent --> Appointments.Models.ClientAppointment : uses
-Appointments.Components.UpcomingAppointmentsComponent --> Appointments.Models.ClientAppointment : contains 0..*
-
-Appointments.Components.ReviewItemComponent --> Appointments.Models.Review : uses
-Appointments.Components.ReviewListComponent --> Appointments.Models.Review : contains 0..*
-Appointments.Components.ReviewListComponent --> Appointments.Components.ReviewItemComponent : composes
-
-Appointments.Components.UpcomingAppointmentsComponent --> Appointments.Services.AppointmentApiService : uses
-Appointments.Components.AppointmentsListComponent --> Appointments.Services.AppointmentApiService : uses
-Appointments.Components.AppointmentsListComponent --> Appointments.Services.ReviewApiService : uses
-
-Dashboard.Pages.ProfessionalDashboardComponent --> Dashboard.Components.StaffListComponent : composes
-Dashboard.Pages.ProfessionalDashboardComponent --> Dashboard.Components.UpcomingAppointmentsComponent : composes
-Dashboard.Pages.ProfessionalDashboardComponent --> Appointments.Components.ReviewListComponent : composes
-Dashboard.Pages.ProfessionalDashboardComponent --> Dashboard.Services.WorkerApiService : uses
-Dashboard.Pages.ProfessionalDashboardComponent --> Dashboard.Services.ReviewApiService : uses
-
-Dashboard.Pages.ClientDashboardComponent --> Dashboard.Components.UpcomingAppointmentsComponent : composes
-Dashboard.Pages.ClientDashboardComponent --> Dashboard.Components.StaffListComponent : composes
-Dashboard.Pages.ClientDashboardComponent --> Appointments.Components.ReviewListComponent : composes
-Dashboard.Pages.ClientDashboardComponent --> Dashboard.Components.SalonListComponent : composes
-
-Dashboard.Components.SalonComponent --> Dashboard.Models.Salon : uses
-Dashboard.Components.SalonComponent --> Profile.Models.SalonProfile : uses
-Dashboard.Components.SalonComponent --> Appointments.Models.Review : uses
-Dashboard.Components.SalonComponent --> Dashboard.Services.ReviewApiService : uses
-Dashboard.Components.SalonComponent --> Dashboard.Services.SalonApiService : uses
-Dashboard.Components.SalonComponent --> Dashboard.Services.SalonProfileApiService : uses
-Dashboard.Components.SalonComponent --> Dashboard.Services.ServiceApiService : uses
-Dashboard.Components.SalonComponent --> Appointments.Components.ReviewListComponent : composes
-Dashboard.Components.SalonComponent --> Services.Components.ServiceListComponent : composes
-
-Appointments.Pages.AppointmentMakerComponent --> Dashboard.Services.WorkerApiService : uses
-Appointments.Pages.AppointmentMakerComponent --> Appointments.Services.AppointmentApiService : uses
-Appointments.Pages.AppointmentMakerComponent --> Dashboard.Components.StaffListComponent : composes
-Appointments.Pages.AppointmentMakerComponent --> Schedule.Components.DatePickerComponent : composes
-Appointments.Pages.AppointmentMakerComponent --> Appointments.Components.ReviewListComponent : composes
-Appointments.Pages.AppointmentMakerComponent --> Services.Components.ServiceListComponent : composes
-
-Appointments.Pages.ClientAppointmentPagesComponent --> Appointments.Components.AppointmentsListComponent : composes
-Appointments.Pages.ClientAppointmentPagesComponent --> Dashboard.Components.SalonListComponent : composes
-Appointments.Pages.ClientAppointmentPagesComponent --> Public.Components.SidebarClientComponent : composes
-Appointments.Pages.ClientAppointmentPagesComponent --> Appointments.Components.UpcomingAppointmentsComponent : composes
-
-Favorites.Pages.ClientFavoriteComponent --> Appointments.Components.UpcomingAppointmentsComponent : composes
-Favorites.Pages.ClientFavoriteComponent --> Public.Components.SidebarClientComponent : composes
-Favorites.Pages.ClientFavoriteComponent --> Dashboard.Components.SalonListComponent : composes
-Favorites.Pages.ClientFavoriteComponent --> Favorites.Components.SalonGridComponent : composes
-
-Public.Components.SidebarClientComponent --> Appointments.Components.UpcomingAppointmentsComponent : uses
-
-Schedule.Components.CalendarComponent --> Dashboard.Models.Appointment : uses
-Schedule.Components.CalendarComponent --> Dashboard.Services.AppointmentApiService : uses
-
-Schedule.Pages.SchedulePageComponent --> Schedule.Components.CalendarComponent : composes
-Schedule.Pages.SchedulePageComponent --> Public.Components.ToolbarProviderComponent : composes
-
-Services.Pages.ServicesTabComponent --> Services.Services.ServiceApiService : uses
-Services.Pages.ServicesTabComponent --> Services.Components.ServiceTableComponent : composes
-Services.Components.ServiceTableComponent --> Services.Services.ServiceApiService : uses
-Services.Components.ServiceTableComponent --> Services.Services.ServiceAssembler : uses
-Services.Components.ServiceTableComponent --> Services.Models.Service : uses
-Services.Components.ServiceListComponent --> Services.Services.ServiceApiService : uses
-Services.Components.ServiceListComponent --> Services.Models.Service : uses
-Services.Components.CreateServiceDialogComponent --> Services.Services.ServiceResponse : uses
-Services.Services.ServiceApiService --> Services.Services.ServiceAssembler : uses
-Services.Services.ServiceApiService --> Services.Services.ServiceResponse : uses
-
-Shared.Services.BaseService <|-- Appointments.Services.AppointmentApiService
-Shared.Services.BaseService <|-- Appointments.Services.ReviewApiService
-
-Subscription.Pages.SubscriptionTabComponent --> Subscription.Components.SubscriptionPlanComponent : composes
 
 package "Favorites" {
 
@@ -554,18 +379,6 @@ package "ProviderSettings" {
   }
 }
 
-' Relaciones internas ProviderSettings
-ProviderSettings.Pages.SettingsPageComponent --> ProviderSettings.Components.SettingsComponent : composes
-ProviderSettings.Pages.SettingsPageComponent --> ProviderSettings.Components.SettingsPasswordComponent : composes
-
-' Relaciones externas ProviderSettings
-ProviderSettings.Components.SettingsComponent --> Profile.Models.SalonProfile : uses
-ProviderSettings.Components.SettingsPasswordComponent --> Profile.Models.SalonProfile : uses
-ProviderSettings.Components.SettingsPasswordComponent --> Profile.Services.SalonProfileApiService : uses
-ProviderSettings.Components.SettingsPasswordComponent --> Profile.Services.SalonProfileAssembler : uses
-ProviderSettings.Pages.SettingsPageComponent --> Profile.Services.SalonProfileApiService : uses
-
-
 package "Public" {
 
   package "Components" {
@@ -595,34 +408,55 @@ package "Public" {
   }
 }
 
-' Relaciones composición Public
-Public.Components.ClientLayoutComponent --> Public.Components.SidebarComponent : composes
-Public.Components.ClientLayoutComponent --> Public.Components.ToolbarProviderComponent : composes
-Public.Components.ClientLayoutComponent --> Public.Components.SidebarClientComponent : composes
-Public.Components.ClientLayoutComponent --> Public.Components.ToolbarClientComponent : composes
-
-Public.Components.ProviderLayoutComponent --> Public.Components.SidebarComponent : composes
-Public.Components.ProviderLayoutComponent --> Public.Components.ToolbarProviderComponent : composes
-
-Public.Components.SidebarClientComponent --> Appointments.Components.UpcomingAppointmentsComponent : uses
-
-Public.Components.ToolbarClientComponent --> Public.Components.LanguageSwitcherComponent : composes
-Public.Components.ToolbarProviderComponent --> Public.Components.LanguageSwitcherComponent : composes
-
-
 package "Reviews" {
+
+
+  package "Components" {
+    class ReviewItemComponent {
+      - review: Review
+      + getStars(): number[]
+    }
+
+    class ReviewListComponent {
+      - reviews: Review[]
+    }
+  }
+
+  package "Models" {
+    entity Review {
+      - id: number
+      - author: string
+      - rating: number
+      - text: string
+      - read: boolean
+    }
+
   package "Pages" {
     class ReviewsTabComponent {
       - reviews: Dashboard.Models.Review[]
       + ngOnInit(): void
     }
   }
-}
 
-' Relaciones externas Reviews
-Reviews.Pages.ReviewsTabComponent --> Dashboard.Components.ReviewListComponent : composes
-Reviews.Pages.ReviewsTabComponent --> Dashboard.Services.ReviewApiService : uses
-Reviews.Pages.ReviewsTabComponent --> Dashboard.Models.Review : uses
+  package "Services" {
+
+    class ReviewAssembler {
+      + toEntityFromResource(resource: ReviewResponse): Review
+      + toEntitiesFromResponse(resources: ReviewResponse[]): Review[]
+    }
+    class ReviewResponse {
+      - id: number
+      - author: string
+      - rating: number
+      - text: string
+      - read: boolean
+    }
+    class ReviewApiService {
+      - resourceEndpoint: string = "/reviews"
+      + getReviews(): Observable<Review[]>
+    }
+  }
+}
 
 
 package "Schedule" {
@@ -736,19 +570,6 @@ package "Services" {
     }
   }
 }
-
-' Relaciones Services
-Services.Pages.ServicesTabComponent --> Services.Services.ServiceApiService : uses
-Services.Pages.ServicesTabComponent --> Services.Components.ServiceTableComponent : composes
-Services.Components.ServiceTableComponent --> Services.Services.ServiceApiService : uses
-Services.Components.ServiceTableComponent --> Services.Services.ServiceAssembler : uses
-Services.Components.ServiceTableComponent --> Services.Models.Service : uses
-Services.Components.ServiceListComponent --> Services.Services.ServiceApiService : uses
-Services.Components.ServiceListComponent --> Services.Models.Service : uses
-Services.Components.CreateServiceDialogComponent --> Services.Services.ServiceResponse : uses
-Services.Services.ServiceApiService --> Services.Services.ServiceAssembler : uses
-Services.Services.ServiceApiService --> Services.Services.ServiceResponse : uses
-
 
 package "Shared" {
 
