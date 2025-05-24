@@ -18,7 +18,8 @@
     "last": "Last Name",
     "email": "Email",
     "password": "Password",
-    "create": "Create account"
+    "create": "Create account",
+    "company": "Full Name Company"
   },
   "dashboard": {
     "home": "Home",

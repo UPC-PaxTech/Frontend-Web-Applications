@@ -18,7 +18,8 @@
     "last": "Apellido",
     "email": "Correo",
     "password": "Contraseña",
-    "create": "Crear cuenta"
+    "create": "Crear cuenta",
+    "company": "Nombre De Compañia"
   },
   "dashboard": {
     "home": "Inicio",
