@@ -1,0 +1,19 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-left: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar-item {
+  width: 250px; /* o el ancho de tu sidebar */
+  flex-shrink: 0;
+}
+
+.favorites-items {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}

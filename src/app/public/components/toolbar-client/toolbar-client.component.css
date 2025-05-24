@@ -2,15 +2,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 12px 28px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow: hidden;
+  max-height: 100px; /* O ajusta según tu diseño real */
+  box-sizing: border-box;
 }
 
 .left-section, .center-section, .right-section {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 18px;
 }
 
 .center-section {
@@ -18,57 +27,87 @@
   justify-content: center;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #4a4a4a;
+.logo-img {
+  height: 42px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
 }
 
 .icon-button {
-  background-color: #f0f0f0;
+  background: #f8f9fa;
   border: none;
   border-radius: 50%;
   padding: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
 .icon-button .material-icons {
-  font-size: 24px;
-  color: #333;
+  font-size: 22px;
+  color: #4a4a4a;
 }
 
-.text-button {
-  margin-left: 10px;
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 16px;
-  cursor: pointer;
+.icon-button:hover {
+  background-color: #e3e6f0;
+  transform: scale(1.05);
 }
 
-.logout {
-  color: #e53935;
-}
-
-.logo-img {
-  height: 40px;
-  object-fit: contain;
+.icon-button.logout:hover {
+  background-color: #ffe0e0;
 }
 
 .search-bar {
   display: flex;
-  height: 40px;
   align-items: center;
-
-  background-color: whitesmoke;
-  padding: 0 8px;
+  background-color: #f1f3f4;
+  padding: 0 12px;
   border-radius: 999px;
-  margin-left: 10px;
+  height: 38px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar span {
+  color: #7b7b7b;
+  font-size: 20px;
+  margin-right: 6px;
 }
 
 .search-bar input {
   border: none;
-  background: none;
+  background: transparent;
   outline: none;
-  font-size: 16px;
+  font-size: 15px;
+  width: 160px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .left-section, .right-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+}
+
+body {
+  margin: 0;
+  overflow-y: auto; /* Asegura scroll solo si el contenido lo necesita */
+}
+
+/* También asegúrate que en el layout general no haya doble scroll */
+html {
+  overflow-y: auto;
 }

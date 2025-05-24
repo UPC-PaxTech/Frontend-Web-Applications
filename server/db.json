@@ -128,28 +128,28 @@
     {
       "id": 1,
       "name": "Montalvo",
-      "imageURL": "https://picsum.photos/600/400?random=1",
+      "imageURL": "https://montalvogroup.com.pe/wp-content/uploads/2022/12/Montalvo-Salon-Spa-3.jpg",
       "location": "Downtown",
       "phone": "123456789"
     },
     {
       "id": 2,
       "name": "Super Salon",
-      "imageURL": "https://picsum.photos/600/400?random=2",
+      "imageURL": "https://cloudfront-us-east-1.images.arcpublishing.com/gruponacion/M46OKEV3IZCFFHPGC2IOF2L7CI.JPG",
       "location": "Midtown",
       "phone": "987654321"
     },
     {
       "id": 3,
-      "name": "Tu Salon de Belleza",
-      "imageURL": "https://picsum.photos/600/400?random=3",
+      "name": "Neil Barton",
+      "imageURL": "https://img.interempresas.net/fotos/4544148.jpeg",
       "location": "Midtown",
       "phone": "987654321"
     },
     {
       "id": 4,
       "name": "Belleza diaria",
-      "imageURL": "https://picsum.photos/600/400?random=4",
+      "imageURL": "https://i.pinimg.com/564x/81/7b/72/817b721c4f857b880e6b3820a6f0d52f.jpg",
       "location": "Midtown",
       "phone": "987654321"
     }
@@ -157,9 +157,9 @@
   "workers": [
     {
       "id": 1,
-      "nombre": "Javier Herrera",
+      "nombre": "Hair Studio",
       "especializacion": "Bridal hair stylist",
-      "fotoUrl": "https://randomuser.me/api/portraits/men/32.jpg"
+      "fotoUrl": "https://i.pinimg.com/564x/81/7b/72/817b721c4f857b880e6b3820a6f0d52f.jpg"
     },
     {
       "id": 2,
@@ -538,6 +538,22 @@
       "text": "no me gustó",
       "read": true,
       "salonId": 2
+    },
+    {
+      "author": "Anonimo",
+      "rating": 5,
+      "text": "Demasiado insano",
+      "read": true,
+      "salonId": 1,
+      "id": 6
+    },
+    {
+      "author": "Anonimo",
+      "rating": 1,
+      "text": "Mala experiencia 😔",
+      "read": true,
+      "salonId": 1,
+      "id": 7
     }
   ],
   "salonProfiles": [

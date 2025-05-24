@@ -3,6 +3,7 @@ import {ClientAppointment} from '../../model/appointment.entity';
 import { MatDialog } from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatIcon} from '@angular/material/icon';
+import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-appointments-item',
@@ -10,6 +11,7 @@ import {MatIcon} from '@angular/material/icon';
   imports: [
     MatCardModule,
     MatIcon,
+    MatButton,
   ],
 
   styleUrls: ['./appointments-item.component.css']
