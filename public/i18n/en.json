@@ -1,4 +1,25 @@
 {
+  "login": {
+    "title": "Access Your Account",
+    "subtitle": "Don't have and account?",
+    "register": "Register now",
+    "logIn": "Log In",
+    "password": "Password",
+    "email": "Email",
+    "back": "Back to website"
+  },
+  "register": {
+    "title": "Create an account",
+    "subtitle": "Already have an account?",
+    "logIn": "Log in",
+    "Client": "Client",
+    "Provider": "Provider",
+    "name": "First Name",
+    "last": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "create": "Create account"
+  },
   "dashboard": {
     "home": "Home",
     "schedule": "Schedule",
