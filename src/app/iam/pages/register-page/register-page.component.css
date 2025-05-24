@@ -79,6 +79,10 @@
   color: white;
 }
 
+.register-container{
+  position: relative;
+  z-index: 2;
+}
 /* El resto de clases como .form-group, input[type=text], etc., no es necesario renombrarlas
    si también son usados en login y otros componentes */
 
