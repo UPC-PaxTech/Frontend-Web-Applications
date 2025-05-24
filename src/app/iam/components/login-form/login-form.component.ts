@@ -8,7 +8,7 @@ import {NgIf} from '@angular/common';
 import {AccountApiService} from '../../services/accountApi.service';
 import { Router, RouterLink } from '@angular/router';
 import {AccountEntity} from '../../model/account.entity';
-
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-form',
@@ -20,6 +20,8 @@ import {AccountEntity} from '../../model/account.entity';
     ReactiveFormsModule,
     RouterLink,
     NgIf,
+    TranslatePipe,
+
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'

@@ -1,4 +1,26 @@
 {
+  "login": {
+    "title": "Accede a tu cuenta",
+    "subtitle": "No tienes una cuenta?",
+    "register": "Registrate ahora",
+    "logIn": "Iniciar sesión",
+    "password": "Contraseña",
+    "email": "Correo",
+    "back": "Regresar a la página principal"
+  },
+  "register": {
+    "title": "Crear una cuenta",
+    "subtitle": "Ya tienes una cuenta creada?",
+    "logIn": "Iniciar sesión",
+    "Client": "Cliente",
+    "Provider": "Provedor",
+    "name": "Nombre",
+    "last": "Apellido",
+    "email": "Correo",
+    "password": "Contraseña",
+    "create": "Crear cuenta",
+    "company": "Nombre De Compañia"
+  },
   "dashboard": {
     "home": "Inicio",
     "schedule": "Agenda",

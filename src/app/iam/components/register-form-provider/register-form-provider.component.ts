@@ -8,25 +8,27 @@ import { FormsModule } from '@angular/forms';
 import {MatCheckbox} from '@angular/material/checkbox';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import {TranslatePipe} from "@ngx-translate/core";
 
 
 @Component({
   selector: 'app-register-form-provider',
-  imports: [
-    FormsModule,
-    MatFormField,
-    MatLabel,
-    MatFormField,
-    MatFormField,
-    MatInput,
-    MatButton,
-    MatLabel,
-    MatFormField,
-    RouterLink,
-    MatButtonToggle,
-    MatButtonToggleGroup,
-    MatCheckbox,
-  ],
+    imports: [
+        FormsModule,
+        MatFormField,
+        MatLabel,
+        MatFormField,
+        MatFormField,
+        MatInput,
+        MatButton,
+        MatLabel,
+        MatFormField,
+        RouterLink,
+        MatButtonToggle,
+        MatButtonToggleGroup,
+        MatCheckbox,
+        TranslatePipe,
+    ],
   templateUrl: './register-form-provider.component.html',
   styleUrl: './register-form-provider.component.css'
 })
