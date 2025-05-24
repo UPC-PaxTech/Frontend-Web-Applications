@@ -2,8 +2,8 @@
   "accounts": [
     {
       "id": 1,
-      "email": "john@example.com",
-      "passwordHash": "hash123",
+      "email": "gael@gmail.com",
+      "passwordHash": "123",
       "type": "provider",
       "isActive": true
     },

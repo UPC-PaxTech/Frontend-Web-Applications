@@ -80,3 +80,10 @@
 .button-toggle {
   flex: 1;
 }
+
+.error {
+  justify-content: center;
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}

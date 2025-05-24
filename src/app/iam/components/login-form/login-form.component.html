@@ -1,5 +1,4 @@
-
-<form class="register-form">
+<form class="register-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="register-container">
 
     <h1 class="title">Access Your Account</h1>
@@ -10,16 +9,19 @@
 
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Email</mat-label>
-      <input matInput type="email" placeholder="">
+      <input matInput type="email" formControlName="email" placeholder="">
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Password</mat-label>
-      <input matInput type="password" placeholder="">
+      <input matInput type="password" formControlName="password" placeholder="">
     </mat-form-field>
 
+    <button mat-raised-button color="primary" class="register-button" type="submit">
+      Log In
+    </button>
 
-    <button mat-raised-button color="primary" class="register-button">Log In</button>
+    <p *ngIf="loginError" class="error">Invalid email or password</p>
 
   </div>
 </form>
