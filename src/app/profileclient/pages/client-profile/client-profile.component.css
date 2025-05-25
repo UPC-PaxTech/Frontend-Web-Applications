@@ -5,15 +5,16 @@
   padding-left: 24px;
   width: 100%;
   box-sizing: border-box;
+  gap: 24px; /* <--- ESTA ES LA CLAVE */
 }
 
 .sidebar-item {
-  width: 250px; /* o el ancho de tu sidebar */
-  flex-shrink: 0;
+
 }
 
 .favorites-items {
   flex: 1;
-  min-width: 0;
+  min-width: 0; /* clave para evitar que los hijos expandan más allá del contenedor */
   box-sizing: border-box;
+  overflow-x: auto; /* añade scroll si se necesita horizontal */
 }

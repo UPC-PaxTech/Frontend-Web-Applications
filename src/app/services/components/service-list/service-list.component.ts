@@ -5,13 +5,15 @@ import {NgForOf} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 import {Router, RouterLink} from '@angular/router';
 import {Salon} from '../../../dashboard/models/Salon.entity';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-service-list',
   imports: [
     NgForOf,
     MatButton,
-    RouterLink
+    RouterLink,
+    MatIconModule
   ],
   templateUrl: './service-list.component.html',
   styleUrls: ['./service-list.component.css']
