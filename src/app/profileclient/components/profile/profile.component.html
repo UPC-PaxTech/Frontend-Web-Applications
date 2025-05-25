@@ -3,7 +3,7 @@
     <button mat-icon-button class="back-btn" routerLink="/client/homeClient">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <h1>Your Profile <span>💼</span></h1>
+    <h1>{{'client.profile.profile' | translate}} <span>💼</span></h1>
     <button mat-icon-button class="edit-profile-btn">
       <mat-icon>edit</mat-icon>
     </button>
@@ -11,48 +11,48 @@
 
   <div class="profile-card" *ngIf="!isLoading">
     <section class="section">
-      <h2>👤 Personal Information</h2>
+      <h2>👤 {{'client.profile.personal' | translate}} </h2>
       <form [formGroup]="profileForm" class="profile-form">
         <mat-form-field appearance="outline">
-          <mat-label>Name</mat-label>
+          <mat-label>{{'client.profile.name' | translate}} </mat-label>
           <input matInput formControlName="name">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
+          <mat-label>{{'client.profile.email' | translate}} </mat-label>
           <input matInput formControlName="email">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Phone</mat-label>
+          <mat-label>{{'client.profile.phone' | translate}} </mat-label>
           <input matInput formControlName="phoneNumber">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Identity Document</mat-label>
+          <mat-label>{{'client.profile.identity' | translate}} </mat-label>
           <input matInput formControlName="identityDocument">
         </mat-form-field>
 
         <div class="toggles">
           <mat-slide-toggle formControlName="notifications">
-            <mat-icon>notifications</mat-icon> Enable Notifications
+            <mat-icon>notifications</mat-icon> {{'client.profile.notifications' | translate}}
           </mat-slide-toggle>
           <mat-slide-toggle formControlName="location">
-            <mat-icon>location_on</mat-icon> Share Location
+            <mat-icon>location_on</mat-icon> {{'client.profile.location' | translate}}
           </mat-slide-toggle>
         </div>
       </form>
     </section>
 
     <section class="section">
-      <h2>🔐 Change Password</h2>
+      <h2>🔐{{'client.profile.password' | translate}} </h2>
       <form [formGroup]="passwordForm">
         <div class="password-change">
           <ng-container *ngIf="!showCurrentPasswordField">
             <div class="password-hidden">
               ***********
               <button mat-stroked-button color="primary" (click)="showCurrentPasswordField = true">
-                <mat-icon>edit</mat-icon> Change
+                <mat-icon>edit</mat-icon> {{'client.profile.change' | translate}}
               </button>
             </div>
           </ng-container>
@@ -90,13 +90,13 @@
     </section>
 
     <section class="section danger">
-      <h2>⚠️ Account</h2>
+      <h2>⚠️ {{'client.profile.account' | translate}} </h2>
       <div class="account-actions">
         <button mat-stroked-button color="warn" (click)="logout()">
-          <mat-icon>logout</mat-icon> Logout
+          <mat-icon>logout</mat-icon> {{'client.profile.logOut' | translate}}
         </button>
         <button mat-flat-button color="warn" (click)="deleteAccount()">
-          <mat-icon>delete_forever</mat-icon> Delete Account
+          <mat-icon>delete_forever</mat-icon> {{'client.profile.delete' | translate}}
         </button>
       </div>
     </section>

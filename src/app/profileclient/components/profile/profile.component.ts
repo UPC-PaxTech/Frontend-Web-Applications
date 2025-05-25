@@ -10,10 +10,11 @@ import {NgIf} from '@angular/common';
 import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
 import {MatCard} from '@angular/material/card';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
-  imports: [MatIcon, ReactiveFormsModule, MatSlideToggle, MatFormField, RouterLink, MatButton, MatIconButton, NgIf, MatInput, MatError, MatProgressSpinner, MatProgressSpinner, MatLabel, MatCard],
+  imports: [MatIcon, ReactiveFormsModule, MatSlideToggle, MatFormField, RouterLink, MatButton, MatIconButton, NgIf, MatInput, MatError, MatProgressSpinner, MatProgressSpinner, MatLabel, MatCard, TranslatePipe],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })

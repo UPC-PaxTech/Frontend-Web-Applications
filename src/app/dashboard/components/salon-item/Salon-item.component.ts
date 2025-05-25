@@ -15,6 +15,7 @@ import {RouterLink} from '@angular/router';
 import {Review} from '../../models/review.entity';
 import {ReviewApiService} from '../../services/review-api.service';
 import {ReviewAssembler} from '../../services/review.assembler';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -28,7 +29,8 @@ import {ReviewAssembler} from '../../services/review.assembler';
     MatCardContent,
     MatCard,
     ReviewListComponent,
-    RouterLink
+    RouterLink,
+    TranslatePipe
   ],
   templateUrl: './Salon-item.component.html',
   styleUrl: './Salon-item.component.css'

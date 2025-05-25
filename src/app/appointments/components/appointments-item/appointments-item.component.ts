@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-appointments-item',
@@ -12,6 +13,7 @@ import {MatButton} from '@angular/material/button';
     MatCardModule,
     MatIcon,
     MatButton,
+    TranslatePipe,
   ],
 
   styleUrls: ['./appointments-item.component.css']

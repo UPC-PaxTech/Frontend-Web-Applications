@@ -4,6 +4,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {
   UpcomingAppointmentsComponent
 } from '../../../appointments/components/upcoming-appointments/upcoming-appointments.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidebar-client',
@@ -12,7 +13,8 @@ import {
     RouterModule,
     RouterLinkActive,
     RouterOutlet,
-    UpcomingAppointmentsComponent
+    UpcomingAppointmentsComponent,
+    TranslatePipe
   ],
   templateUrl: './sidebar-client.component.html',
   styleUrl: './sidebar-client.component.css'

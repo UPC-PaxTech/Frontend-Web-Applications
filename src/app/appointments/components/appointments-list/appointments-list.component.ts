@@ -6,6 +6,7 @@ import {NgForOf} from '@angular/common';
 import {ReviewApiService} from "../../services/review-api-service.service";
 import {Review} from "../../model/reviews.entity";
 import {ReviewListComponent} from '../review-list/review-list.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -16,6 +17,7 @@ import {ReviewListComponent} from '../review-list/review-list.component';
     NgForOf,
     ReviewListComponent,
     ReviewListComponent,
+    TranslatePipe,
   ],
   styleUrls: ['./appointments-list.component.css']
 })

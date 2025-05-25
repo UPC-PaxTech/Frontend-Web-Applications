@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';
 import {ClientAppointment} from '../../model/appointment.entity';
 import { CommonModule } from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-upcoming-appointments-client',
   templateUrl: './upcoming-appointments.component.html',
   styleUrls: ['./upcoming-appointments.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule, TranslatePipe]
 })
 export class UpcomingAppointmentsComponent implements OnInit {
   upcomingAppointments: ClientAppointment[] = [];

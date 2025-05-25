@@ -6,7 +6,7 @@
     </div>
     <div class="appointment-date">
       <mat-icon>calendar_today</mat-icon>
-      <span>Fecha: {{ formatDay(appointment.timeSlotStart) }}</span>
+      <span>{{'client.appointments.date' | translate}} {{ formatDay(appointment.timeSlotStart) }}</span>
     </div>
   </div>
 
@@ -14,7 +14,7 @@
     <div class="appointment-section">
       <mat-icon>location_on</mat-icon>
       <div class="info-content">
-        <div class="label">Salón:</div>
+        <div class="label">{{'client.appointments.salon' | translate}}</div>
         <div class="value">{{ appointment.salonName }}</div>
       </div>
     </div>
@@ -22,7 +22,7 @@
     <div class="appointment-section">
       <mat-icon>schedule</mat-icon>
       <div class="info-content">
-        <div class="label">Hora:</div>
+        <div class="label">{{'client.appointments.hour' | translate}}</div>
         <div class="value">{{ formatTime(appointment.timeSlotStart) }} – {{ formatTime(appointment.timeSlotEnd) }}</div>
       </div>
     </div>
@@ -30,7 +30,7 @@
     <div class="appointment-section">
       <mat-icon>person</mat-icon>
       <div class="info-content">
-        <div class="label">Cliente:</div>
+        <div class="label">{{'client.appointments.client' | translate}}</div>
         <div class="value">{{ appointment.clientName }}</div>
       </div>
     </div>
@@ -39,15 +39,15 @@
   <div class="appointment-footer">
     <button mat-stroked-button color="primary">
       <mat-icon>payment</mat-icon>
-      Pagar
+      {{'client.appointments.payment' | translate}}
     </button>
     <button mat-stroked-button>
       <mat-icon>event</mat-icon>
-      Reagendar
+      {{'client.appointments.reschedule' | translate}}
     </button>
     <button mat-stroked-button color="warn">
       <mat-icon>cancel</mat-icon>
-      Cancelar
+      {{'client.appointments.cancel' | translate}}
     </button>
   </div>
 </mat-card>

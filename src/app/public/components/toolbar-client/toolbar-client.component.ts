@@ -8,6 +8,7 @@ import {MatAutocomplete, MatAutocompleteTrigger, MatOption} from '@angular/mater
 import { MatInput} from '@angular/material/input';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -19,7 +20,8 @@ import {Router} from '@angular/router';
     MatOption,
     MatInput,
     ReactiveFormsModule,
-    MatAutocompleteTrigger
+    MatAutocompleteTrigger,
+    TranslatePipe
   ],
   templateUrl: './toolbar-client.component.html',
   styleUrl: './toolbar-client.component.css'

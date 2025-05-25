@@ -1,5 +1,5 @@
 <section class="upcoming">
-  <h2>Upcoming appointments</h2>
+  <h2>{{ 'client.appointments.upcoming' | translate }}</h2>
 
   @for (appointment of upcomingAppointments; track appointment.reservationId) {
     <div class="appointment-card" [ngClass]="{ 'past': !appointment.paymentStatus }">

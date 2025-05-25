@@ -8,12 +8,13 @@ import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {ReviewResponse} from '../../../dashboard/services/review.response';
 import {ReviewApiService} from '../../../dashboard/services/review-api.service';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-review-list-client',
   standalone: true,
-  imports: [CommonModule, ReviewItemComponent, MatIcon, MatIconButton, MatFormField, MatLabel, MatFormField, MatInput, MatButton, MatFormField, FormsModule],
+  imports: [CommonModule, ReviewItemComponent, MatIcon, MatIconButton, MatFormField, MatLabel, MatFormField, MatInput, MatButton, MatFormField, FormsModule, TranslatePipe],
   templateUrl: './review-list.component.html',
   styleUrls: ['./review-list.component.css']
 })

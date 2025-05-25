@@ -244,6 +244,24 @@
       "price": 1000,
       "status": "Active",
       "salonId": 1
+    },
+    {
+      "id": 7,
+      "name": "Service service",
+      "description": "corte de trufa",
+      "duration": 50,
+      "price": 20,
+      "status": "Paused",
+      "salonId": 1
+    },
+    {
+      "id": 8,
+      "name": "Service servicio",
+      "description": "los dodis",
+      "duration": 40,
+      "price": 20,
+      "status": "Active",
+      "salonId": 1
     }
   ],
   "payments": [
@@ -647,6 +665,4 @@
       "read": false
     }
   ]
-
-
 }
