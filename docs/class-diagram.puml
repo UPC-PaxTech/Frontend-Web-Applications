@@ -115,7 +115,7 @@ package "Dashboard" {
     class SalonGridComponent {
       - salons: Dashboard.Models.Salon[]
       + ngOnInit(): void
-    }    
+    }
   }
 
   package "Models" {
@@ -281,7 +281,7 @@ package "Profiles" {
       - identityDocument: string
       - notifications: boolean
       - location: boolean
-    }    
+    }
   }
 
   package "Pages" {
@@ -292,7 +292,7 @@ package "Profiles" {
     }
 
     class ProfileClientPageComponent {
-    }    
+    }
   }
 
   package "Services" {
@@ -410,7 +410,7 @@ package "Reviews" {
     'Utilizar código de ReviewList de appointments, separar funcionalidad,
     'cambiar código de client appointment pages para reflejar los cambios
     class ReviewMakerComponent {
-    }    
+    }
   }
 
   package "Models" {
@@ -494,8 +494,6 @@ Schedule.Components.CalendarComponent --> Dashboard.Models.Appointment : uses
 Schedule.Components.CalendarComponent --> Dashboard.Services.AppointmentApiService : uses
 
 Schedule.Pages.SchedulePageComponent --> Schedule.Components.CalendarComponent : composes
-Schedule.Pages.SchedulePageComponent --> Public.Components.ToolbarProviderComponent : composes
-
 
 package "Services" {
 
@@ -599,5 +597,47 @@ package "Subscription" {
 
 ' Relaciones Subscription
 Subscription.Pages.SubscriptionTabComponent --> Subscription.Components.SubscriptionPlanComponent : composes
+AppComponent ..> Appointments.Pages: uses
+AppComponent ..> Services.Pages: uses
+AppComponent ..> Subscription.Pages.SubscriptionTabComponent: uses
+AppComponent ..> Dashboard.Pages: uses
+AppComponent ..> Profiles.Pages: uses
+AppComponent ..> "Reviews": uses
+AppComponent .> Iam.Pages: uses
+AppComponent .> ProviderSettings.Pages: uses
+AppComponent .> Schedule.Pages: uses
+AppComponent -> Public.Components: contains
+
+Appointments.Pages ..> Appointments.Services: injects
+Appointments.Pages --> Appointments.Models
+Appointments.Pages --> Appointments.Components
+Appointments.Models <- Appointments.Components
+Appointments.Services --|> BaseService
+
+Profiles.Pages ..> Profiles.Services : injects
+Profiles.Pages --> Profiles.Models
+Profiles.Pages --> Profiles.Components
+Profiles.Models <- Profiles.Components
+Profiles.Services --|> BaseService
+
+Reviews.Pages ..> Reviews.Services : injects
+Reviews.Pages --> Reviews.Models
+Reviews.Pages --> Reviews.Components
+Reviews.Models <- Reviews.Components
+Reviews.Services --|> BaseService
+
+Services.Pages ..> Services.Services : injects
+Services.Pages --> Services.Models
+Services.Pages --> Services.Components
+Services.Models <- Services.Components
+Services.Services --|> BaseService
+
+Dashboard.Pages ..> Dashboard.Services : injects
+Dashboard.Pages --> Dashboard.Models
+Dashboard.Pages --> Dashboard.Components
+Dashboard.Models <- Dashboard.Components
+Dashboard.Services --|> BaseService
+
+ProviderSettings.Pages --> ProviderSettings.Components
 
 @enduml

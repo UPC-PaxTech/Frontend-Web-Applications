@@ -451,5 +451,17 @@
         "isActive": false
       }
     }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "notificationDate": "2025-05-01T10:00:00Z",
+      "message": "String",
+      "salonId": 1,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon1.png",
+      "reservationDetailsId": 1,
+      "read": false
+    }
   ]
 }
