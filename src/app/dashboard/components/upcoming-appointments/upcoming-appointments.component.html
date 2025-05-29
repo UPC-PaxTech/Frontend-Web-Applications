@@ -2,7 +2,7 @@
   <h2>{{ 'dashboard.upcoming' | translate }}</h2>
 
   @for (appointment of upcomingAppointments; track appointment.reservationId) {
-    <div class="appointment-card" [ngClass]="{ 'past': !appointment.paymentStatus }">
+    <div class="appointment-card" aria-label="appointment-card" [ngClass]="{ 'past': !appointment.paymentStatus }">
       <div class="left">
         <div class="day">
           <div>{{ formatDay(appointment.timeSlotStart) }}</div>

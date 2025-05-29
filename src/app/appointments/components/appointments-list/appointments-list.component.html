@@ -4,14 +4,14 @@
   <div class="appointments-content">
     <div class="appointments-left">
       <div class="group">
-        <h3 class="group-title decorated-subtitle">Tomorrow</h3>
+        <h3 class="group-title decorated-subtitle" aria-label="appointment-list">Tomorrow</h3>
         <ng-container *ngFor="let appointment of appointments; trackBy: trackById">
           <app-appointments-item [appointment]="appointment"></app-appointments-item>
         </ng-container>
       </div>
     </div>
 
-    <div class="appointments-right">
+    <div class="appointments-right" aria-label="client-review-list">
       <app-review-list-client [reviews]="reviews"></app-review-list-client>
     </div>
   </div>

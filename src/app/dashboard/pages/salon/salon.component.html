@@ -1,19 +1,19 @@
 <div class="main-container">
   <div class="salon-grid">
     <!-- LEFT -->
-    <div class="left-column">
+    <div class="left-column" aria-label="left-column">
       <div class="back-button">
         <button class="button-back" mat-button routerLink="/client">
           <mat-icon>arrow_back</mat-icon> Back
         </button>
       </div>
 
-      <div class="salon-info">
+      <div class="salon-info" aria-label="salon-info">
         <h1>{{salon.name}}</h1>
         <h2><mat-icon fontIcon="location_on"></mat-icon> {{salon.location}}</h2>
         <hr />
 
-        <div class="socials">
+        <div class="socials" aria-label="socials">
           <a [href]="profile.socials.instagram" target="_blank">
             <i class="fab fa-instagram"></i> Instagram
           </a>
@@ -23,13 +23,13 @@
         </div>
       </div>
 
-      <div class="salon-reviews">
+      <div class="salon-reviews" aria-label="salon-reviews">
         <app-review-list [reviews]="reviews"></app-review-list>
       </div>
     </div>
 
     <!-- RIGHT -->
-    <div class="right-column">
+    <div class="right-column" aria-label="right-column">
       <mat-card class="salon-card">
         <div class="salon-image-wrapper">
           <img matCardImage [src]="salon.imageURL" alt="Salon image" />
