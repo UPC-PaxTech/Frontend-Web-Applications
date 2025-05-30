@@ -607,6 +607,7 @@
     {
       "id": 1,
       "notificationDate": "2025-05-01T10:00:00Z",
+<<<<<<< HEAD
       "message": "Your reservation has been confirmed.",
       "salonId": 1,
       "clientId": 1,
@@ -663,6 +664,14 @@
       "iconURL": "https://example.com/icon-review.png",
       "reservationDetailsId": 4,
       "read": false
+=======
+      "message": "String",
+      "salonId": 1,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon1.png",
+      "reservationDetailsId": 1,
+      "read": false
+>>>>>>> feature/class-diagram
     }
   ]
 }
