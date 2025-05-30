@@ -1,12 +1,12 @@
-<form class="register-form">
+<form class="register-form" aria-label="register form">
   <div class="register-container">
 
     <img src="https://github.com/UPC-PaxTech/uTime/blob/main/img/logoutime.png?raw=true" alt="" class="logo">
 
-    <h1 class="title">{{'register.title' | translate}}</h1>
+    <h1 class="title" aria-label="register">{{'register.title' | translate}}</h1>
     <p class="subtitle">
       {{'register.subtitle' | translate}}
-      <a routerLink="/iam/login" class="login-link">{{'register.logIn' | translate}}</a>
+      <a routerLink="/iam/login" class="login-link" aria-label="go to login button">{{'register.logIn' | translate}}</a>
     </p>
 
     <mat-button-toggle-group
@@ -15,34 +15,34 @@
       (ngModelChange)="toggleChange.emit($event)"
       class="toggle-group"
     >
-      <mat-button-toggle class="button-toggle" [value]="false">{{'register.Client' | translate}}</mat-button-toggle>
-      <mat-button-toggle class="button-toggle" [value]="true">{{'register.Provider' | translate}}</mat-button-toggle>
+      <mat-button-toggle class="button-toggle" [value]="false" aria-label="swap to register client">{{'register.Client' | translate}}</mat-button-toggle>
+      <mat-button-toggle class="button-toggle" [value]="true" aria-label="swap to register provider">{{'register.Provider' | translate}}</mat-button-toggle>
     </mat-button-toggle-group>
 
     <div class="form-row">
       <mat-form-field appearance="fill" class="half-width">
-        <mat-label>{{'register.name' | translate}}</mat-label>
-        <input matInput type="text" placeholder="">
+        <mat-label aria-label="register name">{{'register.name' | translate}}</mat-label>
+        <input matInput type="text" placeholder="" aria-label="register name input">
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="half-width">
-        <mat-label>{{'register.last' | translate}}</mat-label>
-        <input matInput type="text" placeholder="">
+        <mat-label aria-label="register lastname">{{'register.last' | translate}}</mat-label>
+        <input matInput type="text" placeholder="" aria-label="register lastname input">
       </mat-form-field>
     </div>
 
     <mat-form-field appearance="fill" class="full-width">
-      <mat-label>{{'register.email' | translate}}</mat-label>
-      <input matInput type="email" placeholder="">
+      <mat-label aria-label="register email">{{'register.email' | translate}}</mat-label>
+      <input matInput type="email" placeholder="" aria-label="register email input">
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="full-width">
-      <mat-label>{{'register.password' | translate}}</mat-label>
-      <input matInput type="password" placeholder="">
+      <mat-label aria-label="register password">{{'register.password' | translate}}</mat-label>
+      <input matInput type="password" placeholder="" aria-label="register password input">
     </mat-form-field>
 
 
-    <button mat-raised-button color="primary" class="register-button" (click)="onRegister()">{{'register.create' | translate}}</button>
+    <button mat-raised-button color="primary" class="register-button" (click)="onRegister()" aria-label="register create button">{{'register.create' | translate}}</button>
 
 
   </div>
