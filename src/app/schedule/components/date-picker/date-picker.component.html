@@ -4,7 +4,7 @@
 
 <div aria-label="Time slot selection">
   <p>Seleccione rango horario:</p>
-  <button *ngFor="let slot of timeSlots" mat-button (click)="selectTimeSlot(slot)" aria-label="Select time slot from {{slot.start | date:'shortTime'}} to {{slot.end | date:'shortTime'}}">
+  <button *ngFor="let slot of timeSlots" mat-button (click)="selectTimeSlot(slot)">
     {{slot.start | date:'shortTime'}} - {{slot.end | date:'shortTime'}}
   </button>
 </div>
