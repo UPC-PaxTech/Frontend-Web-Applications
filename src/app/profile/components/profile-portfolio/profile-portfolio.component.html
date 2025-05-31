@@ -2,7 +2,7 @@
   <h3>{{ 'profile.portfolio' | translate }}</h3>
   <div class="portfolio-gallery">
     @for (image of profile.portfolioImages; track image) {
-      <img [src]="image" [alt]="'profile.profileImageAlt' | translate" (click)="onImageClick(image)" />
+      <img [src]="image" aria-label="portfolios image" [alt]="'profile.profileImageAlt' | translate" (click)="onImageClick(image)" />
     }
     <button class="add-photo-btn" (click)="onAddPhoto()">
       {{ 'profile.addPhoto' | translate }}
