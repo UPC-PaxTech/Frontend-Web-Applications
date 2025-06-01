@@ -580,6 +580,14 @@
       "read": true,
       "salonId": 1,
       "id": 8
+    },
+    {
+      "author": "Anonimo",
+      "rating": 0,
+      "text": "test de review",
+      "read": true,
+      "salonId": 1,
+      "id": 9
     }
   ],
   "salonProfiles": [

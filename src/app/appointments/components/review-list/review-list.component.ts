@@ -1,5 +1,5 @@
 import {Component, inject, Input} from '@angular/core';
-import {Review} from '../../model/reviews.entity';
+import {Review} from '../../../reviews/models/review.entity';
 import { ReviewItemComponent } from '../review-item/review-item.component';
 import { CommonModule } from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
