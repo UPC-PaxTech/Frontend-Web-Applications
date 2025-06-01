@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import {Profile} from '../model/profile.entity';
+import {Profile} from '../models/profile.entity';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class ProfileClientService {
   // For demo purposes, using a simulated mock API
   private apiUrl = 'api/profile'; // Replace with your actual API endpoint
 

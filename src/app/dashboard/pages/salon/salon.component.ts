@@ -2,14 +2,14 @@ import {Component, EventEmitter, inject, Input, OnInit, Output} from '@angular/c
 import {MatCard, MatCardImage} from '@angular/material/card';
 import {Salon} from '../../models/Salon.entity';
 import {ReviewListComponent} from '../../components/review-list/review-list.component';
-import {Review} from '../../models/review.entity';
-import {ReviewApiService} from '../../services/review-api.service';
+import {Review} from '../../../reviews/models/review.entity';
+import {ReviewApiService} from '../../../reviews/services/review-api.service';
 import {SalonApiService} from '../../services/salon-api.service';
 import {MatButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {SalonProfile} from '../../../profile/models/salon-profile.entity';
-import {ProfileService} from '../../../profileclient/service/profile-api.service';
+import {ProfileClientService} from '../../../profile/services/profile-api.service';
 import {SalonProfileApiService} from '../../../profile/services/salon-profile-api.service';
 import {ServiceListComponent} from "../../../services/components/service-list/service-list.component";
 import {Service} from "../../../services/model/service.entity";

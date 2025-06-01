@@ -572,6 +572,14 @@
       "read": true,
       "salonId": 1,
       "id": 7
+    },
+    {
+      "author": "Anonimo",
+      "rating": 0,
+      "text": "hola",
+      "read": true,
+      "salonId": 1,
+      "id": 8
     }
   ],
   "salonProfiles": [

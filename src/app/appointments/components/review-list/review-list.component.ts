@@ -6,8 +6,8 @@ import {MatIcon} from '@angular/material/icon';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
-import {ReviewResponse} from '../../../dashboard/services/review.response';
-import {ReviewApiService} from '../../../dashboard/services/review-api.service';
+import {ReviewResponse} from '../../../reviews/services/review.response';
+import {ReviewApiService} from '../../../reviews/services/review-api.service';
 import {TranslatePipe} from '@ngx-translate/core';
 
 
