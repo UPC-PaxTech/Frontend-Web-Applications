@@ -12,9 +12,9 @@ import {
 import {MatButton} from '@angular/material/button';
 import {ReviewListComponent} from '../review-list/review-list.component';
 import {RouterLink} from '@angular/router';
-import {Review} from '../../models/review.entity';
-import {ReviewApiService} from '../../services/review-api.service';
-import {ReviewAssembler} from '../../services/review.assembler';
+import {Review} from '../../../reviews/models/review.entity';
+import {ReviewApiService} from '../../../reviews/services/review-api.service';
+import {ReviewAssembler} from '../../../reviews/services/review.assembler';
 import {TranslatePipe} from '@ngx-translate/core';
 
 

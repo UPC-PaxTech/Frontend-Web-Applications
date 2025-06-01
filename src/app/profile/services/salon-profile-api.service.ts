@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../../shared/services/base.service';
-import { SalonProfileResponse } from './salon-profile.response';
+import { ProfileSalonResponse } from './profile-salon.response';
 import { SalonProfile } from '../models/salon-profile.entity';
 import {catchError, map, Observable, retry} from 'rxjs';
 import { SalonProfileAssembler } from './salon-profile.assembler';
@@ -8,7 +8,7 @@ import { SalonProfileAssembler } from './salon-profile.assembler';
 @Injectable({
   providedIn: 'root'
 })
-export class SalonProfileApiService extends BaseService<SalonProfileResponse> {
+export class SalonProfileApiService extends BaseService<ProfileSalonResponse> {
   override resourceEndpoint = '/salonProfiles';
 
   constructor() {
@@ -16,7 +16,7 @@ export class SalonProfileApiService extends BaseService<SalonProfileResponse> {
   }
 
   public getProfileById(id: number): Observable<SalonProfile> {
-    return this.http.get<SalonProfileResponse>(`${this.resourcePath()}/${id}`, this.httpOptions)
+    return this.http.get<ProfileSalonResponse>(`${this.resourcePath()}/${id}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError),

@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import {ProfileComponent} from '../../components/profile/profile.component';
+import {ProfileClientComponent} from '../../components/profile/profile-client.component';
 import {SidebarClientComponent} from '../../../public/components/sidebar-client/sidebar-client.component';
 import {
   UpcomingAppointmentsComponent
 } from '../../../dashboard/components/upcoming-appointments/upcoming-appointments.component';
-import {SalonGridComponent} from '../../../favorites/components/salon-grid/salon-grid.component';
+import {SalonGridComponent} from '../../../dashboard/components/salon-grid/salon-grid.component';
 
 @Component({
   selector: 'app-client-profile',
   imports: [
-    ProfileComponent,
+    ProfileClientComponent,
     SidebarClientComponent,
     UpcomingAppointmentsComponent,
     SalonGridComponent

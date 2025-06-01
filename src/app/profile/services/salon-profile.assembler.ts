@@ -1,8 +1,8 @@
 import {SalonProfile} from '../models/salon-profile.entity';
-import {SalonProfileResponse} from './salon-profile.response';
+import {ProfileSalonResponse} from './profile-salon.response';
 
 export class SalonProfileAssembler {
-  static toEntityFromResponse(resource: SalonProfileResponse): SalonProfile {
+  static toEntityFromResponse(resource: ProfileSalonResponse): SalonProfile {
     return {
       profileId: resource.id || 0,
       userId: resource.userId || '',
@@ -18,11 +18,11 @@ export class SalonProfileAssembler {
     };
   }
 
-  static toEntitiesFromResponse(resources: SalonProfileResponse[]): SalonProfile[] {
+  static toEntitiesFromResponse(resources: ProfileSalonResponse[]): SalonProfile[] {
     return resources.map(this.toEntityFromResponse);
   }
 
-  static toResponseFromEntity(entity: SalonProfile): SalonProfileResponse {
+  static toResponseFromEntity(entity: SalonProfile): ProfileSalonResponse {
     return {
       id: entity.profileId || 0,
       userId: entity.userId || '',

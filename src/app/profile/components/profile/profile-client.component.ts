@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { ProfileService } from '../../service/profile-api.service';
-import { Profile } from '../../model/profile.entity';
+import { ProfileClientService } from '../../services/profile-api.service';
+import { Profile } from '../../models/profile.entity';
 import {MatIcon} from '@angular/material/icon';
 import {MatSlideToggle} from '@angular/material/slide-toggle';
 import {RouterLink} from '@angular/router';
@@ -15,10 +15,10 @@ import {TranslatePipe} from '@ngx-translate/core';
 @Component({
   selector: 'app-profile',
   imports: [MatIcon, ReactiveFormsModule, MatSlideToggle, MatFormField, RouterLink, MatButton, MatIconButton, NgIf, MatInput, MatError, MatProgressSpinner, MatProgressSpinner, MatLabel, MatCard, TranslatePipe],
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  templateUrl: './profile-client.component.html',
+  styleUrls: ['./profile-client.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileClientComponent implements OnInit {
   profileForm: FormGroup;
   passwordForm: FormGroup;
   profile: Profile;
@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private profileService: ProfileService
+    private profileService: ProfileClientService
   ) {
     // Inicialización de formularios en el constructor
     this.profileForm = this.fb.group({

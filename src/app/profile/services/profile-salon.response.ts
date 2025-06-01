@@ -1,4 +1,4 @@
-export interface SalonProfileResponse {
+export interface ProfileSalonResponse {
   id: number;
   userId: string;
   salonName: string;

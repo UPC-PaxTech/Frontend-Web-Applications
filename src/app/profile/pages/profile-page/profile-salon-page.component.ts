@@ -9,10 +9,10 @@ import {TranslatePipe} from '@ngx-translate/core';
 @Component({
   selector: 'app-profile-page',
   imports: [ProfileHeaderComponent, ProfilePortfolioComponent, ReviewListComponent, TranslatePipe],
-  templateUrl: './profile-page.component.html',
-  styleUrl: './profile-page.component.css'
+  templateUrl: './profile-salon-page.component.html',
+  styleUrl: './profile-salon-page.component.css'
 })
-export class ProfilePageComponent implements OnInit {
+export class ProfileSalonPageComponent implements OnInit {
  profile!: SalonProfile;
 
  constructor(private profileService: SalonProfileApiService) {}
