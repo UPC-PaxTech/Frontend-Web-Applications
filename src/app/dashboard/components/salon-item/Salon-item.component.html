@@ -1,4 +1,4 @@
-<mat-card class="salon-card">
+<mat-card class="salon-card" aria-label="salon-card">
   <img mat-card-image class="card-image" [src]="salon.imageURL" alt="Photo of a salon" />
 
   <mat-card-content class = layout-title>
@@ -9,7 +9,7 @@
     <app-review-list [reviews]="reviews" [average]="reviewAverage"></app-review-list>
   </mat-card-content>
 
-  <mat-card-actions class="action-button">
-    <button mat-button [routerLink]="['/client/homeClient/salon', salon.salonId ]">Book Now</button>
+  <mat-card-actions class="action-button" aria-label="salon-button">
+    <button mat-button [routerLink]="['/client/homeClient/salon', salon.salonId ]">{{'client.favorites.book' | translate}}</button>
   </mat-card-actions>
 </mat-card>

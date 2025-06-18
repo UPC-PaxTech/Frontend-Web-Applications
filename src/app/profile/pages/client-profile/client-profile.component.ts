@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {ProfileComponent} from '../../components/profile/profile.component';
+import {ProfileClientComponent} from '../../components/profile/profile-client.component';
 import {SidebarClientComponent} from '../../../public/components/sidebar-client/sidebar-client.component';
 
 @Component({
   selector: 'app-client-profile',
   imports: [
-    ProfileComponent,
+    ProfileClientComponent,
     SidebarClientComponent,
   ],
   templateUrl: './client-profile.component.html',

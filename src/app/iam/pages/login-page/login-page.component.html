@@ -13,7 +13,7 @@
       />
     </div>
     <div class="overlay-content">
-      <button class="back-button" onclick="window.location.href='https://upc-paxtech.github.io/uTime-Landing-Page/'">
+      <button class="back-button" aria-label="landing page button" onclick="window.location.href='https://upc-paxtech.github.io/uTime-Landing-Page/'">
         ← {{ 'login.back' | translate}}
       </button>
     </div>
@@ -34,7 +34,7 @@
   <!-- Sección derecha con formulario -->
   <div class="right-section">
     <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 0;"></div>
-    <div class="login-container">
+    <div class="login-container" aria-label="login form">
       <app-login-form
         *ngIf="!isProvider"
         [isProvider]="isProvider"

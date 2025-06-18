@@ -244,6 +244,24 @@
       "price": 1000,
       "status": "Active",
       "salonId": 1
+    },
+    {
+      "id": 7,
+      "name": "Service service",
+      "description": "corte de trufa",
+      "duration": 50,
+      "price": 20,
+      "status": "Paused",
+      "salonId": 1
+    },
+    {
+      "id": 8,
+      "name": "Service servicio",
+      "description": "los dodis",
+      "duration": 40,
+      "price": 20,
+      "status": "Active",
+      "salonId": 1
     }
   ],
   "payments": [
@@ -554,6 +572,22 @@
       "read": true,
       "salonId": 1,
       "id": 7
+    },
+    {
+      "author": "Anonimo",
+      "rating": 0,
+      "text": "hola",
+      "read": true,
+      "salonId": 1,
+      "id": 8
+    },
+    {
+      "author": "Anonimo",
+      "rating": 0,
+      "text": "test de review",
+      "read": true,
+      "salonId": 1,
+      "id": 9
     }
   ],
   "salonProfiles": [
@@ -635,18 +669,6 @@
       "iconURL": "https://example.com/icon-message.png",
       "reservationDetailsId": null,
       "read": false
-    },
-    {
-      "id": 6,
-      "notificationDate": "2025-05-05T11:45:00Z",
-      "message": "Thanks for visiting! Please rate your experience.",
-      "salonId": 1,
-      "clientId": 1,
-      "iconURL": "https://example.com/icon-review.png",
-      "reservationDetailsId": 4,
-      "read": false
     }
   ]
-
-
 }

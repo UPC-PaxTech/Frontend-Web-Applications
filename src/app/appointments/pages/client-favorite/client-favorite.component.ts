@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {SidebarClientComponent} from '../../../public/components/sidebar-client/sidebar-client.component';
-import {SalonGridComponent} from '../../components/salon-grid/salon-grid.component';
+import {SalonGridComponent} from '../../../dashboard/components/salon-grid/salon-grid.component';
 import {
   UpcomingAppointmentsComponent
 } from '../../../dashboard/components/upcoming-appointments/upcoming-appointments.component';

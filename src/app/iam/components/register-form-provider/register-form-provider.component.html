@@ -16,8 +16,8 @@
       (ngModelChange)="toggleChange.emit($event)"
       class="toggle-group"
     >
-      <mat-button-toggle class="button-toggle" [value]="false">{{'register.Client' | translate}}</mat-button-toggle>
-      <mat-button-toggle class="button-toggle" [value]="true">{{'register.Provider' | translate}}</mat-button-toggle>
+      <mat-button-toggle class="button-toggle" [value]="false" aria-label="swap to register client">{{'register.Client' | translate}}</mat-button-toggle>
+      <mat-button-toggle class="button-toggle" [value]="true" aria-label="swap to register provider">{{'register.Provider' | translate}}</mat-button-toggle>
     </mat-button-toggle-group>
 
       <mat-form-field appearance="fill" class="full-width">
@@ -27,15 +27,14 @@
 
 
     <mat-form-field appearance="fill" class="full-width">
-      <mat-label>{{'register.email' | translate}}</mat-label>
-      <input matInput type="email" placeholder="">
+      <mat-label aria-label="register email">{{'register.email' | translate}}</mat-label>
+      <input matInput type="email" placeholder="" aria-label="register email input">
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="full-width">
-      <mat-label>{{'register.password' | translate}}</mat-label>
-      <input matInput type="password" placeholder="">
+      <mat-label aria-label="register password">{{'register.password' | translate}}</mat-label>
+      <input matInput type="password" placeholder="" aria-label="register password input">
     </mat-form-field>
-
 
 
     <button mat-raised-button color="primary" class="register-button" (click)="onRegister()">Create account</button>

@@ -4,33 +4,33 @@
       <mat-icon>event_note</mat-icon>
       <span>{{ appointment.tipo }}</span>
     </div>
-    <div class="appointment-date">
+    <div class="appointment-date" aria-label="appointment-date">
       <mat-icon>calendar_today</mat-icon>
-      <span>Fecha: {{ formatDay(appointment.timeSlotStart) }}</span>
+      <span>{{'client.appointments.date' | translate}} {{ formatDay(appointment.timeSlotStart) }}</span>
     </div>
   </div>
 
-  <div class="appointment-body">
-    <div class="appointment-section">
+  <div class="appointment-body" >
+    <div class="appointment-section" aria-label="salon-name">
       <mat-icon>location_on</mat-icon>
       <div class="info-content">
-        <div class="label">Salón:</div>
+        <div class="label">{{'client.appointments.salon' | translate}}</div>
         <div class="value">{{ appointment.salonName }}</div>
       </div>
     </div>
 
-    <div class="appointment-section">
+    <div class="appointment-section" aria-label="timeslots">
       <mat-icon>schedule</mat-icon>
       <div class="info-content">
-        <div class="label">Hora:</div>
+        <div class="label">{{'client.appointments.hour' | translate}}</div>
         <div class="value">{{ formatTime(appointment.timeSlotStart) }} – {{ formatTime(appointment.timeSlotEnd) }}</div>
       </div>
     </div>
 
-    <div class="appointment-section">
+    <div class="appointment-section" aria-label="client-name">
       <mat-icon>person</mat-icon>
       <div class="info-content">
-        <div class="label">Cliente:</div>
+        <div class="label">{{'client.appointments.client' | translate}}</div>
         <div class="value">{{ appointment.clientName }}</div>
       </div>
     </div>
@@ -38,16 +38,16 @@
 
   <div class="appointment-footer">
     <button mat-stroked-button color="primary">
-      <mat-icon>payment</mat-icon>
-      Pagar
+      <mat-icon aria-label="payment button">payment</mat-icon>
+      {{'client.appointments.payment' | translate}}
     </button>
     <button mat-stroked-button>
-      <mat-icon>event</mat-icon>
-      Reagendar
+      <mat-icon aria-label="reschedule button">event</mat-icon>
+      {{'client.appointments.reschedule' | translate}}
     </button>
     <button mat-stroked-button color="warn">
-      <mat-icon>cancel</mat-icon>
-      Cancelar
+      <mat-icon aria-label="cancel button">cancel</mat-icon>
+      {{'client.appointments.cancel' | translate}}
     </button>
   </div>
 </mat-card>

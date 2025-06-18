@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SalonApiService} from '../../../dashboard/services/salon-api.service';
-import {Salon} from '../../../dashboard/models/Salon.entity';
-import { SalonItemComponent} from '../../../dashboard/components/salon-item/Salon-item.component';
-import {SalonAssembler} from '../../../dashboard/services/Salon.assembler';
+import { SalonApiService} from '../../services/salon-api.service';
+import {Salon} from '../../models/Salon.entity';
+import { SalonItemComponent} from '../salon-item/Salon-item.component';
+import {SalonAssembler} from '../../services/Salon.assembler';
 
 
 @Component({

@@ -3,9 +3,10 @@ import {ClientAppointment} from '../../model/appointment.entity';
 import {AppointmentApiService} from '../../services/appointment-api-service.service';
 import {AppointmentsItemComponent} from '../appointments-item/appointments-item.component';
 import {NgForOf} from '@angular/common';
-import {ReviewApiService} from "../../services/review-api-service.service";
-import {Review} from "../../model/reviews.entity";
+import {ReviewApiService} from '../../../reviews/services/review-api.service';
+import {Review} from '../../../reviews/models/review.entity';
 import {ReviewListComponent} from '../review-list/review-list.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -16,6 +17,7 @@ import {ReviewListComponent} from '../review-list/review-list.component';
     NgForOf,
     ReviewListComponent,
     ReviewListComponent,
+    TranslatePipe,
   ],
   styleUrls: ['./appointments-list.component.css']
 })

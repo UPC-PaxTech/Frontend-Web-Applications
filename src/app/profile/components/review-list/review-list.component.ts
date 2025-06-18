@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Review} from '../../../dashboard/models/review.entity';
+import {Review} from '../../../reviews/models/review.entity';
 import { CommonModule } from '@angular/common';
 import { ReviewItemComponent } from '../review-item/review-item.component';
-import {ReviewApiService} from '../../../dashboard/services/review-api.service';
+import {ReviewApiService} from '../../../reviews/services/review-api.service';
 import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { ProfessionalDashboardComponent } from './dashboard/pages/professional-dashboard/professional-dashboard.component';
-import {ProfilePageComponent } from './profile/pages/profile-page/profile-page.component';
+import {ProfileSalonPageComponent } from './profile/pages/profile-page/profile-salon-page.component';
 import { SchedulePageComponent } from './schedule/pages/schedule-page/schedule-page.component';
 import { LoginPageComponent } from './iam/pages/login-page/login-page.component'
 import { RegisterPageComponent } from './iam/pages/register-page/register-page.component'
@@ -9,8 +9,8 @@ import {ClientLayoutComponent} from './public/components/client-layout/client-la
 import {
   ClientAppointmentPagesComponent
 } from './appointments/pages/client-appointment-pages/client-appointment-pages.component';
-import {ClientFavoriteComponent} from './favorites/pages/client-favorite/client-favorite.component';
-import {ClientProfileComponent} from './profileclient/pages/client-profile/client-profile.component';
+import {ClientFavoriteComponent} from './appointments/pages/client-favorite/client-favorite.component';
+import {ClientProfileComponent} from './profile/pages/client-profile/client-profile.component';
 import {ClientDashboardComponent} from './dashboard/pages/client-dashboard/client-dashboard.component';
 import {SalonComponent} from './dashboard/pages/salon/salon.component';
 import {ReviewsTabComponent} from './reviews/pages/reviews-tab/reviews-tab.component';
@@ -39,7 +39,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'homeProvider', pathMatch: 'full' },
       { path: 'homeProvider', component: ProfessionalDashboardComponent },
-      { path: 'profile', component: ProfilePageComponent },
+      { path: 'profile', component: ProfileSalonPageComponent },
       { path: 'schedule', component: SchedulePageComponent },
       { path: 'reviews', component: ReviewsTabComponent },
       { path: 'services', component: ServicesTabComponent },
