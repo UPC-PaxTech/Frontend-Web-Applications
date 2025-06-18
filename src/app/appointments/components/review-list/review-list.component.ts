@@ -13,7 +13,7 @@ import {ReviewApiService} from '../../../dashboard/services/review-api.service';
 @Component({
   selector: 'app-review-list-client',
   standalone: true,
-  imports: [CommonModule, ReviewItemComponent, MatIcon, MatIconButton, MatFormField, MatLabel, MatFormField, MatInput, MatButton, MatFormField, FormsModule],
+  imports: [CommonModule, ReviewItemComponent, MatIcon, MatFormField, MatLabel, MatFormField, MatInput, MatButton, MatFormField, FormsModule],
   templateUrl: './review-list.component.html',
   styleUrls: ['./review-list.component.css']
 })

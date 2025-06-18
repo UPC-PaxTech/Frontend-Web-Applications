@@ -1,11 +1,9 @@
 import {Component, EventEmitter, inject, Input, OnInit, Output} from '@angular/core';
-import {MatListItem} from '@angular/material/list';
 import {Salon} from '../../models/Salon.entity';
 import {
   MatCard,
   MatCardActions,
   MatCardContent,
-  MatCardHeader,
   MatCardImage,
   MatCardTitle
 } from '@angular/material/card';
@@ -24,7 +22,6 @@ import {ReviewAssembler} from '../../services/review.assembler';
     MatCardActions,
     MatButton,
     MatCardImage,
-    MatCardHeader,
     MatCardContent,
     MatCard,
     ReviewListComponent,

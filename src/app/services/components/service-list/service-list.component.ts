@@ -12,7 +12,6 @@ import {MatIconModule} from '@angular/material/icon';
   imports: [
     NgForOf,
     MatButton,
-    RouterLink,
     MatIconModule
   ],
   templateUrl: './service-list.component.html',

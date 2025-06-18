@@ -10,7 +10,7 @@ import {MatButton} from '@angular/material/button';
   templateUrl: './date-picker.component.html',
   styleUrl: './date-picker.component.css',
   providers: [provideNativeDateAdapter()],
-  imports: [MatCardModule, MatDatepickerModule, DatePipe, MatButton, JsonPipe, NgForOf, NgIf],
+  imports: [MatCardModule, MatDatepickerModule, DatePipe, MatButton, NgForOf, NgIf],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatePickerComponent {

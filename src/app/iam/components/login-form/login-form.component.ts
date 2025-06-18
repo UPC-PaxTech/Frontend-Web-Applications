@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatButton} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
@@ -9,6 +9,8 @@ import {AccountApiService} from '../../services/accountApi.service';
 import { Router, RouterLink } from '@angular/router';
 import {AccountEntity} from '../../model/account.entity';
 import {TranslatePipe} from '@ngx-translate/core';
+import {MatButtonToggle} from '@angular/material/button-toggle';
+import {MatButtonToggleGroup} from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-login-form',
@@ -21,7 +23,8 @@ import {TranslatePipe} from '@ngx-translate/core';
     RouterLink,
     NgIf,
     TranslatePipe,
-
+    MatButtonToggle,
+    MatButtonToggleGroup
   ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
@@ -29,6 +32,9 @@ import {TranslatePipe} from '@ngx-translate/core';
 export class LoginFormComponent {
   loginForm: FormGroup;
   loginError = false;
+
+  @Input() isProvider: boolean = false;
+  @Output() toggleChange = new EventEmitter<boolean>();
 
   constructor(
     private fb: FormBuilder,
@@ -45,8 +51,13 @@ export class LoginFormComponent {
     const { email, password } = this.loginForm.value;
 
     this.accountApiService.getAccounts().subscribe((accounts: AccountEntity[]) => {
+      const expectedType = this.isProvider ? 'provider' : 'client';
+
       const account = accounts.find(
-        acc => acc.email === email && acc.passwordHash === password && acc.isActive
+        acc => acc.email === email &&
+          acc.passwordHash === password &&
+          acc.isActive &&
+          acc.type === expectedType // esto asegura que coincida con el toggle
       );
 
       if (account) {
@@ -61,4 +72,5 @@ export class LoginFormComponent {
       }
     });
   }
+
 }

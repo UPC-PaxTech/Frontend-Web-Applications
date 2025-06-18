@@ -5,13 +5,8 @@ import {WorkerApiService} from '../../../dashboard/services/worker-api.service';
 import {MatButton} from '@angular/material/button';
 import {RouterLink} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
-import {MatCard, MatCardImage} from '@angular/material/card';
-import {DatePickerComponent} from '../../../schedule/components/date-picker/date-picker.component';
-import {ReviewListComponent} from '../../../dashboard/components/review-list/review-list.component';
-import {ServiceListComponent} from '../../../services/components/service-list/service-list.component';
 
 import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';  // importa servicio citas
-import {AppointmentResponse} from '../../../dashboard/services/appointment.response';
 import {WeekCalendarComponent} from '../../components/calendar-container/calendar-container.component';
 
 @Component({
@@ -21,11 +16,6 @@ import {WeekCalendarComponent} from '../../components/calendar-container/calenda
     MatButton,
     MatIcon,
     RouterLink,
-    MatCard,
-    DatePickerComponent,
-    MatCardImage,
-    ReviewListComponent,
-    ServiceListComponent,
     WeekCalendarComponent
   ],
   templateUrl: './appointment-maker.component.html',

@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
 import {RouterLink} from '@angular/router';
-import {MatCheckbox} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
 import {MatButtonToggleGroup} from '@angular/material/button-toggle';
 import {MatButtonToggle} from '@angular/material/button-toggle';
@@ -20,7 +19,6 @@ import {TranslatePipe} from '@ngx-translate/core';
     MatFormField,
     MatButton,
     RouterLink,
-    MatCheckbox,
     FormsModule,
     MatButtonToggleGroup,
     MatButtonToggle,
