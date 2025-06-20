@@ -36,19 +36,8 @@ export class RegisterFormProviderComponent {
   constructor(private snackBar: MatSnackBar, private router: Router) {}
 
   onRegister() {
-    // Aquí podrías hacer lógica de validación o enviar datos a tu API
 
-    // Mostrar mensaje
-    this.snackBar.open('Account created successfully!', 'Close', {
-      duration: 3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
-    });
-
-    // Redirigir después de un pequeño retraso
-    setTimeout(() => {
-      this.router.navigate(['/login']);
-    }, 1500);
+    this.router.navigate(['/provider']);
   }
 
 

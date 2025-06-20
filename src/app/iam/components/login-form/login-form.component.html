@@ -8,15 +8,6 @@
       <a routerLink="/iam/register" class="login-link">{{ 'login.register' | translate }}</a>
     </p>
 
-    <mat-button-toggle-group
-      name="isProvider"
-      [(ngModel)]="isProvider"
-      (ngModelChange)="toggleChange.emit($event)"
-      class="toggle-group"
-    >
-      <mat-button-toggle class="button-toggle" [value]="false">{{'register.Client' | translate}}</mat-button-toggle>
-      <mat-button-toggle class="button-toggle" [value]="true">{{'register.Provider' | translate}}</mat-button-toggle>
-    </mat-button-toggle-group>
 
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>{{ 'login.email' | translate }}</mat-label>
