@@ -514,6 +514,39 @@
         "name": "Staff Predeterminado"
       },
       "id": 6
+    },
+    {
+      "reservationId": "resGenerated",
+      "tipo": "Simple haircut",
+      "client": {
+        "clientId": "client1",
+        "birthDate": "1990-01-01",
+        "user": {
+          "userId": "user1",
+          "name": "Test User"
+        }
+      },
+      "salon": {
+        "salonId": 1
+      },
+      "payment": {
+        "paymentId": "pay-temp",
+        "amount": 40,
+        "currency": "USD",
+        "status": false
+      },
+      "timeSlot": {
+        "timeSlotId": "ts-temp",
+        "start": "2025-06-17T12:30:00.000Z",
+        "end": "2025-06-17T13:15:00.000Z",
+        "status": true,
+        "tipo": "Custom"
+      },
+      "worker": {
+        "workerId": "worker1",
+        "name": "Staff Predeterminado"
+      },
+      "id": 7
     }
   ],
   "reviews": [
