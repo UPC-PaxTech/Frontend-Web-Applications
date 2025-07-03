@@ -9,6 +9,7 @@ import {AccountApiService} from '../../services/accountApi.service';
 import { Router, RouterLink } from '@angular/router';
 import {AccountEntity} from '../../model/account.entity';
 import {TranslatePipe} from '@ngx-translate/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login-form',
@@ -33,7 +34,8 @@ export class LoginFormComponent {
   constructor(
     private fb: FormBuilder,
     private accountApiService: AccountApiService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar,
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -42,21 +44,30 @@ export class LoginFormComponent {
   }
 
   onSubmit() {
-    const { email, password } = this.loginForm.value;
+    const {email, password} = this.loginForm.value;
 
-    this.accountApiService.getAccounts().subscribe((accounts: AccountEntity[]) => {
-      const account = accounts.find(
-        acc => acc.email === email && acc.passwordHash === password && acc.isActive
-      );
+    this.accountApiService.signIn({email, password}).subscribe({
+      next: (user) => {
+        this.accountApiService.saveToken(user.token);
 
-      if (account) {
-        this.loginError = false;
-        if (account.type === 'provider') {
-          this.router.navigate(['/provider/homeProvider']);
-        } else if (account.type === 'client') {
-          this.router.navigate(['/client/homeClient']);
-        }
-      } else {
+        const userId = user.id;
+
+        // Consultar si es provider o client
+        this.accountApiService.isProvider(userId).subscribe(isProv => {
+          if (isProv) {
+            this.router.navigate(['/provider/homeProvider']);
+          } else {
+            this.accountApiService.isClient(userId).subscribe(isCli => {
+              if (isCli) {
+                this.router.navigate(['/client/homeClient']);
+              } else {
+                this.snackBar.open('User is not linked to a role', 'Close', {duration: 3000});
+              }
+            });
+          }
+        });
+      },
+      error: () => {
         this.loginError = true;
       }
     });

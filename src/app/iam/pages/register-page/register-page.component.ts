@@ -1,16 +1,17 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {RegisterFormClientComponent} from '../../components/register-form-client/register-form-client.component';
-import {RegisterFormProviderComponent} from '../../components/register-form-provider/register-form-provider.component';
-import {FormsModule} from '@angular/forms';
-import {NgForOf, NgIf} from '@angular/common';
-import { tsParticles, type ISourceOptions} from '@tsparticles/engine';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { RegisterFormClientComponent } from '../../components/register-form-client/register-form-client.component';
+import { RegisterFormProviderComponent } from '../../components/register-form-provider/register-form-provider.component';
+import { FormsModule } from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
+import { tsParticles, type ISourceOptions } from '@tsparticles/engine';
 import { loadFull } from 'tsparticles';
-import {LanguageSwitcherComponent} from '../../../public/components/language-switcher/language-switcher.component';
-import {TranslatePipe} from '@ngx-translate/core';
-
+import { LanguageSwitcherComponent } from '../../../public/components/language-switcher/language-switcher.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-register-page',
+  standalone: true,
   imports: [
     RegisterFormClientComponent,
     RegisterFormProviderComponent,
@@ -18,13 +19,14 @@ import {TranslatePipe} from '@ngx-translate/core';
     NgIf,
     NgForOf,
     LanguageSwitcherComponent,
-    TranslatePipe
+    TranslatePipe,
+    MatButtonToggleModule
   ],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.css'
 })
 export class RegisterPageComponent implements OnInit, OnDestroy, AfterViewInit {
-  isProvider: boolean = false;  // Determina si se está registrando un cliente o proveedor
+  isProvider: boolean = false;
   slideImages: string[] = [
     'https://www.gammabross.com/Gallery/salonimg-frkqkj-181.webp',
     'https://thehappening.com/wp-content/uploads/2024/02/captura-de-pantalla-2023-05-17-a-la-s-52813-pm-1.jpg',
@@ -37,7 +39,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.intervalId = setInterval(() => {
       this.activeIndex = (this.activeIndex + 1) % this.slideImages.length;
-    }, 5000); // cambia cada 5 segundos
+    }, 5000);
   }
 
   async ngAfterViewInit() {
@@ -55,7 +57,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy, AfterViewInit {
   setSlide(index: number): void {
     this.activeIndex = index;
   }
-  // Cambia entre los formularios de cliente y proveedor
+
   toggleForm(value: boolean) {
     this.isProvider = value;
   }
@@ -77,13 +79,8 @@ export class RegisterPageComponent implements OnInit, OnDestroy, AfterViewInit {
         direction: 'none',
         outModes: { default: 'out' }
       },
-      links: {
-        enable: false
-      }
+      links: { enable: false }
     },
     detectRetina: true
   };
-
-
 }
-

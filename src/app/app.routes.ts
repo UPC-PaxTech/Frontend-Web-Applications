@@ -19,12 +19,11 @@ import {SettingsPageComponent} from './providerSettings/pages/settings-page/sett
 import {SubscriptionTabComponent} from './subscription/pages/subscription-tab/subscription-tab.component';
 import {AppointmentMakerComponent} from './appointments/pages/appointment-maker/appointment-maker.component';
 import {NotificationPageComponent} from './providerFeed/pages/notification-page/notification-page.component';
-export const routes: Routes = [
+import { authGuard } from './iam/guards/auth.guard';
 
-  // Redirección por defecto al login
+export const routes: Routes = [
   { path: '', redirectTo: 'iam/login', pathMatch: 'full' },
 
-  // Rutas del módulo de autenticación (IAM)
   {
     path: 'iam',
     children: [
@@ -35,7 +34,8 @@ export const routes: Routes = [
 
   {
     path: 'provider',
-    component: ProviderLayoutComponent, // un layout que contiene su sidebar, toolbar, etc.
+    component: ProviderLayoutComponent,
+    canActivate: [authGuard],
     children: [
       { path: '', redirectTo: 'homeProvider', pathMatch: 'full' },
       { path: 'homeProvider', component: ProfessionalDashboardComponent },
@@ -43,33 +43,35 @@ export const routes: Routes = [
       { path: 'schedule', component: SchedulePageComponent },
       { path: 'reviews', component: ReviewsTabComponent },
       { path: 'services', component: ServicesTabComponent },
-      { path: 'subscription', component: SubscriptionTabComponent},
-      { path: 'settings', component: SettingsPageComponent},
-      {path: 'notification', component: NotificationPageComponent}
+      { path: 'subscription', component: SubscriptionTabComponent },
+      { path: 'settings', component: SettingsPageComponent },
+      { path: 'notification', component: NotificationPageComponent }
     ]
   },
+
   {
     path: 'client',
-    component: ClientLayoutComponent, // un layout que contiene su sidebar, toolbar, etc.
+    component: ClientLayoutComponent,
+    canActivate: [authGuard],
     children: [
       { path: '', redirectTo: 'homeClient', pathMatch: 'full' },
       { path: 'homeClient', component: ClientDashboardComponent },
       { path: 'appointment', component: ClientAppointmentPagesComponent },
-      { path: 'appointment-maker/:id', component: AppointmentMakerComponent},
+      { path: 'appointment-maker/:id', component: AppointmentMakerComponent },
       { path: 'favorites', component: ClientFavoriteComponent },
       { path: 'profile', component: ClientProfileComponent },
     ]
   },
+
   {
     path: 'client/homeClient',
     component: ClientLayoutComponent,
+    canActivate: [authGuard],
     children: [
       { path: '', redirectTo: 'homeClient', pathMatch: 'full' },
-      { path: 'salon/:id', component: SalonComponent}
+      { path: 'salon/:id', component: SalonComponent }
     ]
   },
 
-  // Ruta no encontrada (opcional)
   { path: '**', redirectTo: 'iam/login' }
-
 ];
