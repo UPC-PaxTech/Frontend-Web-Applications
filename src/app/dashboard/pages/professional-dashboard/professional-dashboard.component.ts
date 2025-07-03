@@ -7,7 +7,6 @@ import {Review} from '../../../reviews/models/review.entity';
 import {ReviewApiService} from '../../../reviews/services/review-api.service';
 import {ReviewListComponent} from '../../components/review-list/review-list.component';
 import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
-import {ToolbarProviderComponent} from '../../../public/components/toolbar-provider/toolbar-provider.component';
 import {TranslatePipe} from '@ngx-translate/core';
 @Component({
   selector: 'app-professional-dashboard',
@@ -17,7 +16,6 @@ import {TranslatePipe} from '@ngx-translate/core';
     ReviewListComponent,
     MatCard,
     MatCardContent,
-    ToolbarProviderComponent,
     TranslatePipe
   ],
   templateUrl: './professional-dashboard.component.html',
