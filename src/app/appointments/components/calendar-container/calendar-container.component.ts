@@ -17,6 +17,7 @@ import {AppointmentResponse} from '../../services/appointment.response';
 import {TimeSlotApiService} from '../../services/time-slot-api.service';
 import {PaymentApiService} from '../../services/payment-api.service';
 import {ReservationApiService} from '../../services/reservation-api.service';
+import {loadStripe} from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-week-calendar',
@@ -90,9 +91,13 @@ export class WeekCalendarComponent implements OnInit {
       return;
     }
     const workerId = this.worker.id;
-
-    const startIsoLocal = start.toISOString().slice(0,19); // quita la 'Z'
-    const endIsoLocal   = end.toISOString().slice(0,19);
+    function toLocalISOString(date: Date): string {
+      const offsetMs = date.getTimezoneOffset() * 60000;
+      const localISOTime = new Date(date.getTime() - offsetMs).toISOString().slice(0, 19);
+      return localISOTime;
+    }
+    const startIsoLocal = toLocalISOString(start);
+    const endIsoLocal   = toLocalISOString(end);
 
     // 👉 Paso 1: Crear TimeSlot
     this.timeSlotApi.post({
@@ -119,13 +124,41 @@ export class WeekCalendarComponent implements OnInit {
           timeSlotId: timeSlot.id,
           workerId
         }).subscribe({
-          next: () => { alert('✅ Cita reservada'); this.loadAppointments(); },
+          next: () => { alert('✅ Cita reservada'); this.loadAppointments();
+            window.location.href = 'https://buy.stripe.com/test_eVq00l2Dz6EJ4iN2Wz5os00';},
+
           error: e => alert('❌ Error en reserva: ' + e.message)
         });
 
       }, err => alert('❌ Error en pago: ' + err.message));
 
     }, err => alert('❌ Error en horario: ' + err.message));
+
+
+    //Quiero ponerlo aqui despues del post para el pago
+    const stripePromise = loadStripe('pk_test_51RO93KQjzoQNilXPLpic68sHjDYb1tcVKSpYNcjqQv0uZUB7dg7mxLL2JzkjmTNzwyf9WCWa8sDAEcB0qcLX7Uw100WAGbxwW4');
+    stripePromise.then(stripe => {
+      if (!stripe) {
+        alert('Stripe no se cargó correctamente');
+        return;
+      }
+
+      stripe.redirectToCheckout({
+        lineItems: [
+          {
+            price: 'price_1RhIY5QjzoQNilXPLxfTT1JP', // 🔁 Tu Price ID desde Stripe Dashboard
+            quantity: 1
+          }
+        ],
+        mode: 'payment',
+        successUrl: window.location.origin + '/client/homeClient',
+        cancelUrl: window.location.origin + '/client/homeClient'
+      }).then(result => {
+        if (result.error) {
+          alert('Error en checkout: ' + result.error.message);
+        }
+      });
+    });
   }
 
 }

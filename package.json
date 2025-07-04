@@ -28,6 +28,7 @@
     "@fullcalendar/timegrid": "^6.1.17",
     "@ngx-translate/core": "^16.0.4",
     "@ngx-translate/http-loader": "^16.0.1",
+    "@stripe/stripe-js": "^7.4.0",
     "@tsparticles/angular": "^3.0.0",
     "@tsparticles/engine": "^3.8.1",
     "ng-carousel-cdk": "^2.1.0",

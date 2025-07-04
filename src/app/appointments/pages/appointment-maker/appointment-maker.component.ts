@@ -96,26 +96,5 @@ export class AppointmentMakerComponent implements OnInit {
     const endDate = new Date(date);
     endDate.setHours(slot.end.getHours(), slot.end.getMinutes(), 0, 0);
 
-    /*const postData: AppointmentResponse = {
-        "reservationId": "res10",
-        "tipo": "Express Cut",
-        "client": { "clientId": "client10", "birthDate": "1990-01-01T00:00:00Z", "user": { "userId": "user10", "name": "Test User" } },
-        "salon": { "salonId": "salon1", "location": "Test Location", "phone": "000000000" },
-        "payment": { "paymentId": "pay10", "amount": 50, "currency": "USD", "status": true },
-        timeSlot: {
-        timeSlotId: slot.id,
-        start: startDate.toISOString(),
-        end: endDate.toISOString(),
-        status: true,
-        tipo: slot.tipo
-      },
-        "worker": { "workerId": "worker10", "name": "New Worker" }
-      };
-
-    this.appointmentService.post(postData).subscribe({
-      next: () => alert('¡Cita reservada con éxito!'),
-      error: (e) => alert('Error al reservar cita: ' + e.message)
-    });*/
-
   }
 }

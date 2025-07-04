@@ -18,13 +18,13 @@
 
           <ng-container *ngFor="let appointment of calendars">
             <app-reservation
-              *ngIf=" formatDay(appointment.timeSlotStart)== day
-                      && formatTime(appointment.timeSlotStart )=== hour
-                      && (currentWorker === 'Todos' || appointment.workerName === currentWorker)"
-              [service]="appointment.tipo"
-              [startTime]="formatTime(appointment.timeSlotStart)"
-              [endTime]="formatTime(appointment.timeSlotEnd)"
-              [clientName]="appointment.clientName"
+              *ngIf=" formatDay(appointment.timeSlot.startTime)== day
+                      && formatTime(appointment.timeSlot.startTime )=== hour
+                      && (currentWorker === 'Todos' || appointment.workerId.name === currentWorker)"
+              [service]="appointment.workerId.specialization"
+              [startTime]="formatTime(appointment.timeSlot.startTime)"
+              [endTime]="formatTime(appointment.timeSlot.endTime)"
+              [clientName]="appointment.clientId.toString()"
               aria-label="Appointment reservation"
             ></app-reservation>
           </ng-container>
