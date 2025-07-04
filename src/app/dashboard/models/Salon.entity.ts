@@ -1,14 +1,22 @@
-export class Salon {
-  salonId: number;
+export class ProviderProfile {
+  id: number
+  providerId: number;
+  companyName: string;
   location: string;
-  imageURL: string;
-  phone: number;
-  name: string;
+  email: number;
+  profileImageURL: string;// Changed from number to string since your API returns strings
+  coverImageURL: string;
+  socials: [];
+  portfolioImages:[]
   constructor() {
-    this.salonId = 0;
+    this.id = 0;
+    this.providerId = 0;
+    this.companyName = '';
     this.location = '';
-    this.imageURL = '';
-    this.phone = 0;
-    this.name = '';
+    this.email = 0;
+    this.profileImageURL = '';
+    this.coverImageURL = '';
+    this.socials = [];
+    this.portfolioImages = [];
   }
 }

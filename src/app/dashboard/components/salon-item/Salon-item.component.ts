@@ -1,5 +1,5 @@
 import {Component, EventEmitter, inject, Input, OnInit, Output} from '@angular/core';
-import {Salon} from '../../models/Salon.entity';
+import {ProviderProfile} from '../../models/Salon.entity';
 import {
   MatCard,
   MatCardActions,
@@ -33,19 +33,26 @@ import {TranslatePipe} from '@ngx-translate/core';
   styleUrl: './Salon-item.component.css'
 })
 export class SalonItemComponent implements OnInit{
-  @Input() salon!: Salon;
-  @Output() salonSelected = new EventEmitter<Salon>();
+  @Input() salon!: ProviderProfile;
+  @Output() salonSelected = new EventEmitter<ProviderProfile>();
   private reviewService = inject(ReviewApiService)
   reviews: Review[] = [];
   reviewAverage = 0;
   constructor() { }
 
   ngOnInit() {
-    this.reviewService.getBySalonId(this.salon.salonId).subscribe(reviews => {
+    /*
+    this.reviewService.getBySalonId(this.salon.id).subscribe(reviews => {
       this.reviews = ReviewAssembler.toEntitiesFromResponse(reviews);
       this.reviews.forEach(review=> this.reviewAverage+= review.rating);
       this.reviewAverage = this.reviewAverage/this.reviews.length;
+    });*/
+    this.reviewService.getAll().subscribe(reviews => {
+      this.reviews = ReviewAssembler.toEntitiesFromResponse(reviews).filter(review => review.salonId === this.salon.providerId);
+      this.reviews.forEach(review=> this.reviewAverage+= review.rating);
+      this.reviewAverage = this.reviewAverage/this.reviews.length;
     });
+
 
   }
 

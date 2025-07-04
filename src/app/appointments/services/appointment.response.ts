@@ -1,30 +1,27 @@
 export interface AppointmentResponse {
-  reservationId: string;
-  tipo: string;
-  client: {
-    clientId: string;
-    birthDate: string;
-    user: {
-      userId: string;
-      name: string;
-    };
+  id: number;
+  clientId: number,
+  provider: {
+    id: number;
+    name: string;
+    companyName: string;
   };
-  salon: {
-    salonId: string;
-    location: string;
-    phone: string;
-  };
-  payment: {
-    paymentId: string;
+  paymentId: {
+    id: number;
     amount: number;
     currency: string;
     status: boolean;
   };
   timeSlot: {
-    timeSlotId: string;
-    start: string;
-    end: string;
+    id: number;
+    startTime: string;
+    endTime: string;
     status: boolean;
-    tipo: string;
+    type: string;
   };
+  workerId: {
+    id: number,
+    name: string;
+    specialization: string;
+  }
 }

@@ -56,7 +56,7 @@ export class AppointmentsListComponent implements OnInit {
     })
   }
 
-  trackById(index: number, item: ClientAppointment): string {
-    return item.reservationId;
+  trackById(index: number, item: ClientAppointment): number {
+    return item.id;
   }
 }

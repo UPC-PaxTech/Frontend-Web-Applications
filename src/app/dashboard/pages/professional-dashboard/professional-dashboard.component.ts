@@ -28,7 +28,14 @@ export class ProfessionalDashboardComponent implements OnInit {
   constructor(private staffService: WorkerApiService, private reviewService: ReviewApiService) {
   }
   ngOnInit() {
-    this.staffService.getWorkers().subscribe(worker => this.worker = worker);
-    this.reviewService.getReviews().subscribe(reviews => this.reviews = reviews);
+
+    const providerId = Number(localStorage.getItem('providerId'));
+    if (!providerId) {
+      console.warn('⚠️ No se encontró providerId en localStorage');
+      return;
+    }
+    console.log('providerId:', providerId);
+    this.staffService.getWorkers().subscribe(worker => this.worker = worker.filter(w => w.providerId === providerId));
+    this.reviewService.getReviews().subscribe(reviews => this.reviews = reviews.filter(r => r.salonId === providerId));
   }
 }

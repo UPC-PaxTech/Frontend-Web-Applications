@@ -5,7 +5,9 @@ import { AccountEntity } from '../model/account.entity';
 import { AccountAssembler } from './account.assembler';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import {Provider} from '../model/provider.entity';
+import { catchError, of, throwError } from 'rxjs';
+import {Client} from '../model/client.entity';
 export interface SignInPayload {
   email: string;
   password: string;
@@ -76,14 +78,24 @@ export class AccountApiService extends BaseService<AccountResponse> {
     localStorage.removeItem('jwt_token');
   }
 
-  public isClient(userId: number): Observable<boolean> {
-    return this.http.get<any[]>(`${this.serverBaseUrl}/clients`)
-      .pipe(map(clients => clients.some(c => c.userId === userId)));
+  isProvider(userId: number) {                       // ← devuelve Provider | null
+    return this.http.get<Provider>(
+      `${this.serverBaseUrl}/providers/user/${userId}`, this.httpOptions
+    ).pipe(
+      catchError(err =>
+        err.status === 404 ? of(null) : throwError(() => err)
+      )
+    );
   }
 
-  public isProvider(userId: number): Observable<boolean> {
-    return this.http.get<any[]>(`${this.serverBaseUrl}/providers`)
-      .pipe(map(providers => providers.some(p => p.userId === userId)));
+  getClient(userId: number) {                        // ← devuelve Client | null
+    return this.http.get<Client>(
+      `${this.serverBaseUrl}/clients/user/${userId}`, this.httpOptions
+    ).pipe(
+      catchError(err =>
+        err.status === 404 ? of(null) : throwError(() => err)
+      )
+    );
   }
   public createProvider(companyName: string, userId: number): Observable<any> {
     const payload = { companyName, userId };
@@ -95,5 +107,13 @@ export class AccountApiService extends BaseService<AccountResponse> {
     return this.http.post(`${this.serverBaseUrl}/clients`, payload);
   }
 
+  getProviderId(): number | null {
+    const id = localStorage.getItem('providerId');
+    return id ? parseInt(id, 10) : null;
+  }
 
+  getClientId(): number | null {
+    const id = localStorage.getItem('clientId');
+    return id ? parseInt(id, 10) : null;
+  }
 }

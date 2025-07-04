@@ -1,7 +1,7 @@
-import { Salon } from './Salon.entity';
+import { ProviderProfile } from './Salon.entity';
 
 describe('Salons', () => {
   it('should create an instance', () => {
-    expect(new Salon()).toBeTruthy();
+    expect(new ProviderProfile()).toBeTruthy();
   });
 });

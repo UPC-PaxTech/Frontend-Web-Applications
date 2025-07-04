@@ -3,11 +3,12 @@ import {StaffListComponent} from '../../../dashboard/components/staff-list/staff
 import {Worker} from '../../../dashboard/models/worker.entity';
 import {WorkerApiService} from '../../../dashboard/services/worker-api.service';
 import {MatButton} from '@angular/material/button';
-import {RouterLink} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {MatIcon} from '@angular/material/icon';
 
 import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';  // importa servicio citas
 import {WeekCalendarComponent} from '../../components/calendar-container/calendar-container.component';
+import {Service} from '../../../services/model/service.entity';
 
 @Component({
   selector: 'app-appointment-maker',
@@ -28,6 +29,9 @@ export class AppointmentMakerComponent implements OnInit {
   selectedDate: Date | null = null;
   availableTimes: string[] = [];
 
+  selectedService!: Service;
+  selectedWorker!: Worker;
+
   onDateSelected(date: Date) {
     this.selectedDate = date;
     this.availableTimes = this.generateTimeOptions(date);
@@ -44,12 +48,32 @@ export class AppointmentMakerComponent implements OnInit {
 
   constructor(
     private staffService: WorkerApiService,
-    private appointmentService: AppointmentApiService
+    private appointmentService: AppointmentApiService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
     this.staffService.getWorkers().subscribe(worker => this.worker = worker);
-  }
+
+    this.staffService.getWorkers().subscribe(workers => {
+      if (workers.length > 0) {
+        this.selectedWorker = workers[0];
+      } else {
+        console.warn('⚠ No hay trabajadores disponibles');
+      }
+    });
+
+
+    this.selectedService = history.state.selectedService
+      ?? this.router.getCurrentNavigation()?.extras.state?.['selectedService'];
+
+    if (!this.selectedService) {
+      // El usuario recargó la página o llegó directo sin state.
+      // Aquí decides qué hacer: redirigir, volver a cargar desde la API, etc.
+      console.warn('No se recibió selectedService en el navigation state');
+      // this.router.navigate(['/client/services', this.providerId]);
+  }}
 
   onReservationConfirmed(event: {date: Date, timeSlot: any}) {
     this.selectedReservation = event;

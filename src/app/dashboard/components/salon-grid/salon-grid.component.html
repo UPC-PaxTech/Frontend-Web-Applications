@@ -1,5 +1,5 @@
 <div class="salon-list-horizontal">
-  @for (salon of salons; track salon.salonId) {
+  @for (salon of salons; track salon.id) {
     <app-salon-item [salon]="salon" aria-label="salon-item"></app-salon-item>
   }
 </div>

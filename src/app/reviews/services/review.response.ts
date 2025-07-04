@@ -2,7 +2,7 @@ export interface ReviewResponse {
   id?: number ;
   author: string;
   rating: number;
-  text: string;
+  review: string;
   read: boolean;
-  salonId: number;
+  providerId: number;
 }

@@ -1,10 +1,10 @@
-import {Component, inject, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, inject, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import {
   MatCell, MatCellDef,
   MatColumnDef,
   MatHeaderCell,
   MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
-  MatTable,
+  MatTable, MatTableDataSource,
   MatTableModule
 } from '@angular/material/table';
 import { Service } from '../../model/service.entity';
@@ -15,6 +15,8 @@ import { ServiceApiService } from '../../services/services-api.service';
 import { ServiceAssembler } from '../../services/service.assembler';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ServiceResponse } from '../../services/service.response';
+import {CreateServiceDialogComponent} from '../service-dialog/service-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-service-table',
@@ -38,6 +40,9 @@ import { ServiceResponse } from '../../services/service.response';
   styleUrl: './service-table.component.css'
 })
 export class ServiceTableComponent implements OnChanges {
+
+  dataSource = new MatTableDataSource<Service>();
+
   displayedColumns: string[] = ['name', 'duration', 'price', 'status', 'actions'];
   @Input() services: Service[] = [];
   @Input() newService: ServiceResponse | null = null;
@@ -45,10 +50,12 @@ export class ServiceTableComponent implements OnChanges {
 
   private servicesService: ServiceApiService = inject(ServiceApiService);
 
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {}
 
   ngOnChanges() {
+    console.log('[DEBUG] Tabla recibe services:', this.services);
     if (this.newService) {
+      console.log('[DEBUG] Se recibió newService para postear:', this.newService);
       this.servicesService.post(this.newService).subscribe({
         next: (response) => {
           const entity = ServiceAssembler.toEntityFromResource(response);
@@ -85,7 +92,69 @@ export class ServiceTableComponent implements OnChanges {
 
     this.servicesService.delete(id).subscribe(() => {
       this.services = this.services.filter(s => s.id !== id);
+      this.dataSource.data = this.dataSource.data.filter(s => s.id !== id);  // ④
       this.snackBar.open('🗑️ Servicio eliminado.', 'Cerrar', { duration: 2000 });
+    });
+  }
+
+  updateService(original: Service) {
+    // 1. Abrimos el diálogo precargando los datos
+    const dialogRef = this.dialog.open(CreateServiceDialogComponent, {
+      data: {                        // el dialog usa esta data para “modo edición”
+        ...original,
+        isEdit: true
+      }
+    });
+
+    // 2. Esperamos la respuesta del dialog
+    dialogRef.afterClosed().subscribe((result?: ServiceResponse) => {
+      if (!result) return;           // usuario canceló
+
+      // 3. Llamamos al backend
+      this.servicesService.update(original.id, result).subscribe({
+        next: res => {
+          // Convierte el recurso a entidad
+          const updated = ServiceAssembler.toEntityFromResource(res);
+
+          // 4A. Opción 1 – refrescar tabla localmente
+          this.services = this.services.map(s =>
+            s.id === updated.id ? updated : s
+          );
+
+          /* 4B. Opción 2 – avisar al padre para recargar desde BD
+             this.refresh.emit();
+          */
+
+          this.snackBar.open('✏️ Servicio actualizado.', 'Cerrar', { duration: 2000 });
+        },
+        error: () => {
+          this.snackBar.open('❌ Error al actualizar.', 'Cerrar', { duration: 2000 });
+        }
+      });
+    });
+  }
+
+  editService(service: Service) {
+    const dialogRef = this.dialog.open(CreateServiceDialogComponent, {
+      data: service // ← pasamos el servicio a editar
+    });
+
+    dialogRef.afterClosed().subscribe((result: ServiceResponse | undefined) => {
+      if (result) {
+        this.servicesService.update(result.id, result).subscribe({
+          next: (updated) => {
+            const index = this.services.findIndex(s => s.id === updated.id);
+            if (index > -1) {
+              this.services[index] = { ...updated };
+            }
+            this.snackBar.open('✏️ Servicio actualizado con éxito.', 'Cerrar', { duration: 2000 });
+          },
+          error: (err) => {
+            console.error('❌ Error al actualizar el servicio:', err);
+            this.snackBar.open('❌ Error al actualizar.', 'Cerrar', { duration: 2000 });
+          }
+        });
+      }
     });
   }
 

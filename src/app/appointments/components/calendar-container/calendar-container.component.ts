@@ -3,137 +3,130 @@ import { CalendarOptions, EventInput } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import {FullCalendarModule} from '@fullcalendar/angular';
-import {AppointmentApiService} from '../../../dashboard/services/appointment-api.service';
-import {AppointmentAssembler} from '../../../dashboard/services/appointment.assembler';
-import {AppointmentResponse} from '../../../dashboard/services/appointment.response';
-import {Appointment} from '../../../dashboard/models/appointment.entity';
+
+import {ClientAppointment} from '../../model/appointment.entity';
+
+
+
 import {ActivatedRoute, Route} from '@angular/router';
 import {Service} from '../../../services/model/service.entity';
+import {Worker} from '../../../dashboard/models/worker.entity';
+import {AppointmentApiService} from '../../services/appointment-api-service.service';
+import {AppointmentAssembler} from '../../services/appointment.assembler';
+import {AppointmentResponse} from '../../services/appointment.response';
+import {TimeSlotApiService} from '../../services/time-slot-api.service';
+import {PaymentApiService} from '../../services/payment-api.service';
+import {ReservationApiService} from '../../services/reservation-api.service';
 
 @Component({
   selector: 'app-week-calendar',
-  template: `
-    <full-calendar [options]="calendarOptions"></full-calendar>`,
-  imports: [
-    FullCalendarModule
-  ],
-  styleUrls: []
+  template: '<full-calendar [options]="calendarOptions"></full-calendar>',
+  standalone: true,
+  imports: [FullCalendarModule]
 })
-export class WeekCalendarComponent implements OnInit{
-  @Input() service!: Service
+export class WeekCalendarComponent implements OnInit {
+
+  @Input({ required: true }) service!: Service;   // servicio elegido
+  @Input({ required: false }) worker!: Worker;     // staff elegido
+
   calendarOptions: CalendarOptions = {
     plugins: [interactionPlugin, timeGridPlugin],
     initialView: 'timeGridWeek',
     selectable: true,
-    selectMirror: true,
-    allDaySlot: false,
     slotDuration: '00:30:00',
-    select: this.handleDateSelect.bind(this),
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'timeGridWeek,timeGridDay'
-    },
-    events: []
+    headerToolbar: { left: 'prev,next today', center: 'title', right: 'timeGridWeek,timeGridDay' },
+    events: [],
+    select: this.handleDateSelect.bind(this)
   };
 
-  appointments: Appointment[] = [];
-  selectedService!: Service;
-  private appointmentService = inject(AppointmentApiService)
+  private appointments: ClientAppointment[] = [];
+  private api   = inject(AppointmentApiService);
+  private route = inject(ActivatedRoute);
 
-  constructor(private route: ActivatedRoute) { }
+  private timeSlotApi = inject(TimeSlotApiService);
+  private paymentApi = inject(PaymentApiService);
+  private reservationApi = inject(ReservationApiService);
 
-  ngOnInit() {
-    const salonId = Number(this.route.snapshot.paramMap.get('id'));
-    this.selectedService = history.state.selectedService;
-    console.log('Servicio recibido:', this.selectedService);
-    this.appointmentService.getAll().subscribe(response => {
-      this.appointments = AppointmentAssembler.toEntitiesFromResponse(response).filter(appointment => appointment.salonId === salonId);
-      const events: EventInput[] = this.appointments.map((a) => ({
-        title: `${a.tipo} - ${a.clientName}`,
-        start: a.timeSlotStart,
-        end: a.timeSlotEnd,
-        extendedProps: { reservationId: a.reservationId }
-      }))
-      this.calendarOptions = {
-        ...this.calendarOptions,
-        events: events
-      };
-      console.log(this.calendarOptions);
-    })
+  ngOnInit(): void { this.loadAppointments(); }
+
+  /* ---------- Carga citas existentes ---------- */
+  private loadAppointments(): void {
+    const providerId = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.api.getAll().subscribe(res => {
+      this.appointments = AppointmentAssembler.toEntitiesFromResponse(res)
+        .filter(a => a.provider.id === providerId);
+
+      const events: EventInput[] = this.appointments.map(a => ({
+        title: `${a.workerId.specialization} - cliente ${a.clientId}`,
+        start: a.timeSlot.startTime,
+        end:   a.timeSlot.endTime,
+        extendedProps: { appointmentId: a.id }
+      }));
+
+      this.calendarOptions = { ...this.calendarOptions, events };
+    });
   }
 
+  /* ---------- Selección y POST ---------- */
+  private handleDateSelect(sel: any): void {
+    const duration = this.service?.duration ?? 30;
+    const start = new Date(sel.start);
+    const end = new Date(start.getTime() + duration * 60000);
 
-
-  handleDateSelect(selectInfo: any) {
-    const start = new Date(selectInfo.start);
-    const durationMinutes = this.selectedService?.duration || 30;
-    const end = new Date(start.getTime() + durationMinutes * 60000); // suma minutos
-
-    // Aumentamos +10 minutos de tolerancia al inicio y final de cada cita existente
-    const overlaps = this.appointments.some(appointment => {
-      const existingStart = new Date(appointment.timeSlotStart);
-      const existingEnd = new Date(appointment.timeSlotEnd);
-
-      // Añadir 10 minutos de margen
-      const bufferedStart = new Date(existingStart.getTime() - 10 * 60000);
-      const bufferedEnd = new Date(existingEnd.getTime() + 10 * 60000);
-
-      return start < bufferedEnd && end > bufferedStart;
+    const overlaps = this.appointments.some(ap => {
+      const s = new Date(ap.timeSlot.startTime).getTime() - 10 * 60000;
+      const e = new Date(ap.timeSlot.endTime).getTime() + 10 * 60000;
+      return start.getTime() < e && end.getTime() > s;
     });
+    if (overlaps) { alert('⚠ Hay otra cita muy cerca.'); return; }
 
-    if (overlaps) {
-      alert("⚠ Ya existe una cita reservada muy cerca de ese horario. Intenta con otro.");
+    if (!confirm(`Reservar de ${start.toLocaleTimeString()} a ${end.toLocaleTimeString()}?`)) return;
+
+    const providerId = Number(this.route.snapshot.paramMap.get('id'));
+    const clientId = Number(localStorage.getItem('clientId'));
+    if (!clientId) {
+      alert('No se encontró clientId en sesión. Vuelve a iniciar sesión.');
       return;
     }
+    const workerId = this.worker.id;
 
-    const confirmed = confirm(`¿Reservar cita de ${start.toLocaleTimeString()} a ${end.toLocaleTimeString()} para ${this.selectedService.name}?`);
-    if (!confirmed) return;
+    const startIsoLocal = start.toISOString().slice(0,19); // quita la 'Z'
+    const endIsoLocal   = end.toISOString().slice(0,19);
 
-    const postData: AppointmentResponse = {
-      reservationId: 'resGenerated', // reemplaza si usas UUID o ID real
-      tipo: this.selectedService.name,
-      client: {
-        clientId: 'client1',
-        birthDate: '1990-01-01',
-        user: {
-          userId: 'user1',
-          name: 'Test User'
-        }
-      },
-      salon: {
-        salonId: Number(this.route.snapshot.paramMap.get('id')) // solo el ID
-      },
-      payment: {
-        paymentId: 'pay-temp',
-        amount: this.selectedService.price,
+    // 👉 Paso 1: Crear TimeSlot
+    this.timeSlotApi.post({
+      id: 0,
+      startTime: startIsoLocal,
+      endTime: endIsoLocal,
+      status: true,
+      type: this.worker.specialization,
+    }).subscribe(timeSlot => {
+
+      // 👉 Paso 2: Crear Payment
+      this.paymentApi.post({
+        id: 0,
+        amount: this.service.price,
         currency: 'USD',
         status: false
-      },
-      timeSlot: {
-        timeSlotId: 'ts-temp',
-        start: start.toISOString(),
-        end: end.toISOString(),
-        status: true,
-        tipo: 'Custom'
-      },
-      worker: {
-        workerId: 'worker1',
-        name: 'Staff Predeterminado'
-      }
-    };
+      }).subscribe(payment => {
 
-    // POST a la API
-    this.appointmentService.post(postData).subscribe({
-      next: () => {
-        alert("✅ Cita reservada con éxito.");
-        // Recargar eventos para mostrar la nueva cita
-        this.ngOnInit(); // opción rápida (puedes hacer mejor con `loadAppointments`)
-      },
-      error: (e) => {
-        alert("❌ Error al reservar cita: " + e.message);
-      }
-    });
+        // 👉 Paso 3: Crear la Reservation
+        this.reservationApi.post({
+          clientId,
+          providerId,
+          paymentId: payment.id,
+          timeSlotId: timeSlot.id,
+          workerId
+        }).subscribe({
+          next: () => { alert('✅ Cita reservada'); this.loadAppointments(); },
+          error: e => alert('❌ Error en reserva: ' + e.message)
+        });
+
+      }, err => alert('❌ Error en pago: ' + err.message));
+
+    }, err => alert('❌ Error en horario: ' + err.message));
   }
 
 }
+

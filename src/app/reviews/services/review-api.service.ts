@@ -20,7 +20,7 @@ export class ReviewApiService extends BaseService<ReviewResponse> {
   }
 
   getBySalonId(salonId:number): Observable<ReviewResponse[]> {
-    return this.http.get<ReviewResponse[]>(`${this.resourcePath()}?salonId=${salonId}`, this.httpOptions).pipe(
+    return this.http.get<ReviewResponse[]>(`${this.resourcePath()}?providerId=${salonId}`, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }

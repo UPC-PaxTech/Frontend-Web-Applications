@@ -4,7 +4,7 @@ import {ServiceApiService} from '../../services/services-api.service';
 import {NgForOf} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 import {Router, RouterLink} from '@angular/router';
-import {Salon} from '../../../dashboard/models/Salon.entity';
+import {ProviderProfile} from '../../../dashboard/models/Salon.entity';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
@@ -19,13 +19,13 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class ServiceListComponent {
   @Input() services: Service[] = [];
-  @Input() salon!: Salon;
+  @Input() salon!: ProviderProfile;
 
   constructor(private router: Router) {
   }
 
   navigateWithService(service: Service) {
-    this.router.navigate(['/client/appointment-maker', this.salon.salonId], {
+    this.router.navigate(['/client/appointment-maker', this.salon.id], {
       state: { selectedService: service }
     });
   }

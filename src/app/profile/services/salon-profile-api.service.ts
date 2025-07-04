@@ -9,7 +9,7 @@ import { SalonProfileAssembler } from './salon-profile.assembler';
   providedIn: 'root'
 })
 export class SalonProfileApiService extends BaseService<ProfileSalonResponse> {
-  override resourceEndpoint = '/salonProfiles';
+  override resourceEndpoint = '/provider-profiles';
 
   constructor() {
     super();

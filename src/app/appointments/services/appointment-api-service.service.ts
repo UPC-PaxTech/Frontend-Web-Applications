@@ -8,7 +8,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class AppointmentApiService extends BaseService<AppointmentResponse> {
-  override resourceEndpoint = '/reservationDetails';
+  override resourceEndpoint = '/reservationsDetails/details';
 
   constructor() {
     super();

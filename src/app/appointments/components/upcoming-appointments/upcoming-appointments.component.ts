@@ -3,6 +3,7 @@ import {AppointmentApiService} from '../../../dashboard/services/appointment-api
 import {ClientAppointment} from '../../model/appointment.entity';
 import { CommonModule } from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
+import {Appointment} from '../../../dashboard/models/appointment.entity';
 
 @Component({
   selector: 'app-upcoming-appointments-client',
@@ -11,7 +12,7 @@ import {TranslatePipe} from '@ngx-translate/core';
   imports: [CommonModule, TranslatePipe]
 })
 export class UpcomingAppointmentsComponent implements OnInit {
-  upcomingAppointments: ClientAppointment[] = [];
+  upcomingAppointments: Appointment[] = [];
 
   constructor(private appointmentService: AppointmentApiService) {}
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SalonApiService} from '../../services/salon-api.service';
-import {Salon} from '../../models/Salon.entity';
+import {ProviderProfile} from '../../models/Salon.entity';
 import { SalonItemComponent} from '../salon-item/Salon-item.component';
-import {SalonAssembler} from '../../services/Salon.assembler';
+import {ProviderProfileAssembler} from '../../services/ProviderProfileAssembler';
 
 
 @Component({
@@ -14,14 +14,14 @@ import {SalonAssembler} from '../../services/Salon.assembler';
   styleUrl: './salon-grid.component.css'
 })
 export class SalonGridComponent implements OnInit {
-  salons: Salon[] = [];
+  salons: ProviderProfile[] = [];
 
-  constructor(private salonApiService: SalonApiService) {}
+  constructor(private profileApiService: SalonApiService) {}
 
   ngOnInit(): void {
-    this.salonApiService.getAll().subscribe(salons => {
-      this.salons = SalonAssembler.toEntitiesfromResponse(salons);
-      console.log(salons);
+    this.profileApiService.getAll().subscribe(profile => {
+      this.salons = ProviderProfileAssembler.toEntitiesfromResponse(profile);
+      console.log(profile);
     });
   }
 }

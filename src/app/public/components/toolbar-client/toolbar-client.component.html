@@ -14,7 +14,7 @@
              [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSalonSelected($event.option.value)">
         @for (salon of filteredOptions; track salon) {
-          <mat-option [value]="salon">{{salon.name}}</mat-option>
+          <mat-option [value]="salon">{{salon.companyName}}</mat-option>
         }
       </mat-autocomplete>
     </div>

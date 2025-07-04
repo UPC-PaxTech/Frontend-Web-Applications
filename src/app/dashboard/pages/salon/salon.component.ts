@@ -1,6 +1,6 @@
 import {Component, EventEmitter, inject, Input, OnInit, Output} from '@angular/core';
 import {MatCard, MatCardImage} from '@angular/material/card';
-import {Salon} from '../../models/Salon.entity';
+import {ProviderProfile} from '../../models/Salon.entity';
 import {ReviewListComponent} from '../../components/review-list/review-list.component';
 import {Review} from '../../../reviews/models/review.entity';
 import {ReviewApiService} from '../../../reviews/services/review-api.service';
@@ -14,7 +14,7 @@ import {SalonProfileApiService} from '../../../profile/services/salon-profile-ap
 import {ServiceListComponent} from "../../../services/components/service-list/service-list.component";
 import {Service} from "../../../services/model/service.entity";
 import {ServiceApiService} from "../../../services/services/services-api.service";
-import {SalonAssembler} from '../../services/Salon.assembler';
+import {ProviderProfileAssembler} from '../../services/ProviderProfileAssembler';
 import {ServiceAssembler} from '../../../services/services/service.assembler';
 
 @Component({
@@ -32,9 +32,9 @@ import {ServiceAssembler} from '../../../services/services/service.assembler';
   styleUrl: './salon.component.css'
 })
 export class SalonComponent implements OnInit {
-  salon!: Salon;
+  providerProfile!: ProviderProfile;
   @Input() profile!: SalonProfile;
-  @Output() salonSelected = new EventEmitter<Salon>();
+  @Output() salonSelected = new EventEmitter<ProviderProfile>();
 
   reviews: Review[] = [];
   services: Service[] = [];
@@ -53,12 +53,12 @@ export class SalonComponent implements OnInit {
       let salonId = Number(params['id']);
 
       this.salonService.getById(salonId).subscribe(salon => {
-        this.salon = SalonAssembler.toEntityFromResource(salon);
-        console.log('Salon cargado:', this.salon);
+        this.providerProfile = ProviderProfileAssembler.toEntityFromResource(salon);
+        console.log('Salon cargado:', this.providerProfile);
 
         // Cargar los reviews relacionados solo después de tener el salon
         this.reviewService.getReviews().subscribe(reviews => {
-          this.reviews = reviews.filter(review => review.salonId === this.salon.salonId); // usa id numérico
+          this.reviews = reviews.filter(review => review.salonId === this.providerProfile.providerId); // usa id numérico
           console.log('Reviews filtrados:', this.reviews);
         });
 
@@ -66,7 +66,7 @@ export class SalonComponent implements OnInit {
         this.serviceService.getAll().subscribe(services => {
           this.services = ServiceAssembler
             .toEntitiesFromResponse(services)
-            .filter(service => service.salonId === this.salon.salonId);
+            .filter(service => service.providerId === this.providerProfile.id);
           console.log('Servicios filtrados:', this.services);
         });
 

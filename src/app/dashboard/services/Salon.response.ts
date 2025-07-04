@@ -1,9 +1,12 @@
 // Salon.response.ts
-export interface SalonsResource {
+export interface ProviderProfileResource {
   id: number
-  name: string;
-  salonId: string;
+  providerId: number;
+  companyName: string;
   location: string;
-  imageURL: string;
-  phone: number;  // Changed from number to string since your API returns strings
+  email: number;
+  profileImageURL: string;// Changed from number to string since your API returns strings
+  coverImageURL: string;
+  socials: [];
+  portfolioImages:[]
 }

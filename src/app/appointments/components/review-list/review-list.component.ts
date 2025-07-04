@@ -35,9 +35,9 @@ export class ReviewListComponent {
     const reviewPost: ReviewResponse = {
       author: "Anonimo",
       rating: this.reviewrating,
-      text: this.reviewInput,
+      review: this.reviewInput,
       read: true,
-      salonId: 1
+      providerId: 1
     }
 
     this.serviciodeApi.post(reviewPost).subscribe({

@@ -1,32 +1,25 @@
 <h2 mat-dialog-title aria-label="New Service">Nuevo Servicio</h2>
 <mat-dialog-content aria-label="Service form content">
+  <!-- Nombre del servicio -->
   <mat-form-field appearance="fill" class="w-full" aria-label="Service name input">
     <mat-label>Nombre</mat-label>
-    <input matInput [(ngModel)]="service.name" aria-label="Service name" />
+    <input matInput [(ngModel)]="service.name" required aria-label="Service name" />
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="w-full" aria-label="Service description input">
-    <mat-label>Descripción</mat-label>
-    <textarea matInput [(ngModel)]="service.description" aria-label="Service description"></textarea>
-  </mat-form-field>
 
+  <!-- Duración -->
   <mat-form-field appearance="fill" aria-label="Service duration input">
     <mat-label>Duración (minutos)</mat-label>
-    <input matInput type="number" [(ngModel)]="service.duration" aria-label="Duration in minutes" />
+    <input matInput type="number" min="1" [(ngModel)]="service.duration" required aria-label="Duration in minutes" />
   </mat-form-field>
 
+  <!-- Precio -->
   <mat-form-field appearance="fill" aria-label="Service price input">
     <mat-label>Precio</mat-label>
-    <input matInput type="number" [(ngModel)]="service.price" aria-label="Price" />
+    <input matInput type="number" min="0" [(ngModel)]="service.price" required aria-label="Price" />
   </mat-form-field>
 
-  <mat-form-field appearance="fill" aria-label="Service status select">
-    <mat-label>Estado</mat-label>
-    <mat-select [(ngModel)]="service.status" aria-label="Status">
-      <mat-option value="Active">Activo</mat-option>
-      <mat-option value="Paused">Pausado</mat-option>
-    </mat-select>
-  </mat-form-field>
+
 </mat-dialog-content>
 
 <mat-dialog-actions align="end" aria-label="Dialog actions">
