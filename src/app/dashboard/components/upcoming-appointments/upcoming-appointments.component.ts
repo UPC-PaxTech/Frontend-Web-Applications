@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {AppointmentApiService} from '../../services/appointment-api.service';
-import { Appointment } from '../../models/appointment.entity';
+
 import { CommonModule } from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
+import {ClientAppointment} from '../../../appointments/model/appointment.entity';
+import {AppointmentApiService} from '../../../appointments/services/appointment-api-service.service';
+import {filter} from 'rxjs';
+
 
 @Component({
   selector: 'app-upcoming-appointments',
@@ -12,7 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
   imports: [CommonModule, TranslatePipe]
 })
 export class UpcomingAppointmentsComponent implements OnInit {
-  upcomingAppointments: Appointment[] = [];
+    upcomingAppointments: ClientAppointment[] = [];
 
   constructor(private appointmentService: AppointmentApiService, private translate: TranslateService) {}
 
@@ -20,9 +23,10 @@ export class UpcomingAppointmentsComponent implements OnInit {
     this.appointmentService.getAppointments().subscribe(appointments => {
       const now = new Date();
       this.upcomingAppointments = appointments
-        .filter(a => new Date(a.timeSlotStart) > now)
-        .sort((a, b) => new Date(a.timeSlotStart).getTime() - new Date(b.timeSlotStart).getTime())
-        .slice(0, 3); // mostrar los 3 más próximos
+        .filter(a => new Date(a.timeSlot.startTime) > now)
+        .sort((a, b) => new Date(a.timeSlot.startTime).getTime() - new Date(b.timeSlot.endTime).getTime())
+        .slice(0, 3)
+        .filter(a=> a.provider.id == Number(localStorage.getItem('providerId')));// mostrar los 3 más próximos
 
       console.log('Upcoming Appointments:', this.upcomingAppointments)
     });
