@@ -1,7 +1,11 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, inject, OnInit} from '@angular/core';
 import { SalonProfile } from '../../models/salon-profile.entity';
 import { CommonModule } from '@angular/common';
-import {TranslatePipe} from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { PortfolioImageApiService } from '../../services/portfolio-image-api.service';
+
+import {PortfolioImage} from '../../models/portfolio-image';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-profile-portfolio',
@@ -10,33 +14,79 @@ import {TranslatePipe} from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, TranslatePipe]
 })
-export class ProfilePortfolioComponent {
+export class ProfilePortfolioComponent implements OnInit{
   @Input() profile!: SalonProfile;
+  isLoading = false;
 
-  // Simula agregar la imagen al portafolio
-  onAddPhoto(): void {
+  private portfolioService = inject(PortfolioImageApiService);
+  private toastr = inject(MatSnackBar);
+
+
+  ngOnInit() {
+    console.log('Perfil cargado NUEVO:', this.profile.portfolioImages);
+  }
+
+  async onAddPhoto(): Promise<void> {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/*';
 
-    input.onchange = (event: any) => {
+    input.onchange = async (event: any) => {
+
       const file = event.target.files[0];
       if (file) {
-        const reader = new FileReader();
-        reader.onload = () => {
-          // Agregar la imagen al array directamente
-          this.profile.portfolioImages.push(reader.result as string);
-          console.log('Imagen añadida al portafolio');
-        };
-        reader.readAsDataURL(file); // Convierte a base64
+        this.isLoading = true;
+        try {
+          // 1. Subir imagen a ImgBB
+          const imageUrl = await this.uploadToImgBB(file);
+
+          // 2. Guardar en nuestro backend
+          await this.saveToBackend(imageUrl);
+
+          // 3. Actualizar vista
+          this.profile.portfolioImages.push(imageUrl);
+
+          this.toastr.open('Imagen agregada', 'OK')
+        } catch (error) {
+          console.error('Error:', error);
+          this.toastr.open('Error al subir imagen', 'OK')
+        } finally {
+          this.isLoading = false;
+        }
       }
     };
 
-    input.click(); // Abre el explorador de archivos
+    input.click();
+  }
+
+  private async uploadToImgBB(file: File): Promise<string> {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    const response = await fetch('https://api.imgbb.com/1/upload?key=bf0d2abb3d0754021e043dfcedb6662d', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error('Error al subir a ImgBB');
+    }
+
+    const data = await response.json();
+    return data.data.url;
+  }
+
+  private async saveToBackend(imageUrl: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.portfolioService.createPortfolioImage(1, imageUrl)
+        .subscribe({
+          next: () => resolve(),
+          error: (err) => reject(err)
+        });
+    });
   }
 
   onImageClick(imageUrl: string): void {
     console.log('Imagen seleccionada:', imageUrl);
-    // Aquí podrías abrir un modal para previsualizar la imagen si lo deseas
   }
 }

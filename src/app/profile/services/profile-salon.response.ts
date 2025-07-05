@@ -1,21 +1,11 @@
 export interface ProfileSalonResponse {
   id: number;
-  userId: string;
-  salonName: string;
-  rating: number;
-  profileImage: string;
-  coverImage: string;
-  socials: {
-    instagram: string;
-    tiktok: string;
-  };
+  providerId: number;
+  companyName: string;
+  location: string;
+  email: string;
+  profileImageUrl: string;
+  coverImageUrl: string;
+  socials: {};
   portfolioImages: string[];
-  accounts: {  // Hazlo opcional para actualizaciones parciales
-    accountId: string;
-    email: string;
-    passwordHash: string;
-    isActive: boolean;
-  };
-  Address: string;
-  salonemail: string;
 }

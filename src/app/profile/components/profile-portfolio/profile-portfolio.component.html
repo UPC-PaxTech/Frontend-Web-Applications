@@ -2,10 +2,18 @@
   <h3>{{ 'profile.portfolio' | translate }}</h3>
   <div class="portfolio-gallery">
     @for (image of profile.portfolioImages; track image) {
-      <img [src]="image" aria-label="portfolios image" [alt]="'profile.profileImageAlt' | translate" (click)="onImageClick(image)" />
+      <img [src]="image"
+           aria-label="portfolios image"
+           [alt]="'profile.profileImageAlt' | translate"
+           (click)="onImageClick(image)" />
     }
-    <button class="add-photo-btn" (click)="onAddPhoto()">
-      {{ 'profile.addPhoto' | translate }}
+
+    <button class="add-photo-btn" (click)="onAddPhoto()" [disabled]="isLoading">
+      @if (isLoading) {
+        <span class="loading-spinner"></span>
+      } @else {
+        {{ 'profile.addPhoto' | translate }}
+      }
     </button>
   </div>
 </div>

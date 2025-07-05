@@ -38,7 +38,7 @@ private passwordService: SalonProfileApiService = inject(SalonProfileApiService)
 
   constructor(private snackBar: MatSnackBar) {}
 
-  public updatePassword() {
+  public updatePassword() {/*
     if (this.currentPassword === this.profile.accounts.passwordHash) {
       const copiedValue = { ...this.profile };
       copiedValue.accounts.passwordHash = this.value;
@@ -56,7 +56,7 @@ private passwordService: SalonProfileApiService = inject(SalonProfileApiService)
         });
     } else {
       this.snackBar.open('⚠️ Current password is incorrect.', 'Close', { duration: 3000 });
-    }
+    }*/
   }
 
 

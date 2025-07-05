@@ -18,3 +18,9 @@ export class Profile {
     this.location = false;
   }
 }
+
+// profile.models.ts – coloca junto a salon-profile.entity.ts
+export interface UpdateImagesDto {
+  profileImageUrl: string;
+  coverImageUrl:   string;
+}
