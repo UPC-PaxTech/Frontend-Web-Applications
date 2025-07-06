@@ -5,8 +5,8 @@ export interface ProviderProfileResource {
   companyName: string;
   location: string;
   email: number;
-  profileImageURL: string;// Changed from number to string since your API returns strings
-  coverImageURL: string;
+  profileImageUrl: string;// Changed from number to string since your API returns strings
+  coverImageUrl: string;
   socials: [];
   portfolioImages:[]
 }

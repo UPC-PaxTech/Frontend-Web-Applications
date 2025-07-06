@@ -9,8 +9,8 @@ export class ProviderProfileAssembler {
       companyName: resource.companyName,
       location: resource.location,
       email: resource.email,
-      profileImageURL: resource.profileImageURL,
-      coverImageURL: resource.coverImageURL,
+      profileImageURL: resource.profileImageUrl,
+      coverImageURL: resource.coverImageUrl,
       socials: resource.socials,
       portfolioImages: resource.portfolioImages
     };
