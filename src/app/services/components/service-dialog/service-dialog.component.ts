@@ -1,47 +1,63 @@
-import { Component } from '@angular/core';
-import {MatDialog, MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle} from '@angular/material/dialog';
-import {ServiceResponse} from '../../services/service.response';
-import { Service } from "../../model/service.entity";
-import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
-import {MatButton} from "@angular/material/button";
-import {MatButtonModule} from "@angular/material/button";
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ServiceResponse } from '../../services/service.response';
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { MatFormField } from "@angular/material/form-field";
+import { MatInput, MatLabel } from "@angular/material/input";
+import { MatButton } from "@angular/material/button";
+import { MatOption } from '@angular/material/core';
+import { MatSelect } from '@angular/material/select';
+import { MatDialogContent, MatDialogActions, MatDialogTitle } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-service-dialog',
+  standalone: true,
   templateUrl: './service-dialog.component.html',
   imports: [
-    MatDialogContent,
-
+    CommonModule,
     FormsModule,
-    MatLabel,
     MatFormField,
+    MatInput,
+    MatButton,
     MatOption,
     MatSelect,
-    MatButton,
+    MatDialogContent,
     MatDialogActions,
     MatDialogTitle,
-    MatOption,
-    MatSelect,
-    MatDialogActions
+    MatLabel
   ]
 })
 export class CreateServiceDialogComponent {
-
   service: ServiceResponse = {
     id: 0,
     name: '',
-    description: '',
     duration: 0,
     price: 0,
-    status: 'Active'
+    providerId: 0
   };
 
-  constructor(public dialogRef: MatDialogRef<CreateServiceDialogComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<CreateServiceDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ServiceResponse | null
+  ) {
+    if (data) {
+      this.service = { ...data }; // ← edición
+    } else {
+      const providerId = localStorage.getItem('providerId');
+      if (providerId) {
+        this.service.providerId = parseInt(providerId, 10);
+      } else {
+        console.warn('No se encontró providerId en localStorage.');
+      }
+    }
+  }
 
   submit() {
+    if (!this.service.name || this.service.duration <= 0 || this.service.price < 0) {
+      console.error('❌ Datos inválidos del servicio:', this.service);
+      return;
+    }
     this.dialogRef.close(this.service);
   }
 

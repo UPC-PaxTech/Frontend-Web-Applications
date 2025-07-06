@@ -2,7 +2,7 @@
   <h4>{{ review.author }}</h4>
   <p class="stars">
     @for (star of [1, 2, 3, 4, 5]; track star) {
-      <span [class.filled]="star <= review.rating">★</span>
+      <span aria-label="review" [class.filled]="star <= review.rating">★</span>
     }
   </p>
   <p class="comment">{{ review.text }}</p>

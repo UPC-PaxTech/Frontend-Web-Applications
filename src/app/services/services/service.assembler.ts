@@ -6,18 +6,20 @@ export class ServiceAssembler {
     return {
       id: resource.id,
       name: resource.name,
-      description: resource.description,
+      //description: resource.description,
       duration: resource.duration,
       price: resource.price,
-      status: resource.status
+
+      providerId: resource.providerId
     };
   }
 
   static toEntitiesFromResponse(resources: ServiceResponse[]): Service[] {
-    return resources.map(this.toEntityFromResource);
+    return resources.map(service => ServiceAssembler.toEntityFromResource(service));
   }
 
-  static toResponseFromEntity(entity: Service): ServiceResponse {
+
+  /*static toResponseFromEntity(entity: Service): ServiceResponse {
     return {
       id: entity.id,
       name: entity.name,
@@ -26,5 +28,5 @@ export class ServiceAssembler {
       price: entity.price,
       status: entity.status
     };
-  }
+  }*/
 }

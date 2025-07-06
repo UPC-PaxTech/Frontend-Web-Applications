@@ -10,9 +10,7 @@ export interface AppointmentResponse {
     };
   };
   salon: {
-    salonId: string;
-    location: string;
-    phone: string;
+    salonId: number;
   };
   payment: {
     paymentId: string;
@@ -28,6 +26,7 @@ export interface AppointmentResponse {
     tipo: string;
   };
   worker: {
+    workerId: string;
     name:string;
   };
 }

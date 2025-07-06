@@ -6,10 +6,11 @@ import {Appointment} from '../models/appointment.entity';
 export class WorkerAssembler {
   static  toEntityFromResource(resource: WorkerResource): Worker {
     return {
-      id: resource.workerId,
-      nombre: resource.nombre,
-      especializacion: resource.especializacion,
-      foto: resource.fotoUrl
+      id: resource.id,
+      name: resource.name,
+      specialization: resource.specialization,
+      photoUrl: resource.photoUrl,
+      providerId: resource.providerId,
     }
   }
   static toEntitiesFromResponse(resources: WorkerResource[]): Worker[] {

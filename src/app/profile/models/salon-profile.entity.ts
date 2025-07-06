@@ -1,40 +1,23 @@
-
 export class SalonProfile {
-  profileId: number;
-  userId: string;
-  salonName: string;
-  rating: number;
-  profileImage: string;
-  coverImage: string;
-  socials: {
-    instagram: string;
-    tiktok: string;
-  };
-  portfolioImages: string[];
-  address: string;
+  id: number;
+  providerId: number;
+  companyName: string;
+  location: string;
   email: string;
+  profileImageUrl: string;
+  coverImageUrl: string;
+  socials: Record<string, string>;
+  portfolioImages: string[];
 
-  accounts: {
-    accountId: string;
-    email: string;
-    passwordHash: string;
-    isActive: boolean;
-  }
-
-
-  constructor() {
-    this.profileId = 0;
-    this.userId = '';
-    this.salonName = '';
-    this.rating = 0;
-    this.profileImage = '';
-    this.coverImage = '';
-    this.socials = { instagram: '', tiktok: '' };
-    this.portfolioImages = [];
-    this.address = '';
-    this.email = '';
-    this.accounts = {
-      accountId: '', email: '', passwordHash: '', isActive: false
-    };
+  constructor(response?: Partial<SalonProfile>) {
+    this.id = response?.id ?? 0;
+    this.providerId = response?.providerId ?? 0;
+    this.companyName = response?.companyName ?? '';
+    this.location = response?.location ?? '';
+    this.email = response?.email ?? '';
+    this.profileImageUrl = response?.profileImageUrl ?? '';
+    this.coverImageUrl = response?.coverImageUrl ?? '';
+    this.socials = response?.socials ?? {};
+    this.portfolioImages = response?.portfolioImages ?? [];
   }
 }

@@ -6,7 +6,7 @@ import {catchError, Observable, retry, throwError} from 'rxjs';
 export abstract class BaseService<R> {
   protected httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
   protected serverBaseUrl: string = environment.serverBaseUrl;
-  protected resourceEndpoint: string = '/resources';
+  public resourceEndpoint: string = '/resources';
   protected http: HttpClient = inject(HttpClient);
 
   protected handleError(error: HttpErrorResponse) {
@@ -14,7 +14,7 @@ export abstract class BaseService<R> {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  protected resourcePath(): string {
+  public resourcePath(): string {
     return `${this.serverBaseUrl}${this.resourceEndpoint}`;
   }
 
@@ -30,6 +30,11 @@ export abstract class BaseService<R> {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  public post(resource: R): Observable<R> {
+    return this.http.post<R>(`${this.resourcePath()}`, JSON.stringify(resource), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   public getById(id: any): Observable<R> {
     return this.http.get<R>(`${this.resourcePath()}/${id}`, this.httpOptions).pipe(
       catchError(this.handleError)
@@ -37,6 +42,7 @@ export abstract class BaseService<R> {
   }
 
   public delete(id: any): Observable<any> {
+
     return this.http.delete(`${this.resourcePath()}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

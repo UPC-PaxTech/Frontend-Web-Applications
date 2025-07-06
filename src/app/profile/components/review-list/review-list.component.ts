@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Review} from '../../../dashboard/models/review.entity';
+import {Review} from '../../../reviews/models/review.entity';
 import { CommonModule } from '@angular/common';
 import { ReviewItemComponent } from '../review-item/review-item.component';
-import {ReviewApiService} from '../../../dashboard/services/review-api.service';
+import {ReviewApiService} from '../../../reviews/services/review-api.service';
 import {TranslatePipe} from '@ngx-translate/core';
+import {ReviewAssembler} from '../../../reviews/services/review.assembler';
 
 @Component({
   selector: 'app-review-list',
@@ -17,7 +18,12 @@ export class ReviewListComponent implements OnInit {
   constructor(private reviewService: ReviewApiService) {}
 
   ngOnInit() {
-    this.reviewService.getReviews().subscribe(reviews => this.profileReviews = reviews);// Recibe las reviews desde el padre (como ya lo haces en Dashboard)
+    //this.reviewService.getReviews().subscribe(reviews => this.profileReviews = reviews);
+    const providerId = Number(localStorage.getItem('providerId'));
+    this.reviewService.getBySalonId(providerId).subscribe(resource => {
+      this.profileReviews = ReviewAssembler.toEntitiesFromResponse(resource).filter(review => review.salonId == providerId);
+      console.log(this.profileReviews);
+    })// Recibe las reviews desde el padre (como ya lo haces en Dashboard)
   }
 
 }

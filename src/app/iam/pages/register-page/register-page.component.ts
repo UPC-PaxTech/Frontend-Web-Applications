@@ -1,46 +1,86 @@
-import { Component } from '@angular/core';
-import {RegisterFormClientComponent} from '../../components/register-form-client/register-form-client.component';
-import {RegisterFormProviderComponent} from '../../components/register-form-provider/register-form-provider.component';
-import {PlanSelectorComponent} from '../../components/plan-selector/plan-selector.component';
-import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
-import { MatButtonToggleGroup} from '@angular/material/button-toggle';
-import {MatButtonToggle} from '@angular/material/button-toggle';
-import {LoginFormComponent} from '../../components/login-form/login-form.component';
-import {MatButton} from '@angular/material/button';
-import {MatToolbar} from '@angular/material/toolbar';
-import {RouterLink} from '@angular/router';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { RegisterFormClientComponent } from '../../components/register-form-client/register-form-client.component';
+import { RegisterFormProviderComponent } from '../../components/register-form-provider/register-form-provider.component';
+import { FormsModule } from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
+import { tsParticles, type ISourceOptions } from '@tsparticles/engine';
+import { loadFull } from 'tsparticles';
+import { LanguageSwitcherComponent } from '../../../public/components/language-switcher/language-switcher.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-register-page',
+  standalone: true,
   imports: [
     RegisterFormClientComponent,
     RegisterFormProviderComponent,
-    PlanSelectorComponent,
-    MatButtonToggleGroup,
-    MatButtonToggle,
     FormsModule,
     NgIf,
-    LoginFormComponent,
-    MatButton,
-    MatToolbar,
-    RouterLink
+    NgForOf,
+    LanguageSwitcherComponent,
+    TranslatePipe,
+    MatButtonToggleModule
   ],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.css'
 })
-export class RegisterPageComponent {
-  isProvider: boolean = false;  // Determina si se está registrando un cliente o proveedor
-  showPlanSelector: boolean = true; // Determina si mostrar el selector de planes
+export class RegisterPageComponent implements OnInit, OnDestroy, AfterViewInit {
+  isProvider: boolean = false;
+  slideImages: string[] = [
+    'https://www.gammabross.com/Gallery/salonimg-frkqkj-181.webp',
+    'https://thehappening.com/wp-content/uploads/2024/02/captura-de-pantalla-2023-05-17-a-la-s-52813-pm-1.jpg',
+    'https://cdn1.treatwell.net/images/view/v2.i7379851.w720.h480.x5F15B4CB/'
+  ];
 
-  // Cambia entre los formularios de cliente y proveedor
-  toggleForm(isProvider: boolean): void {
-    this.isProvider = isProvider;
-    this.showPlanSelector = false; // Reset al cambiar entre formularios
+  activeIndex: number = 0;
+  intervalId: any;
+
+  ngOnInit(): void {
+    this.intervalId = setInterval(() => {
+      this.activeIndex = (this.activeIndex + 1) % this.slideImages.length;
+    }, 5000);
   }
 
-  // Cuando se hace clic en el botón de registro del proveedor, muestra el selector de planes
-  completeRegistration(): void {
-    this.showPlanSelector = true; // Muestra el selector de planes directamente
+  async ngAfterViewInit() {
+    await loadFull(tsParticles);
+    await tsParticles.load({
+      id: 'particles-js',
+      options: this.particlesOptions
+    });
   }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
+  }
+
+  setSlide(index: number): void {
+    this.activeIndex = index;
+  }
+
+  toggleForm(value: boolean) {
+    this.isProvider = value;
+  }
+
+  private particlesOptions: ISourceOptions = {
+    background: { color: { value: 'transparent' } },
+    fpsLimit: 60,
+    particles: {
+      number: { value: 80, density: { enable: true, width: 800 } },
+      color: { value: '#f3a3ff' },
+      shape: { type: 'circle' },
+      opacity: { value: 0.5 },
+      size: {
+        value: { min: 2, max: 4 },
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: 'none',
+        outModes: { default: 'out' }
+      },
+      links: { enable: false }
+    },
+    detectRetina: true
+  };
 }

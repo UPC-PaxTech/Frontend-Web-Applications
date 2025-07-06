@@ -1,18 +1,33 @@
 <section class="upcoming">
   <h2>{{ 'dashboard.upcoming' | translate }}</h2>
 
-  @for (appointment of upcomingAppointments; track appointment.reservationId) {
-    <div class="appointment-card" [ngClass]="{ 'past': !appointment.paymentStatus }">
-      <div class="day">
-        <strong>{{ formatDay(appointment.timeSlotStart) }}</strong>
-      </div>
-      <div class="details">
-        <div class="time">
-          {{ isToday(appointment.timeSlotStart) ? ('dashboard.today' | translate) : '' }}
-          {{ formatTime(appointment.timeSlotStart) }}
+  @for (appointment of upcomingAppointments; track appointment.id) {
+    <div class="appointment-card" aria-label="appointment-card" [ngClass]="{ 'past': !appointment.paymentId.status }">
+      <div class="left">
+        <div class="day">
+          <div>{{ formatDay(appointment.timeSlot.startTime) }}</div>
+          <div class="badge" *ngIf="isToday(appointment.timeSlot.startTime)">
+            {{ 'dashboard.today' | translate }}
+          </div>
         </div>
-        <div class="type">
-          {{ appointment.tipo }}
+      </div>
+
+      <div class="right">
+        <div class="row">
+          <span class="label">Hora de inicio:</span>
+          <span class="value">{{ formatTime(appointment.timeSlot.startTime) }}</span>
+        </div>
+
+        <div class="row">
+          <span class="label">Servicio:</span>
+          <span class="value">{{ appointment.workerId.specialization }}</span>
+        </div>
+
+        <div class="row">
+          <span class="label">Estado:</span>
+          <span class="badge" [ngClass]="appointment.paymentId.status ? 'paid' : 'unpaid'">
+            {{ appointment.paymentId.status ? 'Pagado' : 'No pagado' }}
+          </span>
         </div>
       </div>
     </div>

@@ -3,10 +3,10 @@ import {ClientAppointment} from '../../model/appointment.entity';
 import {AppointmentApiService} from '../../services/appointment-api-service.service';
 import {AppointmentsItemComponent} from '../appointments-item/appointments-item.component';
 import {NgForOf} from '@angular/common';
-import {ReviewApiService} from "../../services/review-api-service.service";
-import {Review} from "../../model/reviews.entity";
-import {ReviewListComponent} from "../review-list/review-list.component";
-import {UpcomingAppointmentsComponent} from "../upcoming-appointments/upcoming-appointments.component";
+import {ReviewApiService} from '../../../reviews/services/review-api.service';
+import {Review} from '../../../reviews/models/review.entity';
+import {ReviewListComponent} from '../review-list/review-list.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -16,16 +16,15 @@ import {UpcomingAppointmentsComponent} from "../upcoming-appointments/upcoming-a
     AppointmentsItemComponent,
     NgForOf,
     ReviewListComponent,
-    UpcomingAppointmentsComponent,
     ReviewListComponent,
-    UpcomingAppointmentsComponent
-
+    TranslatePipe,
   ],
   styleUrls: ['./appointments-list.component.css']
 })
 export class AppointmentsListComponent implements OnInit {
   appointments: ClientAppointment[] = [];
   reviews: Review[] = [];
+
 
   constructor(private appointmentService: AppointmentApiService, private reviewService: ReviewApiService) {}
 
@@ -57,7 +56,7 @@ export class AppointmentsListComponent implements OnInit {
     })
   }
 
-  trackById(index: number, item: ClientAppointment): string {
-    return item.reservationId;
+  trackById(index: number, item: ClientAppointment): number {
+    return item.id;
   }
 }

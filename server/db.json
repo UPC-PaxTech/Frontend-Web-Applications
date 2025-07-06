@@ -1,45 +1,52 @@
 {
   "accounts": [
     {
-      "accountId": "acc1",
-      "email": "john@example.com",
-      "passwordHash": "hash123",
+      "id": 1,
+      "email": "gael@gmail.com",
+      "passwordHash": "123",
+      "type": "provider",
       "isActive": true
     },
     {
-      "accountId": "acc2",
+      "id": 2,
       "email": "lisa@example.com",
       "passwordHash": "hash456",
+      "type": "client",
       "isActive": true
     },
     {
-      "accountId": "acc3",
+      "id": 3,
       "email": "mike@example.com",
       "passwordHash": "hash789",
+      "type": "provider",
       "isActive": false
     },
     {
-      "accountId": "acc4",
+      "id": 4,
       "email": "anna@example.com",
       "passwordHash": "hash321",
+      "type": "client",
       "isActive": true
     },
     {
-      "accountId": "acc5",
+      "id": 5,
       "email": "carla@example.com",
       "passwordHash": "hash111",
+      "type": "provider",
       "isActive": true
     },
     {
-      "accountId": "acc6",
+      "id": 6,
       "email": "david@example.com",
       "passwordHash": "hash222",
+      "type": "client",
       "isActive": true
     },
     {
-      "accountId": "acc7",
+      "id": 7,
       "email": "sofia@example.com",
       "passwordHash": "hash333",
+      "type": "provider",
       "isActive": false
     }
   ],
@@ -119,54 +126,67 @@
   ],
   "salons": [
     {
-      "salonId": "salon1",
+      "id": 1,
+      "name": "Montalvo",
+      "imageURL": "https://montalvogroup.com.pe/wp-content/uploads/2022/12/Montalvo-Salon-Spa-3.jpg",
       "location": "Downtown",
       "phone": "123456789"
     },
     {
-      "salonId": "salon2",
+      "id": 2,
+      "name": "Super Salon",
+      "imageURL": "https://cloudfront-us-east-1.images.arcpublishing.com/gruponacion/M46OKEV3IZCFFHPGC2IOF2L7CI.JPG",
       "location": "Midtown",
       "phone": "987654321"
     },
     {
-      "salonId": "salon3",
-      "location": "Uptown",
-      "phone": "555123456"
+      "id": 3,
+      "name": "Neil Barton",
+      "imageURL": "https://img.interempresas.net/fotos/4544148.jpeg",
+      "location": "Midtown",
+      "phone": "987654321"
+    },
+    {
+      "id": 4,
+      "name": "Belleza diaria",
+      "imageURL": "https://i.pinimg.com/564x/81/7b/72/817b721c4f857b880e6b3820a6f0d52f.jpg",
+      "location": "Midtown",
+      "phone": "987654321"
     }
   ],
   "workers": [
     {
-      "workerId": "worker1",
-      "nombre": "Javier Herrera",
+      "id": 1,
+      "nombre": "Hair Studio",
       "especializacion": "Bridal hair stylist",
-      "fotoUrl": "https://randomuser.me/api/portraits/men/32.jpg"
+      "fotoUrl": "https://i.pinimg.com/564x/81/7b/72/817b721c4f857b880e6b3820a6f0d52f.jpg"
     },
     {
-      "workerId": "worker2",
+      "id": 2,
       "nombre": "Lili Díaz",
       "especializacion": "Hair extension specialist",
       "fotoUrl": "https://randomuser.me/api/portraits/women/44.jpg"
     },
     {
-      "workerId": "worker3",
+      "id": 3,
       "nombre": "Manuel Ugarte",
       "especializacion": "Haircut specialist",
       "fotoUrl": "https://randomuser.me/api/portraits/men/45.jpg"
     },
     {
-      "workerId": "worker4",
+      "id": 4,
       "nombre": "Lorenzo Ortega",
       "especializacion": "Stylist",
       "fotoUrl": "https://randomuser.me/api/portraits/men/28.jpg"
     },
     {
-      "workerId": "worker5",
+      "id": 5,
       "nombre": "Kevin Rivera",
       "especializacion": "Color & Cut",
       "fotoUrl": "https://randomuser.me/api/portraits/men/52.jpg"
     },
     {
-      "workerId": "worker6",
+      "id": 6,
       "nombre": "Gael Chi",
       "especializacion": "Keratin Treatment",
       "fotoUrl": "https://randomuser.me/api/portraits/men/53.jpg"
@@ -174,32 +194,74 @@
   ],
   "services": [
     {
-      "id": "srv1",
+      "id": 1,
       "name": "Simple haircut",
       "duration": 45,
       "price": 40,
-      "status": "Active"
+      "status": "Active",
+      "salonId": 1
     },
     {
-      "id": "srv2",
+      "id": 2,
       "name": "Keratin Treatment",
       "duration": 60,
       "price": 50,
-      "status": "Active"
+      "status": "Active",
+      "salonId": 1
     },
     {
-      "id": "srv3",
-      "name": "Color & cut",
-      "duration": 90,
-      "price": 100,
-      "status": "Paused"
-    },
-    {
-      "id": "srv4",
-      "name": "Hot styling",
+      "id": 3,
+      "name": "Facial Glow Treatment",
+      "description": "Revitalizing facial for glowing skin.",
       "duration": 30,
-      "price": 30,
-      "status": "Active"
+      "price": 80,
+      "status": "Active",
+      "salonId": 2
+    },
+    {
+      "id": 4,
+      "name": "Relaxing Body Massage",
+      "description": "A full-body massage to relieve stress.",
+      "duration": 60,
+      "price": 120,
+      "status": "Active",
+      "salonId": 2
+    },
+    {
+      "id": 5,
+      "name": "Luxury Manicure",
+      "description": "Premium manicure with hand massage.",
+      "duration": 45,
+      "price": 55,
+      "status": "Active",
+      "salonId": 3
+    },
+    {
+      "id": 6,
+      "name": "Servicio de prueba",
+      "description": "tralalero tralalala!",
+      "duration": 10,
+      "price": 1000,
+      "status": "Active",
+      "salonId": 1
+    },
+    {
+      "id": 7,
+      "name": "Service service",
+      "description": "corte de trufa",
+      "duration": 50,
+      "price": 20,
+      "status": "Paused",
+      "salonId": 1
+    },
+    {
+      "id": 8,
+      "name": "Service servicio",
+      "description": "los dodis",
+      "duration": 40,
+      "price": 20,
+      "status": "Active",
+      "salonId": 1
     }
   ],
   "payments": [
@@ -248,6 +310,7 @@
   ],
   "reservationDetails": [
     {
+      "id": 1,
       "reservationId": "res1",
       "tipo": "Simple haircut",
       "client": {
@@ -259,7 +322,7 @@
         }
       },
       "salon": {
-        "salonId": "salon1",
+        "salonId": 1,
         "location": "Downtown",
         "phone": "123456789"
       },
@@ -277,243 +340,287 @@
         "tipo": "Standard"
       },
       "worker": {
-        "workerId": "worker5",
+        "workerId": 5,
         "name": "Kevin Rivera"
       }
     },
     {
+      "id": 2,
       "reservationId": "res2",
-      "tipo": "Keratin Treatment",
+      "tipo": "Express Cut",
       "client": {
-        "clientId": "client2",
-        "birthDate": "1985-05-15T00:00:00Z",
+        "clientId": "client1",
+        "birthDate": "1990-01-01T00:00:00Z",
         "user": {
-          "userId": "user2",
-          "name": "Lisa Smith"
+          "userId": "user1",
+          "name": "John Doe"
         }
       },
       "salon": {
-        "salonId": "salon1",
+        "salonId": 1,
         "location": "Downtown",
         "phone": "123456789"
       },
       "payment": {
-        "paymentId": "pay2",
+        "paymentId": "pay10",
         "amount": 50,
         "currency": "USD",
         "status": true
       },
       "timeSlot": {
         "timeSlotId": "ts2",
-        "start": "2025-05-10T10:00:00Z",
-        "end": "2025-05-10T11:00:00Z",
+        "start": "2025-05-17T14:00:00.000Z",
+        "end": "2025-05-17T15:00:00.000Z",
         "status": true,
         "tipo": "Standard"
       },
       "worker": {
-        "workerId": "worker6",
-        "name": "Gael Chi"
+        "workerId": 1,
+        "name": "Javier Herrera"
       }
     },
     {
+      "id": 3,
       "reservationId": "res3",
-      "tipo": "Color & cut",
+      "tipo": "Express Cut",
       "client": {
-        "clientId": "client3",
-        "birthDate": "1992-07-20T00:00:00Z",
+        "clientId": "client1",
+        "birthDate": "1990-01-01T00:00:00Z",
         "user": {
-          "userId": "user3",
-          "name": "Mike Lee"
+          "userId": "user1",
+          "name": "John Doe"
         }
       },
       "salon": {
-        "salonId": "salon2",
+        "salonId": 3,
         "location": "Midtown",
         "phone": "987654321"
       },
       "payment": {
-        "paymentId": "pay3",
-        "amount": 100,
+        "paymentId": "pay11",
+        "amount": 60,
         "currency": "USD",
         "status": true
       },
       "timeSlot": {
         "timeSlotId": "ts3",
-        "start": "2025-05-11T11:00:00Z",
-        "end": "2025-05-11T12:30:00Z",
+        "start": "2025-05-16T19:00:00.000Z",
+        "end": "2025-05-16T20:00:00.000Z",
         "status": true,
-        "tipo": "Extended"
+        "tipo": "Standard"
       },
       "worker": {
-        "workerId": "worker5",
-        "name": "Kevin Rivera"
+        "workerId": 2,
+        "name": "Lili Díaz"
       }
     },
     {
-      "reservationId": "res4",
-      "tipo": "Hot styling",
+      "reservationId": "res10",
+      "tipo": "Express Cut",
       "client": {
-        "clientId": "client4",
-        "birthDate": "1995-11-30T00:00:00Z",
+        "clientId": "client10",
+        "birthDate": "1990-01-01T00:00:00Z",
         "user": {
-          "userId": "user4",
-          "name": "Anna Kim"
-        }
-      },
-      "salon": {
-        "salonId": "salon2",
-        "location": "Midtown",
-        "phone": "987654321"
-      },
-      "payment": {
-        "paymentId": "pay4",
-        "amount": 30,
-        "currency": "USD",
-        "status": false
-      },
-      "timeSlot": {
-        "timeSlotId": "ts4",
-        "start": "2025-05-12T13:00:00Z",
-        "end": "2025-05-12T13:30:00Z",
-        "status": true,
-        "tipo": "Express"
-      },
-      "worker": {
-        "workerId": "worker6",
-        "name": "Gael Chi"
-      }
-    },
-    {
-      "reservationId": "res5",
-      "tipo": "Simple haircut",
-      "client": {
-        "clientId": "client5",
-        "birthDate": "1993-03-25T00:00:00Z",
-        "user": {
-          "userId": "user5",
-          "name": "Carla Ríos"
+          "userId": "user10",
+          "name": "Test User"
         }
       },
       "salon": {
         "salonId": "salon1",
-        "location": "Downtown",
-        "phone": "123456789"
+        "location": "Test Location",
+        "phone": "000000000"
       },
       "payment": {
-        "paymentId": "pay5",
+        "paymentId": "pay10",
         "amount": 50,
         "currency": "USD",
         "status": true
       },
       "timeSlot": {
-        "timeSlotId": "ts5",
-        "start": "2025-06-15T15:00:00Z",
-        "end": "2025-06-15T15:45:00Z",
+        "timeSlotId": "4",
+        "start": "2025-05-23T17:00:00.000Z",
+        "end": "2025-05-23T18:00:00.000Z",
         "status": true,
         "tipo": "Standard"
+      },
+      "worker": {
+        "workerId": "worker10",
+        "name": "New Worker"
+      },
+      "id": 4
+    },
+    {
+      "reservationId": "resGenerated",
+      "tipo": "Simple haircut",
+      "client": {
+        "clientId": "client1",
+        "birthDate": "1990-01-01",
+        "user": {
+          "userId": "user1",
+          "name": "Test User"
+        }
+      },
+      "salon": {
+        "salonId": 1
+      },
+      "payment": {
+        "paymentId": "pay-temp",
+        "amount": 40,
+        "currency": "USD",
+        "status": false
+      },
+      "timeSlot": {
+        "timeSlotId": "ts-temp",
+        "start": "2025-05-23T08:00:00.000Z",
+        "end": "2025-05-23T08:45:00.000Z",
+        "status": true,
+        "tipo": "Custom"
       },
       "worker": {
         "workerId": "worker1",
-        "name": "Javier Herrera"
-      }
+        "name": "Staff Predeterminado"
+      },
+      "id": 5
     },
     {
-      "reservationId": "res6",
-      "tipo": "Hot styling",
+      "reservationId": "resGenerated",
+      "tipo": "Facial Glow Treatment",
       "client": {
-        "clientId": "client6",
-        "birthDate": "1988-09-12T00:00:00Z",
+        "clientId": "client1",
+        "birthDate": "1990-01-01",
         "user": {
-          "userId": "user6",
-          "name": "David Morales"
+          "userId": "user1",
+          "name": "Test User"
         }
       },
       "salon": {
-        "salonId": "salon3",
-        "location": "Uptown",
-        "phone": "555123456"
+        "salonId": 2
       },
       "payment": {
-        "paymentId": "pay6",
-        "amount": 30,
+        "paymentId": "pay-temp",
+        "amount": 80,
         "currency": "USD",
-        "status": true
+        "status": false
       },
       "timeSlot": {
-        "timeSlotId": "ts6",
-        "start": "2025-06-16T10:30:00Z",
-        "end": "2025-06-16T11:00:00Z",
+        "timeSlotId": "ts-temp",
+        "start": "2025-05-23T05:30:00.000Z",
+        "end": "2025-05-23T06:00:00.000Z",
         "status": true,
-        "tipo": "Express"
+        "tipo": "Custom"
       },
       "worker": {
-        "workerId": "worker4",
-        "name": "Lorenzo Ortega"
-      }
+        "workerId": "worker1",
+        "name": "Staff Predeterminado"
+      },
+      "id": 6
     },
     {
-      "reservationId": "res7",
-      "tipo": "Keratin Treatment",
+      "reservationId": "resGenerated",
+      "tipo": "Simple haircut",
       "client": {
-        "clientId": "client7",
-        "birthDate": "1997-12-03T00:00:00Z",
+        "clientId": "client1",
+        "birthDate": "1990-01-01",
         "user": {
-          "userId": "user7",
-          "name": "Sofía Alarcón"
+          "userId": "user1",
+          "name": "Test User"
         }
       },
       "salon": {
-        "salonId": "salon2",
-        "location": "Midtown",
-        "phone": "987654321"
+        "salonId": 1
       },
       "payment": {
-        "paymentId": "pay7",
+        "paymentId": "pay-temp",
         "amount": 40,
         "currency": "USD",
-        "status": true
+        "status": false
       },
       "timeSlot": {
-        "timeSlotId": "ts7",
-        "start": "2025-06-17T14:00:00Z",
-        "end": "2025-06-17T15:00:00Z",
+        "timeSlotId": "ts-temp",
+        "start": "2025-06-17T12:30:00.000Z",
+        "end": "2025-06-17T13:15:00.000Z",
         "status": true,
-        "tipo": "Standard"
+        "tipo": "Custom"
       },
       "worker": {
-        "workerId": "worker6",
-        "name": "Gael Chi"
-      }
+        "workerId": "worker1",
+        "name": "Staff Predeterminado"
+      },
+      "id": 7
     }
   ],
   "reviews": [
     {
-      "id": "rev1",
+      "id": 1,
       "author": "Sofia Ramirez",
       "rating": 5,
       "text": "An amazing experience! I left with the most gorgeous hair ever. Highly recommend!",
-      "read": false
+      "read": false,
+      "salonId": 1
     },
     {
-      "id": "rev2",
+      "id": 2,
       "author": "Camila Riquez",
       "rating": 4,
       "text": "Tried my first cut. It wasn't exactly what I envisioned. The staff was nice, though, and I might give it another try.",
-      "read": true
+      "read": true,
+      "salonId": 2
     },
     {
-      "id": "rev3",
+      "id": 3,
       "author": "Lucas Herrera",
       "rating": 5,
       "text": "The cut was exactly what I wanted, but I had to wait a little longer than expected. Still, it was worth it!",
-      "read": false
+      "read": false,
+      "salonId": 3
     },
     {
-      "id": "rev4",
+      "id": 4,
       "author": "Mateo García",
       "rating": 5,
       "text": "I highly recommend this place! The ambiance is so relaxing, and the team really listens to what you want.",
-      "read": true
+      "read": true,
+      "salonId": 1
+    },
+    {
+      "id": 5,
+      "author": "Anonimo",
+      "rating": 1,
+      "text": "no me gustó",
+      "read": true,
+      "salonId": 2
+    },
+    {
+      "author": "Anonimo",
+      "rating": 5,
+      "text": "Demasiado insano",
+      "read": true,
+      "salonId": 1,
+      "id": 6
+    },
+    {
+      "author": "Anonimo",
+      "rating": 1,
+      "text": "Mala experiencia 😔",
+      "read": true,
+      "salonId": 1,
+      "id": 7
+    },
+    {
+      "author": "Anonimo",
+      "rating": 0,
+      "text": "hola",
+      "read": true,
+      "salonId": 1,
+      "id": 8
+    },
+    {
+      "author": "Anonimo",
+      "rating": 0,
+      "text": "test de review",
+      "read": true,
+      "salonId": 1,
+      "id": 9
     }
   ],
   "salonProfiles": [
@@ -543,6 +650,58 @@
         "passwordHash": "nine",
         "isActive": false
       }
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "notificationDate": "2025-05-01T10:00:00Z",
+      "message": "Your reservation has been confirmed.",
+      "salonId": 1,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-confirm.png",
+      "reservationDetailsId": 1,
+      "read": false
+    },
+    {
+      "id": 2,
+      "notificationDate": "2025-05-02T12:30:00Z",
+      "message": "Reminder: You have an appointment tomorrow at 3:00 PM.",
+      "salonId": 1,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-reminder.png",
+      "reservationDetailsId": 2,
+      "read": false
+    },
+    {
+      "id": 3,
+      "notificationDate": "2025-05-03T09:00:00Z",
+      "message": "New offer: 20% off on hair treatments this week!",
+      "salonId": 2,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-offer.png",
+      "reservationDetailsId": null,
+      "read": false
+    },
+    {
+      "id": 4,
+      "notificationDate": "2025-05-04T16:00:00Z",
+      "message": "Your stylist is on the way.",
+      "salonId": 1,
+      "clientId": 2,
+      "iconURL": "https://example.com/icon-location.png",
+      "reservationDetailsId": 3,
+      "read": true
+    },
+    {
+      "id": 5,
+      "notificationDate": "2025-05-05T08:00:00Z",
+      "message": "You have a new message from your salon.",
+      "salonId": 3,
+      "clientId": 1,
+      "iconURL": "https://example.com/icon-message.png",
+      "reservationDetailsId": null,
+      "read": false
     }
   ]
 }

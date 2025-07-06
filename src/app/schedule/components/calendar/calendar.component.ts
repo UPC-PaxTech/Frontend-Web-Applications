@@ -3,7 +3,8 @@ import {NgForOf} from '@angular/common';
 import {ReservationComponent} from '../reservation/reservation.component';
 import { CommonModule } from '@angular/common';
 import { Appointment} from '../../../dashboard/models/appointment.entity';
-import { AppointmentApiService} from '../../../dashboard/services/appointment-api.service';
+import {ClientAppointment} from '../../../appointments/model/appointment.entity';
+import {AppointmentApiService} from '../../../appointments/services/appointment-api-service.service';
 
 @Component({
   selector: 'app-calendar',
@@ -40,7 +41,7 @@ export class CalendarComponent implements OnInit {
   swapWorker(): void {
     this.currentWorkerIndex = (this.currentWorkerIndex + 1) % this.workers.length;
   }
-
+  /*
   calendars: Appointment[] = [];
 
   constructor(private appointmentService: AppointmentApiService) {}
@@ -62,12 +63,36 @@ export class CalendarComponent implements OnInit {
 
       });
 
+  }*/
+  calendars: ClientAppointment[] = [];
+
+  constructor(private appointmentService: AppointmentApiService) {}
+
+  ngOnInit(): void {
+    this.appointmentService.getAppointments().subscribe(
+      appointments => {
+        this.calendars = appointments;
+        console.log(this.calendars);
+
+        const workerSet = new Set<string>();
+        for (const appointment of appointments) {
+          if (appointment.workerId.name) {
+            workerSet.add(appointment.workerId.name);
+          }
+        }
+
+        this.workers = ['Todos', ...Array.from(workerSet)];
+
+      });
+    console.log("Prueba formatTime:", this.formatTime("2025-07-05T06:40:00"));
+    console.log("Prueba formatDay:", this.formatDay("2025-07-05T06:40:00"));
+
   }
 
   formatTime(dateStr: string): string {
     const date = new Date(dateStr);
-    const hours = String(date.getUTCHours()).padStart(2, '0');
-    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
     return `${hours}:${minutes}`;
   }
 
@@ -78,12 +103,24 @@ export class CalendarComponent implements OnInit {
     return day.charAt(0).toUpperCase() + day.slice(1);
   }
 
+  isSameDay(dateStr: string, day: string): boolean {
+    const date = new Date(dateStr);
+    const formattedDay = date.toLocaleDateString('en-US', { weekday: 'long' });
+    return formattedDay.toLowerCase() === day.toLowerCase();
+  }
+
+  isWithinHour(dateStr: string, hourStr: string): boolean {
+    const date = new Date(dateStr);
+    const hour = parseInt(hourStr.split(':')[0], 10);
+    return date.getHours() === hour;
+  }
+
 
 
   isToday(dateStr: string): boolean {
     const today = new Date();
     const date = new Date(dateStr);
-    return today.toDateString() === date.toDateString();
+    return today.toDateString() == date.toDateString();
   }
 
 

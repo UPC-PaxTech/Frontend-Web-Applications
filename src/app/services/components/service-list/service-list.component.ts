@@ -1,28 +1,33 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Service } from '../../model/service.entity';
 import {ServiceApiService} from '../../services/services-api.service';
 import {NgForOf} from '@angular/common';
 import {MatButton} from '@angular/material/button';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {ProviderProfile} from '../../../dashboard/models/Salon.entity';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-service-list',
   imports: [
     NgForOf,
     MatButton,
-    RouterLink
+    MatIconModule
   ],
   templateUrl: './service-list.component.html',
   styleUrls: ['./service-list.component.css']
 })
-export class ServiceListComponent implements OnInit {
-  services: Service[] = [];
+export class ServiceListComponent {
+  @Input() services: Service[] = [];
+  @Input() salon!: ProviderProfile;
 
-  constructor(private serviceApi: ServiceApiService) {}
+  constructor(private router: Router) {
+  }
 
-  ngOnInit(): void {
-    this.serviceApi.getServices().subscribe(services => {
-      this.services = services;
+  navigateWithService(service: Service) {
+    this.router.navigate(['/client/appointment-maker', this.salon.id], {
+      state: { selectedService: service }
     });
   }
+
 }

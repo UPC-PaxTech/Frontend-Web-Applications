@@ -2,8 +2,8 @@
 
 <div class="dashboard-grid">
   <!-- COLUMNA IZQUIERDA: Appointments + Staff -->
-  <div class="main-column">
-    <mat-card class="mat-elevation-z2">
+  <div class="main-column" aria-label="salon-grid">
+    <mat-card class="mat-elevation-z2" >
       <mat-card-content>
         <app-upcoming-appointments></app-upcoming-appointments>
       </mat-card-content>
@@ -17,7 +17,7 @@
   </div>
 
   <!-- COLUMNA DERECHA: Reviews -->
-  <div class="sidebar-column">
+  <div class="sidebar-column" aria-label="review-list">
     <mat-card class="mat-elevation-z2">
       <mat-card-content>
         <app-review-list [reviews]="reviews"></app-review-list>

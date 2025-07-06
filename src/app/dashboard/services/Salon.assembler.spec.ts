@@ -1,7 +1,7 @@
-import {SalonAssembler} from './Salon.assembler';
+import {ProviderProfileAssembler} from './ProviderProfileAssembler';
 
 describe('Salons', () => {
   it('should create an instance', () => {
-    expect(new SalonAssembler()).toBeTruthy();
+    expect(new ProviderProfileAssembler()).toBeTruthy();
   });
 });

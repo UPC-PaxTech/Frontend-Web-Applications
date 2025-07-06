@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SalonApiService } from '../../services/salon-api.service';
-import {Salon} from '../../models/Salon.entity';
+import {ProviderProfile} from '../../models/Salon.entity';
 import {SalonItemComponent} from '../salon-item/Salon-item.component';
+import {ProviderProfileAssembler} from '../../services/ProviderProfileAssembler';
 
 
 @Component({
@@ -13,13 +14,13 @@ import {SalonItemComponent} from '../salon-item/Salon-item.component';
   styleUrl: './salon-list.component.css'
 })
 export class SalonListComponent implements OnInit {
-  salons: Salon[] = [];
+  salons: ProviderProfile[] = [];
 
   constructor(private salonApiService: SalonApiService) {}
 
   ngOnInit(): void {
-    this.salonApiService.getSalons().subscribe(salons => {
-      this.salons = salons;
+    this.salonApiService.getAll().subscribe(salons => {
+      this.salons = ProviderProfileAssembler.toEntitiesfromResponse(salons);
       console.log(salons);
     });
   }

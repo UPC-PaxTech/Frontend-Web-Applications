@@ -1,17 +1,20 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {MatListItem} from '@angular/material/list';
-import {Salon} from '../../models/Salon.entity';
+import {Component, EventEmitter, inject, Input, OnInit, Output} from '@angular/core';
+import {ProviderProfile} from '../../models/Salon.entity';
 import {
   MatCard,
   MatCardActions,
   MatCardContent,
-  MatCardHeader,
   MatCardImage,
   MatCardTitle
 } from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {ReviewListComponent} from '../review-list/review-list.component';
 import {RouterLink} from '@angular/router';
+import {Review} from '../../../reviews/models/review.entity';
+import {ReviewApiService} from '../../../reviews/services/review-api.service';
+import {ReviewAssembler} from '../../../reviews/services/review.assembler';
+import {TranslatePipe} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-salon-item',
@@ -20,16 +23,38 @@ import {RouterLink} from '@angular/router';
     MatCardActions,
     MatButton,
     MatCardImage,
-    MatCardHeader,
     MatCardContent,
     MatCard,
     ReviewListComponent,
-    RouterLink
+    RouterLink,
+    TranslatePipe
   ],
   templateUrl: './Salon-item.component.html',
   styleUrl: './Salon-item.component.css'
 })
-export class SalonItemComponent {
-  @Input() salon!: Salon;
-  @Output() salonSelected = new EventEmitter<Salon>();
+export class SalonItemComponent implements OnInit{
+  @Input() salon!: ProviderProfile;
+  @Output() salonSelected = new EventEmitter<ProviderProfile>();
+  private reviewService = inject(ReviewApiService)
+  reviews: Review[] = [];
+  reviewAverage = 0;
+  constructor() { }
+
+  ngOnInit() {
+    /*
+    this.reviewService.getBySalonId(this.salon.id).subscribe(reviews => {
+      this.reviews = ReviewAssembler.toEntitiesFromResponse(reviews);
+      this.reviews.forEach(review=> this.reviewAverage+= review.rating);
+      this.reviewAverage = this.reviewAverage/this.reviews.length;
+    });*/
+    this.reviewService.getAll().subscribe(reviews => {
+      this.reviews = ReviewAssembler.toEntitiesFromResponse(reviews).filter(review => review.salonId === this.salon.providerId);
+      this.reviews.forEach(review=> this.reviewAverage+= review.rating);
+      this.reviewAverage = this.reviewAverage/this.reviews.length;
+    });
+
+
+  }
+
+
 }

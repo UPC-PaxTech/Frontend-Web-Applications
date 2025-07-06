@@ -1,30 +1,46 @@
-<div class="login-container">
-  <!-- Imagen de fondo -->
-  <div class="background-image"></div>
+<div class="login-wrapper">
+  <!-- Sección izquierda con slideshow -->
 
-  <!-- Capa oscura -->
-  <div class="background-overlay"></div>
+  <div class="left-section">
 
-  <!-- Contenido de la página -->
-  <div class="login-content">
-    <!-- Barra de navegación superior -->
-    <mat-toolbar color="transparent" class="toolbar">
-      <div class="toolbar-left">
-        <img src="https://avatars.githubusercontent.com/u/205873631?s=400&u=7181957c1d03747f9dd9a668e2d4857d99ce55ff&v=4" alt="Logo" class="logo" />
-      </div>
-      <span class="spacer"></span>
-      <div class="toolbar-right">
-        <button mat-button color="white" [routerLink]="'/iam/login'">Sign In</button>
-        <button mat-button color="white" [routerLink]="'/iam/register'">Register</button>
-      </div>
-    </mat-toolbar>
+    <div class="slideshow">
+      <img
+        *ngFor="let image of slideImages; let i = index"
+        [src]="image"
+        class="slide"
+        [class.active]="i === activeIndex"
+        alt=""
+      />
+    </div>
+    <div class="overlay-content">
+      <button class="back-button" aria-label="landing page button" onclick="window.location.href='https://upc-paxtech.github.io/uTime-Landing-Page/'">
+        ← {{ 'login.back' | translate}}
+      </button>
+    </div>
 
-    <!-- Texto + Formulario -->
-    <div class="center-content">
-      <img src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png" alt="uTime Logo" class="main-logo" />
-      <h1 class="welcome-text">Back to beauty business?
-      </h1>
-      <app-login-form></app-login-form>
+    <!-- Indicadores -->
+    <div class="indicators">
+    <span
+      *ngFor="let img of slideImages; let i = index"
+      class="indicator"
+      [class.active]="i === activeIndex"
+      (click)="setSlide(i)"
+    ></span>
+    </div>
+
+
+  </div>
+
+  <!-- Sección derecha con formulario -->
+  <div class="right-section">
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 0;"></div>
+    <div class="login-container" aria-label="login form">
+      <app-login-form>
+      </app-login-form>
+
+    </div>
+    <div class="language-content">
+      <app-language-switcher></app-language-switcher>
     </div>
   </div>
 </div>

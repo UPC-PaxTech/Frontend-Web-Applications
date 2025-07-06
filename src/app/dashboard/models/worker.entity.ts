@@ -1,14 +1,16 @@
 export class Worker {
   id:number;
-  nombre: string;
-  especializacion: string;
-  foto: string;
+  name: string;
+  specialization: string;
+  photoUrl: string;
+  providerId: number;
 
 
   constructor() {
     this.id = 0
-    this.nombre = ''
-    this.especializacion = ''
-    this.foto = ''
+    this.name = ''
+    this.specialization = ''
+    this.photoUrl = ''
+    this.providerId = 0
   }
 }

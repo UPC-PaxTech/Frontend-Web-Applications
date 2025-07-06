@@ -1,43 +1,58 @@
-<div class="login-container">
-  <!-- Imagen de fondo -->
-  <div class="background-image"></div>
+<div class="register-wrapper">
+  <!-- Sección izquierda con slideshow -->
+  <div class="register-left-section">
+    <div class="register-slideshow">
+      <img
+        *ngFor="let image of slideImages; let i = index"
+        [src]="image"
+        class="register-slide"
+        [class.active]="i === activeIndex"
+        alt=""
+      />
+    </div>
+    <div class="register-overlay-content">
+      <button class="register-back-button" aria-label="landing page button" onclick="window.location.href='https://upc-paxtech.github.io/uTime-Landing-Page/'">
+        ← {{ 'login.back' | translate }}
+      </button>
+    </div>
 
-  <!-- Capa oscura -->
-  <div class="background-overlay"></div>
+    <!-- Indicadores -->
+    <div class="register-indicators">
+      <span
+        *ngFor="let img of slideImages; let i = index"
+        class="register-indicator"
+        [class.active]="i === activeIndex"
+        (click)="setSlide(i)"
+      ></span>
+    </div>
+  </div>
 
-  <!-- Contenido de la página -->
-  <div class="login-content">
-    <!-- Barra de navegación superior -->
-    <mat-toolbar color="transparent" class="toolbar">
-      <div class="toolbar-left">
-        <img src="https://avatars.githubusercontent.com/u/205873631?s=400&u=7181957c1d03747f9dd9a668e2d4857d99ce55ff&v=4" alt="Logo" class="logo" />
-      </div>
-      <span class="spacer"></span>
-      <div class="toolbar-right">
-        <button mat-button color="white" [routerLink]="'/iam/login'">Sign In</button>
-        <button mat-button color="white" [routerLink]="'/iam/register'">Register</button>
-      </div>
-    </mat-toolbar>
+  <!-- Sección derecha con formulario -->
+  <div class="register-right-section">
+    <div class="register-center-content">
+      <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 0;"></div>
 
-    <!-- Texto + Formulario -->
-    <div class="center-content">
-      <img src="https://raw.githubusercontent.com/UPC-PaxTech/uTime/refs/heads/develop/img/logoutime.png" alt="uTime Logo" class="main-logo" />
-      <div class="register-container">
-        <mat-button-toggle-group [(ngModel)]="isProvider">
-          <mat-button-toggle class="button-toggle" value="false" (click)="toggleForm(false)">Client</mat-button-toggle>
-          <mat-button-toggle class="button-toggle" value="true" (click)="toggleForm(true)">Provider</mat-button-toggle>
-        </mat-button-toggle-group>
+      <!-- Selector de tipo de registro -->
+      <mat-button-toggle-group
+        [(ngModel)]="isProvider"
+        (ngModelChange)="toggleForm($event)"
+        name="registerType"
+        aria-label="choose register type"
+        class="register-toggle-group"
+      >
+        <mat-button-toggle [value]="false">{{ 'register.Client' | translate }}</mat-button-toggle>
+        <mat-button-toggle [value]="true">{{ 'register.Provider' | translate }}</mat-button-toggle>
+      </mat-button-toggle-group>
 
-        <!-- Muestra el formulario de cliente -->
+      <!-- Render dinámico del formulario -->
+      <div class="register-container" aria-label="register form">
         <app-register-form-client *ngIf="!isProvider"></app-register-form-client>
-
-        <!-- Muestra el formulario de proveedor -->
         <app-register-form-provider *ngIf="isProvider"></app-register-form-provider>
-
-        <!-- Muestra el selector de plan después de hacer clic en el botón "Complete Registration" -->
-        <app-plan-selector *ngIf="isProvider && showPlanSelector"></app-plan-selector>
-
       </div>
     </div>
+  </div>
+
+  <div class="language-content">
+    <app-language-switcher></app-language-switcher>
   </div>
 </div>

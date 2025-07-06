@@ -5,13 +5,11 @@
         <<mat-icon>arrow_back</mat-icon> Back>
       </button>
     </div>
-    <app-staff-list [WorkerList]="worker"></app-staff-list>
+    <app-staff-list aria-label="staff-list" [WorkerList]="worker"></app-staff-list>
   </div>
 
-  <div class="right-column">
-    <app-date-picker class="date-picker"></app-date-picker>
-      <button mat-button routerLink="/client" (click)="bookAppointment()">
-          Book Appointment
-      </button>
+  <div class="right-column" aria-label="appointment-maker">
+    <app-week-calendar [service]="selectedService" [worker]="selectedWorker"></app-week-calendar>
   </div>
 </div>
+

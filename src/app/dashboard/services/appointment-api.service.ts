@@ -21,15 +21,4 @@ export class AppointmentApiService extends BaseService<AppointmentResponse> {
       map(response => AppointmentAssembler.toEntitiesFromResponse(response))
     );
   }
-
-  addReservation(reservation: any): Observable<any> {
-    return this.http.post<any>(
-      `${this.serverBaseUrl}/reservationDetails`,
-      JSON.stringify(reservation),
-      this.httpOptions
-    ).pipe(
-      retry(2),
-      catchError(this.handleError)
-    );
-  }
 }

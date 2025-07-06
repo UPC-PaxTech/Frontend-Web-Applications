@@ -1,10 +1,10 @@
 export interface ServiceResponse {
   id: number;
   name: string;
-  description: string;
+  //description: string;
   duration: number;
   price: number;
-  status: 'Active' | 'Paused';
+  providerId: number;
 }
 
 

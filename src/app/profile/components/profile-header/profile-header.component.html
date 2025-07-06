@@ -1,22 +1,35 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <div class="header">
-  <img class="cover" [src]="profile?.coverImage" alt="Cover Image">
+  <!-- portada -->
+  <img class="cover"
+       [src]="profile.coverImageUrl || 'assets/placeholder-cover.jpg'"
+       alt="Cover">
+
   <div class="header-content">
-    <img class="avatar" [src]="profile?.profileImage" alt="Profile Photo">
+    <!-- avatar -->
+    <img class="avatar"
+         [src]="profile.profileImageUrl || 'assets/placeholder-avatar.png'"
+         alt="Avatar">
+
     <div class="text-info">
-      <h2>{{ profile?.salonName }}</h2>
-      <p class="rating">⭐ {{ profile?.rating }}</p>
+      <h2>{{ profile.companyName }}</h2>
+
+      <button mat-icon-button color="primary" (click)="openEditSocials()">
+        <mat-icon>edit</mat-icon>
+      </button>
+
       <div class="socials">
-        <a [href]="profile.socials.instagram" target="_blank">
+        <!-- Instagram -->
+        <a *ngIf="profile.socials['instagram']"
+           [href]="profile.socials['instagram']" target="_blank">
           <i class="fab fa-instagram"></i> Instagram
         </a>
-        <a [href]="profile.socials.tiktok" target="_blank">
+
+        <!-- TikTok -->
+        <a *ngIf="profile.socials['tiktok']"
+           [href]="profile.socials['tiktok']" target="_blank">
           <i class="fab fa-tiktok"></i> TikTok
         </a>
       </div>
     </div>
-
-
   </div>
 </div>
