@@ -17,7 +17,7 @@
         <div class="day-cell" *ngFor="let day of days" aria-label="Day cell">
 
           <ng-container *ngFor="let appointment of calendars">
-            <app-reservation
+            <!--<app-reservation
               *ngIf=" formatDay(appointment.timeSlot.startTime)== day
                       && formatTime(appointment.timeSlot.startTime )=== hour
                       && (currentWorker === 'Todos' || appointment.workerId.name === currentWorker)"
@@ -26,6 +26,17 @@
               [endTime]="formatTime(appointment.timeSlot.endTime)"
               [clientName]="appointment.clientId.toString()"
               aria-label="Appointment reservation"
+            ></app-reservation>-->
+            <app-reservation
+              *ngIf="
+    isSameDay(appointment.timeSlot.startTime, day) &&
+    isWithinHour(appointment.timeSlot.startTime, hour) &&
+    (currentWorker === 'Todos' || appointment.workerId.name === currentWorker)
+  "
+              [service]="appointment.workerId.specialization"
+              [startTime]="formatTime(appointment.timeSlot.startTime)"
+              [endTime]="formatTime(appointment.timeSlot.endTime)"
+              [clientName]="appointment.clientId.toString()"
             ></app-reservation>
           </ng-container>
 

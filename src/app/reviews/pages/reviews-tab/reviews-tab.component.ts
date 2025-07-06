@@ -23,8 +23,9 @@ export class ReviewsTabComponent implements OnInit{
   constructor(private reviewService: ReviewApiService) {
   }
   ngOnInit() {
-    this.reviewService.getBySalonId(1).subscribe(resource => {
-      this.reviews = ReviewAssembler.toEntitiesFromResponse(resource);
+    const providerId = Number(localStorage.getItem('providerId'));
+    this.reviewService.getBySalonId(providerId).subscribe(resource => {
+      this.reviews = ReviewAssembler.toEntitiesFromResponse(resource).filter(review => review.salonId == providerId);
       console.log(this.reviews);
       this.reviews.forEach(review => this.average += review.rating);
       this.average /= this.reviews.length;

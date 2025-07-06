@@ -83,12 +83,16 @@ export class CalendarComponent implements OnInit {
 
         this.workers = ['Todos', ...Array.from(workerSet)];
 
-      });}
+      });
+    console.log("Prueba formatTime:", this.formatTime("2025-07-05T06:40:00"));
+    console.log("Prueba formatDay:", this.formatDay("2025-07-05T06:40:00"));
+
+  }
 
   formatTime(dateStr: string): string {
     const date = new Date(dateStr);
-    const hours = String(date.getUTCHours()).padStart(2, '0');
-    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
     return `${hours}:${minutes}`;
   }
 
@@ -99,12 +103,24 @@ export class CalendarComponent implements OnInit {
     return day.charAt(0).toUpperCase() + day.slice(1);
   }
 
+  isSameDay(dateStr: string, day: string): boolean {
+    const date = new Date(dateStr);
+    const formattedDay = date.toLocaleDateString('en-US', { weekday: 'long' });
+    return formattedDay.toLowerCase() === day.toLowerCase();
+  }
+
+  isWithinHour(dateStr: string, hourStr: string): boolean {
+    const date = new Date(dateStr);
+    const hour = parseInt(hourStr.split(':')[0], 10);
+    return date.getHours() === hour;
+  }
+
 
 
   isToday(dateStr: string): boolean {
     const today = new Date();
     const date = new Date(dateStr);
-    return today.toDateString() === date.toDateString();
+    return today.toDateString() == date.toDateString();
   }
 
 
