@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
@@ -16,6 +16,7 @@ import {filter} from 'rxjs';
 })
 export class UpcomingAppointmentsComponent implements OnInit {
     upcomingAppointments: ClientAppointment[] = [];
+    @Input() isClient: boolean = false;
 
   constructor(private appointmentService: AppointmentApiService, private translate: TranslateService) {}
 
@@ -25,8 +26,13 @@ export class UpcomingAppointmentsComponent implements OnInit {
       this.upcomingAppointments = appointments
         .filter(a => new Date(a.timeSlot.startTime) > now)
         .sort((a, b) => new Date(a.timeSlot.startTime).getTime() - new Date(b.timeSlot.endTime).getTime())
-        .slice(0, 3)
-        .filter(a=> a.provider.id == Number(localStorage.getItem('providerId')));// mostrar los 3 más próximos
+        .slice(0, 3);
+
+      if (this.isClient) {
+        this.upcomingAppointments = this.upcomingAppointments.filter(a => a.provider.id == Number(localStorage.getItem('clientId')));
+      } else{
+        this.upcomingAppointments = this.upcomingAppointments.filter(a => a.provider.id == Number(localStorage.getItem('providerId')));
+      }
 
       console.log('Upcoming Appointments:', this.upcomingAppointments)
     });
